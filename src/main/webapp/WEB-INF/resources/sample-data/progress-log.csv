@@ -1,13 +1,25 @@
 key,record_id,completeness,comment,registration_moment,responsible_person,key:contract
-progress_log-01,PG-AX-0001,81,esto es un comentario,1999/08/21 17:00,persona1,contract-01
-progress_log-02,PG-AX-1234,1,esto es un comentario,1999/08/21 17:00,persona1,contract-01
-progress_log-03,PG-AX-1235,81,Esto es un comentario con 100 caracteres-----------------------------------------------------------,1999/08/21 17:00,persona1,contract-01
-progress_log-04,PG-AX-1236,81,x,1999/08/21 17:00,persona1,contract-01
-progress_log-05,PG-AX-1231,81,公司名稱,1999/08/21 17:00,persona1,contract-01
-progress_log-06,PG-AX-1534,81,Όνομα εταιρείας,1999/08/21 17:00,persona1,contract-01
-progress_log-07,PG-AX-8934,81,"<script>alert(""hi!"")</script>",1999/08/21 17:00,persona1,contract-01
-progress_log-08,PG-AX-8932,81,<h1>Hola Mundo!</h1>,1999/08/21 17:00,persona1,contract-01
-progress_log-09,PG-AX-1633,81,esto es un comentario,1999/08/21 17:00,persona1,contract-01
-progress_log-10,PG-AX-1254,81,esto es un comentario,1996/02/29 17:00,persona1,contract-01
-progress_log-11,PG-AX-1224,81,esto es un comentario,1999/08/21 17:00,personaconnombremuylargo------------,contract-01
-progress_log-12,PG-AX-1111,81,esto es un comentario,1999/08/21 17:00,p,contract-01
+progress_log-01,PG-AX-0001,81.2,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-02,PG-AX-0201,0.,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-03,PG-AX-0041,0.0,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-04,PG-AX-0601,0.00,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-05,PG-AX-0501,0.01,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-06,PG-AX-4001,99.99,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-07,PG-AX-3481,100.00,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-08,PG-AX-0021,5.33,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-09,PG-AX-0131,81.2,esto es un comentario con justo 100 caracteres------------------------------------------------------,2000/08/21 17:00,persona1,contract-01
+progress_log-10,PG-AW-0112,81.2,esto es un comentario con justo 99 caracteres------------------------------------------------------,2000/08/21 17:00,persona1,contract-01
+progress_log-11,PG-AX-9999,81.2,e,2000/08/21 17:00,persona1,contract-01
+progress_log-12,PG-ER-0001,81.2,es,2000/08/21 17:00,persona1,contract-01
+progress_log-13,PG-AX-0768,81.2,esto es un comentario normal,2000/08/21 17:00,persona1,contract-01
+progress_log-14,PG-EU-0987,81.2,esto es un comentario,2000/01/01 00:00,persona1,contract-01
+progress_log-15,PG-TG-0001,81.2,esto es un comentario,2000/01/01 00:01,persona1,contract-01
+progress_log-16,PG-RT-5601,81.2,esto es un comentario,2022/03/07 18:20,persona1,contract-01
+progress_log-17,PG-AX-0671,81.2,esto es un comentario,2022/03/07 18:19,persona1,contract-01
+progress_log-18,PG-AE-1111,81.2,esto es un comentario,2020/02/07 20:00,persona1,contract-01
+progress_log-19,PG-RG-0671,81.2,esto es un comentario,2000/08/21 17:00,persona1,contract-01
+progress_log-20,PG-AX-1691,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona con justo 75 caracteres-----------------------,contract-01
+progress_log-21,PG-AA-0561,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona con justo 74 caracteres----------------------,contract-01
+progress_log-22,PG-BB-8001,81.2,esto es un comentario,2000/08/21 17:00,e,contract-01
+progress_log-23,PG-CC-0501,81.2,esto es un comentario,2000/08/21 17:00,es,contract-01
+progress_log-24,PG-DD-0341,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona normal,contract-01
