@@ -1,11 +1,13 @@
 
 package acme.entities.training;
 
-import java.time.Period;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -32,12 +34,16 @@ public class TrainingSession extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "^TS-[A-Z]{1,3}-[0-9]{3}$")
+	@Pattern(regexp = "^TS-[A-Z]{1,3}-[0-9]{3}$", message = "{validation.trainingsession.code}")
 	private String				code;
 
 	@NotNull
-	private Period				period; // Preguntar one week ahead of module creation moment
-	// y one week long
+	@Temporal(TemporalType.DATE)
+	private Date				startPeriod;
+
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	private Date				endPeriod;
 
 	@NotBlank
 	@Length(max = 75)
@@ -50,7 +56,7 @@ public class TrainingSession extends AbstractEntity {
 	@NotBlank
 	@Email
 	@Length(max = 255)
-	private String				email;
+	private String				contactEmail;
 
 	@URL
 	@Length(max = 255)
