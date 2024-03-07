@@ -8,14 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
@@ -42,15 +42,19 @@ public class Risk extends AbstractEntity {
 	private RiskType			type;
 
 	@Past
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Date				identificationDate;
 
-	@Positive
+	@NotNull
+	@Digits(fraction = 2, integer = 3)
+	@Range(min = 0, max = 100)
 	private double				impact;
 
-	@PositiveOrZero
-	private double				probability; // Preguntar si esta bien y como se acota
+	@NotNull
+	@Digits(fraction = 2, integer = 1)
+	@Range(min = 0, max = 1)
+	private double				probability;
 
 	@NotBlank
 	@Length(max = 100)

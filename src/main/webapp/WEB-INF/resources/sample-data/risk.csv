@@ -1,0 +1,32 @@
+key,reference,type,identification-date,impact,probability,description,link
+risk-01,R-001,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,https://www.google.com/
+risk-02,R-002,NEGATIVE,2022/05/22 20:34,7.5,0.72,risk1,https://www.google.com/
+risk-03,R-003,POSITIVE,2000/01/01 00:00,7.5,0.72,risk1,https://www.google.com/
+risk-04,R-004,POSITIVE,2000/01/01 00:01,7.5,0.72,risk1,https://www.google.com/
+risk-05,R-005,POSITIVE,2022/07/29 23:58,7.5,0.72,risk1,https://www.google.com/
+risk-06,R-006,POSITIVE,2022/07/29 23:59,7.5,0.72,risk1,https://www.google.com/
+risk-07,R-007,POSITIVE,2022/05/22 20:34,0.,0.72,risk1,https://www.google.com/
+risk-08,R-008,POSITIVE,2022/05/22 20:34,0.0,0.72,risk1,https://www.google.com/
+risk-09,R-009,POSITIVE,2022/05/22 20:34,0.00,0.72,risk1,https://www.google.com/
+risk-10,R-010,POSITIVE,2022/05/22 20:34,0.01,0.72,risk1,https://www.google.com/
+risk-11,R-011,POSITIVE,2022/05/22 20:34,99.99,0.72,risk1,https://www.google.com/
+risk-12,R-012,POSITIVE,2022/05/22 20:34,100.00,0.72,risk1,https://www.google.com/
+risk-13,R-013,POSITIVE,2022/05/22 20:34,7.5,0.,risk1,https://www.google.com/
+risk-14,R-014,POSITIVE,2022/05/22 20:34,7.5,0.0,risk1,https://www.google.com/
+risk-15,R-015,POSITIVE,2022/05/22 20:34,7.5,0.00,risk1,https://www.google.com/
+risk-16,R-016,POSITIVE,2022/05/22 20:34,7.5,0.01,risk1,https://www.google.com/
+risk-17,R-017,POSITIVE,2022/05/22 20:34,7.5,0.99,risk1,https://www.google.com/
+risk-18,R-018,POSITIVE,2022/05/22 20:34,7.5,1.00,risk1,https://www.google.com/
+risk-19,R-019,POSITIVE,2022/05/22 20:34,7.5,0.72,r,https://www.google.com/
+risk-20,R-020,POSITIVE,2022/05/22 20:34,7.5,0.72,ri,https://www.google.com/
+risk-21,R-021,POSITIVE,2022/05/22 20:34,7.5,0.72,esto es un riesgo de exactamente 100 caracteres-----------------------------------------------------,https://www.google.com/
+risk-22,R-022,POSITIVE,2022/05/22 20:34,7.5,0.72,esto es un riesgo de exactamente 99 caracteres-----------------------------------------------------,https://www.google.com/
+risk-23,R-023,POSITIVE,2022/05/22 20:34,7.5,0.72,你好,https://www.google.com/
+risk-24,R-024,POSITIVE,2022/05/22 20:34,7.5,0.72,system.out.println(script),https://www.google.com/
+risk-25,R-025,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,
+risk-26,R-026,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,http://happybirthday.com
+risk-27,R-027,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,https://www.ejemplo.com?
+risk-28,R-028,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,https://www.ejemplo.com/pagina?parametro1=valor1&parametro2=valor2
+risk-29,R-029,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,ftp://ftp.microsoft.com/
+risk-30,R-030,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,ftp://ftp.example.com/file.txt?user=username&password=12345
+risk-31,R-031,POSITIVE,2022/05/22 20:34,7.5,0.72,risk1,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
