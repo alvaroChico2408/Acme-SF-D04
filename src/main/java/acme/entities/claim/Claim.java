@@ -39,7 +39,7 @@ public class Claim extends AbstractEntity {
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date				instantiationMomment;
+	private Date				instantiationMoment;
 
 	@NotBlank
 	@Length(max = 75)
