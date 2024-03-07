@@ -1,0 +1,33 @@
+key,code,start-period,end-period,location,instructor,contact-email,link,key:training-module
+training-session-01,TS-AAA-000,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-02,TS-A-000,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-03,TS-AA-000,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-04,TS-AAA-004,2022/04/22 20:34,2022/04/29 20:34,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-05,TS-AAA-005,2022/04/22 20:35,2022/04/29 20:35,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-06,TS-AAA-006,2200/12/24 23:59,2200/12/31 23:59,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-07,TS-AAA-007,2200/12/24 23:58,2200/12/31 23:58,jerez,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-08,TS-AAA-008,2022/05/22 20:34,2022/05/29 20:34,j,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-09,TS-AAA-009,2022/05/22 20:34,2022/05/29 20:34,je,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-10,TS-AAA-010,2022/05/22 20:34,2022/05/29 20:34,esto es una location de exactamente 75 caracteres--------------------------,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-11,TS-AAA-011,2022/05/22 20:34,2022/05/29 20:34,esto es una location de exactamente 74 caracteres-------------------------,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-12,TS-AAA-012,2022/05/22 20:34,2022/05/29 20:34,你好,dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-13,TS-AAA-013,2022/05/22 20:34,2022/05/29 20:34,system.out.println(script),dani,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-14,TS-AAA-014,2022/05/22 20:34,2022/05/29 20:34,jerez,d,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-15,TS-AAA-015,2022/05/22 20:34,2022/05/29 20:34,jerez,da,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-16,TS-AAA-016,2022/05/22 20:34,2022/05/29 20:34,jerez,esto es un instructor de exactamente 75 caracteres-------------------------,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-17,TS-AAA-017,2022/05/22 20:34,2022/05/29 20:34,jerez,esto es un instructor de exactamente 74 caracteres------------------------,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-18,TS-AAA-018,2022/05/22 20:34,2022/05/29 20:34,jerez,你好,dani@gmail.com,https://www.google.com/,training-module-01
+training-session-19,TS-AAA-019,2022/05/22 20:34,2022/05/29 20:34,jerez,system.out.println(script),dani@gmail.com,https://www.google.com/,training-module-01
+training-session-20,TS-AAA-020,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,d@g.com,https://www.google.com/,training-module-01
+training-session-21,TS-AAA-021,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,de@gm.com,https://www.google.com/,training-module-01
+training-session-22,TS-AAA-022,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,你好@gmail.com,https://www.google.com/,training-module-01
+training-session-23,TS-AAA-023,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,limitedecaracteresemaillllllllllllllllllllllllllllllllllllllllll@gmail.com,https://www.google.com/,training-module-01
+training-session-24,TS-AAA-024,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,limitedecaracteresmenosunoooooooooooooooooooooooooooooooooooooo@gmail.com,https://www.google.com/,training-module-01
+training-session-25,TS-AAA-025,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,,training-module-01
+training-session-26,TS-AAA-026,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,http://happybirthday.com,training-module-01
+training-session-27,TS-AAA-027,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,https://www.ejemplo.com?,training-module-01
+training-session-28,TS-AAA-028,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,https://www.ejemplo.com/pagina?parametro1=valor1&parametro2=valor2,training-module-01
+training-session-29,TS-AAA-029,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,ftp://ftp.microsoft.com/,training-module-01
+training-session-30,TS-AAA-030,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,ftp://ftp.example.com/file.txt?user=username&password=12345,training-module-01
+training-session-31,TS-AAA-031,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,training-module-01
+training-session-32,TS-AAA-032,2022/05/22 20:34,2022/05/29 20:34,jerez,dani,dani@gmail.com,http://www.google.com/,training-module-02

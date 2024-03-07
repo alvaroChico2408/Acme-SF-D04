@@ -1,3 +1,6 @@
 validation.project.code	= El código de un proyecto tiene que seguir el patrón [A-Z]{3}-[0-9]{4}
 validation.audit.code = El código de una auditoría tiene que seguir el patrón [A-Z]{1,3}-[0-9]{3}
 validation.auditRecord.code = El código de una revisión de una auditoría tiene que seguir el patrón AU-[0-9]{4}-[0-9]{3}
+validation.trainingmodule.code = El código de un modulo de entrenamiento tiene que seguir el patrón [A-Z]{1,3}-[0-9]{3}
+validation.trainingsession.code = El código de una sesión de entrenamiento tiene que seguir el patrón TS-[A-Z]{1,3}-[0-9]{3}
+validation.risk.reference = El código de referencia de un riesgo tiene que seguir el patrón R-[0-9]{3}
