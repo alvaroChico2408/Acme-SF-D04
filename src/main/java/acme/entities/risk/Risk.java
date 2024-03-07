@@ -46,12 +46,10 @@ public class Risk extends AbstractEntity {
 	@NotNull
 	private Date				identificationDate;
 
-	@NotNull
 	@Digits(fraction = 2, integer = 3)
 	@Range(min = 0, max = 100)
 	private double				impact;
 
-	@NotNull
 	@Digits(fraction = 2, integer = 1)
 	@Range(min = 0, max = 1)
 	private double				probability;
