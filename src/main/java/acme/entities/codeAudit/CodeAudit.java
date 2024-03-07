@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -19,13 +19,14 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.projects.Project;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Audit extends AbstractEntity {
+public class CodeAudit extends AbstractEntity {
 
 	// Serialisation identifier ----------------------------------------------
 
@@ -39,12 +40,16 @@ public class Audit extends AbstractEntity {
 	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
+	@PastOrPresent
 	@NotNull
 	private Date				executionDate;
 
 	@NotNull
 	private AuditType			type;
+
+	@NotBlank
+	@Length(max = 100)
+	private String				correctiveActions;
 
 	@URL
 	@Length(max = 255)
@@ -57,5 +62,10 @@ public class Audit extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Auditor				auditor;
 
 }

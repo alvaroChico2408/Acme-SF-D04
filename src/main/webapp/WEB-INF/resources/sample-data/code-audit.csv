@@ -1,0 +1,31 @@
+key,code,execution_date,type,corrective_actions,link,key:project,key:auditor
+code-audit-01,ABC-123,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-02,A-123,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-03,B-123,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-04,AAA-111,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-05,AB-123,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-06,ABC-124,2000/01/01 00:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-07,ABC-125,2000/03/01 00:01,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-08,ABC-126,2022/07/30 00:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-09,ABC-127,2022/07/29 23:59,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-10,ABC-128,2020/02/29 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-11,ABC-129,2018/03/31 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-12,ABC-130,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-13,ABC-131,2020/03/13 14:00,Dynamic,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-14,ABC-132,2020/03/13 14:00,Static,C,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-15,ABC-133,2020/03/13 14:00,Static,Co,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-16,ABC-134,2020/03/13 14:00,Static,Esto es un String con justo 100 caracteres----------------------------------------------------------,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-17,ABC-135,2020/03/13 14:00,Static,Esto es un String con justo 99 caracteres----------------------------------------------------------,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-18,ABC-136,2020/03/13 14:00,Static,Esto es un String con un tamaño mediano--------------------------------,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-19,ABC-137,2020/03/13 14:00,Static,Esto_es??un%String(con)caracteres##esp€ciales,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-20,ABC-138,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-01
+code-audit-21,ABC-139,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,http://happybirthday.com,project-01,auditor-01
+code-audit-22,ABC-140,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://www.urldeejemplo.com?,project-01,auditor-01
+code-audit-23,ABC-141,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://www.urldeejemplo.com/file.txt?parametro=valor,project-01,auditor-01
+code-audit-24,ABC-142,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://www.urldeejemplo.com/file.txt?parametro1=valor1&&parametro2=valor2,project-01,auditor-01
+code-audit-25,ABC-143,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,ftp://ftp.microsoft.com/,project-01,auditor-01
+code-audit-26,ABC-144,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,ftp://ftp.example.com/file.txt?parametro=valor&&name=nombre,project-01,auditor-01
+code-audit-27,ABC-145,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,project-01,auditor-01
+code-audit-28,ABC-146,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,,project-01,auditor-01
+code-audit-29,ABC-147,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-02,auditor-01
+code-audit-30,ABC-148,2020/03/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,project-01,auditor-02

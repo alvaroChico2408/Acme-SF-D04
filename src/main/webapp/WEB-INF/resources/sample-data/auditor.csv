@@ -1,0 +1,27 @@
+key,firm,professional_id,certifications,link,key:user-account
+auditor-01,auditor1,auditor1,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-01
+auditor-02,auditor2,auditor2,certification1:certification3,https://github.com/IbaiPerez,user-account-auditor-02
+auditor-03,a,auditor2,certification1:certification3,https://github.com/IbaiPerez,user-account-auditor-03
+auditor-04,au,auditor2,certification1:certification3,https://github.com/IbaiPerez,user-account-auditor-04
+auditor-05,Esto es una agencia de 75 caracteres---------------------------------------,auditor2,certification1:certification3,https://github.com/IbaiPerez,user-account-auditor-05
+auditor-06,Esto es una agencia de 74 caracteres--------------------------------------,auditor2,certification1:certification3,https://github.com/IbaiPerez,user-account-auditor-06
+auditor-07,Esto es una agencia de 36 caracteres,auditor2,certification1:certification3,https://github.com/IbaiPerez,user-account-auditor-07
+auditor-08,auditor1,a,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-08
+auditor-09,auditor1,au,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-09
+auditor-10,auditor1,25 caracteres------------,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-10
+auditor-11,auditor1,24 caracteres-----------,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-11
+auditor-12,auditor1,13 caracteres,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-12
+auditor-13,auditor1,auditor1,c,https://github.com/IbaiPerez,user-account-auditor-13
+auditor-14,auditor1,auditor1,ce,https://github.com/IbaiPerez,user-account-auditor-14
+auditor-15,auditor1,auditor1,Esto es un certificado con 100 caracteres-----------------------------------------------------------,https://github.com/IbaiPerez,user-account-auditor-15
+auditor-16,auditor1,auditor1,Esto es un certificado con 99 caracteres-----------------------------------------------------------,https://github.com/IbaiPerez,user-account-auditor-16
+auditor-17,auditor1,auditor1,Esto es un certificado con 50 caracteres----------,https://github.com/IbaiPerez,user-account-auditor-17
+auditor-18,auditor1,auditor1,certification1:certification2,https://github.com/IbaiPerez,user-account-auditor-18
+auditor-19,auditor1,auditor1,certification1:certification2,http://happybirthday.com,user-account-auditor-19
+auditor-20,auditor1,auditor1,certification1:certification2,https://www.urldeejemplo.com?,user-account-auditor-20
+auditor-21,auditor1,auditor1,certification1:certification2,https://www.urldeejemplo.com/file.txt?parametro=valor,user-account-auditor-21
+auditor-22,auditor1,auditor1,certification1:certification2,https://www.urldeejemplo.com/file.txt?parametro1=valor1&&parametro2=valor2,user-account-auditor-22
+auditor-23,auditor1,auditor1,certification1:certification2,ftp://ftp.microsoft.com/,user-account-auditor-23
+auditor-24,auditor1,auditor1,certification1:certification2,ftp://ftp.example.com/file.txt?parametro=valor&&name=nombre,user-account-auditor-24
+auditor-25,auditor1,auditor1,certification1:certification2,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,user-account-auditor-25
+auditor-26,auditor1,auditor1,certification1:certification2,,user-account-auditor-26
