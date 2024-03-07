@@ -1,3 +1,8 @@
 validation.project.code = The code of a project must follow the pattern [A-Z]{3}-[0-9]{4}
 validation.audit.code = The code of an audit must follow the pattern [A-Z]{1,3}-[0-9]{3}
 validation.auditRecord.code = The code of an audit record must follow the pattern AU-[0-9]{4}-[0-9]{3}
+validation.trainingmodule.code = The code of a training module must follow the pattern [A-Z]{1,3}-[0-9]{3}
+validation.trainingsession.code = The code of a training session must follow the pattern TS-[A-Z]{1,3}-[0-9]{3}
+validation.risk.reference = The reference code of a risk must follow the pattern R-[0-9]{3}
+validation.sponsorship.code	= The code of a sponsorship must follow the pattern X-000 or XX-000 or XXX-000
+validation.invoice.code = The code of an invoice must follow the pattern IN-0000-0000

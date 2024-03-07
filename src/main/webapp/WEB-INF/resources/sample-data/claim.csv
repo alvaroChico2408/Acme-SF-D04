@@ -1,0 +1,44 @@
+key,code,instantiation_moment,heading,description,department,email,link
+claim-01,C-0001,2021/08/21 17:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-02,C-0002,2021/08/21 00:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-03,C-0003,2021/08/21 23:59,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-04,C-0004,2022/01/01 00:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-05,C-0005,2021/08/21 12:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-06,C-0006,2021/08/21 11:59,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-07,C-0007,2021/08/06 00:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-08,C-0008,2021/08/06 00:01,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-09,C-0009,2021/12/31 23:59,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-10,C-0010,2021/12/31 00:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-11,C-0011,2021/08/21 17:00,h,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-12,C-0012,2021/08/21 17:00,he,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-13,C-0013,2021/08/21 17:00,Esto es un heading de exactamente 75 caracteres - - - - - - - - - - - - - -,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-14,C-0014,2021/08/21 17:00,Esto es un heading de exactamente 74 caracteres - - - - - - - - - - - - - ,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-15,C-0015,2021/08/21 17:00,Esto es un heading de 38 caracteres - ,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-16,C-0016,2021/08/21 17:00,練習題目,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-17,C-0017,2021/08/21 17:00,τίτλος πρακτικής,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-18,C-0018,2021/08/21 17:00,<script>alert("hi!")</script>,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-19,C-0019,2021/08/21 17:00,<h1>Hola Mundo!</h1>,description estándar,department estándar,user@gmail.com,https://es.claim.com
+claim-20,C-0020,2021/08/21 17:00,heading estándar,d,department estándar,user@gmail.com,https://es.claim.com
+claim-21,C-0021,2021/08/21 17:00,heading estándar,de,department estándar,user@gmail.com,https://es.claim.com
+claim-22,C-0022,2021/08/21 17:00,heading estándar,Esto es un description de exactamente 100 caracteres - - - - - - - - - - - - - - - - - - - - - - - -,department estándar,user@gmail.com,https://es.claim.com
+claim-23,C-0023,2021/08/21 17:00,heading estándar,Esto es un description de exactamente 99 caracteres - - - - - - - - - - - - - - - - - - - - - - - -,department estándar,user@gmail.com,https://es.claim.com
+claim-24,C-0024,2021/08/21 17:00,heading estándar,Esto es un description de 50 caracteres - - - - - ,department estándar,user@gmail.com,https://es.claim.com
+claim-25,C-0025,2021/08/21 17:00,heading estándar,專業實踐,department estándar,user@gmail.com,https://es.claim.com
+claim-26,C-0026,2021/08/21 17:00,heading estándar,περίληψη πρακτικής,department estándar,user@gmail.com,https://es.claim.com
+claim-27,C-0027,2021/08/21 17:00,heading estándar,<script>alert("hi!")</script>,department estándar,user@gmail.com,https://es.claim.com
+claim-28,C-0028,2021/08/21 17:00,heading estándar,<h1>Hola Mundo!</h1>,department estándar,user@gmail.com,https://es.claim.com
+claim-29,C-0029,2021/08/21 17:00,heading estándar,description estándar,d,user@gmail.com,https://es.claim.com
+claim-30,C-0030,2021/08/21 17:00,heading estándar,description estándar,de,user@gmail.com,https://es.claim.com
+claim-31,C-0031,2021/08/21 17:00,heading estándar,description estándar,Esto es un department de exactamente 100 caracteres - - - - - - - - - - - - - - - - - - - - - - - - ,user@gmail.com,https://es.claim.com
+claim-32,C-0032,2021/08/21 17:00,heading estándar,description estándar,Esto es un department de exactamente 99 caracteres - - - - - - - - - - - - - - - - - - - - - - - - ,user@gmail.com,https://es.claim.com
+claim-33,C-0033,2021/08/21 17:00,heading estándar,description estándar,Esto es un department de exactamente 50 caracteres,user@gmail.com,https://es.claim.com
+claim-34,C-0034,2021/08/21 17:00,heading estándar,description estándar,თხა,user@gmail.com,https://es.claim.com
+claim-35,C-0035,2021/08/21 17:00,heading estándar,description estándar,коза,user@gmail.com,https://es.claim.com
+claim-36,C-0036,2021/08/21 17:00,heading estándar,description estándar,<script>alert("hi!")</script>,user@gmail.com,https://es.claim.com
+claim-37,C-0037,2021/08/21 17:00,heading estándar,description estándar,<h1>Hola Mundo!</h1>,user@gmail.com,https://es.claim.com
+claim-38,C-0038,2021/08/21 17:00,heading estándar,description estándar,department estándar,null,https://es.claim.com
+claim-39,C-0039,2021/08/21 17:00,heading estándar,description estándar,department estándar,user@alum.us.es,https://es.claim.com
+claim-40,C-0040,2021/08/21 17:00,heading estándar,description estándar,department estándar,user@hotmail.com,https://es.claim.com
+claim-41,C-0041,2021/08/21 17:00,heading estándar,description estándar,department estándar,user@gmail.com,null
+claim-42,C-0042,2021/08/21 17:00,heading estándar,description estándar,department estándar,user@gmail.com,ftp://user:pass@acme.org
+claim-43,C-0043,2021/08/21 17:00,heading estándar,description estándar,department estándar,user@gmail.com,https://es.claim.com/a?b
