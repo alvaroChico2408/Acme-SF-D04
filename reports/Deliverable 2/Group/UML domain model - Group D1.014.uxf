@@ -444,8 +444,8 @@ bg=green</panel_attributes>
       <h>56</h>
     </coordinates>
     <panel_attributes>executionPeriodFinish
-must happen one
-hour after the
+must happen at least
+one hour after the
 executionPeriodStart
 
 bg=green</panel_attributes>
