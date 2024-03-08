@@ -6,3 +6,6 @@ validation.trainingsession.code = The code of a training session must follow the
 validation.risk.reference = The reference code of a risk must follow the pattern R-[0-9]{3}
 validation.sponsorship.code	= The code of a sponsorship must follow the pattern X-000 or XX-000 or XXX-000
 validation.invoice.code = The code of an invoice must follow the pattern IN-0000-0000
+validation.contract.code = The code of a contract must follow the pattern X-000 or XX-000 or XXX-000
+validation.progresslog.code = The code of a progress log must follow the pattern PG-X-0000 or PG-XX-0000
+validation.client.code = The code of a client must follow the pattern CLI-0000

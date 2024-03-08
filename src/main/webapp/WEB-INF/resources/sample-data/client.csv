@@ -1,0 +1,20 @@
+key,identification,companyName,type,email,link,key:user-account
+client-01,CLI-1234,CompanyName,COMPANY,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-01
+client-02,CLI-1235,esto es un company name de exactamente 75 caracteres-----------------------,COMPANY,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-02
+client-03,CLI-1245,esto es un company name de exactamente 74 caracteres----------------------,COMPANY,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-03
+client-04,CLI-1355,e,COMPANY,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-04
+client-05,CLI-1365,es,COMPANY,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-05
+client-06,CLI-1375,company name normal,COMPANY,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-06
+client-07,CLI-1284,CompanyName,INDIVIDUAL,enrgaraba@gmail.com,https://github.com/Enrgaraba,user-account-client-07
+client-08,CLI-1294,CompanyName,COMPANY,a@b.c,https://github.com/Enrgaraba,user-account-client-08
+client-09,CLI-1214,CompanyName,COMPANY,a@b.caw,https://github.com/Enrgaraba,user-account-client-09
+client-10,CLI-1334,CompanyName,COMPANY,us!er@example.com,https://github.com/Enrgaraba,user-account-client-10
+client-11,CLI-1434,CompanyName,COMPANY,user@exam!ple.com,https://github.com/Enrgaraba,user-account-client-11
+client-12,CLI-1534,CompanyName,COMPANY,你好@gmail.com,https://github.com/Enrgaraba,user-account-client-12
+client-13,CLI-1634,CompanyName,COMPANY,enrgaraba@gmail.com,,user-account-client-13
+client-14,CLI-1734,CompanyName,COMPANY,enrgaraba@gmail.com,http://happybirthday.com,user-account-client-14
+client-15,CLI-8234,CompanyName,COMPANY,enrgaraba@gmail.com,https://www.ejemplo.com?,user-account-client-15
+client-16,CLI-1934,CompanyName,COMPANY,enrgaraba@gmail.com,https://www.ejemplo.com/pagina?parametro1=valor1&parametro2=valor2,user-account-client-16
+client-17,CLI-9254,CompanyName,COMPANY,enrgaraba@gmail.com,ftp://ftp.microsoft.com/,user-account-client-17
+client-18,CLI-1774,CompanyName,COMPANY,enrgaraba@gmail.com,ftp://ftp.example.com/file.txt?user=username&password=12345,user-account-client-18
+client-19,CLI-1664,CompanyName,COMPANY,enrgaraba@gmail.com,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,user-account-client-19

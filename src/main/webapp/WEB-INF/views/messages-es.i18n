@@ -6,3 +6,6 @@ validation.trainingsession.code = El código de una sesión de entrenamiento tie
 validation.risk.reference = El código de referencia de un riesgo tiene que seguir el patrón R-[0-9]{3}
 validation.sponsorship.code	= El código de un patrocinio tiene que seguir el patrón X-000 o XX-000 o XXX-000
 validation.invoice.code	= El código de una factura tiene que seguir el patrón IN-0000-0000
+validation.contract.code = El código de un contrato tiene que seguir el patrón X-000 o XX-000 o XXX-000
+validation.progresslog.code = El código de un registro de progreso tiene que seguir el patrón PG-X-0000 o PG-XX-0000
+validation.client.code = El código de un cliente tiene que seguir el patrón CLI-0000
