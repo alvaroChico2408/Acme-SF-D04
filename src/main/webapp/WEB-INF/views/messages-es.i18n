@@ -9,3 +9,4 @@ validation.invoice.code	= El código de una factura tiene que seguir el patrón 
 validation.contract.code = El código de un contrato tiene que seguir el patrón X-000 o XX-000 o XXX-000
 validation.progresslog.code = El código de un registro de progreso tiene que seguir el patrón PG-X-0000 o PG-XX-0000
 validation.client.code = El código de un cliente tiene que seguir el patrón CLI-0000
+validation.claim.code = El código de una reclamación tiene que seguir el patrón C-[0-9]{4}

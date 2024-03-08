@@ -9,3 +9,4 @@ validation.invoice.code = The code of an invoice must follow the pattern IN-0000
 validation.contract.code = The code of a contract must follow the pattern X-000 or XX-000 or XXX-000
 validation.progresslog.code = The code of a progress log must follow the pattern PG-X-0000 or PG-XX-0000
 validation.client.code = The code of a client must follow the pattern CLI-0000
+validation.claim.code = The code of a claim must follow the pattern C-[0-9]{4}
