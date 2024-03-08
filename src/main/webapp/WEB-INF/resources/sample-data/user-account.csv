@@ -80,13 +80,6 @@ user-account-client-16,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: '
 user-account-client-17,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client17,client17
 user-account-client-18,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client18,client18
 user-account-client-19,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client19,client19
-user-account-client-20,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client20,client20
-user-account-client-21,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client21,client21
-user-account-client-22,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client22,client22
-user-account-client-23,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client23,client23
-user-account-client-24,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client24,client24
-user-account-client-25,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client25,client25
-user-account-client-26,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",client26,client26
 user-account-auditor-01,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor2,auditor2
 user-account-auditor-03,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor3,auditor3
@@ -142,4 +135,3 @@ user-account-developer-26,true,"UserIdentity{name: 'Dani', surname: 'Almendra', 
 user-account-developer-27,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer27,developer27
 user-account-developer-28,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer28,developer28
 user-account-p-01,true,"UserIdentity{name: 's', surname: 's', email: 'janedoe@alum.us.es'}",prueba1,prueba1
-
