@@ -3,9 +3,14 @@ manager.project.form.title = Detalles del proyecto
 
 manager.project.list.label.code = Código:
 manager.project.list.label.title = Título:
-manager.project.list.label.abstract = Resumen:
-manager.project.list.label.fatalErrors = Errores fatales
 manager.project.list.label.cost = Coste (en horas enteras):
-manager.project.list.label.link = Link para más información: (Opcional)
 manager.project.list.label.published = Publicado
-manager.project.list.label.managerUsername: Apodo del gerente: 
+
+manager.project.form.label.code = Código:
+manager.project.form.label.title = Título:
+manager.project.form.label.abstract = Resumen:
+manager.project.form.label.fatalErrors = Errores fatales
+manager.project.form.label.cost = Coste (en horas enteras):
+manager.project.form.label.link = Link para más información: (Opcional)
+manager.project.form.label.published = Publicado
+manager.project.form.label.managerUsername = Apodo del gerente:
