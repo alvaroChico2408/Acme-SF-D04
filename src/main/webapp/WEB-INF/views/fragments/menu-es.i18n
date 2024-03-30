@@ -18,12 +18,18 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.published-projects = Listado proyectos publicados
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link-jaime = 29542630G: Linares Barrera, Jaime
 master.menu.anonymous.favourite-link-dani = 32085726J: del Castillo Piñero, Daniel
 master.menu.anonymous.favourite-link-enrique = 77049375L: García Abadía, Enrique
 master.menu.anonymous.favourite-link-alvaro = 15521126J: Chico Castellano, Alvaro
 master.menu.anonymous.favourite-link-ibai = 71186813L: Pérez Fernández, Ibai
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.published-projects = Listado proyectos publicados
 
 # master.menu.administrator ###################################################
 
