@@ -1,6 +1,10 @@
-manager.project.list.title = Listado de mis proyectos
+manager.project.list.title = Lista de mis proyectos
+manager.project.form.title = Detalles del proyecto
 
 manager.project.list.label.code = Código:
 manager.project.list.label.title = Título:
+manager.project.list.label.abstract = Resumen:
+manager.project.list.label.fatalErrors = Errores fatales:
 manager.project.list.label.cost = Coste (en horas enteras):
+manager.project.list.label.link = Link para más información: (Opcional)
 manager.project.list.label.published = Publicado:
