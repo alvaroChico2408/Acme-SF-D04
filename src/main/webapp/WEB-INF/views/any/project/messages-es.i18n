@@ -1,5 +1,15 @@
 any.project.list.title = Listado de proyectos publicados
+any.project.form.title = Detalles del proyecto
 
 any.project.list.label.code = Código:
 any.project.list.label.title = Título:
 any.project.list.label.cost = Coste (en horas enteras):
+
+any.project.form.label.code = Código:
+any.project.form.label.title = Título:
+any.project.form.label.abstract = Resumen:
+any.project.form.label.fatalErrors = Errores fatales
+any.project.form.label.cost = Coste (en horas enteras):
+any.project.form.label.link = Link para más información: (Opcional)
+any.project.form.label.published = Publicado
+any.project.form.label.managerUsername = Apodo del gerente:

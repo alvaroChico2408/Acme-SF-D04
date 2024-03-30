@@ -16,7 +16,10 @@ public class AnyProjectController extends AbstractController<Any, Project> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnyProjectListService listService;
+	private AnyProjectListService	listService;
+
+	@Autowired
+	private AnyProjectShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,7 @@ public class AnyProjectController extends AbstractController<Any, Project> {
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }
