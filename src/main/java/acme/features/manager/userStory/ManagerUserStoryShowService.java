@@ -55,11 +55,15 @@ public class ManagerUserStoryShowService extends AbstractService<Manager, UserSt
 	public void unbind(final UserStory object) {
 		assert object != null;
 
+		//SelectChoices choices;
 		Dataset dataset;
 
+		//choices = SelectChoices.from(Priority.class, object.getPriority());
+
 		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", //
-			"priority", "link", "published");
+			"link", "published");
 		dataset.put("manager", object.getManager().getUserAccount().getUsername());
+		//dataset.put("priorities", choices);
 
 		super.getResponse().addData(dataset);
 	}
