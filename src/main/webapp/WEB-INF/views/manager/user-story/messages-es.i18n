@@ -3,6 +3,7 @@ manager.user-story.form.title = Detalles de la historia de usuario
 
 manager.userStory.list.label.title = Título:
 manager.userStory.list.label.estimatedCost = Coste estimado (en horas enteras):
+manager.userStory.list.label.priority = Prioridad:
 manager.userStory.list.label.published = Publicado
 
 manager.userStory.form.label.title = Título:
