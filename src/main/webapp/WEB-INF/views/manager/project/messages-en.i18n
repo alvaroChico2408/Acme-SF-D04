@@ -1,0 +1,6 @@
+manager.project.list.title = List of my projects
+
+manager.project.list.label.code = Code:
+manager.project.list.label.title = Title:
+manager.project.list.label.cost = Cost (in whole hours):
+manager.project.list.label.published = Published:
