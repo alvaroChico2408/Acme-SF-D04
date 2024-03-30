@@ -11,4 +11,5 @@
 	<acme:input-integer code="manager.project.list.label.cost" path="cost"/>
 	<acme:input-url code="manager.project.list.label.link" path="link"/>
 	<acme:input-checkbox code="manager.project.list.label.published" path="published"/>
+	<acme:input-textbox code="manager.project.list.label.managerUsername" path="manager"/>
 </acme:form>
