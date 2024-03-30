@@ -16,13 +16,17 @@ public class ManagerUserStoryController extends AbstractController<Manager, User
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerUserStoryShowService showService;
+	private ManagerUserStoryListService	listService;
+
+	@Autowired
+	private ManagerUserStoryShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 	}
 

@@ -14,3 +14,5 @@ manager.project.form.label.cost = Coste (en horas enteras):
 manager.project.form.label.link = Link para más información: (Opcional)
 manager.project.form.label.published = Publicado
 manager.project.form.label.managerUsername = Apodo del gerente:
+
+manager.project.form.button.userStories = Listado de las historias de usuario

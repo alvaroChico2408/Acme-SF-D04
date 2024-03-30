@@ -1,4 +1,9 @@
-manager.project.form.title = Detalles de la historia de usuario
+manager.user-story.list.title = Listado de las historias de usuario
+manager.user-story.form.title = Detalles de la historia de usuario
+
+manager.userStory.list.label.title = Título:
+manager.userStory.list.label.estimatedCost = Coste estimado (en horas enteras):
+manager.userStory.list.label.published = Publicado
 
 manager.userStory.form.label.title = Título:
 manager.userStory.form.label.description = Descripción: 
@@ -7,4 +12,4 @@ manager.userStory.form.label.acceptanceCriteria = Criterio de aceptación:
 manager.userStory.form.label.priority = Prioridad:
 manager.userStory.form.label.link = Link para más información: (Opcional)
 manager.userStory.form.label.published = Publicado
-manager.userStory.list.form.managerUsername = Apodo del gerente: 
+manager.userStory.form.label.managerUsername = Apodo del gerente: 

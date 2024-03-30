@@ -12,4 +12,6 @@
 	<acme:input-url code="manager.project.form.label.link" path="link"/>
 	<acme:input-checkbox code="manager.project.form.label.published" path="published"/>
 	<acme:input-textbox code="manager.project.form.label.managerUsername" path="manager"/>
+	
+	<acme:button code="manager.project.form.button.userStories" action="/manager/user-story/list?projectId=${id}"/>
 </acme:form>

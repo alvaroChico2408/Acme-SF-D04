@@ -1,4 +1,9 @@
-manager.project.form.title = User story form 
+manager.user-story.list.title = List of user stories
+manager.user-story.form.title = User story form 
+
+manager.userStory.list.label.title = Title:
+manager.userStory.list.label.estimatedCost = Estimated cost (in whole hours):
+manager.userStory.list.label.published = Published
 
 manager.userStory.form.label.title = Title:
 manager.userStory.form.label.description = Description: 
@@ -7,4 +12,4 @@ manager.userStory.form.label.acceptanceCriteria = Acceptance criteria:
 manager.userStory.form.label.priority = Priority:
 manager.userStory.form.label.link = Link for more info: (Optional)
 manager.userStory.form.label.published = Published
-manager.userStory.list.form.managerUsername = Username of the manager:
+manager.userStory.form.label.managerUsername = Username of the manager:
