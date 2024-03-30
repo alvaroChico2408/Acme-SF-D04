@@ -1,0 +1,10 @@
+manager.project.form.title = User story form 
+
+manager.userStory.form.label.title = Title:
+manager.userStory.form.label.description = Description: 
+manager.userStory.form.label.estimatedCost = Estimated cost (in whole hours):
+manager.userStory.form.label.acceptanceCriteria = Acceptance criteria:
+manager.userStory.form.label.priority = Priority:
+manager.userStory.form.label.link = Link for more info: (Optional)
+manager.userStory.form.label.published = Published
+manager.userStory.list.form.managerUsername = Username of the manager:
