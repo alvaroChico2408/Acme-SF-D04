@@ -1,0 +1,6 @@
+authenticated.objective.list.title = Listado de objetivos
+
+authenticated.objective.list.label.title = Título:
+authenticated.objective.list.label.priority = Prioridad:
+authenticated.objective.list.label.status = ¿Es crítico?:
+authenticated.objective.list.label.instantiationMoment = Momento de instanciación:

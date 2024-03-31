@@ -35,6 +35,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.published-projects" action="/any/project/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.claims-list" action="/any/claim/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.objectives-list" action="/authenticated/objective/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
