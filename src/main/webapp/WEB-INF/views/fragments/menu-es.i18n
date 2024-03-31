@@ -19,6 +19,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.published-projects = Listado proyectos publicados
+master.menu.anonymous.claims-list = Listado de reclamaciones
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.favourite-link-jaime = 29542630G: Linares Barrera, Jaime
 master.menu.anonymous.favourite-link-dani = 32085726J: del Castillo Piñero, Daniel
@@ -30,6 +31,7 @@ master.menu.anonymous.favourite-link-ibai = 71186813L: Pérez Fernández, Ibai
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.published-projects = Listado proyectos publicados
+master.menu.authenticated.claims-list = Listado de reclamaciones
 
 # master.menu.administrator ###################################################
 
