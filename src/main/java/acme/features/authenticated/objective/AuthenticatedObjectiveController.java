@@ -16,7 +16,10 @@ public class AuthenticatedObjectiveController extends AbstractController<Authent
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedObjectiveListService listService;
+	private AuthenticatedObjectiveListService	listService;
+
+	@Autowired
+	private AuthenticatedObjectiveShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,7 @@ public class AuthenticatedObjectiveController extends AbstractController<Authent
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

@@ -15,4 +15,7 @@ public interface AuthenticatedObjectiveRepository extends AbstractRepository {
 	@Query("select o from Objective o")
 	Collection<Objective> findAllObjectives();
 
+	@Query("select o from Objective o where o.id = :objectiveId")
+	Objective findObjectiveById(int objectiveId);
+
 }

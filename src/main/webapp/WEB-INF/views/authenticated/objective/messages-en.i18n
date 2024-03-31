@@ -1,6 +1,16 @@
 authenticated.objective.list.title = List of objectives
+authenticated.objective.form.title = Objective Form
 
 authenticated.objective.list.label.title = Title:
 authenticated.objective.list.label.priority = Priority:
-authenticated.objective.list.label.status = Is Critical?:
-authenticated.objective.list.label.instantiationMoment = Instantiation Moment:
+authenticated.objective.list.label.status = Is critical
+authenticated.objective.list.label.instantiationMoment = Instantiation moment:
+
+authenticated.objective.form.label.instantiationMoment = Instantiation moment:
+authenticated.objective.form.label.title = Title:
+authenticated.objective.form.label.description = Description:
+authenticated.objective.form.label.priority = Priority:
+authenticated.objective.form.label.status = Is critical
+authenticated.objective.form.label.executionPeriodStart = Execution period start moment:
+authenticated.objective.form.label.executionPeriodFinish = Execution period finish moment:
+authenticated.objective.form.label.link = Link for more info: (Optional)
