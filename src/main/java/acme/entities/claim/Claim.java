@@ -20,9 +20,9 @@ import acme.client.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
 public class Claim extends AbstractEntity {
 
 	// Serialisation identifier ----------------------------------------------
@@ -61,7 +61,7 @@ public class Claim extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	// Derived attributes ----------------------- ------------------------------
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
