@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.projects.Project;
-import acme.entities.userStories.UserStory;
+import acme.entities.projects.UserStory;
 
 @Repository
 public interface ManagerUserStoryRepository extends AbstractRepository {
