@@ -9,8 +9,8 @@ public enum Mark {
 	private String markValue;
 
 
-	Mark(final String string) {
-		this.markValue = this.markValue;
+	Mark(final String mark) {
+		this.markValue = mark;
 	}
 
 	public String getMark() {
