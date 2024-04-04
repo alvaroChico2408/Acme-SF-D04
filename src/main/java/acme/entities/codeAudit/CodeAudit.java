@@ -54,6 +54,8 @@ public class CodeAudit extends AbstractEntity {
 	@URL
 	@Length(max = 255)
 	private String				link;
+	
+	private boolean published;
 
 	// Derived attributes -----------------------------------------------------
 
