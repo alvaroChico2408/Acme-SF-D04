@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.userStories.UserStory;
+import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service

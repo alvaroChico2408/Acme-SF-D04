@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.entities.userStories.UserStory;
+import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Controller
