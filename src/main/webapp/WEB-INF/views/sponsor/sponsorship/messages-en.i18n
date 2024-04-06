@@ -1,0 +1,18 @@
+sponsor.sponsorship.list.title = List of my sponsorships
+sponsor.sponsorship.form.title = Sponsorship details 
+
+sponsor.sponsorship.list.label.code = Code:
+sponsor.sponsorship.list.label.moment = Moment of creation:
+sponsor.sponsorship.list.label.amount = Amount of money:
+
+sponsor.sponsorship.form.label.code = Code:
+sponsor.sponsorship.form.label.moment = Moment of creation:
+sponsor.sponsorship.form.label.durationInitial = Beginning:
+sponsor.sponsorship.form.label.durationFinal = End:
+sponsor.sponsorship.form.label.amount = Amount of money:
+sponsor.sponsorship.form.label.type = Type:
+sponsor.sponsorship.form.label.email = Email:
+sponsor.sponsorship.form.label.link = Link:
+sponsor.sponsorship.form.label.published = Published:
+sponsor.sponsorship.form.label.projectCode = Project code:
+sponsor.sponsorship.form.label.sponsorUsername = Sponsor Username:

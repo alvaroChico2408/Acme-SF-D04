@@ -58,6 +58,11 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.manager = Gerente
 master.menu.manager.my-projects = Listado de mis proyectos
 
+# master.menu.sponsor ########################################################
+
+master.menu.sponsor = Patrocinador
+master.menu.sponsor.my-sponsorships = Listado de mis patrocinios
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
