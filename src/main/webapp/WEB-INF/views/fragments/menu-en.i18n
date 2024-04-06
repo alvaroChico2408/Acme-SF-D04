@@ -60,8 +60,8 @@ master.menu.manager.my-projects = List my projects
 
 # master.menu.sponsor ########################################################
 
-master.menu.sponsor = sponsor
-master.menu.manager.my-sponsorship = List of my sponsorships
+master.menu.sponsor = Sponsor
+master.menu.sponsor.my-sponsorships = List of my sponsorships
 
 # master.menu.user-account ####################################################
 

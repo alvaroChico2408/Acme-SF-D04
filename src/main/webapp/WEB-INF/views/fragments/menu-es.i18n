@@ -61,7 +61,7 @@ master.menu.manager.my-projects = Listado de mis proyectos
 # master.menu.sponsor ########################################################
 
 master.menu.sponsor = Patrocinador
-master.menu.manager.my-sponsorships = Listado de mis patrocinios
+master.menu.sponsor.my-sponsorships = Listado de mis patrocinios
 
 # master.menu.user-account ####################################################
 
