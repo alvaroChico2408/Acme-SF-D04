@@ -1,0 +1,9 @@
+sponsor.sponsorship.list.title = Listado de mis patrocinios
+
+sponsor.sponsorship.list.label.code = Código:
+sponsor.sponsorship.list.label.moment = Momento:
+sponsor.sponsorship.list.label.durationInitial = Duración inicial:
+sponsor.sponsorship.list.label.durationFinal = Duración final:
+sponsor.sponsorship.list.label.amount = Cantidad:
+sponsor.sponsorship.list.label.type = Tipo:
+sponsor.sponsorship.list.label.published = Publicado:

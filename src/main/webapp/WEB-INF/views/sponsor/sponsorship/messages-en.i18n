@@ -1,0 +1,9 @@
+sponsor.sponsorship.list.title = List of my sponsorships
+
+sponsor.sponsorship.list.label.code = Code:
+sponsor.sponsorship.list.label.moment = moment:
+sponsor.sponsorship.list.label.durationInitial = durationInitial:
+sponsor.sponsorship.list.label.durationFinal = durationFinal:
+sponsor.sponsorship.list.label.amount = amount:
+sponsor.sponsorship.list.label.type = type:
+sponsor.sponsorship.list.label.published = published:
