@@ -1,0 +1,15 @@
+sponsor.invoice.list.title = List of invoices
+sponsor.invoice.form.title = Invoice's details:
+
+sponsor.invoice.list.label.code= Code:
+sponsor.invoice.list.label.registrationTime= Registration time:
+sponsor.invoice.list.label.dueDate= Due date:
+
+sponsor.invoice.form.label.code= Code:
+sponsor.invoice.form.label.registrationTime= Registration time:
+sponsor.invoice.form.label.dueDate= Due date:
+sponsor.invoice.form.label.quantity= Quantity:
+sponsor.invoice.form.label.tax= Tax:
+sponsor.invoice.form.label.link= Link:
+sponsor.invoice.form.label.published= Published:
+sponsor.invoice.form.label.sponsorshipCode= Sponsorship code:
