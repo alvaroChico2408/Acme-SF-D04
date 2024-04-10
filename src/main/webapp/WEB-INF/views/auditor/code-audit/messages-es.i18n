@@ -1,0 +1,9 @@
+
+
+
+auditor.codeAudit.list.label.code = Código:
+auditor.codeAudit.list.label.executionDate = Fecha ded Ejecución:
+auditor.codeAudit.list.label.type = Tipo:
+auditor.codeAudit.list.label.mark = Nota:
+auditor.codeAudit.list.label.correctiveActions = Acciones de Corrección:
+auditor.codeAudit.list.label.link = Link:

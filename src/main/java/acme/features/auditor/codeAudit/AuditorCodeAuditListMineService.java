@@ -46,7 +46,7 @@ public class AuditorCodeAuditListMineService extends AbstractService<Auditor, Co
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions");
+		dataset = super.unbind(object, "code", "executionDate", "type");
 
 		super.getResponse().addData(dataset);
 
