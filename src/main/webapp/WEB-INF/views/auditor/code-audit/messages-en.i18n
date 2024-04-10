@@ -1,0 +1,9 @@
+
+
+
+auditor.codeAudit.list.label.code = Code:
+auditor.codeAudit.list.label.executionDate = Execution Date:
+auditor.codeAudit.list.label.type = Type:
+auditor.codeAudit.list.label.mark = Mark:
+auditor.codeAudit.list.label.correctiveActions = Corrective Actions:
+auditor.codeAudit.list.label.link = Link:
