@@ -15,4 +15,6 @@
 	<acme:input-checkbox code="sponsor.sponsorship.form.label.published" path="published"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.projectCode" path="projectCode"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.sponsorUsername" path="sponsorUsername"/>
+	
+	<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 </acme:form>

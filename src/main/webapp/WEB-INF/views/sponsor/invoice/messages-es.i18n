@@ -1,0 +1,17 @@
+sponsor.invoice.list.title = Lista de las facturas:
+sponsor.invoice.form.title = Detalles de la factura:
+
+sponsor.invoice.list.label.code= Código:
+sponsor.invoice.list.label.registrationTime= Fecha de registro:
+sponsor.invoice.list.label.dueDate= Fecha límite:
+
+sponsor.invoice.form.label.code= Código:
+sponsor.invoice.form.label.registrationTime= Fecha de registro:
+sponsor.invoice.form.label.dueDate= Fecha límite:
+sponsor.invoice.form.label.quantity= Cantidad:
+sponsor.invoice.form.label.tax= Tasa:
+sponsor.invoice.form.label.link= Link:
+sponsor.invoice.form.label.published= Publicada:
+sponsor.invoice.form.label.sponsorshipCode= Código del patrocinio:
+
+
