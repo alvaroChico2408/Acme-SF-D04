@@ -4,6 +4,11 @@
 auditor.codeAudit.list.label.code = Code:
 auditor.codeAudit.list.label.executionDate = Execution Date:
 auditor.codeAudit.list.label.type = Type:
-auditor.codeAudit.list.label.mark = Mark:
-auditor.codeAudit.list.label.correctiveActions = Corrective Actions:
-auditor.codeAudit.list.label.link = Link:
+
+auditor.codeAudit.form.label.code = Code:
+auditor.codeAudit.form.label.executionDate = Execution Date:
+auditor.codeAudit.form.label.type = Type:
+auditor.codeAudit.form.label.mark = Mark:
+auditor.codeAudit.form.label.correctiveActions = Corrective Actions:
+auditor.codeAudit.form.label.published = Published:
+auditor.codeAudit.form.label.link = Link:

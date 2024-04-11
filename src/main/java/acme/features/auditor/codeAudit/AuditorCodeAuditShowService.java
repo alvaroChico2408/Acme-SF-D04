@@ -52,8 +52,9 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "executionDate", "type", "mark", "correctiveActions", "link");
-		
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+		dataset.put("mark", object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId())));
+
 		super.getResponse().addData(dataset);
 
 	}
