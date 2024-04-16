@@ -20,6 +20,7 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|delete') && published == false}">
 			<acme:button code="manager.project.form.button.userStories" action="/manager/user-story/list?projectId=${id}"/>
 			<acme:submit code="manager.project.form.button.delete" action="/manager/project/delete"/>
+			<acme:submit code="manager.project.form.button.update" action="/manager/project/update"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="manager.project.form.button.create" action="/manager/project/create"/>

@@ -20,5 +20,6 @@ manager.project.form.label.managerUsername = Apodo del gerente:
 manager.project.form.button.userStories = Historias de usuario
 manager.project.form.button.create = Crear
 manager.project.form.button.delete = Borrar
+manager.project.form.button.update = Actualizar
 
 manager.project.form.error.duplicated = Este código ya ha sido escogido
