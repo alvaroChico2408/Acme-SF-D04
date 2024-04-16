@@ -13,3 +13,5 @@ auditor.codeAudit.form.label.mark = Nota:
 auditor.codeAudit.form.label.correctiveActions = Acciones de Corrección:
 auditor.codeAudit.form.label.published = Publicado:
 auditor.codeAudit.form.label.link = Enlace:
+
+auditor.codeAudit.form.label.auditRecord = Lista de las Anotaciones de la Auditoria
