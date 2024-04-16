@@ -1,0 +1,15 @@
+administrator.banner.list.title = Lista de Carteles
+
+administrator.banner.list.label.instantiationMoment = Momento de Instanciación:
+administrator.banner.list.label.displayStartDate = Fecha de Comienzo de la Exhibición:
+administrator.banner.list.label.displayEndDate = Fecha del Final de la Exhibición:
+administrator.banner.list.label.slogan = Slogan:
+
+administrator.banner.form.title = Cartel
+
+administrator.banner.form.label.instantiationMoment = Momento de Instanciación:
+administrator.banner.form.label.displayStartDate = Fecha de Comienzo de la Exhibición:
+administrator.banner.form.label.displayEndDate = Fecha del Final de la Exhibición:
+administrator.banner.form.label.picture = Imagen:
+administrator.banner.form.label.slogan = Slogan:
+administrator.banner.form.label.link = Más Info.:
