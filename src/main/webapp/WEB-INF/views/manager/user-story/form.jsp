@@ -10,6 +10,6 @@
 	<acme:input-textarea code="manager.userStory.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
 	<acme:input-textbox code="manager.userStory.form.label.priority" path="priority"/>
 	<acme:input-url code="manager.userStory.form.label.link" path="link"/>
-	<acme:input-checkbox code="manager.userStory.form.label.published" path="published"/>
-	<acme:input-textbox code="manager.userStory.form.label.managerUsername" path="manager"/>
+	<acme:input-checkbox code="manager.userStory.form.label.published" path="published" readonly = "true"/>
+	<acme:input-textbox code="manager.userStory.form.label.managerUsername" path="manager" readonly = "true"/>
 </acme:form>
