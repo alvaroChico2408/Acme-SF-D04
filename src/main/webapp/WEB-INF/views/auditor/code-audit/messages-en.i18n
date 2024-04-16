@@ -12,3 +12,5 @@ auditor.codeAudit.form.label.mark = Mark:
 auditor.codeAudit.form.label.correctiveActions = Corrective Actions:
 auditor.codeAudit.form.label.published = Published:
 auditor.codeAudit.form.label.link = Link:
+
+auditor.codeAudit.form.label.auditRecord = List of Audit Records

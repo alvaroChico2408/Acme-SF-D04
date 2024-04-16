@@ -1,0 +1,4 @@
+auditor.auditRecord.list.label.code = Código:
+auditor.auditRecord.list.label.startDate = Fecha de Inicio:
+auditor.auditRecord.list.label.endDate = Fecha de Fin:
+auditor.auditRecord.list.label.mark = Nota:

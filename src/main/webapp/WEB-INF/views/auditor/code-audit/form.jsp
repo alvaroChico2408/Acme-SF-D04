@@ -12,4 +12,5 @@
 	<acme:input-textbox code="auditor.codeAudit.form.label.published" path="published"/>
 	<acme:input-textbox code="auditor.codeAudit.form.label.link" path="link"/>
 
+	<acme:button code="auditor.codeAudit.form.label.auditRecord" action="/auditor/audit-record/list?id=${id}"/>
 </acme:form>
