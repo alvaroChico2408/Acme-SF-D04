@@ -21,5 +21,6 @@ manager.project.form.button.userStories = Historias de usuario
 manager.project.form.button.create = Crear
 manager.project.form.button.delete = Borrar
 manager.project.form.button.update = Actualizar
+manager.project.form.button.publish = Publicar
 
 manager.project.form.error.duplicated = Este código ya ha sido escogido
