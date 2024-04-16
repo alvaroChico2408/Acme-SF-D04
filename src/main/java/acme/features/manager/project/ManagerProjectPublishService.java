@@ -33,15 +33,12 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 
 		projectId = super.getRequest().getData("id", int.class);
 		project = this.repository.findProjectById(projectId);
-		if (project != null) {
-			manager = project.getManager();
-			managerRequestId = super.getRequest().getPrincipal().getActiveRoleId();
-			Collection<UserStory> userStories = this.repository.findManyUserStoriesByProjectId(projectId);
-			int numUserStoryPublish = userStories.stream().filter(UserStory::isPublished).toList().size();
-			boolean allUserStoriesPublish = userStories.size() == numUserStoryPublish;
-			status = super.getRequest().getPrincipal().hasRole(manager) && manager.getId() == managerRequestId && //
-				!project.isPublished() && !project.isFatalErrors() && !userStories.isEmpty() && allUserStoriesPublish;
-		} else
+		manager = project == null ? null : project.getManager();
+		managerRequestId = super.getRequest().getPrincipal().getActiveRoleId();
+		if (manager != null)
+			status = !project.isPublished() && super.getRequest().getPrincipal().hasRole(manager) //
+				&& manager.getId() == managerRequestId;
+		else
 			status = false;
 
 		super.getResponse().setAuthorised(status);
@@ -75,11 +72,20 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Project existing;
-
-			existing = this.repository.findOneProjectByCode(object.getCode());
+			Project existing = this.repository.findOneProjectByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "manager.project.form.error.duplicated");
 		}
+
+		Collection<UserStory> userStories = this.repository.findManyUserStoriesByProjectId(object.getId());
+		super.state(!userStories.isEmpty(), "*", "manager.project.form.error.nouserstory");
+
+		if (!userStories.isEmpty()) {
+			int numUserStoryPublish = userStories.stream().filter(UserStory::isPublished).toList().size();
+			boolean allUserStoriesPublish = userStories.size() == numUserStoryPublish;
+			super.state(allUserStoriesPublish, "*", "manager.project.form.error.userstorynotpublish");
+		}
+
+		super.state(!object.isFatalErrors(), "fatalErrors", "manager.project.form.error.fatalErrors");
 	}
 
 	@Override
