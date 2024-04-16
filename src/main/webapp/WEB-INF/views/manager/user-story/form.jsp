@@ -8,7 +8,7 @@
 	<acme:input-textarea code="manager.userStory.form.label.description" path="description"/>
 	<acme:input-integer code="manager.userStory.form.label.estimatedCost" path="estimatedCost"/>
 	<acme:input-textarea code="manager.userStory.form.label.acceptanceCriteria" path="acceptanceCriteria"/>
-	<acme:input-textbox code="manager.userStory.form.label.priority" path="priority"/>
+	<acme:input-select code="manager.userStory.form.label.priority" path="priority" choices="${priorities}"/>
 	<acme:input-url code="manager.userStory.form.label.link" path="link"/>
 	<acme:input-checkbox code="manager.userStory.form.label.published" path="published" readonly = "true"/>
 	<acme:input-textbox code="manager.userStory.form.label.managerUsername" path="manager" readonly = "true"/>
