@@ -24,6 +24,9 @@ public class ManagerUserStoryController extends AbstractController<Manager, User
 	@Autowired
 	private ManagerUserStoryListMineService	listMineService;
 
+	@Autowired
+	private ManagerUserStoryCreateService	createService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -31,6 +34,7 @@ public class ManagerUserStoryController extends AbstractController<Manager, User
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 
 		super.addCustomCommand("list-mine", "list", this.listMineService);
 	}

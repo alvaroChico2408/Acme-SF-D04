@@ -9,3 +9,7 @@
 	<acme:list-column code="manager.userStory.list.label.priority" path="priority"/>
 	<acme:list-column code="manager.userStory.list.label.published" path="published"/>
 </acme:list>
+
+<jstl:if test="${_command == 'list-mine'}">
+	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
+</jstl:if>	

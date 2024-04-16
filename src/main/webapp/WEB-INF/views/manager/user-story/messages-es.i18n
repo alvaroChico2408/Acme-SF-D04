@@ -6,6 +6,8 @@ manager.userStory.list.label.estimatedCost = Coste estimado (en horas enteras):
 manager.userStory.list.label.priority = Prioridad:
 manager.userStory.list.label.published = Publicado
 
+manager.user-story.list.button.create = Crear
+
 manager.userStory.form.label.title = Título:
 manager.userStory.form.label.description = Descripción: 
 manager.userStory.form.label.estimatedCost = Coste estimado (en horas enteras):
@@ -14,3 +16,5 @@ manager.userStory.form.label.priority = Prioridad:
 manager.userStory.form.label.link = Link para más información: (Opcional)
 manager.userStory.form.label.published = Publicado
 manager.userStory.form.label.managerUsername = Apodo del gerente: 
+
+manager.userStory.form.button.create = Crear
