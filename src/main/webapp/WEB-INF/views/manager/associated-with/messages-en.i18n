@@ -14,3 +14,4 @@ manager.associatedWith.form.error.published = The project is published, you can'
 manager.associatedWith.form.error.duplicatedRelation = That user story is already in this project
 manager.associatedWith.form.error.sameManager = The user story and the project must have the same manager
 manager.associatedWith.form.error.notSelected = You have not selected a user story
+manager.associatedWith.form.error.mustBeDuplicated = You can't remove a user history that it is not in the project

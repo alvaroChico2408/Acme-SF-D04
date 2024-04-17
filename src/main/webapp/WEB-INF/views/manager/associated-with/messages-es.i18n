@@ -14,3 +14,4 @@ manager.associatedWith.form.error.published = El proyecto está publicado, no pu
 manager.associatedWith.form.error.duplicatedRelation = Ya está esa historia de usuario en este proyecto
 manager.associatedWith.form.error.sameManager = La historia de usuario y el proyecto tiene que tener el mismo gerente
 manager.associatedWith.form.error.notSelected = No has seleccionado ninguna historia de usuario
+manager.associatedWith.form.error.mustBeDuplicated = No puedes borrar una historia de usuario que no esta en el proyecto
