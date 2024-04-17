@@ -65,4 +65,20 @@ public class ManagerUserStoryListService extends AbstractService<Manager, UserSt
 		super.getResponse().addData(dataset);
 	}
 
+	@Override
+	public void unbind(final Collection<UserStory> objects) {
+		assert objects != null;
+
+		int projectId;
+		Project project;
+		final boolean showAdd;
+
+		projectId = super.getRequest().getData("projectId", int.class);
+		project = this.repository.findProjectById(projectId);
+		showAdd = !project.isPublished() && super.getRequest().getPrincipal().hasRole(project.getManager());
+
+		super.getResponse().addGlobal("projectId", projectId);
+		super.getResponse().addGlobal("showAdd", showAdd);
+	}
+
 }

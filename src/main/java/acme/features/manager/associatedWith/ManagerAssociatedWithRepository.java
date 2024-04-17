@@ -1,5 +1,5 @@
 
-package acme.features.manager.userStory;
+package acme.features.manager.associatedWith;
 
 import java.util.Collection;
 
@@ -13,24 +13,24 @@ import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Repository
-public interface ManagerUserStoryRepository extends AbstractRepository {
-
-	@Query("select us from UserStory us where us.id = :userStoryId")
-	UserStory findUserStoryById(int userStoryId);
-
-	@Query("select aw.userStory from AssociatedWith aw where aw.project.id = :projectId")
-	Collection<UserStory> findManyUserStoriesByProjectId(int projectId);
+public interface ManagerAssociatedWithRepository extends AbstractRepository {
 
 	@Query("select p from Project p where p.id = :projectId")
 	Project findProjectById(int projectId);
 
-	@Query("select us from UserStory us where us.manager.id = :managerId")
-	Collection<UserStory> findUserStoriesByManagerId(int managerId);
+	@Query("select us from UserStory us where us.id = :userStoryId")
+	UserStory findUserStoryById(int userStoryId);
+
+	@Query("select aw from AssociatedWith aw where (aw.project.id = :projectId and aw.userStory.id = :userStoryId)")
+	AssociatedWith findAssociationBetweenProjectIdAndUserStoryId(int projectId, int userStoryId);
 
 	@Query("select m from Manager m where m.id = :id")
 	Manager findOneManagerById(int id);
 
-	@Query("select aw from AssociatedWith aw where aw.userStory.id = :userStoryId")
-	Collection<AssociatedWith> findManyAssociationBetweenProjectAndUserStory(int userStoryId);
+	@Query("select aw.userStory from AssociatedWith aw where aw.project.id = :projectId")
+	Collection<UserStory> findManyUserStoriesByProjectId(int projectId);
+
+	@Query("select us from UserStory us where us.manager.id = :managerId")
+	Collection<UserStory> findUserStoriesByManagerId(int managerId);
 
 }

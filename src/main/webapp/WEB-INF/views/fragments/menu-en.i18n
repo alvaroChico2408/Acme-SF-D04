@@ -58,6 +58,7 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.manager = Manager
 master.menu.manager.my-projects = List my projects
+master.menu.manager.my-userStories = List my user stories
 
 # master.menu.sponsor ########################################################
 
