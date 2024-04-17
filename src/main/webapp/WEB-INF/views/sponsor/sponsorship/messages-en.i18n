@@ -16,4 +16,8 @@ sponsor.sponsorship.form.label.link = Link:
 sponsor.sponsorship.form.label.published = Published:
 sponsor.sponsorship.form.label.projectCode = Project code:
 sponsor.sponsorship.form.label.sponsorUsername = Sponsor Username:
+
 sponsor.sponsorship.form.button.invoices= List of invoices:
+sponsor.sponsorship.list.button.create= Create new sponsorship:
+
+sponsor.sponsorship.form.error.duplicated = This code is already taken.

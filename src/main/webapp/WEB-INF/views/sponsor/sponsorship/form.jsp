@@ -12,9 +12,18 @@
 	<acme:input-textbox code="sponsor.sponsorship.form.label.type" path="type"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.email" path="email"/>
 	<acme:input-url code="sponsor.sponsorship.form.label.link" path="link"/>
-	<acme:input-checkbox code="sponsor.sponsorship.form.label.published" path="published"/>
-	<acme:input-textbox code="sponsor.sponsorship.form.label.projectCode" path="projectCode"/>
-	<acme:input-textbox code="sponsor.sponsorship.form.label.sponsorUsername" path="sponsorUsername"/>
+	<acme:input-checkbox code="sponsor.sponsorship.form.label.published" path="published" readonly = "true"/>
+	<acme:input-textbox code="sponsor.sponsorship.form.label.projectCode" path="projectCode" readonly= "true"/>
+	<acme:input-textbox code="sponsor.sponsorship.form.label.sponsorUsername" path="sponsorUsername" readonly = "true"/>
 	
-	<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
+	
+	
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="manager.project.form.button.create" action="/sponsor/sponsorship/create"/>
+		</jstl:when>		
+	</jstl:choose>
 </acme:form>
