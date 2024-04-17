@@ -81,6 +81,10 @@ public class ManagerAssociatedWithDeleteService extends AbstractService<Manager,
 			super.state(!object.getProject().isPublished(), "*", "manager.associatedWith.form.error.published");
 		if (!super.getBuffer().getErrors().hasErrors("userStory"))
 			super.state(object.getUserStory() != null, "userStory", "manager.associatedWith.form.error.notSelected");
+		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
+			AssociatedWith existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
+			super.state(existing != null, "*", "manager.associatedWith.form.error.mustBeDuplicated");
+		}
 	}
 
 	@Override
