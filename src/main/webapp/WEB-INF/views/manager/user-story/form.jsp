@@ -14,8 +14,9 @@
 	<acme:input-textbox code="manager.userStory.form.label.managerUsername" path="manager" readonly = "true"/>
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|delete') && published == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|delete|update') && published == false}">
 			<acme:submit code="manager.userStory.form.button.delete" action="/manager/user-story/delete"/>
+			<acme:submit code="manager.userStory.form.button.update" action="/manager/user-story/update"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="manager.userStory.form.button.create" action="/manager/user-story/create"/>

@@ -19,3 +19,4 @@ manager.userStory.form.label.managerUsername = Apodo del gerente:
 
 manager.userStory.form.button.create = Crear
 manager.userStory.form.button.delete = Eliminar
+manager.userStory.form.button.update = Actualizar
