@@ -15,7 +15,7 @@ import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
-public class ManagerAssociatedWithCreateService extends AbstractService<Manager, AssociatedWith> {
+public class ManagerAssociatedWithDeleteService extends AbstractService<Manager, AssociatedWith> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -79,22 +79,17 @@ public class ManagerAssociatedWithCreateService extends AbstractService<Manager,
 
 		if (!super.getBuffer().getErrors().hasErrors("project"))
 			super.state(!object.getProject().isPublished(), "*", "manager.associatedWith.form.error.published");
-		if (!super.getBuffer().getErrors().hasErrors("*") && !super.getBuffer().getErrors().hasErrors("userStory")) {
-			AssociatedWith existing = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
-			super.state(existing == null, "*", "manager.associatedWith.form.error.duplicatedRelation");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("project") && !super.getBuffer().getErrors().hasErrors("userStory")) {
-			Manager projectManager = object.getProject().getManager();
-			Manager userStoryManager = object.getUserStory().getManager();
-			super.state(projectManager.getId() == userStoryManager.getId(), "*", "manager.associatedWith.form.error.sameManager");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("userStory"))
+			super.state(object.getUserStory() != null, "userStory", "manager.associatedWith.form.error.notSelected");
 	}
 
 	@Override
 	public void perform(final AssociatedWith object) {
 		assert object != null;
 
-		this.repository.save(object);
+		AssociatedWith association = this.repository.findAssociationBetweenProjectIdAndUserStoryId(object.getProject().getId(), object.getUserStory().getId());
+
+		this.repository.delete(association);
 	}
 
 	@Override
@@ -103,8 +98,6 @@ public class ManagerAssociatedWithCreateService extends AbstractService<Manager,
 
 		Dataset dataset;
 		int projectId;
-		int managerId;
-		Collection<UserStory> userStoriesManager;
 		Collection<UserStory> userStoriesAssociated;
 		Project project;
 		SelectChoices choices;
@@ -114,10 +107,7 @@ public class ManagerAssociatedWithCreateService extends AbstractService<Manager,
 		projectId = super.getRequest().getData("projectId", int.class);
 		dataset.put("projectId", projectId);
 
-		managerId = super.getRequest().getPrincipal().getActiveRoleId();
-		userStoriesManager = this.repository.findUserStoriesByManagerId(managerId);
 		userStoriesAssociated = this.repository.findManyUserStoriesByProjectId(projectId);
-		userStoriesManager.removeAll(userStoriesAssociated);
 
 		project = this.repository.findProjectById(projectId);
 		dataset.put("project", project);
@@ -130,7 +120,7 @@ public class ManagerAssociatedWithCreateService extends AbstractService<Manager,
 		else
 			choices.add("0", "---", false);
 
-		for (final UserStory us : userStoriesManager)
+		for (final UserStory us : userStoriesAssociated)
 			if (object.getUserStory() != null && object.getUserStory().getId() == us.getId())
 				choices.add( //
 					Integer.toString(us.getId()), us.getTitle() + " - " + Integer.toString(us.getEstimatedCost()) + " - " + us.getPriority(), //

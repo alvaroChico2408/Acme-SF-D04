@@ -16,7 +16,10 @@ public class ManagerAssociatedWithController extends AbstractController<Manager,
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerAssociatedWithCreateService createService;
+	private ManagerAssociatedWithCreateService	createService;
+
+	@Autowired
+	private ManagerAssociatedWithDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,7 @@ public class ManagerAssociatedWithController extends AbstractController<Manager,
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

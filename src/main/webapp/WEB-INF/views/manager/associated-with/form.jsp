@@ -48,4 +48,9 @@
 			<acme:submit code="manager.associatedWith.form.button.add" action="/manager/associated-with/create?projectId=${projectId}"/>
 		</jstl:when> 	
 	</jstl:choose>
+	<jstl:choose>	
+		<jstl:when test="${_command == 'delete'}">
+			<acme:submit code="manager.associatedWith.form.button.remove" action="/manager/associated-with/delete?projectId=${projectId}"/>
+		</jstl:when> 	
+	</jstl:choose>
 </acme:form>

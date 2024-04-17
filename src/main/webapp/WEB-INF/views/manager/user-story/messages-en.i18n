@@ -8,6 +8,7 @@ manager.userStory.list.label.published = Published
 
 manager.userStory.list.button.create = Create
 manager.userStory.list.button.add = Add user story to the project
+manager.userStory.list.button.remove = Remove user story from the project
 
 manager.userStory.form.label.title = Title:
 manager.userStory.form.label.description = Description: 

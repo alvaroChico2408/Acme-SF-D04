@@ -8,7 +8,9 @@ manager.associatedWith.form.project.title = Título del proyecto:
 manager.associatedWith.form.label.userStory = Historia de usuario:
 
 manager.associatedWith.form.button.add = Añadir historia de usuario al proyecto
+manager.associatedWith.form.button.remove = Borrar historia de usuario del proyecto
 
 manager.associatedWith.form.error.published = El proyecto está publicado, no puede modificarse
 manager.associatedWith.form.error.duplicatedRelation = Ya está esa historia de usuario en este proyecto
 manager.associatedWith.form.error.sameManager = La historia de usuario y el proyecto tiene que tener el mismo gerente
+manager.associatedWith.form.error.notSelected = No has seleccionado ninguna historia de usuario

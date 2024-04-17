@@ -8,6 +8,7 @@ manager.userStory.list.label.published = Publicado
 
 manager.user-story.list.button.create = Crear
 manager.user-story.list.button.add = Añadir historia de usuario al proyecto
+manager.userStory.list.button.remove = Eliminar historia de usuario del proyecto
 
 manager.userStory.form.label.title = Título:
 manager.userStory.form.label.description = Descripción: 

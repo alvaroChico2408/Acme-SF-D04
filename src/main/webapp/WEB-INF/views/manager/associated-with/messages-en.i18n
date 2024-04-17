@@ -8,7 +8,9 @@ manager.associatedWith.form.project.title = Project title:
 manager.associatedWith.form.label.userStory = User story:
 
 manager.associatedWith.form.button.add = Add user history to project
+manager.associatedWith.form.button.remove = Remove user history from project
 
 manager.associatedWith.form.error.published = The project is published, you can't modify
 manager.associatedWith.form.error.duplicatedRelation = That user story is already in this project
 manager.associatedWith.form.error.sameManager = The user story and the project must have the same manager
+manager.associatedWith.form.error.notSelected = You have not selected a user story

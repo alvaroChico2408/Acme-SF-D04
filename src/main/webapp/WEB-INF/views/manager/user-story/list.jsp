@@ -16,4 +16,5 @@
 
 <jstl:if test="${showAdd}">
 	<acme:button code="manager.userStory.list.button.add" action="/manager/associated-with/create?projectId=${projectId}"/>
+	<acme:button code="manager.userStory.list.button.remove" action="/manager/associated-with/delete?projectId=${projectId}"/>
 </jstl:if>
