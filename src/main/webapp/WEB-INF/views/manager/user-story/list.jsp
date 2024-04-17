@@ -11,5 +11,9 @@
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
+	<acme:button code="manager.userStory.list.button.create" action="/manager/user-story/create"/>
 </jstl:if>	
+
+<jstl:if test="${showAdd}">
+	<acme:button code="manager.userStory.list.button.add" action="/manager/associated-with/create?projectId=${projectId}"/>
+</jstl:if>

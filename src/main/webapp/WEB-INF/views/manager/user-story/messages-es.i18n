@@ -7,6 +7,7 @@ manager.userStory.list.label.priority = Prioridad:
 manager.userStory.list.label.published = Publicado
 
 manager.user-story.list.button.create = Crear
+manager.user-story.list.button.add = Añadir historia de usuario al proyecto
 
 manager.userStory.form.label.title = Título:
 manager.userStory.form.label.description = Descripción: 

@@ -6,7 +6,8 @@ manager.userStory.list.label.estimatedCost = Estimated cost (in whole hours):
 manager.userStory.list.label.priority = Priority:
 manager.userStory.list.label.published = Published
 
-manager.user-story.list.button.create = Create
+manager.userStory.list.button.create = Create
+manager.userStory.list.button.add = Add user story to the project
 
 manager.userStory.form.label.title = Title:
 manager.userStory.form.label.description = Description: 
