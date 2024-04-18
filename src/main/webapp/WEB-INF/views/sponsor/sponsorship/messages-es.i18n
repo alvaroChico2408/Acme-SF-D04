@@ -3,7 +3,10 @@ sponsor.sponsorship.form.title = Detalles del patrocinio:
 
 sponsor.sponsorship.list.label.code = Código:
 sponsor.sponsorship.list.label.moment = Momento:
+sponsor.sponsorship.list.label.durationInitial = Inicio:
+sponsor.sponsorship.list.label.durationFinal = Final:
 sponsor.sponsorship.list.label.amount = Cantidad:
+sponsor.sponsorship.list.label.type = Tipo:
 
 sponsor.sponsorship.form.label.code = Código:
 sponsor.sponsorship.form.label.moment = Momento:

@@ -1,0 +1,22 @@
+any.sponsorship.list.title = Lista de los patrocinios publicados:
+any.sponsorship.form.title = Detalles del patrocinio:
+
+
+any.sponsorship.list.label.code = Código:
+any.sponsorship.list.label.moment = Momento:
+any.sponsorship.list.label.durationInitial = Inicio:
+any.sponsorship.list.label.durationFinal = Final:
+any.sponsorship.list.label.amount = Cantidad:
+any.sponsorship.list.label.type = Tipo:
+
+any.sponsorship.form.label.code = Código:
+any.sponsorship.form.label.moment = Momento:
+any.sponsorship.form.label.durationInitial = Inicio:
+any.sponsorship.form.label.durationFinal = Fin:
+any.sponsorship.form.label.amount = Cantidad:
+any.sponsorship.form.label.type = Tipo:
+any.sponsorship.form.label.email = Email:
+any.sponsorship.form.label.link = Link:
+any.sponsorship.form.label.published = Publicado:
+any.sponsorship.form.label.projectCode = Código del proyecto:
+any.sponsorship.form.label.sponsorUsername = Nombre de usuario del patrocinador:
