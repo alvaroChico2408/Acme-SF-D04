@@ -1,5 +1,5 @@
 
-package acme.entities.userStories;
+package acme.entities.projects;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 

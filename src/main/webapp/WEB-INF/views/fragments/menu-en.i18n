@@ -42,6 +42,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.banner = List of Banners
 
 # master.menu.provider ########################################################
 
@@ -57,6 +58,12 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.manager = Manager
 master.menu.manager.my-projects = List my projects
+master.menu.manager.my-userStories = List my user stories
+
+# master.menu.sponsor ########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.my-sponsorships = List of my sponsorships
 
 # master.menu.user-account ####################################################
 
@@ -66,3 +73,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+# master.menu.auditor ####################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.my-codeAudits = List my Code Audits

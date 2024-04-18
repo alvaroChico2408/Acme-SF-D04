@@ -1,0 +1,17 @@
+
+
+
+auditor.codeAudit.list.label.code = Código:
+auditor.codeAudit.list.label.executionDate = Fecha de Ejecución:
+auditor.codeAudit.list.label.type = Tipo:
+
+
+auditor.codeAudit.form.label.code = Código:
+auditor.codeAudit.form.label.executionDate = Fecha de Ejecución:
+auditor.codeAudit.form.label.type = Tipo:
+auditor.codeAudit.form.label.mark = Nota:
+auditor.codeAudit.form.label.correctiveActions = Acciones de Corrección:
+auditor.codeAudit.form.label.published = Publicado:
+auditor.codeAudit.form.label.link = Enlace:
+
+auditor.codeAudit.form.label.auditRecord = Lista de las Anotaciones de la Auditoria

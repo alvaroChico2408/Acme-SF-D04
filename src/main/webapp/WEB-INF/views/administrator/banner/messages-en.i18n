@@ -1,0 +1,15 @@
+administrator.banner.list.title = Banners List
+
+administrator.banner.list.label.instantiationMoment = Instantiation Moment:
+administrator.banner.list.label.displayStartDate = Display Start Date:
+administrator.banner.list.label.displayEndDate = Display End Date:
+administrator.banner.list.label.slogan = Slogan:
+
+administrator.banner.form.title = Banner
+
+administrator.banner.form.label.instantiationMoment = Instantiation Moment:
+administrator.banner.form.label.displayStartDate = Display Start Date:
+administrator.banner.form.label.displayEndDate = Display End Date:
+administrator.banner.form.label.picture = Picture:
+administrator.banner.form.label.slogan = Slogan:
+administrator.banner.form.label.link = More Info.:

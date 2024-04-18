@@ -1,0 +1,17 @@
+manager.associated-with.form.title = Associate user story - project form
+
+manager.associatedWith.form.userStory.cant.info = You can't add/delete a user story to/from a project which is published
+manager.associatedWith.form.userStory.create.info = Add a user story to the project 
+manager.associatedWith.form.userStory.delete.info = Delete a user story from the project 
+manager.associatedWith.form.project.code = Project code:
+manager.associatedWith.form.project.title = Project title:
+manager.associatedWith.form.label.userStory = User story:
+
+manager.associatedWith.form.button.add = Add user history to project
+manager.associatedWith.form.button.remove = Remove user history from project
+
+manager.associatedWith.form.error.published = The project is published, you can't modify
+manager.associatedWith.form.error.duplicatedRelation = That user story is already in this project
+manager.associatedWith.form.error.sameManager = The user story and the project must have the same manager
+manager.associatedWith.form.error.notSelected = You have not selected a user story
+manager.associatedWith.form.error.mustBeDuplicated = You can't remove a user history that it is not in the project

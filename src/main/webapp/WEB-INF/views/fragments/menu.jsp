@@ -46,6 +46,8 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -57,7 +59,16 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">			
-			<acme:menu-suboption code="master.menu.manager.my-projects" action="/manager/project/list-mine"/>		
+			<acme:menu-suboption code="master.menu.manager.my-projects" action="/manager/project/list-mine"/>
+			<acme:menu-suboption code="master.menu.manager.my-userStories" action="/manager/user-story/list-mine"/>		
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
+			<acme:menu-suboption code="master.menu.auditor.my-codeAudits" action="/auditor/code-audit/list-mine"/>		
+		</acme:menu-option>
+  
+		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">			
+			<acme:menu-suboption code="master.menu.sponsor.my-sponsorships" action="/sponsor/sponsorship/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

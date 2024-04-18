@@ -1,0 +1,11 @@
+auditor.auditRecord.list.label.code = Code:
+auditor.auditRecord.list.label.startDate = Start Date:
+auditor.auditRecord.list.label.endDate = End Date:
+auditor.auditRecord.list.label.mark = Mark:
+
+auditor.auditRecord.form.label.code = Code:
+auditor.auditRecord.form.label.startDate = Start Date:
+auditor.auditRecord.form.label.endDate = End Date:
+auditor.auditRecord.form.label.mark = Mark:
+auditor.auditRecord.form.label.link = Link: 
+auditor.auditRecord.form.label.published = Published:

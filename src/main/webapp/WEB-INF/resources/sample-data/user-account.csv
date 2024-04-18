@@ -39,6 +39,9 @@ user-account-manager-27,true,"UserIdentity{name: 'Jane25', surname: 'Doe', email
 user-account-manager-28,true,"UserIdentity{name: 'Jane26', surname: 'Doe', email: 'janedoe26@alum.us.es'}",manager28,manager28
 user-account-manager-29,true,"UserIdentity{name: 'Jane27', surname: 'Doe', email: 'janedoe27@alum.us.es'}",manager29,manager29
 user-account-manager-30,true,"UserIdentity{name: 'Jane28', surname: 'Doe', email: 'janedoe28@alum.us.es'}",manager30,manager30
+user-account-manager-31,true,"UserIdentity{name: 'Jane29', surname: 'Doe', email: 'janedoe29@alum.us.es'}",manager31,manager31
+user-account-manager-32,true,"UserIdentity{name: 'Jane30', surname: 'Doe', email: 'janedoe30@alum.us.es'}",manager32,manager32
+user-account-manager-33,true,"UserIdentity{name: 'Jane31', surname: 'Doe', email: 'janedoe31@alum.us.es'}",manager33,manager33
 user-account-sponsor-03,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",sponsor3,sponsor3
 user-account-sponsor-04,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",sponsor4,sponsor4
 user-account-sponsor-05,true,"UserIdentity{name: 'Jane', surname: 'Doe', email: 'janedoe@alum.us.es'}",sponsor5,sponsor5
@@ -110,6 +113,12 @@ user-account-auditor-23,true,"UserIdentity{name: 'Peter', surname: 'Auditor', em
 user-account-auditor-24,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor24,auditor24
 user-account-auditor-25,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor25,auditor25
 user-account-auditor-26,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor26,auditor26
+user-account-auditor-27,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor27,auditor27
+user-account-auditor-28,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor28,auditor28
+user-account-auditor-29,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor29,auditor29
+user-account-auditor-30,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor30,auditor30
+user-account-auditor-31,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor31,auditor31
+user-account-auditor-32,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor32,auditor32
 user-account-developer-01,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer1,developer1
 user-account-developer-02,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer2,developer2
 user-account-developer-03,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer3,developer3

@@ -6,6 +6,10 @@ manager.userStory.list.label.estimatedCost = Estimated cost (in whole hours):
 manager.userStory.list.label.priority = Priority:
 manager.userStory.list.label.published = Published
 
+manager.userStory.list.button.create = Create
+manager.userStory.list.button.add = Add user story to the project
+manager.userStory.list.button.remove = Remove user story from the project
+
 manager.userStory.form.label.title = Title:
 manager.userStory.form.label.description = Description: 
 manager.userStory.form.label.estimatedCost = Estimated cost (in whole hours):
@@ -14,3 +18,8 @@ manager.userStory.form.label.priority = Priority:
 manager.userStory.form.label.link = Link for more info: (Optional)
 manager.userStory.form.label.published = Published
 manager.userStory.form.label.managerUsername = Username of the manager:
+
+manager.userStory.form.button.create = Create
+manager.userStory.form.button.delete = Delete
+manager.userStory.form.button.update = Update
+manager.userStory.form.button.publish = Publish
