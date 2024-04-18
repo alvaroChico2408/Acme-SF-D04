@@ -19,7 +19,9 @@ sponsor.sponsorship.form.label.sponsorUsername = Nombre de usuario del patrocina
 
 sponsor.sponsorship.form.button.invoices= Lista de facturas
 sponsor.sponsorship.list.button.create= Crear nuevo patrocinio
-sponsor.sponsorship.form.button.delete= Eliminar
+sponsor.sponsorship.form.button.delete= Eliminar patrocinio
+sponsor.sponsorship.form.button.update= Actualizar patrocinio
+sponsor.sponsorship.form.button.publish= Publicar patrocinio
 
 sponsor.sponsorship.form.error.duplicated = Este código está actualmente en uso
 sponsor.sponsorship.form.error.pastDurationInitial = El inicio del patrocinio deberá ser posterior a su momento de creación

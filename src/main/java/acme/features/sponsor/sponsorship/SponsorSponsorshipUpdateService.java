@@ -10,12 +10,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
-import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sponsorship> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -27,22 +26,31 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int sponsorRequestId;
+		Sponsor sponsor;
+		int sponsorshipId;
+		Sponsorship sponsorship;
+
+		sponsorshipId = super.getRequest().getData("id", int.class);
+		sponsorship = this.repository.findSponsorshipById(sponsorshipId).orElse(null);
+		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
+		sponsorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
+		if (sponsor != null)
+			status = !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == sponsorRequestId;
+		else
+			status = false;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Sponsorship object;
-		Sponsor sponsor;
-		Project project;
+		int sponsorshipId;
 
-		sponsor = this.repository.findSponsorById(super.getRequest().getPrincipal().getActiveRoleId()).orElse(null);
-		project = this.repository.findProjectByCode("JLB-4567").orElse(null);
-		object = new Sponsorship();
-		object.setPublished(false);
-		object.setSponsor(sponsor);
-		object.setMoment(MomentHelper.getCurrentMoment());
-		object.setProject(project);
+		sponsorshipId = super.getRequest().getData("id", int.class);
+		object = this.repository.findSponsorshipById(sponsorshipId).orElse(null);
 
 		super.getBuffer().addData(object);
 	}
@@ -52,7 +60,6 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		assert object != null;
 
 		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
-
 	}
 
 	@Override
@@ -63,7 +70,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			Sponsorship existing;
 
 			existing = this.repository.findSponsorshipByCode(object.getCode()).orElse(null);
-			super.state(existing == null, "code", "sponsor.sponsorship.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "sponsor.sponsorship.form.error.duplicated");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
