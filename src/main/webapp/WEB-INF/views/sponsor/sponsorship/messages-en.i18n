@@ -1,5 +1,5 @@
-sponsor.sponsorship.list.title = List of my sponsorships
-sponsor.sponsorship.form.title = Sponsorship details 
+sponsor.sponsorship.list.title = List of my sponsorships:
+sponsor.sponsorship.form.title = Sponsorship details:
 
 sponsor.sponsorship.list.label.code = Code:
 sponsor.sponsorship.list.label.moment = Moment of creation:
@@ -17,8 +17,9 @@ sponsor.sponsorship.form.label.published = Published:
 sponsor.sponsorship.form.label.projectCode = Project code:
 sponsor.sponsorship.form.label.sponsorUsername = Sponsor Username:
 
-sponsor.sponsorship.form.button.invoices= List of invoices:
-sponsor.sponsorship.list.button.create= Create new sponsorship:
+sponsor.sponsorship.form.button.invoices= List of invoices
+sponsor.sponsorship.list.button.create= Create new sponsorship
+sponsor.sponsorship.form.button.delete= Delete
 
 sponsor.sponsorship.form.error.duplicated = This code is already taken
 sponsor.sponsorship.form.error.pastDurationInitial = The beginning of the sponsorship must be after its moment of creation
