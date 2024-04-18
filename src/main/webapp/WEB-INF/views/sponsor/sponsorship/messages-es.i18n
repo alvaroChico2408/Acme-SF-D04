@@ -20,4 +20,8 @@ sponsor.sponsorship.form.label.sponsorUsername = Nombre de usuario del patrocina
 sponsor.sponsorship.form.button.invoices= Lista de facturas:
 sponsor.sponsorship.list.button.create= Crear nuevo patrocinio:
 
-sponsor.sponsorship.form.error.duplicated = Este código está actualmente en uso.
+sponsor.sponsorship.form.error.duplicated = Este código está actualmente en uso
+sponsor.sponsorship.form.error.pastDurationInitial = El inicio del patrocinio deberá ser posterior a su momento de creación
+sponsor.sponsorship.form.error.durationFinalTooClose = La duración del patrocinio debe de ser de al menos un mes
+sponsor.sponsorship.form.error.positiveAmount = La cuantía del patrocinio debe ser superior a 0
+sponsor.sponsorship.form.error.validType = El tipo del patrocinio debe ser "Financial" o "InKind"

@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +65,20 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			existing = this.repository.findSponsorshipByCode(object.getCode()).orElse(null);
 			super.state(existing == null, "code", "sponsor.sponsorship.form.error.duplicated");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
+			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
+
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+			Date minimumDuration;
+			Date start = object.getDurationInitial();
+
+			minimumDuration = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.MONTHS);
+			super.state(MomentHelper.isAfter(object.getDurationFinal(), minimumDuration), "durationFinal", "sponsor.sponsorship.form.error.durationFinalTooClose");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() > 0, "amount", "sponsor.sponsorship.form.error.positiveAmount");
 	}
 
 	@Override
@@ -79,6 +96,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
+		dataset.put("projectCode", object.getProject().getCode());
 
 		super.getResponse().addData(dataset);
 	}
