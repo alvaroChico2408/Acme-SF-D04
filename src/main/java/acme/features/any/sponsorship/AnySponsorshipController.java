@@ -16,7 +16,10 @@ public class AnySponsorshipController extends AbstractController<Any, Sponsorshi
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnySponsorshipListService listService;
+	private AnySponsorshipListService	listService;
+
+	@Autowired
+	private AnySponsorshipShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -24,6 +27,7 @@ public class AnySponsorshipController extends AbstractController<Any, Sponsorshi
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }
