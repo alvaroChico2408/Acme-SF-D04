@@ -3,7 +3,10 @@ sponsor.sponsorship.form.title = Sponsorship details:
 
 sponsor.sponsorship.list.label.code = Code:
 sponsor.sponsorship.list.label.moment = Moment of creation:
+sponsor.sponsorship.list.label.durationInitial = Beginning:
+sponsor.sponsorship.list.label.durationFinal = Ending:
 sponsor.sponsorship.list.label.amount = Amount of money:
+sponsor.sponsorship.list.label.type = Type:
 
 sponsor.sponsorship.form.label.code = Code:
 sponsor.sponsorship.form.label.moment = Moment of creation:
