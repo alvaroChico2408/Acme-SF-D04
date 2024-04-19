@@ -8,3 +8,5 @@
 	<acme:list-column code="any.claim.list.label.heading" path="heading" width="65%"/>
 	<acme:list-column code="any.claim.list.label.instantiationMoment" path="instantiationMoment" width="20%"/>
 </acme:list>
+
+<acme:button code="any.claim.list.button.create" action="/any/claim/create"/>
