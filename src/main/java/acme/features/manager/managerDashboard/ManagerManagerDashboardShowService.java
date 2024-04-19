@@ -30,6 +30,8 @@ public class ManagerManagerDashboardShowService extends AbstractService<Manager,
 	public void load() {
 		int managerId;
 		ManagerDashboard dashboard;
+		int numUserStories;
+		int numProjects;
 		int numMustUserStories;
 		int numShouldUserStories;
 		int numCouldUserStories;
@@ -44,16 +46,28 @@ public class ManagerManagerDashboardShowService extends AbstractService<Manager,
 		Integer maxCostProjects;
 
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
+		numUserStories = this.repository.findNumUserStoriesStatics(managerId);
+		numProjects = this.repository.findNumProjectStatics(managerId);
 		numMustUserStories = this.repository.findNumUserStoriesByPriority(managerId, Priority.MUST);
 		numShouldUserStories = this.repository.findNumUserStoriesByPriority(managerId, Priority.SHOULD);
 		numCouldUserStories = this.repository.findNumUserStoriesByPriority(managerId, Priority.COULD);
 		numWontUserStories = this.repository.findNumUserStoriesByPriority(managerId, Priority.WONT);
-		averageEstimatedCostUserStories = this.repository.findAverageEstimatedCostUserStories(managerId).orElse(null);
-		deviationEstimatedCostUserStories = this.repository.findDeviationEstimatedCostUserStories(managerId).orElse(null);
+		if (numUserStories >= 2) {
+			averageEstimatedCostUserStories = this.repository.findAverageEstimatedCostUserStories(managerId).orElse(null);
+			deviationEstimatedCostUserStories = this.repository.findDeviationEstimatedCostUserStories(managerId).orElse(null);
+		} else {
+			averageEstimatedCostUserStories = null;
+			deviationEstimatedCostUserStories = null;
+		}
 		minEstimatedCostUserStories = this.repository.findMinEstimatedCostUserStories(managerId).orElse(null);
 		maxEstimatedCostUserStories = this.repository.findMaxEstimatedCostUserStories(managerId).orElse(null);
-		averageCostProjects = this.repository.findAverageCostProjects(managerId).orElse(null);
-		deviationCostProjects = this.repository.findDeviationCostProjects(managerId).orElse(null);
+		if (numProjects >= 2) {
+			averageCostProjects = this.repository.findAverageCostProjects(managerId).orElse(null);
+			deviationCostProjects = this.repository.findDeviationCostProjects(managerId).orElse(null);
+		} else {
+			averageCostProjects = null;
+			deviationCostProjects = null;
+		}
 		minCostProjects = this.repository.findMinCostProjects(managerId).orElse(null);
 		maxCostProjects = this.repository.findMaxCostProjects(managerId).orElse(null);
 

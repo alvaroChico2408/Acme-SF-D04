@@ -39,4 +39,10 @@ public interface ManagerManagerDashboardRepository extends AbstractRepository {
 	@Query("select min(p.cost) from Project p where (p.manager.id = :managerId and p.published = true)")
 	Optional<Integer> findMinCostProjects(int managerId);
 
+	@Query("select count(us) from UserStory us where (us.manager.id = :managerId and us.published = true)")
+	int findNumUserStoriesStatics(int managerId);
+
+	@Query("select count(p) from Project p where (p.manager.id = :managerId and p.published = true)")
+	int findNumProjectStatics(int managerId);
+
 }
