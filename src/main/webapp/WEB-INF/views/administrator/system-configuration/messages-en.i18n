@@ -1,0 +1,11 @@
+
+administrator.system-configuration.form.title = System Configuration
+administrator.system-configuration.form.label.systemCurrency = System currency:
+administrator.system-configuration.form.label.acceptedCurrencies = Accepted currencies:
+
+
+administrator.system-configuration.form.button.update = Update
+
+administrator.system-configuration.form.error.system-currency = The currency introduced is not registered by the system
+validation.systemConfiguration.systemCurrency = The system currency must only have 3 capital letters
+validation.systemConfiguration.aceptedCurrencies = Accepted currencies must have 3 capital letters and have to be separated by commas
