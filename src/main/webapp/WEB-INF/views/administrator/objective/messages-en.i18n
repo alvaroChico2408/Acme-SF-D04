@@ -1,0 +1,18 @@
+administrator.objective.form.title = Objective Form
+
+administrator.objective.form.label.title = Title:
+administrator.objective.form.label.description = Description:
+administrator.objective.form.label.priority = Priority:
+administrator.objective.form.label.status = Is critical
+administrator.objective.form.label.executionPeriodStart = Execution period start moment:
+administrator.objective.form.label.executionPeriodFinish = Execution period finish moment:
+administrator.objective.form.label.link = Link for more info: (Optional)
+
+administrator.objective.form.label.confirmation = Confirm that the objective is correct
+administrator.objective.form.button.create = Post
+
+administrator.objective.form.error.executionPeriodStart = Must be after the instantiation moment
+administrator.objective.form.error.badExecutionPeriodStart = Must be after 2000/01/01 00:00 and before 2200-12-31 23:59
+administrator.objective.form.error.executionPeriodFinish = Must be after the instantiation moment and after the execution start moment
+administrator.objective.form.error.badExecutionPeriodFinish = Must be after 2000/01/01 00:00 and before 2200-12-31 23:59
+administrator.objective.form.error.NotTimeEnough = Between execution start moment and execution finish moment must be, at least, one hour

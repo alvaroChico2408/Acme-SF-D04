@@ -38,7 +38,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.claims-list" action="/any/claim/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.authenticated.published-projects" action="/any/sponsorship/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.published-sponsorship" action="/any/sponsorship/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.objectives-list" action="/authenticated/objective/list"/>
 		</acme:menu-option>
@@ -50,6 +50,8 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.objective" action="/administrator/objective/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list"/>
 			<acme:menu-separator/>
