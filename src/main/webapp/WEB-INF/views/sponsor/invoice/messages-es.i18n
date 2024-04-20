@@ -17,6 +17,8 @@ sponsor.invoice.form.label.totalAmount= Cuantía total:
 sponsor.invoice.form.label.sponsorshipCode= Código del patrocinio:
 
 sponsor.invoice.form.button.update= Actualizar factura
+sponsor.invoice.form.button.delete= Eliminar factura
+sponsor.invoice.form.button.publish= Publicar factura
 
 sponsor.invoice.form.error.duplicated= Este código está actualmente en uso
 sponsor.invoice.form.error.dueDateTooClose= La fecha límite de la factura debe de ser de al menos un mes

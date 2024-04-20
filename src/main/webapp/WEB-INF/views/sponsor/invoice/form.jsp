@@ -15,8 +15,10 @@
 	<acme:input-textbox code="sponsor.invoice.form.label.sponsorshipCode" path="sponsorshipCode" readonly="true"/>
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update') && published == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
 			<acme:submit code="sponsor.invoice.form.button.update" action="/sponsor/invoice/update"/>
+			<acme:submit code="sponsor.invoice.form.button.delete" action="/sponsor/invoice/delete"/>
+			<acme:submit code="sponsor.invoice.form.button.publish" action="/sponsor/invoice/publish"/>
 		</jstl:when>	
 	</jstl:choose>
 </acme:form>
