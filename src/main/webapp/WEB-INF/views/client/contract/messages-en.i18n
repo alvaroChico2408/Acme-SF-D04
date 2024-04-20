@@ -1,0 +1,32 @@
+# messages-en.i18n
+
+client.contract.form.title = Contract form 
+client.contract.list.title = Listing of Contracts
+
+client.contract.form.label.code = Code:
+client.contract.form.label.instantiationMoment = InstantiationMoment: 
+client.contract.form.label.providerName = ProviderName:
+client.contract.form.label.customerName = CustomerName:
+client.contract.form.label.goals = Goals:
+client.contract.form.label.budget = Budget:
+cleint.contract.form.label.project = Projects
+client.contract.form.label.published = Published
+		
+client.contract.form.button.progressLog = ProgressLog
+
+client.contract.list.label.code = Code
+client.contract.list.label.instantiationMoment = InstantiationMoment
+client.contract.list.label.providerName = ProviderName
+client.contract.list.label.customerName = CustomerName
+client.contract.list.label.goals = Goals
+client.contract.list.label.budget = Budget
+client.contract.form.label.published = Published
+
+
+client.contract.list.button.create = Create contract
+client.contract.form.button.create = Create
+client.contract.form.button.update = Update contract
+client.contract.form.button.delete = Delete contract
+
+client.contract.form.error.duplicated = This reference is taken
+client.contract.form.error.higher-cost = The budget can't be higher than project cost
