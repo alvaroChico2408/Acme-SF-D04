@@ -15,3 +15,9 @@ sponsor.invoice.form.label.link= Link:
 sponsor.invoice.form.label.published= Published:
 sponsor.invoice.form.label.totalAmount= totalAmount:
 sponsor.invoice.form.label.sponsorshipCode= Sponsorship code:
+
+sponsor.invoice.form.button.update= Update invoice
+
+sponsor.invoice.form.error.duplicated= This code is already taken
+sponsor.invoice.form.error.dueDateTooClose= The due date of the invoice must be at least one month long
+sponsor.invoice.form.error.positiveNotZeroQuantity= The quantity of the invoice must be higher than zero
