@@ -22,6 +22,7 @@ sponsor.sponsorship.form.label.sponsorUsername = Sponsor Username:
 
 sponsor.sponsorship.form.button.invoices= List of invoices
 sponsor.sponsorship.list.button.create= Create new sponsorship
+sponsor.sponsorship.form.button.create= Create
 sponsor.sponsorship.form.button.delete= Delete sponsorship
 sponsor.sponsorship.form.button.update= Update sponsorship
 sponsor.sponsorship.form.button.publish= Publish sponsorship
