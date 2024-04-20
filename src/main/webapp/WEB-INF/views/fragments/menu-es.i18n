@@ -69,6 +69,7 @@ master.menu.manager.dashboard = Panel de indicadores
 
 master.menu.sponsor = Patrocinador
 master.menu.sponsor.my-sponsorships = Listado de mis patrocinios
+master.menu.sponsor.dashboard = Panel de indicadores
 
 # master.menu.user-account ####################################################
 
