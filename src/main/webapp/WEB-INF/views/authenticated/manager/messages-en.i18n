@@ -1,0 +1,8 @@
+authenticated.manager.form.title = Manager form
+
+authenticated.manager.form.label.degree = Degree:
+authenticated.manager.form.label.overview = Overview:
+authenticated.manager.form.label.certifications = Certifications:
+authenticated.manager.form.label.link = Link for more info: (Optional)
+
+authenticated.manager.form.button.create = Register
