@@ -44,3 +44,15 @@ sponsorship-42,CDE-003,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 15
 sponsorship-43,AAA-018,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,ftp://example.com,false,project-31,sponsor-01
 sponsorship-44,AAA-019,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,file:///path/to/file.txt,false,project-31,sponsor-01
 sponsorship-45,CDE-823,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,true,project-31,sponsor-01
+sponsorship-46,CJE-123,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-33,sponsor-01
+sponsorship-47,CPE-123,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-34,sponsor-01
+sponsorship-48,CHE-123,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-34,sponsor-01
+sponsorship-49,KDE-423,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-35,sponsor-01
+sponsorship-50,ODE-163,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-35,sponsor-01
+sponsorship-51,KDE-183,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-35,sponsor-01
+sponsorship-52,KDE-223,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 100000000.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,true,project-31,sponsor-01
+sponsorship-53,KDE-293,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,USD 100000000.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,true,project-31,sponsor-01
+sponsorship-54,KDE-203,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 100000000.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,true,project-31,sponsor-01
+sponsorship-55,KDE-213,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 100000000.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,true,project-31,sponsor-01
+sponsorship-56,KDE-213,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
+sponsorship-57,KDE-213,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
