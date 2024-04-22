@@ -1,0 +1,25 @@
+administrator.administratorDashboard.form.label.numManagerPrincipals= Número de gerentes:
+administrator.administratorDashboard.form.label.numClientPrincipals = Número de clientes:
+administrator.administratorDashboard.form.label.numDeveloperPrincipals= Número de desarrolladores
+administrator.administratorDashboard.form.label.numSponsorPrincipals: Número de patrocinadores:
+administrator.administratorDashboard.form.label.numAuditorPrincipals= Número de auditores:
+
+administrator.administratorDashboard.form.label.ratioNoticesWithEmailAndLink= Ratio de noticias con email y link:
+
+administrator.administratorDashboard.form.label.ratioCriticalObjectives= Ratio de objetivos críticos:
+administrator.administratorDashboard.form.label.ratioNonCriticalObjectives= Ratio de objetivos no críticos:
+
+administrator.administratorDashboard.form.label.averageRisksValues= Media del valor de los riesgos:
+administrator.administratorDashboard.form.label.minRisksValues= Valor de los riesgos mínimo:
+administrator.administratorDashboard.form.label.maxRisksValues= Valor de los riesgos máximo:
+administrator.administratorDashboard.form.label.standardDeviationRisksValues= Desviación del valor de los riesgos:
+
+administrator.administratorDashboard.form.label.averagePostedClaimsLast10Weeks= Media de reclamaciones realizadas en las últimas 10 semanas:
+administrator.administratorDashboard.form.label.minPostedClaimsLast10Weeks= Mínimo de reclamaciones realizadas en las últimas 10 semanas:
+administrator.administratorDashboard.form.label.maxPostedClaimsLast10Weeks= Máximo de reclamaciones realizadas en las últimas 10 semanas:
+administrator.administratorDashboard.form.label.standardDeviationPostedClaimsLast10Weeks= Desviación de reclamaciones realizadas en las últimas 10 semanas:
+
+administrator.administratorDashboard.form.label.risks.information=Información sobre los riesgos:
+sponsor.sponsorDashboard.form.label.claims.information: Información sobre las reclamaciones:
+
+administrator.administrator-dashboard.form.title= Panel de indicadores

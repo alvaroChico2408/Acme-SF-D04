@@ -1,0 +1,25 @@
+administrator.administratorDashboard.form.label.numManagerPrincipals= Number of managers:
+administrator.administratorDashboard.form.label.numClientPrincipals = Number of clients:
+administrator.administratorDashboard.form.label.numDeveloperPrincipals= Number of developers:
+administrator.administratorDashboard.form.label.numSponsorPrincipals: Number of sponsors:
+administrator.administratorDashboard.form.label.numAuditorPrincipals= Number of auditors:
+
+administrator.administratorDashboard.form.label.ratioNoticesWithEmailAndLink= Ratio of notices with link and email:
+
+administrator.administratorDashboard.form.label.ratioCriticalObjectives= Ratio of critical objectives:
+administrator.administratorDashboard.form.label.ratioNonCriticalObjectives= Ratio of non critical objectives:
+
+administrator.administratorDashboard.form.label.averageRisksValues= Average risks values:
+administrator.administratorDashboard.form.label.minRisksValues= Minimum risk value:
+administrator.administratorDashboard.form.label.maxRisksValues= Maximum risk value:
+administrator.administratorDashboard.form.label.standardDeviationRisksValues= Deviation of risks values:
+
+administrator.administratorDashboard.form.label.averagePostedClaimsLast10Weeks= Average posted claims last 10 weeks:
+administrator.administratorDashboard.form.label.minPostedClaimsLast10Weeks= Minimum posted claims last 10 weeks:
+administrator.administratorDashboard.form.label.maxPostedClaimsLast10Weeks: Maximum posted claims last 10 weeks:
+administrator.administratorDashboard.form.label.standardDeviationPostedClaimsLast10Weeks: Deviation of posted claims:
+
+administrator.administratorDashboard.form.label.risks.information=Risk information:
+sponsor.sponsorDashboard.form.label.claims.information: Claims information:
+
+administrator.administrator-dashboard.form.title= Dashboard:
