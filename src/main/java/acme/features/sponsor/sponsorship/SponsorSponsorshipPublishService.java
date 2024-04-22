@@ -71,7 +71,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
-		Collection<Invoice> invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
+		Collection<Invoice> invoices = this.repository.findPublishedInvoicesBySponsorshipId(object.getId());
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship existing;
