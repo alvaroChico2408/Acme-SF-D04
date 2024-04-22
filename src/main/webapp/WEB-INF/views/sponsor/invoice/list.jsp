@@ -10,3 +10,4 @@
 <acme:list-column code="sponsor.invoice.list.label.totalAmount" path="totalAmount" width="25%"/>
 
 </acme:list>
+<acme:button code="sponsor.invoice.create" action="/sponsor/invoice/create?sponsorshipId=${sponsorshipId}"/>

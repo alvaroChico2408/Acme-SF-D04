@@ -19,6 +19,9 @@
 			<acme:submit code="sponsor.invoice.form.button.update" action="/sponsor/invoice/update"/>
 			<acme:submit code="sponsor.invoice.form.button.delete" action="/sponsor/invoice/delete"/>
 			<acme:submit code="sponsor.invoice.form.button.publish" action="/sponsor/invoice/publish"/>
-		</jstl:when>	
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?id=${sponsorshipId}"/>
+		</jstl:when>		
 	</jstl:choose>
 </acme:form>
