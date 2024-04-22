@@ -9,3 +9,5 @@
 	<acme:list-column code="authenticated.notice.list.label.author" path="author" width="33%"/>
 </acme:list>
 
+<acme:button code="authenticated.notice.list.button.create" action="/authenticated/notice/create"/>
+

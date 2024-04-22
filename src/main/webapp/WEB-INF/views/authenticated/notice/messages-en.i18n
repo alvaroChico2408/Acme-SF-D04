@@ -12,3 +12,7 @@ authenticated.notice.form.label.message= Message:
 authenticated.notice.form.label.email= Email:
 authenticated.notice.form.label.link= Link:
 
+authenticated.notice.list.button.create= Create new notice
+authenticated.notice.form.label.confirmation= Confirmation
+authenticated.notice.form.button.create= Create
+

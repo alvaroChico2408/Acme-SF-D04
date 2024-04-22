@@ -16,10 +16,13 @@ public class AuthenticatedNoticeController extends AbstractController<Authentica
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedNoticeListService	listService;
+	private AuthenticatedNoticeListService		listService;
 
 	@Autowired
-	private AuthenticatedNoticeShowService	showService;
+	private AuthenticatedNoticeShowService		showService;
+
+	@Autowired
+	private AuthenticatedNoticeCreateService	createService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -28,6 +31,7 @@ public class AuthenticatedNoticeController extends AbstractController<Authentica
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 	}
 
 }
