@@ -1,0 +1,31 @@
+developer.training-module.list.title = Lista de mis módulos de entrenamiento
+developer.training-module.form.title = Formulario de módulo de entrenamiento:
+
+developer.trainingModule.list.label.code = Código:
+developer.trainingModule.list.label.details = Detalles:
+developer.trainingModule.list.label.difficultyLevel = Nivel de dificultad:
+
+manager.project.list.button.create = Create
+
+developer.trainingModule.form.label.code = Código:
+developer.trainingModule.form.label.creationMoment = Momento de creación:
+developer.trainingModule.form.label.details = Detalles:
+developer.trainingModule.form.label.difficultyLevel = Nivel de dificultad:
+developer.trainingModule.form.label.updateMoment = Momento de actualización:
+developer.trainingModule.form.label.link = Link para más información: (Opcional)
+developer.trainingModule.form.label.totalTime = Tiempo total (en horas):
+developer.trainingModule.form.label.published = Publicado:
+developer.trainingModule.form.label.developerUsername = Nombre de usuario del desarrollador:
+
+developer.trainingModule.form.button.trainingSessions = Sesiones de entrenamiento
+developer.trainingModule.form.button.create = Crear
+developer.trainingModule.form.button.delete = Eliminar
+developer.trainingModule.form.button.update = Actualizar
+developer.trainingModule.form.button.publish = Publicar
+
+developer.trainingModule.form.error.duplicated = Este código está en uso
+developer.trainingModule.form.error.details = El máximo de caracteres del campo detalles es 100
+developer.trainingModule.form.error.difficultyLevel = No puedes publicar un módulo de entrenamiento sin nivel de dificultad
+developer.trainingModule.form.error.updateMoment = El momento de actualización debe estar después del momento de creación
+developer.trainingModule.form.error.link = El link debe tener un máximo de 255 caracteres
+developer.trainingModule.form.error.totalTime = El tiempo total debe ser cero o un número positivo

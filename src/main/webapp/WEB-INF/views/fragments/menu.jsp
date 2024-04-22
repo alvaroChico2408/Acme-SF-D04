@@ -87,6 +87,10 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.sponsor.dashboard" action="/sponsor/sponsor-dashboard/show"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.developer" access="hasRole('Developer')">			
+			<acme:menu-suboption code="master.menu.developer.my-training-modules" action="/developer/training-module/list"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
