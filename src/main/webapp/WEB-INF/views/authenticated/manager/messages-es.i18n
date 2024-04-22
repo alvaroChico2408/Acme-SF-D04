@@ -1,0 +1,9 @@
+authenticated.manager.form.title = Detalles de gerente
+
+authenticated.manager.form.label.degree = Licenciaturas:
+authenticated.manager.form.label.overview = Descripción general:
+authenticated.manager.form.label.certifications = Certificaciones:
+authenticated.manager.form.label.link = Link para más información: (Opcional)
+
+authenticated.manager.form.button.create = Registrarse
+authenticated.manager.form.button.update = Actualizar

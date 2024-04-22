@@ -1,27 +1,28 @@
-key,code,instantiation_moment,provider_name,customer_name,goals,budget,key:project
-contract-01,ABC-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-02,ABC-133,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-03,ABC-453,2000/01/01 00:01,Provider1,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-04,ABC-653,2022/03/07 18:20,Provider1,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-05,ABC-763,2022/03/07 18:19,Provider1,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-06,ABC-773,2020/02/07 20:00,Provider1,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-07,ABC-183,2002/08/21 17:00,esto es un nombre de proveedor con justo 75 caracteres---------------------,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-08,ABC-543,2002/08/21 17:00,esto es un nombre de proveedor con justo 74 caracteres--------------------,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-09,ABC-234,2002/08/21 17:00,e,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-10,ADC-123,2002/08/21 17:00,es,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-11,ABT-123,2002/08/21 17:00,nombre de proveedor normal,Customer1,Project goals description,EUR 5000000.0,project-01
-contract-12,FBC-123,2002/08/21 17:00,Provider1,esto es un nombre de customer con justo 75 caracteres----------------------,Project goals description,EUR 5000000.0,project-01
-contract-13,ATT-123,2002/08/21 17:00,Provider1,esto es un nombre de customer con justo 74 caracteres---------------------,Project goals description,EUR 5000000.0,project-01
-contract-14,AZC-823,2002/08/21 17:00,Provider1,e,Project goals description,EUR 5000000.0,project-01
-contract-15,AHG-123,2002/08/21 17:00,Provider1,es,Project goals description,EUR 5000000.0,project-01
-contract-16,KLC-123,2002/08/21 17:00,Provider1,nombre de customer normal,Project goals description,EUR 5000000.0,project-01
-contract-17,AIK-123,2002/08/21 17:00,Provider1,Customer1,esto es una descripcion de goals con justo 100 caracteres-------------------------------------------,EUR 5000000.0,project-01
-contract-18,BBC-123,2002/08/21 17:00,Provider1,Customer1,esto es una descripcion de goals con justo 99 caracteres-------------------------------------------,EUR 5000000.0,project-01
-contract-19,ERC-123,2002/08/21 17:00,Provider1,Customer1,e,EUR 5000000.0,project-01
-contract-20,AAA-123,2002/08/21 17:00,Provider1,Customer1,es,EUR 5000000.0,project-01
-contract-21,ABZ-123,2002/08/21 17:00,Provider1,Customer1,descripcion de goals normal,EUR 5000000.0,project-01
-contract-22,WQC-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR -1000000.0,project-01
-contract-23,ATY-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR -999999.99,project-01
-contract-24,ALP-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 1000000.0,project-01
-contract-25,AOO-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 999999.99,project-01
-contract-26,QSD-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 24589.45,project-01
+key,code,instantiation_moment,provider_name,customer_name,goals,budget,published,key:project,key:client
+contract-01,ABC-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 50000.0,true,project-31,client-01
+contract-02,ABC-133,2000/01/01 00:00,Provider1,Customer1,Project goals description,EUR 50000.0,true,project-31,client-02
+contract-03,ABC-453,2000/01/01 00:01,Provider1,Customer1,Project goals description,EUR 50000.0,true,project-31,client-03
+contract-04,ABC-653,2022/03/07 18:20,Provider1,Customer1,Project goals description,EUR 50000.0,true,project-31,client-04
+contract-05,ABC-763,2022/03/07 18:19,Provider1,Customer1,Project goals description,EUR 50000.0,true,project-31,client-05
+contract-06,ABC-773,2020/02/07 20:00,Provider1,Customer1,Project goals description,EUR 50000.0,true,project-31,client-06
+contract-07,ABC-183,2002/08/21 17:00,esto es un nombre de proveedor con justo 75 caracteres---------------------,Customer1,Project goals description,EUR 50000.0,true,project-31,client-07
+contract-08,ABC-543,2002/08/21 17:00,esto es un nombre de proveedor con justo 74 caracteres--------------------,Customer1,Project goals description,EUR 50000.0,true,project-31,client-08
+contract-09,ABC-234,2002/08/21 17:00,e,Customer1,Project goals description,EUR 50000.0,true,project-31,client-09
+contract-10,ADC-123,2002/08/21 17:00,es,Customer1,Project goals description,EUR 50000.0,true,project-31,client-10
+contract-11,ABT-123,2002/08/21 17:00,nombre de proveedor normal,Customer1,Project goals description,EUR 50000.0,true,project-31,client-11
+contract-12,FBC-123,2002/08/21 17:00,Provider1,esto es un nombre de customer con justo 75 caracteres----------------------,Project goals description,EUR 50000.0,true,project-31,client-12
+contract-13,ATT-123,2002/08/21 17:00,Provider1,esto es un nombre de customer con justo 74 caracteres---------------------,Project goals description,EUR 50000.0,true,project-31,client-13
+contract-14,AZC-823,2002/08/21 17:00,Provider1,e,Project goals description,EUR 50000.0,true,project-31,client-14
+contract-15,AHG-123,2002/08/21 17:00,Provider1,es,Project goals description,EUR 50000.0,true,project-31,client-15
+contract-16,KLC-123,2002/08/21 17:00,Provider1,nombre de customer normal,Project goals description,EUR 50000.0,true,project-31,client-16
+contract-17,AIK-123,2002/08/21 17:00,Provider1,Customer1,esto es una descripcion de goals con justo 100 caracteres-------------------------------------------,EUR 50000.0,true,project-31,client-17
+contract-18,BBC-123,2002/08/21 17:00,Provider1,Customer1,esto es una descripcion de goals con justo 99 caracteres-------------------------------------------,EUR 50000.0,true,project-31,client-18
+contract-19,ERC-123,2002/08/21 17:00,Provider1,Customer1,e,EUR 50000.0,true,project-31,client-19
+contract-20,AAA-123,2002/08/21 17:00,Provider1,Customer1,es,EUR 50000.0,true,project-31,client-19
+contract-21,ABZ-123,2002/08/21 17:00,Provider1,Customer1,descripcion de goals normal,EUR 50000.0,true,project-31,client-18
+contract-22,WQC-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 0.00,true,project-31,client-17
+contract-23,ATY-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 0.01,true,project-31,client-16
+contract-24,ALP-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 1000000.0,true,project-31,client-15
+contract-25,AOO-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 999999.99,true,project-31,client-14
+contract-26,QSD-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 24589.45,true,project-31,client-13
+contract-27,CBA-123,2002/08/21 17:00,Provider1,Customer1,Project goals description,EUR 50000.0,false,project-31,client-12

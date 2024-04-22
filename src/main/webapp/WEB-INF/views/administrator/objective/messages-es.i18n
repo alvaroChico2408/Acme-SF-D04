@@ -1,0 +1,18 @@
+administrator.objective.form.title = Detalles del objetivo
+
+administrator.objective.form.label.title = Título:
+administrator.objective.form.label.description = Descripción:
+administrator.objective.form.label.priority = Prioridad:
+administrator.objective.form.label.status = Es crítico
+administrator.objective.form.label.executionPeriodStart = Momento de inicio del periodo de ejecución:
+administrator.objective.form.label.executionPeriodFinish = Momento de fin del periodo de ejecución:
+administrator.objective.form.label.link = Link para más información: (Opcional)
+
+administrator.objective.form.label.confirmation = Confirma que el objetivo es correcta
+administrator.objective.form.button.create = Publicar
+
+administrator.objective.form.error.executionPeriodStart = Tiene que ser después del momento de instanciación
+administrator.objective.form.error.badExecutionPeriodStart = Tiene que ser después de 2000/01/01 00:00 y antes de 2200-12-31 23:59
+administrator.objective.form.error.executionPeriodFinish = Tiene que ser después del momento de instanciación y después del inicio del periodo de ejecución
+administrator.objective.form.error.badExecutionPeriodFinish = Tiene que ser después de 2000/01/01 00:00 y antes de 2200-12-31 23:59
+administrator.objective.form.error.NotTimeEnough = Entre el inicio del periodo de ejecución y el el inicio del periodo de ejecución tiene que haber, al menos, una hora

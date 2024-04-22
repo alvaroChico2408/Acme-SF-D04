@@ -1,0 +1,20 @@
+manager.manager-dashboard.form.title = Dashboard
+
+manager.managerDashboard.form.label.userStory-must = Number of user stories with priority "MUST"
+manager.managerDashboard.form.label.userStory-should = Number of user stories with priority "SHOULD"
+manager.managerDashboard.form.label.userStory-could = Number of user stories with priority "COULD"
+manager.managerDashboard.form.label.userStory-wont = Number of user stories with priority "WON'T"
+
+manager.managerDashboard.form.label.average-userStory-estimatedCost = Average estimated cost (in hours) of user stories
+manager.managerDashboard.form.label.stddev-userStory-estimatedCost = Deviation estimated cost (in hours) of user stories
+manager.managerDashboard.form.label.min-userStory-estimatedCost = Minimum estimated cost (in hours) of user stories
+manager.managerDashboard.form.label.max-userStory-estimatedCost = Maximum estimated cost (in hours) of user stories
+
+manager.managerDashboard.form.label.average-project-cost = Average cost (in hours) of projects
+manager.managerDashboard.form.label.stddev-project-cost = Deviation cost of projects
+manager.managerDashboard.form.label.min-project-cost = Minimum cost (in hours) of projects
+manager.managerDashboard.form.label.max-project-cost = Maximum cost (in hours) of projects
+
+manager.managerDashboard.form.label.userStories.priority.information = Graphic about the priorities of the user stories
+manager.managerDashboard.form.label.userStories.information = Graphic about user stories estimated cost (in hours)
+manager.managerDashboard.form.label.projects.information = Graphic about projects costs (in hours)

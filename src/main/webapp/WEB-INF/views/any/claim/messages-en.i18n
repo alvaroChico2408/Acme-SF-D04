@@ -1,0 +1,21 @@
+any.claim.list.title = List of claims
+any.claim.form.title = Claim form
+
+any.claim.list.label.code = Code:
+any.claim.list.label.heading = Heading:
+any.claim.list.label.instantiationMoment = Instantiation moment:
+
+any.claim.list.button.create = Publish a claim
+
+any.claim.form.label.code = Code:
+any.claim.form.label.heading = Heading:
+any.claim.form.label.instantiationMoment = Instantiation moment:
+any.claim.form.label.description = Description:
+any.claim.form.label.department = Department:
+any.claim.form.label.email = Email for contact: (Optional)
+any.claim.form.label.link = Link for more info: (Optional)
+any.claim.form.label.confirmation = Confirm that the claim is correct
+
+any.claim.form.button.create = Publish
+
+any.claim.form.error.duplicated = This code is taken

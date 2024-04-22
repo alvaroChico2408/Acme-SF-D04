@@ -10,7 +10,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -20,9 +20,9 @@ import acme.client.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
 public class Claim extends AbstractEntity {
 
 	// Serialisation identifier ----------------------------------------------
@@ -38,7 +38,7 @@ public class Claim extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Past
+	@PastOrPresent
 	private Date				instantiationMoment;
 
 	@NotBlank
@@ -61,7 +61,7 @@ public class Claim extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	// Derived attributes ----------------------- ------------------------------
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 

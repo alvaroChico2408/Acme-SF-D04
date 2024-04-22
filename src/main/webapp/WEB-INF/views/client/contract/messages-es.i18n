@@ -1,0 +1,32 @@
+# messages-es.i18n
+
+client.contract.form.title = Detalles de contratos
+client.contract.list.title = Lista de contratos
+
+client.contract.list.label.code = Código
+client.contract.list.label.instantiationMoment = Momento de instanciación
+client.contract.list.label.providerName = Nombre del proveedorTítulo
+client.contract.list.label.customerName = Nombre del cliente
+client.contract.list.label.goals = Metas
+client.contract.list.label.budget = Presupuesto
+client.contract.form.label.published = Publicado
+
+
+client.contract.list.button.create = Crear un contrato
+client.contract.list.button.create = Crear
+client.contract.form.button.update = Actualizar contracto
+client.contract.form.button.delete = Borrar contrato
+
+client.contract.form.label.code = Código: 
+client.contract.form.label.instantiationMoment = Momento de instanciación: 
+client.contract.form.label.providerName = Nombre del proveedor:
+client.contract.form.label.customerName = Nombre del cliente:
+client.contract.form.label.goals = Metas:
+client.contract.form.label.budget = Presupuesto:
+cleint.contract.form.label.project = Proyectos:
+client.contract.form.label.published = Publicado
+		
+client.contract.form.button.progressLog = Registros de progreso
+
+client.contract.form.error.duplicated = Esta referencia esta ocupada
+client.contract.form.error.higher-cost = El presupuesto no puede ser mayor al coste del proyecto

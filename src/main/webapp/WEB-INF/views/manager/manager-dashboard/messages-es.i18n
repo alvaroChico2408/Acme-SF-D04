@@ -1,0 +1,20 @@
+manager.manager-dashboard.form.title = Panel de indicadores
+
+manager.managerDashboard.form.label.userStory-must = Número de historias de usuario con la prioridad "MUST"
+manager.managerDashboard.form.label.userStory-should = Número de historias de usuario con la prioridad "SHOULD"
+manager.managerDashboard.form.label.userStory-could = Número de historias de usuario con la prioridad "COULD"
+manager.managerDashboard.form.label.userStory-wont = Número de historias de usuario con la prioridad "WON'T"
+
+manager.managerDashboard.form.label.average-userStory-estimatedCost = Media del coste estimado (en horas) de las historias de usuarios
+manager.managerDashboard.form.label.stddev-userStory-estimatedCost = Desviación del coste estimado (en horas) de las historias de usuarios
+manager.managerDashboard.form.label.min-userStory-estimatedCost = Mínimo del coste estimado (en horas) de las historias de usuarios
+manager.managerDashboard.form.label.max-userStory-estimatedCost = Máximo del coste estimado (en horas) de las historias de usuarios
+
+manager.managerDashboard.form.label.average-project-cost = Media del coste (en horas) de los proyectos
+manager.managerDashboard.form.label.stddev-project-cost = Desviación del coste (en horas) de los proyectos
+manager.managerDashboard.form.label.min-project-cost = Mínimo del coste (en horas) de los proyectos
+manager.managerDashboard.form.label.max-project-cost = Máximo del coste (en horas) de los proyectos
+
+manager.managerDashboard.form.label.userStories.priority.information = Gráfica acerca de la prioridad de las historias de usuario
+manager.managerDashboard.form.label.userStories.information = Gráfica acerca del coste estimado (en horas) de las historias de usuario
+manager.managerDashboard.form.label.projects.information = Gráfica acerca del coste (en horas) de los proyectos

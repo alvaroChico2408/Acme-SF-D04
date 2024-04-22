@@ -1,0 +1,29 @@
+administrator.banner.list.title = Banners List
+
+administrator.banner.list.label.instantiationMoment = Instantiation Moment:
+administrator.banner.list.label.displayStartDate = Display Start Date:
+administrator.banner.list.label.displayEndDate = Display End Date:
+administrator.banner.list.label.slogan = Slogan:
+
+administrator.banner.list.button.create = Create
+
+administrator.banner.form.title = Banner
+
+administrator.banner.form.label.instantiationMoment = Instantiation Moment:
+administrator.banner.form.label.displayStartDate = Display Start Date:
+administrator.banner.form.label.displayEndDate = Display End Date:
+administrator.banner.form.label.picture = Picture:
+administrator.banner.form.label.slogan = Slogan:
+administrator.banner.form.label.link = More Info.:
+
+administrator.banner.form.button.create = Create
+
+administrator.banner.form.error.displayStartDate = DisplayStartDate must be after the instantiation moment
+administrator.banner.form.error.badDiplayStartDate = DisplayStartDate must be after 2000/01/01 00:00 and before 2200-12-31 23:59
+administrator.banner.form.error.displayEndDate = DisplayEndDate must be after the instantiation moment
+administrator.banner.form.error.badDiplayEndDate = DisplayEndDate must be after 2000/01/01 00:00 and before 2200-12-31 23:59
+administrator.banner.form.error.notTimeEnough = DisplayEndDate must be at least one week later than DisplayStartDate
+
+administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.button.update = Update

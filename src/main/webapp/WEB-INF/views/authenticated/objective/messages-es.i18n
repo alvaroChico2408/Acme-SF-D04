@@ -1,0 +1,16 @@
+authenticated.objective.list.title = Listado de objetivos
+authenticated.objective.form.title = Detalles del objetivo
+
+authenticated.objective.list.label.title = Título:
+authenticated.objective.list.label.priority = Prioridad:
+authenticated.objective.list.label.status = Es crítico
+authenticated.objective.list.label.instantiationMoment = Momento de instanciación:
+
+authenticated.objective.form.label.instantiationMoment = Momento de instanciación:
+authenticated.objective.form.label.title = Título:
+authenticated.objective.form.label.description = Descripción:
+authenticated.objective.form.label.priority = Prioridad:
+authenticated.objective.form.label.status = Es crítico
+authenticated.objective.form.label.executionPeriodStart = Momento de inicio del periodo de ejecución:
+authenticated.objective.form.label.executionPeriodFinish = Momento de fin del periodo de ejecución:
+authenticated.objective.form.label.link = Link para más información: (Opcional)

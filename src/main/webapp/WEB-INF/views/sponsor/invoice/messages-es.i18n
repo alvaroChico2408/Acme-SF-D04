@@ -1,0 +1,27 @@
+sponsor.invoice.list.title = Lista de las facturas:
+sponsor.invoice.form.title = Detalles de la factura:
+
+sponsor.invoice.list.label.code= Código:
+sponsor.invoice.list.label.registrationTime= Fecha de registro:
+sponsor.invoice.list.label.dueDate= Fecha límite:
+sponsor.invoice.list.label.totalAmount= Cuantía total:
+
+sponsor.invoice.form.label.code= Código:
+sponsor.invoice.form.label.registrationTime= Fecha de registro:
+sponsor.invoice.form.label.dueDate= Fecha límite:
+sponsor.invoice.form.label.quantity= Cantidad:
+sponsor.invoice.form.label.tax= Tasa:
+sponsor.invoice.form.label.link= Link:
+sponsor.invoice.form.label.published= Publicada:
+sponsor.invoice.form.label.totalAmount= Cuantía total:
+sponsor.invoice.form.label.sponsorshipCode= Código del patrocinio:
+
+sponsor.invoice.form.button.update= Actualizar factura
+sponsor.invoice.form.button.delete= Eliminar factura
+sponsor.invoice.form.button.publish= Publicar factura
+
+sponsor.invoice.form.error.duplicated= Este código está actualmente en uso
+sponsor.invoice.form.error.dueDateTooClose= La fecha límite de la factura debe de ser de al menos un mes
+sponsor.invoice.form.error.positiveNotZeroQuantity= La cuantía de la factura debe ser superior a 0
+
+

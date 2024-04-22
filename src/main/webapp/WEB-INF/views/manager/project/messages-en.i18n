@@ -1,0 +1,29 @@
+manager.project.list.title = List of my projects
+manager.project.form.title = Project form 
+
+manager.project.list.label.code = Code:
+manager.project.list.label.title = Title:
+manager.project.list.label.cost = Cost (in whole hours):
+manager.project.list.label.published = Published
+
+manager.project.list.button.create = Create
+
+manager.project.form.label.code = Code:
+manager.project.form.label.title = Title:
+manager.project.form.label.abstract = Abstract:
+manager.project.form.label.fatalErrors = Fatal errors
+manager.project.form.label.cost = Cost (in whole hours):
+manager.project.form.label.link = Link for more info: (Optional)
+manager.project.form.label.published = Published
+manager.project.form.label.managerUsername = Username of the manager:
+
+manager.project.form.button.userStories = User stories
+manager.project.form.button.create = Create
+manager.project.form.button.delete = Delete
+manager.project.form.button.update = Update
+manager.project.form.button.publish = Publish
+
+manager.project.form.error.duplicated = This code is taken
+manager.project.form.error.nouserstory = You can't publish a project without user stories
+manager.project.form.error.userstorynotpublish = You can't publish a project with user stories that aren't publish
+manager.project.form.error.fatalErrors = You can't publish a project with fatal errors

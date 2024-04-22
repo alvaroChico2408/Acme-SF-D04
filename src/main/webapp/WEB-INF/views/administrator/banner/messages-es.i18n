@@ -1,0 +1,29 @@
+administrator.banner.list.title = Lista de Carteles
+
+administrator.banner.list.label.instantiationMoment = Momento de Instanciación:
+administrator.banner.list.label.displayStartDate = Fecha de Comienzo de la Exhibición:
+administrator.banner.list.label.displayEndDate = Fecha del Final de la Exhibición:
+administrator.banner.list.label.slogan = Slogan:
+
+administrator.banner.list.button.create = Crear
+
+administrator.banner.form.title = Cartel
+
+administrator.banner.form.label.instantiationMoment = Momento de Instanciación:
+administrator.banner.form.label.displayStartDate = Fecha de Comienzo de la Exhibición:
+administrator.banner.form.label.displayEndDate = Fecha del Final de la Exhibición:
+administrator.banner.form.label.picture = Imagen:
+administrator.banner.form.label.slogan = Slogan:
+administrator.banner.form.label.link = Más Info.:
+
+administrator.banner.form.button.create = Crear
+
+administrator.banner.form.error.displayStartDate = La fecha del comienzo de la exhibición debe ocurrir después del momento de la instanciación
+administrator.banner.form.error.badDiplayStartDate = La fecha del comienzo de la exhibición debe ocurrir después del 2000/01/01 00:00 y antes del 2200-12-31 23:59
+administrator.banner.form.error.displayEndDate = La fecha del final de la exhibición debe ocurrir después del momento de la instanciación
+administrator.banner.form.error.badDiplayEndDate = La fecha del final de la exhibición debe ocurrir después del 2000/01/01 00:00 y antes del 2200-12-31 23:59
+administrator.banner.form.error.notTimeEnough = La fecha del final de la exhibición debe ocurrir al menos una semana después que la fecha del comienzo de la exhibición
+
+administrator.banner.form.button.delete = Eliminar
+
+administrator.banner.form.button.update = Actualizar

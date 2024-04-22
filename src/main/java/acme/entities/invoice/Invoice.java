@@ -14,7 +14,7 @@ import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -42,11 +42,12 @@ public class Invoice extends AbstractEntity {
 	@Pattern(regexp = "^IN-[0-9]{4}-[0-9]{4}$", message = "{validation.invoice.code}")
 	private String				code;
 
-	@Temporal(TemporalType.DATE)
-	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
 	@NotNull
 	private Date				registrationTime;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Date				dueDate;
 
@@ -61,12 +62,17 @@ public class Invoice extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
+	private boolean				published;
+
 	// Derived attributes -----------------------------------------------------
 
 
 	@Transient
-	private Double totalAmount() {
-		return this.quantity.getAmount() + this.tax * this.quantity.getAmount();
+	public Money totalAmount() {
+		Money total = new Money();
+		total.setAmount(this.quantity.getAmount() + this.tax * this.quantity.getAmount());
+		total.setCurrency(this.quantity.getCurrency());
+		return total;
 	}
 
 	// Relationships ----------------------------------------------------------
