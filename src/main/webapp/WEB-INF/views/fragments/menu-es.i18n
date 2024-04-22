@@ -35,6 +35,7 @@ master.menu.authenticated.published-projects = Listado proyectos publicados
 master.menu.authenticated.claims-list = Listado reclamaciones
 master.menu.authenticated.objectives-list = Listado objetivos
 master.menu.authenticated.published-sponsorship = Listado de patrocinios publicados
+master.menu.authenticated.notices-list = Noticias del último mes
 
 # master.menu.administrator ###################################################
 

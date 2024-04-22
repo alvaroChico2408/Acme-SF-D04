@@ -41,6 +41,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.published-sponsorship" action="/any/sponsorship/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.objectives-list" action="/authenticated/objective/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.notices-list" action="/authenticated/notice/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">

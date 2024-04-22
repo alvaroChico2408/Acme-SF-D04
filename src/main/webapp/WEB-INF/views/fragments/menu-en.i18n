@@ -35,6 +35,7 @@ master.menu.authenticated.published-projects = List published projects
 master.menu.authenticated.claims-list = List claims
 master.menu.authenticated.objectives-list = List objectives
 master.menu.authenticated.published-sponsorship = List published sponsorship
+master.menu.authenticated.notices-list = Notices from the last month
 
 
 # master.menu.administrator ###################################################

@@ -1,0 +1,14 @@
+authenticated.notice.list.title= Notices from the last month:
+authenticated.notice.form.title= Notice details:
+
+authenticated.notice.list.label.instantiationMoment= Instantiation moment:
+authenticated.notice.list.label.title= Title:
+authenticated.notice.list.label.author= Author:
+
+authenticated.notice.form.label.instantiationMoment = Instantiation moment:
+authenticated.notice.form.label.title = Title:
+authenticated.notice.form.label.author= Author:
+authenticated.notice.form.label.message= Message:
+authenticated.notice.form.label.email= Email:
+authenticated.notice.form.label.link= Link:
+
