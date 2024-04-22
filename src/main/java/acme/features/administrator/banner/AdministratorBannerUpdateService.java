@@ -22,7 +22,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Autowired
 	private AdministratorBannerRepository	repository;
 
-	private Date							lowestMoment	= Date.from(Instant.parse("2000-01-01T00:00:00Z"));
+	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 	private Date							topestMoment	= Date.from(Instant.parse("2200-12-31T23:59:59Z"));
 
 	// AbstractService interface ----------------------------------------------
@@ -37,8 +37,12 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void load() {
 		Banner object;
 		int bannerId;
+		Date instantiationMoment;
+
+		instantiationMoment = MomentHelper.getCurrentMoment();
 		bannerId = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneBannerByBannerId(bannerId);
+		object.setInstantiationMoment(instantiationMoment);
 
 		super.getBuffer().addData(object);
 	}
@@ -60,14 +64,14 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			Date instantiationMoment = object.getInstantiationMoment();
 
 			super.state(MomentHelper.isAfter(displayStartDate, instantiationMoment), "displayStartDate", "administrator.banner.form.error.displayStartDate");
-			super.state(MomentHelper.isAfter(displayStartDate, this.lowestMoment) && MomentHelper.isBefore(displayStartDate, this.topestMoment), "displayStartDate", "administrator.banner.form.error.badDiplayStartDate");
+			super.state(MomentHelper.isAfterOrEqual(displayStartDate, this.lowestMoment) && MomentHelper.isBeforeOrEqual(displayStartDate, this.topestMoment), "displayStartDate", "administrator.banner.form.error.badDiplayStartDate");
 		}
 		if (!this.getBuffer().getErrors().hasErrors("displayEndDate")) {
 			Date displayEndDate = object.getDisplayEndDate();
 			Date instantiationMoment = object.getInstantiationMoment();
 
 			super.state(MomentHelper.isAfter(displayEndDate, instantiationMoment), "displayStartDate", "administrator.banner.form.error.displayEndDate");
-			super.state(MomentHelper.isAfter(displayEndDate, this.lowestMoment) && MomentHelper.isBefore(displayEndDate, this.topestMoment), "displayStartDate", "administrator.banner.form.error.badDiplayEndDate");
+			super.state(MomentHelper.isAfterOrEqual(displayEndDate, this.lowestMoment) && MomentHelper.isBeforeOrEqual(displayEndDate, this.topestMoment), "displayStartDate", "administrator.banner.form.error.badDiplayEndDate");
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("displayStartDate") && !this.getBuffer().getErrors().hasErrors("displayEndDate")) {

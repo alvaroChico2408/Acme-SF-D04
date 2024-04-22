@@ -24,7 +24,7 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 	@Autowired
 	private AdministratorObjectiveRepository	repository;
 
-	private Date								lowestMoment	= Date.from(Instant.parse("2000-01-01T00:00:00Z"));
+	private Date								lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 	private Date								topestMoment	= Date.from(Instant.parse("2200-12-31T23:59:59Z"));
 
 	// AbstractService interface ----------------------------------------------
@@ -70,7 +70,7 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 
 			super.state(MomentHelper.isAfter(executionPeriodStart, instantiationMoment), "executionPeriodStart", //
 				"administrator.objective.form.error.executionPeriodStart");
-			super.state(MomentHelper.isAfter(executionPeriodStart, this.lowestMoment) && MomentHelper.isBefore(executionPeriodStart, this.topestMoment), //
+			super.state(MomentHelper.isAfterOrEqual(executionPeriodStart, this.lowestMoment) && MomentHelper.isBeforeOrEqual(executionPeriodStart, this.topestMoment), //
 				"executionPeriodStart", "administrator.objective.form.error.badExecutionPeriodStart");
 		}
 
@@ -81,7 +81,7 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 
 			super.state(MomentHelper.isAfter(executionPeriodFinish, instantiationMoment) && MomentHelper.isAfter(executionPeriodFinish, executionPeriodStart), //
 				"executionPeriodFinish", "administrator.objective.form.error.executionPeriodFinish");
-			super.state(MomentHelper.isAfter(executionPeriodFinish, this.lowestMoment) && MomentHelper.isBefore(executionPeriodFinish, this.topestMoment), //
+			super.state(MomentHelper.isAfterOrEqual(executionPeriodFinish, this.lowestMoment) && MomentHelper.isBeforeOrEqual(executionPeriodFinish, this.topestMoment), //
 				"executionPeriodFinish", "administrator.objective.form.error.badExecutionPeriodFinish");
 		}
 

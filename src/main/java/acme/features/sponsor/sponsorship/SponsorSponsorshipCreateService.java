@@ -2,6 +2,7 @@
 package acme.features.sponsor.sponsorship;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,10 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
+import acme.entities.sponsorship.Type;
 import acme.roles.Sponsor;
 
 @Service
@@ -79,6 +82,13 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() >= 0, "amount", "sponsor.sponsorship.form.error.positiveAmount");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getCurrency() == "EUR" || object.getAmount().getCurrency() == "USD", "amount", "sponsor.sponsorship.form.error.notSupportedCurrency");
+
 	}
 
 	@Override
@@ -94,10 +104,21 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		Dataset dataset;
 
+		final SelectChoices choices = new SelectChoices();
+		Collection<Project> projects;
+		projects = this.repository.findPublishedProjects();
+		SelectChoices types = SelectChoices.from(Type.class, object.getType());
+
+		for (final Project c : projects)
+			if (object.getProject() != null && object.getProject().getId() == c.getId())
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
+			else
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
+
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
-		dataset.put("projectCode", object.getProject().getCode());
-
+		dataset.put("projects", choices);
+		dataset.put("types", types);
 		super.getResponse().addData(dataset);
 	}
 
