@@ -56,6 +56,8 @@
 			<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show" access="isAuthenticated()"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/administrator-dashboard/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
@@ -82,6 +84,7 @@
   
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">			
 			<acme:menu-suboption code="master.menu.sponsor.my-sponsorships" action="/sponsor/sponsorship/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.sponsor.dashboard" action="/sponsor/sponsor-dashboard/show"/>
 		</acme:menu-option>
 	</acme:menu-left>
