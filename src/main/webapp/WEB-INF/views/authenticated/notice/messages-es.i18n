@@ -1,0 +1,17 @@
+authenticated.notice.list.title= Noticias del último mes:
+authenticated.notice.form.title= Detalles de la noticia:
+
+authenticated.notice.list.label.instantiationMoment= Momento de creación:
+authenticated.notice.list.label.title= Título:
+authenticated.notice.list.label.author= Autor:
+
+authenticated.notice.form.label.instantiationMoment = Momento de creación:
+authenticated.notice.form.label.title = Título:
+authenticated.notice.form.label.author= Autor:
+authenticated.notice.form.label.message= Mensaje:
+authenticated.notice.form.label.email= Email:
+authenticated.notice.form.label.link= Link:
+
+authenticated.notice.list.button.create= Crear nueva noticia
+authenticated.notice.form.label.confirmation= Confirmación
+authenticated.notice.form.button.create= Crear
