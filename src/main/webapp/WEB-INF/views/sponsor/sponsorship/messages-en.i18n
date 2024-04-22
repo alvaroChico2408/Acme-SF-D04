@@ -31,4 +31,6 @@ sponsor.sponsorship.form.error.duplicated = This code is already taken
 sponsor.sponsorship.form.error.pastDurationInitial = The beginning of the sponsorship must be after its moment of creation
 sponsor.sponsorship.form.error.durationFinalTooClose = The duration of the sponsorship must be at least one month long
 sponsor.sponsorship.form.error.positiveAmount = The amount of the sponsorship must be higher or equal than zero
-sponsor.sponsorship.form.error.validType = The type of the sponsorship must be "Financial" or "InKind"
+sponsor.sponsorship.form.error.notSupportedCurrency = The supported currencies are only EUR or USD 
+sponsor.sponsorship.form.error.maxAmount = The maximum amount supported is 100000000
+sponsor.sponsorship.form.error.invoicesTotalAmount = The sum of the total amount of all invoices must be equal to the sponsorship's cost

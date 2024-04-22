@@ -82,6 +82,13 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() >= 0, "amount", "sponsor.sponsorship.form.error.positiveAmount");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getCurrency() == "EUR" || object.getAmount().getCurrency() == "USD", "amount", "sponsor.sponsorship.form.error.notSupportedCurrency");
+
 	}
 
 	@Override

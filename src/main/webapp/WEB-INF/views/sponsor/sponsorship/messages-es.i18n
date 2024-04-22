@@ -31,4 +31,6 @@ sponsor.sponsorship.form.error.duplicated = Este código está actualmente en us
 sponsor.sponsorship.form.error.pastDurationInitial = El inicio del patrocinio deberá ser posterior a su momento de creación
 sponsor.sponsorship.form.error.durationFinalTooClose = La duración del patrocinio debe de ser de al menos un mes
 sponsor.sponsorship.form.error.positiveAmount = La cuantía del patrocinio debe ser superior o igual a 0
-sponsor.sponsorship.form.error.validType = El tipo del patrocinio debe ser "Financial" o "InKind"
+sponsor.sponsorship.form.error.notSupportedCurrency = Las divisas soportadas son EUR y USD 
+sponsor.sponsorship.form.error.maxAmount = La cuantía máxima permitida es de 100000000
+sponsor.sponsorship.form.error.invoicesTotalAmount = La suma de la cuantía de las facturas debe ser igual al coste del patrocinio
