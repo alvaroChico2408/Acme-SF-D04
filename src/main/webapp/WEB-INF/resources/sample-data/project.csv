@@ -31,3 +31,6 @@ project-29,WZZ-4567,title estándar,abstract estándar,true,5,ftp://ftp.example.
 project-30,AER-4567,title estándar,abstract estándar,true,5,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,false,manager-01
 project-31,XMN-4567,title estándar,abstract estándar,false,5,https://github.com/Jaime-Linares,true,manager-01
 project-32,YMN-4567,title estándar,abstract estándar,false,5,https://github.com/Jaime-Linares,false,manager-02
+project-33,YMN-4568,title estándar,abstract estándar,false,5,https://github.com/Jaime-Linares,true,manager-02
+project-34,YMN-4569,title estándar,abstract estándar,false,5,https://github.com/Jaime-Linares,true,manager-02
+project-35,YMN-4560,title estándar,abstract estándar,false,5,https://github.com/Jaime-Linares,true,manager-02
