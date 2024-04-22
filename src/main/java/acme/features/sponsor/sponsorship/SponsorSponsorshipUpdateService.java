@@ -2,6 +2,7 @@
 package acme.features.sponsor.sponsorship;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.sponsorship.Type;
 import acme.roles.Sponsor;
@@ -102,16 +104,23 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		assert object != null;
 
 		Dataset dataset;
-		SelectChoices choices;
 
-		choices = SelectChoices.from(Type.class, object.getType());
+		final SelectChoices choices = new SelectChoices();
+		Collection<Project> projects;
+		projects = this.repository.findPublishedProjects();
+		SelectChoices types = SelectChoices.from(Type.class, object.getType());
+
+		for (final Project c : projects)
+			if (object.getProject() != null && object.getProject().getId() == c.getId())
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
+			else
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
 
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
-		dataset.put("type", choices.getSelected().getKey());
-		dataset.put("types", choices);
-		dataset.put("projectCode", object.getProject().getCode());
-
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
+		dataset.put("types", types);
 		super.getResponse().addData(dataset);
 	}
 

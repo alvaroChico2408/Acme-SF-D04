@@ -17,7 +17,7 @@ sponsor.sponsorship.form.label.type = Type:
 sponsor.sponsorship.form.label.email = Email:
 sponsor.sponsorship.form.label.link = Link:
 sponsor.sponsorship.form.label.published = Published:
-sponsor.sponsorship.form.label.projectCode = Project code:
+sponsor.sponsorship.form.label.project = Project:
 sponsor.sponsorship.form.label.sponsorUsername = Sponsor Username:
 
 sponsor.sponsorship.form.button.invoices= List of invoices
