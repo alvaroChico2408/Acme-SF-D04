@@ -16,6 +16,9 @@ public interface SponsorSponsorDashboardRepository extends AbstractRepository {
 	@Query("SELECT COUNT(s) FROM Sponsorship s where (s.sponsor.id = :sponsorId and s.published = true)")
 	int findNumberPublishedSponsorships(int sponsorId);
 
+	@Query("select count(i) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true")
+	int findNumberPublishedInvoices(int sponsorId);
+
 	@Query("select i from Invoice i where i.sponsorship.id = :sponsorshipId")
 	Collection<Invoice> findInvoicesBySponsorshipId(int sponsorshipId);
 
@@ -36,5 +39,20 @@ public interface SponsorSponsorDashboardRepository extends AbstractRepository {
 
 	@Query("select min(s.amount.amount) from Sponsorship s where (s.sponsor.id = :sponsorId and s.published = true)")
 	Double findMinAmountPublishedSponsorships(int sponsorId);
+
+	@Query("select count(i) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true and i.tax <= 0.21 ")
+	int findNumOfInvoicesWithTax21less(int sponsorId);
+
+	@Query("select avg(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true")
+	Double findAverageQuantityPublishedInvoices(int sponsorId);
+
+	@Query("select stddev(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true")
+	Double findDeviationQuantityPublishedInvoices(int sponsorId);
+
+	@Query("select max(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true")
+	Double findMaxQuantityPublishedInvoices(int sponsorId);
+
+	@Query("select min(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true")
+	Double findMinQuantityPublishedInvoices(int sponsorId);
 
 }

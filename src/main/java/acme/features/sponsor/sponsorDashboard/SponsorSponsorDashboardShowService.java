@@ -1,18 +1,11 @@
 
 package acme.features.sponsor.sponsorDashboard;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.invoice.Invoice;
-import acme.entities.sponsorship.Sponsorship;
 import acme.forms.SponsorDashboard;
 import acme.roles.Sponsor;
 
@@ -36,14 +29,8 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 	public void load() {
 		int sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 		int numSponsorship = this.repository.findNumberPublishedSponsorships(sponsorId);
+		int numInvoices = this.repository.findNumberPublishedInvoices(sponsorId);
 		SponsorDashboard dashboard;
-		Collection<Sponsorship> sponsorships = this.repository.findPublishedSponsorshipsBySponsorId(sponsorId);
-		List<Integer> ids = sponsorships.stream().map(Sponsorship::getId).collect(Collectors.toList());
-		List<Invoice> invoices = new ArrayList<>();
-		for (Integer id : ids) {
-			Collection<Invoice> invoiceEachSponsorship = this.repository.findInvoicesBySponsorshipId(id);
-			invoices.addAll(invoiceEachSponsorship);
-		}
 		int invoicesWithTaxLessEqual21;
 		int sponsorshipsWithLink;
 		Double averageAmountSponsorships;
@@ -55,39 +42,39 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 		Double minimunQuantityInvoices;
 		Double maximumQuantityInvoices;
 
-		invoicesWithTaxLessEqual21 = (int) invoices.stream().filter(invoice -> invoice.getTax() <= 0.21).count();
+		invoicesWithTaxLessEqual21 = this.repository.findNumOfInvoicesWithTax21less(sponsorId);
 		sponsorshipsWithLink = this.repository.findNumberPublishedSponsorshipsWithLink(sponsorId);
 
 		if (numSponsorship >= 2) {
 			averageAmountSponsorships = this.repository.findAverageAmountPublishedSponsorships(sponsorId);
 			deviationAmountSponsorships = this.repository.findDeviationAmountPublishedSponsorships(sponsorId);
 		} else {
-			averageAmountSponsorships = 25.;
-			deviationAmountSponsorships = 25.;
+			averageAmountSponsorships = null;
+			deviationAmountSponsorships = null;
 		}
 
 		if (numSponsorship >= 1) {
 			minimunAmountSponsorships = this.repository.findMinAmountPublishedSponsorships(sponsorId);
 			maximumAmountSponsorships = this.repository.findMaxAmountPublishedSponsorships(sponsorId);
 		} else {
-			minimunAmountSponsorships = 25.;
-			maximumAmountSponsorships = 25.;
+			minimunAmountSponsorships = null;
+			maximumAmountSponsorships = null;
 		}
 
-		if (invoices.size() >= 2) {
-			averageQuantityInvoices = invoices.stream().mapToDouble(invoice -> invoice.getQuantity().getAmount()).average().orElse(0.0);
-			deviationQuantityInvoices = 25.;
+		if (numInvoices >= 2) {
+			averageQuantityInvoices = this.repository.findAverageQuantityPublishedInvoices(sponsorId);
+			deviationQuantityInvoices = this.repository.findDeviationQuantityPublishedInvoices(sponsorId);
 		} else {
-			averageQuantityInvoices = 25.;
-			deviationQuantityInvoices = 25.;
+			averageQuantityInvoices = null;
+			deviationQuantityInvoices = null;
 		}
 
-		if (invoices.size() >= 1) {
-			minimunQuantityInvoices = invoices.stream().map(invoice -> invoice.getQuantity().getAmount()).min(Double::compareTo).orElse(0.0);
-			maximumQuantityInvoices = invoices.stream().map(invoice -> invoice.getQuantity().getAmount()).max(Double::compareTo).orElse(0.0);
+		if (numInvoices >= 1) {
+			minimunQuantityInvoices = this.repository.findMinQuantityPublishedInvoices(sponsorId);
+			maximumQuantityInvoices = this.repository.findMaxQuantityPublishedInvoices(sponsorId);
 		} else {
-			minimunQuantityInvoices = 25.;
-			maximumQuantityInvoices = 25.;
+			minimunQuantityInvoices = null;
+			maximumQuantityInvoices = null;
 		}
 
 		dashboard = new SponsorDashboard();
