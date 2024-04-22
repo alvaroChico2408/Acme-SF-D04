@@ -97,12 +97,12 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
 
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			super.state(object.getAmount().getCurrency() == "EUR" || object.getAmount().getCurrency() == "USD", "amount", "sponsor.sponsorship.form.error.notSupportedCurrency");
-
-		if (!invoices.isEmpty()) {
+		if (!super.getBuffer().getErrors().hasErrors("invoice")) {
 			double totalAmount;
-			totalAmount = invoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
+			if (!invoices.isEmpty())
+				totalAmount = invoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
+			else
+				totalAmount = 0.;
 
 			super.state(totalAmount == object.getAmount().getAmount(), "*", "sponsor.sponsorship.form.error.invoicesTotalAmount");
 		}
