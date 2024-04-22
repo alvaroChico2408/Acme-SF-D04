@@ -1,12 +1,22 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Collection;
+import java.util.Date;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.invoice.Invoice;
+import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
+import acme.entities.sponsorship.Type;
 import acme.roles.Sponsor;
 
 @Service
@@ -61,6 +71,42 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+		Collection<Invoice> invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Sponsorship existing;
+
+			existing = this.repository.findSponsorshipByCode(object.getCode()).orElse(null);
+			super.state(existing == null || existing.equals(object), "code", "sponsor.sponsorship.form.error.duplicated");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
+			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
+
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+			Date minimumDuration;
+			Date start = object.getDurationInitial();
+
+			minimumDuration = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.MONTHS);
+			super.state(MomentHelper.isAfter(object.getDurationFinal(), minimumDuration), "durationFinal", "sponsor.sponsorship.form.error.durationFinalTooClose");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() >= 0, "amount", "sponsor.sponsorship.form.error.positiveAmount");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getCurrency() == "EUR" || object.getAmount().getCurrency() == "USD", "amount", "sponsor.sponsorship.form.error.notSupportedCurrency");
+
+		if (!invoices.isEmpty()) {
+			double totalAmount;
+			totalAmount = invoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
+
+			super.state(totalAmount == object.getAmount().getAmount(), "*", "sponsor.sponsorship.form.error.invoicesTotalAmount");
+		}
+
 	}
 
 	@Override
@@ -77,10 +123,22 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		Dataset dataset;
 
+		final SelectChoices choices = new SelectChoices();
+		Collection<Project> projects;
+		projects = this.repository.findPublishedProjects();
+		SelectChoices types = SelectChoices.from(Type.class, object.getType());
+
+		for (final Project c : projects)
+			if (object.getProject() != null && object.getProject().getId() == c.getId())
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
+			else
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
+
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
-		dataset.put("projectCode", object.getProject().getCode());
-
+		dataset.put("project", choices.getSelected().getKey());
+		dataset.put("projects", choices);
+		dataset.put("types", types);
 		super.getResponse().addData(dataset);
 	}
 
