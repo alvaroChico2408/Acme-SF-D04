@@ -13,8 +13,7 @@ import acme.entities.codeAudit.Mark;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditRecordShowService extends AbstractService<Auditor, AuditRecord> {
-
+public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, AuditRecord> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -26,12 +25,12 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 	@Override
 	public void authorise() {
 		boolean status;
-		int auditRecordId;
+		int masterId;
 		CodeAudit codeAudit;
 
-		auditRecordId = super.getRequest().getData("id", int.class);
-		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(auditRecordId);
-		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+		masterId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditByAuditRecordId(masterId);
+		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
 		super.getResponse().setAuthorised(status);
 
@@ -39,13 +38,31 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 
 	@Override
 	public void load() {
-		AuditRecord object;
 		int id;
+		AuditRecord object;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditRecordById(id);
 
 		super.getBuffer().addData(object);
+	}
+	@Override
+	public void bind(final AuditRecord object) {
+		assert object != null;
+
+		super.bind(object, "code", "startDate", "endDate", "mark", "link", "published");
+	}
+
+	@Override
+	public void validate(final AuditRecord object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final AuditRecord object) {
+		assert object != null;
+
+		this.repository.delete(object);
 	}
 
 	@Override
@@ -60,6 +77,7 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 		codeAudit = object.getCodeAudit();
 
 		dataset = super.unbind(object, "code", "startDate", "endDate", "link", "published");
+		dataset.put("masterId", object.getCodeAudit().getId());
 		dataset.put("codeAuditCode", codeAudit.getCode());
 		dataset.put("mark", choices.getSelected().getKey());
 		dataset.put("marks", choices);

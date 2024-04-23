@@ -10,3 +10,5 @@
 	<acme:list-column code="auditor.auditRecord.list.label.endDate" path="endDate"/>
 	<acme:list-column code="auditor.auditRecord.list.label.mark" path="mark"/>
 </acme:list>
+
+<acme:button test="${showCreate}" code="auditor.auditRecord.list.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>

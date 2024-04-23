@@ -1,4 +1,27 @@
+auditor.audit-record.list.title = Anotaciones de la Auditoría
+
 auditor.auditRecord.list.label.code = Código:
 auditor.auditRecord.list.label.startDate = Fecha de Inicio:
 auditor.auditRecord.list.label.endDate = Fecha de Fin:
 auditor.auditRecord.list.label.mark = Nota:
+
+auditor.auditRecord.list.button.create = Crear
+
+auditor.audit-record.form.title = Anotación ded la Auditoría
+
+auditor.auditRecord.form.label.code = Código:
+auditor.auditRecord.form.label.startDate = Fecha de Inicio:
+auditor.auditRecord.form.label.endDate = Fecha de Fin:
+auditor.auditRecord.form.label.mark = Nota:
+auditor.auditRecord.form.label.link = Enlace: 
+auditor.auditRecord.form.label.published = Publicado:
+
+auditor.auditRecord.form.label.create = Crear
+auditor.auditRecord.form.label.update = Actualizar
+auditor.auditRecord.form.label.Delete = Borrar
+auditor.auditRecord.form.label.publish = Publicar
+
+auditor.auditRecord.form.error.duplicated = Ya existe una anotación con ese código
+auditor.auditRecord.form.error.startDateError = La fecha de inicio debe ser posterior al 01/01/2000 00:00
+auditor.auditRecord.form.error.endDateError = La fecha de fin debe ser posterior al 01/01/2000 00:00
+auditor.auditRecord.form.error.notTimeEnough = La fecha de fin debe ocurrir al menos una hora después que la fecha del comienzo
