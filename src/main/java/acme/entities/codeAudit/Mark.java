@@ -3,7 +3,7 @@ package acme.entities.codeAudit;
 
 public enum Mark {
 
-	A_PLUS("A+"), A("A"), B("B"), C("C"), F("F"), F_MINUS("F-");
+	F_MINUS("F-"), F("F"), C("C"), B("B"), A("A"), A_PLUS("A+");
 
 
 	private String markValue;
@@ -15,6 +15,17 @@ public enum Mark {
 
 	public String getMark() {
 		return this.markValue;
+	}
+
+	public Mark parse(final String mark) {
+		return Mark.valueOf(mark);
+	}
+
+	public boolean greaterThanC() {
+		boolean res = false;
+		if (this != null && this.compareTo(C) >= 0)
+			res = true;
+		return res;
 	}
 
 }

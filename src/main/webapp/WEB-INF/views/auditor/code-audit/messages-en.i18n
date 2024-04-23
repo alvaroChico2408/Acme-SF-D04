@@ -1,9 +1,12 @@
-
-
+auditor.code-audit.list.title = My Code Audits
 
 auditor.codeAudit.list.label.code = Code:
 auditor.codeAudit.list.label.executionDate = Execution Date:
 auditor.codeAudit.list.label.type = Type:
+
+auditor.codeAudit.list.button.create = Create
+
+auditor.code-audit.form.title = Code Audit
 
 auditor.codeAudit.form.label.code = Code:
 auditor.codeAudit.form.label.executionDate = Execution Date:
@@ -11,6 +14,19 @@ auditor.codeAudit.form.label.type = Type:
 auditor.codeAudit.form.label.mark = Mark:
 auditor.codeAudit.form.label.correctiveActions = Corrective Actions:
 auditor.codeAudit.form.label.published = Published:
+auditor.codeAudit.form.label.auditor = Auditor Name:
 auditor.codeAudit.form.label.link = Link:
+auditor.codeAudit.form.label.projectTitle = Project Title:
+auditor.codeAudit.form.label.projectCode = Project Code:
 
 auditor.codeAudit.form.label.auditRecord = List of Audit Records
+auditor.codeAudit.form.button.create = Create
+auditor.codeAudit.form.label.update = Update
+auditor.codeAudit.form.button.delete = Delete
+auditor.codeAudit.form.button.publish = Publish
+
+auditor.codeAudit.form.error.duplicated = There is already a code audit with this code
+auditor.codeAudit.form.error.executionDateError = Execution Date must be after 2000/01/01 00:00
+auditor.codeAudit.form.error.projectCodeError = There is not a project with this code
+auditor.codeAudit.form.error.projectCodeError = The project must be published
+auditor.codeAudit.form.error.lowMark = The mark must be C or higher in order to publish a code audit
