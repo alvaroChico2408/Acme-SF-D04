@@ -1,6 +1,8 @@
 
 package acme.features.developer.trainingModule;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,15 +35,11 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void load() {
 		TrainingModule object;
 		Developer developer;
-		Project project;
 
 		developer = this.repository.findDeveloperById(super.getRequest().getPrincipal().getActiveRoleId());
-		project = this.repository.findProjectByCode("JLB-4567").orElse(null);
 		object = new TrainingModule();
 		object.setPublished(false);
 		object.setDeveloper(developer);
-		object.setCreationMoment(MomentHelper.getCurrentMoment());
-		object.setProject(project);
 
 		super.getBuffer().addData(object);
 	}
@@ -50,12 +48,15 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void bind(final TrainingModule object) {
 		assert object != null;
 
-		String details;
+		Project project;
+		int projectId;
 
-		details = super.getRequest().getData("description", String.class);
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findProjectById(projectId);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment");
-		object.setDetails(details);
+		object.setProject(project);
+
+		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
 	}
 
 	@Override
@@ -69,17 +70,13 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			super.state(tm == null, "code", "developer.trainingModule.form.error.duplicated");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("creationMoment")) {
-			TrainingModule tm;
-
-			tm = this.repository.findTrainingModuleByCode(object.getCode());
-			super.state(tm.getDifficultyLevel() == null, "difficultyLevel", "developer.trainingModule.form.error.difficultyLevel");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("difficultyLevel"))
+			super.state(object.getDifficultyLevel() != null, "difficultyLevel", "developer.trainingModule.form.error.difficultyLevel");
 
 		if (!super.getBuffer().getErrors().hasErrors("details"))
 			super.state(object.getDetails().length() <= 100, "details", "developer.trainingModule.form.error.details");
 
-		if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
+		if (!super.getBuffer().getErrors().hasErrors("updateMoment") && object.getUpdateMoment() != null)
 			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.updateMoment");
 
 		if (!super.getBuffer().getErrors().hasErrors("link"))
@@ -93,7 +90,8 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
-
+		int var1 = object.getTotalTime();
+		object.setTotalTime(var1);
 		this.repository.save(object);
 	}
 
@@ -102,7 +100,16 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		assert object != null;
 
 		SelectChoices choices;
+		SelectChoices projectChoices = new SelectChoices();
+		Collection<Project> projects;
+		projects = this.repository.findPublishedProjects();
 		Dataset dataset;
+
+		for (final Project c : projects)
+			if (object.getProject() != null && object.getProject().getId() == c.getId())
+				projectChoices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
+			else
+				projectChoices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
 
 		choices = SelectChoices.from(Difficulty.class, object.getDifficultyLevel());
 
@@ -110,6 +117,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		dataset.put("developer", object.getDeveloper().getUserAccount().getUsername());
 		dataset.put("difficultyLevel", choices.getSelected().getKey());
 		dataset.put("difficulties", choices);
+		dataset.put("projects", projectChoices);
 
 		super.getResponse().addData(dataset);
 	}

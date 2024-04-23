@@ -13,6 +13,7 @@
 	<acme:input-integer code="developer.trainingModule.form.label.totalTime" path="totalTime"/>
 	<acme:input-checkbox code="developer.trainingModule.form.label.published" path="published" readonly = "true"/>
 	<acme:input-textbox code="developer.trainingModule.form.label.developerUsername" path="developer" readonly = "true"/>
+	<acme:input-select code="developer.trainingModule.form.label.projects" path="project" choices="${projects}"/>
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && published == true}">

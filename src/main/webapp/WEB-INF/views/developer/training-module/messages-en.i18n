@@ -16,6 +16,7 @@ developer.trainingModule.form.label.link = Link for more info: (Optional)
 developer.trainingModule.form.label.totalTime = Total time (in hours):
 developer.trainingModule.form.label.published = Published:
 developer.trainingModule.form.label.developerUsername = Developer's username:
+developer.trainingModule.form.label.projects = Project:
 
 developer.trainingModule.form.button.trainingSessions = Training Sessions
 developer.trainingModule.form.button.create = Create
@@ -29,3 +30,5 @@ developer.trainingModule.form.error.difficultyLevel = You can't publish a traini
 developer.trainingModule.form.error.updateMoment = The update moment must be after the creation moment
 developer.trainingModule.form.error.link = The link must have a maximum of 255 characters
 developer.trainingModule.form.error.totalTime = The total time must be a positive value or zero
+developer.trainingModule.form.error.notrainingsessions = The training module must have at least one training session
+developer.trainingModule.form.error.trainingsessionsnotpublished = All training sessions must be published
