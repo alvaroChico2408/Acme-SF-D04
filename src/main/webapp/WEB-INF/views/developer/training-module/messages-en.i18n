@@ -1,0 +1,31 @@
+developer.training-module.list.title = List of my training modules
+developer.training-module.form.title = Training module form 
+
+developer.trainingModule.list.label.code = Code:
+developer.trainingModule.list.label.details = Details:
+developer.trainingModule.list.label.difficultyLevel = Difficulty Level:
+
+developer.trainingModule.list.button.create = Create
+
+developer.trainingModule.form.label.code = Code:
+developer.trainingModule.form.label.creationMoment = Creation Moment:
+developer.trainingModule.form.label.details = Details:
+developer.trainingModule.form.label.difficultyLevel = Difficulty Level:
+developer.trainingModule.form.label.updateMoment = Update Moment:
+developer.trainingModule.form.label.link = Link for more info: (Optional)
+developer.trainingModule.form.label.totalTime = Total time (in hours):
+developer.trainingModule.form.label.published = Published:
+developer.trainingModule.form.label.developerUsername = Developer's username:
+
+developer.trainingModule.form.button.trainingSessions = Training Sessions
+developer.trainingModule.form.button.create = Create
+developer.trainingModule.form.button.delete = Delete
+developer.trainingModule.form.button.update = Update
+developer.trainingModule.form.button.publish = Publish
+
+developer.trainingModule.form.error.duplicated = This code is taken
+developer.trainingModule.form.error.details = The details must have a maximum of 100 characters
+developer.trainingModule.form.error.difficultyLevel = You can't publish a training module with no difficulty level
+developer.trainingModule.form.error.updateMoment = The update moment must be after the creation moment
+developer.trainingModule.form.error.link = The link must have a maximum of 255 characters
+developer.trainingModule.form.error.totalTime = The total time must be a positive value or zero

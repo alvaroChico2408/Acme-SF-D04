@@ -1,35 +1,36 @@
-key,code,creation-moment,details,difficulty-level,update-moment,link,total-time,key:project,key:developer
-training-module-01,AAA-000,2022/04/15 20:34,details1,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-02,A-000,2022/04/15 20:34,details2,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-03,AA-000,2022/04/15 20:34,details3,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-04,ZZZ-999,2022/04/15 20:34,details4,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-05,AAA-005,2000/01/01 00:00,details5,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-06,AAA-006,2000/01/01 00:01,details6,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-07,AAA-007,2022/07/29 23:59,details7,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-08,AAA-008,2022/07/29 23:58,details8,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-09,AAA-009,2022/04/15 20:34,d,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-10,AAA-010,2022/04/15 20:34,de,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-11,AAA-011,2022/04/15 20:34,esto son details de exactamente 100 caracteres------------------------------------------------------,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-12,AAA-012,2022/04/15 20:34,esto son details de exactamente 99 caracteres------------------------------------------------------,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-13,AAA-013,2022/04/15 20:34,你好,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-14,AAA-014,2022/04/15 20:34,system.out.println(script),BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-15,AAA-015,2022/04/15 20:34,details15,INTERMEDIATE,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-16,AAA-016,2022/04/15 20:34,details16,ADVANCED,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-17,AAA-017,2000/01/01 00:00,details17,BASIC,2000/01/02 00:00,https://www.google.com/,6,project-31,developer-01
-training-module-18,AAA-018,2000/01/01 00:00,details18,BASIC,2000/01/02 00:01,https://www.google.com/,6,project-31,developer-01
-training-module-19,AAA-019,2022/07/28 23:59,details19,BASIC,2022/07/29 23:59,https://www.google.com/,6,project-31,developer-01
-training-module-20,AAA-020,2022/07/28 23:58,details20,BASIC,2022/07/29 23:58,https://www.google.com/,6,project-31,developer-01
-training-module-21,AAA-021,2022/04/15 20:34,details21,BASIC,2022/04/16 20:34,,6,project-31,developer-01
-training-module-22,AAA-022,2022/04/15 20:34,details22,BASIC,2022/04/16 20:34,http://happybirthday.com,6,project-31,developer-01
-training-module-23,AAA-023,2022/04/15 20:34,details23,BASIC,2022/04/16 20:34,https://www.ejemplo.com?,6,project-31,developer-01
-training-module-24,AAA-024,2022/04/15 20:34,details24,BASIC,2022/04/16 20:34,https://www.ejemplo.com/pagina?parametro1=valor1&parametro2=valor2,6,project-31,developer-01
-training-module-25,AAA-025,2022/04/15 20:34,details25,BASIC,2022/04/16 20:34,ftp://ftp.microsoft.com/,6,project-31,developer-01
-training-module-26,AAA-026,2022/04/15 20:34,details26,BASIC,2022/04/16 20:34,ftp://ftp.example.com/file.txt?user=username&password=12345,6,project-31,developer-01
-training-module-27,AAA-027,2022/04/15 20:34,details27,BASIC,2022/04/16 20:34,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,6,project-31,developer-01
-training-module-28,AAA-028,2022/04/15 20:34,details28,BASIC,2022/04/16 20:34,https://www.google.com/,0,project-31,developer-01
-training-module-29,AAA-029,2022/04/15 20:34,details29,BASIC,2022/04/16 20:34,https://www.google.com/,1,project-31,developer-01
-training-module-30,AAA-030,2022/04/15 20:34,details30,BASIC,2022/04/16 20:34,https://www.google.com/,30,project-31,developer-01
-training-module-31,AAA-031,2022/04/15 20:34,details31,BASIC,2022/04/16 20:34,https://www.google.com/,999,project-31,developer-01
-training-module-32,AAA-032,2022/04/15 20:34,details32,BASIC,2022/04/16 20:34,https://www.google.com/,1000,project-31,developer-01
-training-module-33,AAA-033,2022/04/15 20:34,details33,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-01
-training-module-34,AAA-034,2022/04/15 20:34,details34,BASIC,2022/04/16 20:34,https://www.google.com/,6,project-31,developer-02
+key,code,creation-moment,details,difficulty-level,update-moment,link,total-time,published,key:project,key:developer
+training-module-01,AAA-000,2022/04/15 20:34,details1,BASIC,2022/04/16 20:34,https://www.google.com/,6,true,project-31,developer-01
+training-module-02,A-000,2022/04/15 20:34,details2,BASIC,2022/04/16 20:34,https://www.google.com/,6,true,project-31,developer-01
+training-module-03,AA-000,2022/04/15 20:34,details3,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-04,ZZZ-999,2022/04/15 20:34,details4,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-05,AAA-005,2000/01/01 00:00,details5,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-06,AAA-006,2000/01/01 00:01,details6,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-07,AAA-007,2022/07/29 23:59,details7,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-08,AAA-008,2022/07/29 23:58,details8,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-09,AAA-009,2022/04/15 20:34,d,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-10,AAA-010,2022/04/15 20:34,de,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-11,AAA-011,2022/04/15 20:34,esto son details de exactamente 100 caracteres------------------------------------------------------,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-12,AAA-012,2022/04/15 20:34,esto son details de exactamente 99 caracteres------------------------------------------------------,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-13,AAA-013,2022/04/15 20:34,你好,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-35,AAA-035,2022/04/15 20:34,'OR '1'='1,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-14,AAA-014,2022/04/15 20:34,system.out.println(script),BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-15,AAA-015,2022/04/15 20:34,details15,INTERMEDIATE,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-16,AAA-016,2022/04/15 20:34,details16,ADVANCED,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-17,AAA-017,2000/01/01 00:00,details17,BASIC,2000/01/02 00:00,https://www.google.com/,6,false,project-31,developer-01
+training-module-18,AAA-018,2000/01/01 00:00,details18,BASIC,2000/01/02 00:01,https://www.google.com/,6,false,project-31,developer-01
+training-module-19,AAA-019,2022/07/28 23:59,details19,BASIC,2022/07/29 23:59,https://www.google.com/,6,false,project-31,developer-01
+training-module-20,AAA-020,2022/07/28 23:58,details20,BASIC,2022/07/29 23:58,https://www.google.com/,6,false,project-31,developer-01
+training-module-21,AAA-021,2022/04/15 20:34,details21,BASIC,2022/04/16 20:34,,6,false,project-31,developer-01
+training-module-22,AAA-022,2022/04/15 20:34,details22,BASIC,2022/04/16 20:34,http://happybirthday.com,6,false,project-31,developer-01
+training-module-23,AAA-023,2022/04/15 20:34,details23,BASIC,2022/04/16 20:34,https://www.ejemplo.com?,6,false,project-31,developer-01
+training-module-24,AAA-024,2022/04/15 20:34,details24,BASIC,2022/04/16 20:34,https://www.ejemplo.com/pagina?parametro1=valor1&parametro2=valor2,6,false,project-31,developer-01
+training-module-25,AAA-025,2022/04/15 20:34,details25,BASIC,2022/04/16 20:34,ftp://ftp.microsoft.com/,6,false,project-31,developer-01
+training-module-26,AAA-026,2022/04/15 20:34,details26,BASIC,2022/04/16 20:34,ftp://ftp.example.com/file.txt?user=username&password=12345,6,false,project-31,developer-01
+training-module-27,AAA-027,2022/04/15 20:34,details27,BASIC,2022/04/16 20:34,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,6,false,project-31,developer-01
+training-module-28,AAA-028,2022/04/15 20:34,details28,BASIC,2022/04/16 20:34,https://www.google.com/,0,false,project-31,developer-01
+training-module-29,AAA-029,2022/04/15 20:34,details29,BASIC,2022/04/16 20:34,https://www.google.com/,1,false,project-31,developer-01
+training-module-30,AAA-030,2022/04/15 20:34,details30,BASIC,2022/04/16 20:34,https://www.google.com/,30,false,project-31,developer-01
+training-module-31,AAA-031,2022/04/15 20:34,details31,BASIC,2022/04/16 20:34,https://www.google.com/,999,false,project-31,developer-01
+training-module-32,AAA-032,2022/04/15 20:34,details32,BASIC,2022/04/16 20:34,https://www.google.com/,1000,false,project-31,developer-01
+training-module-33,AAA-033,2022/04/15 20:34,details33,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-01
+training-module-34,AAA-034,2022/04/15 20:34,details34,BASIC,2022/04/16 20:34,https://www.google.com/,6,false,project-31,developer-02

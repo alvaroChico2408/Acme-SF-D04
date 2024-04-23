@@ -1,5 +1,5 @@
 
-package acme.entities.training;
+package acme.entities.trainingModule;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -41,7 +41,7 @@ public class TrainingModule extends AbstractEntity {
 	private String				code;
 
 	@NotNull
-	@Past
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				creationMoment;
 
@@ -52,7 +52,7 @@ public class TrainingModule extends AbstractEntity {
 	@NotNull
 	private Difficulty			difficultyLevel;
 
-	@Past
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				updateMoment;
 
@@ -61,7 +61,10 @@ public class TrainingModule extends AbstractEntity {
 	private String				link;
 
 	@Min(0)
+	//	@Max() (relacionado con el tiempo max de un proyecto)
 	private int					totalTime;
+
+	private boolean				published;
 
 	// Derived attributes ----------------------- ------------------------------
 

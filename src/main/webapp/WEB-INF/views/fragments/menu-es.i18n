@@ -94,3 +94,8 @@ master.menu.user-account.become-sponsor = Hazte sponsor
 
 master.menu.auditor = Auditor
 master.menu.auditor.my-codeAudits = Lista mis Auditorias de Código
+
+# master.menu.developer ####################################################
+
+master.menu.developer = Desarrollador
+master.menu.developer.my-training-modules = Mis módulos de entrenamiento
