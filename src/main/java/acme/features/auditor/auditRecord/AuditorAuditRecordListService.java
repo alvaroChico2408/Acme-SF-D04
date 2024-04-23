@@ -29,7 +29,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		int masterId;
 		CodeAudit codeAudit;
 
-		masterId = super.getRequest().getData("id", int.class);
+		masterId = super.getRequest().getData("masterId", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
 
@@ -42,7 +42,7 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 		Collection<AuditRecord> auditRecords;
 		int masterId;
 
-		masterId = super.getRequest().getData("id", int.class);
+		masterId = super.getRequest().getData("masterId", int.class);
 		auditRecords = this.repository.findManyAuditRecordsByCodeAuditId(masterId);
 
 		super.getBuffer().addData(auditRecords);
@@ -58,6 +58,22 @@ public class AuditorAuditRecordListService extends AbstractService<Auditor, Audi
 
 		super.getResponse().addData(dataset);
 
+	}
+
+	@Override
+	public void unbind(final Collection<AuditRecord> objects) {
+		assert objects != null;
+
+		int masterId;
+		CodeAudit codeAudit;
+		final boolean showCreate;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(masterId);
+		showCreate = !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(codeAudit.getAuditor());
+
+		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 
 }

@@ -17,7 +17,7 @@ public enum Mark {
 		return this.markValue;
 	}
 
-	public Mark parse(final String mark) {
+	public static Mark parse(final String mark) {
 		return Mark.valueOf(mark);
 	}
 

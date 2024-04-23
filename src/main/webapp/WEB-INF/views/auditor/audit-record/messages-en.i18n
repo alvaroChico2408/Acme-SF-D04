@@ -1,7 +1,13 @@
+auditor.audit-record.list.title = Audit Records
+
 auditor.auditRecord.list.label.code = Code:
 auditor.auditRecord.list.label.startDate = Start Date:
 auditor.auditRecord.list.label.endDate = End Date:
 auditor.auditRecord.list.label.mark = Mark:
+
+auditor.auditRecord.list.button.create = Create
+
+auditor.audit-record.form.title = Audit record
 
 auditor.auditRecord.form.label.code = Code:
 auditor.auditRecord.form.label.startDate = Start Date:
@@ -9,3 +15,13 @@ auditor.auditRecord.form.label.endDate = End Date:
 auditor.auditRecord.form.label.mark = Mark:
 auditor.auditRecord.form.label.link = Link: 
 auditor.auditRecord.form.label.published = Published:
+
+auditor.auditRecord.form.label.create = Create
+auditor.auditRecord.form.label.update = Update
+auditor.auditRecord.form.label.delete = Delete
+auditor.auditRecord.form.label.publish = Publish
+
+auditor.auditRecord.form.error.duplicated = There is already an audit record with this code
+auditor.auditRecord.form.error.startDateError = Start Date must be after 2000/01/01 00:00
+auditor.auditRecord.form.error.endDateError = End Date must be after 2000/01/01 00:00
+auditor.auditRecord.form.error.notTimeEnough = End Date must be at least one hour later than Start Date

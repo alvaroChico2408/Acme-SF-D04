@@ -117,7 +117,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
 		dataset.put("auditor", this.repository.findOneAuditorById(auditorId).getAuthorityName());
-		dataset.put("projectCode", object.getProject().getCode());
+		dataset.put("projectCode", object.getProject() == null ? null : object.getProject().getCode());
 		dataset.put("type", choices.getSelected().getKey());
 		dataset.put("types", choices);
 
