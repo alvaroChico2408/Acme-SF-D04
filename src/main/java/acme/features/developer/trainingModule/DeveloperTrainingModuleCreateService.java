@@ -90,8 +90,6 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
-		int var1 = object.getTotalTime();
-		object.setTotalTime(var1);
 		this.repository.save(object);
 	}
 

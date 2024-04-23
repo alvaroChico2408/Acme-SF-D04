@@ -1,0 +1,32 @@
+developer.training-session.list.title = Lista de mis sesiones de entrenamiento
+developer.training-session.form.title = Formulario de sesión de entrenamiento:
+
+developer.trainingSession.list.label.code = Código:
+developer.trainingSession.list.label.location = Localización:
+developer.trainingSession.list.label.instructor = Instructor:
+
+developer.trainingSession.list.button.create = Crear
+
+developer.trainingSession.form.label.code = Código:
+developer.trainingSession.form.label.startPeriod = Inicio del periodo:
+developer.trainingSession.form.label.endPeriod = Fin del periodo:
+developer.trainingSession.form.label.location = Localización:
+developer.trainingSession.form.label.instructor = Instructor:
+developer.trainingSession.form.label.contactEmail = Correo de contacto:
+developer.trainingSession.form.label.link = Link para más información: (Opcional)
+developer.trainingSession.form.label.published = Publicado:
+developer.trainingSession.form.label.trainingModuleCode = Código del módulo de entrenamiento:
+
+developer.trainingSession.form.button.create = Crear
+developer.trainingSession.form.button.delete = Eliminar
+developer.trainingSession.form.button.update = Actualizar
+developer.trainingSession.form.button.publish = Publicar
+
+developer.trainingSession.form.error.duplicated = Este código está en uso
+developer.trainingSession.form.error.startPeriod = El comienzo del periodo no puede ser nulo
+developer.trainingSession.form.error.endPeriodAfter = El final del periodo debe ocurrir después del comienzo
+developer.trainingSession.form.error.noEndPeriod = El final del periodo no puede ser nulo
+developer.trainingSession.form.error.location = La localización tiene que estar por debajo de 75 caracteres
+developer.trainingSession.form.error.instructor = El instructor tiene que estar por debajo de 75 caracteres
+developer.trainingSession.form.error.contactEmail = El correo de contacto debe estar por debajo de 255 caracteres
+developer.trainingSession.form.error.link = El link debe tener como maximo 255 caracteres
