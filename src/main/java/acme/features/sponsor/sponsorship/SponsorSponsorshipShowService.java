@@ -73,7 +73,7 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 			else
 				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
 
-		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
+		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);

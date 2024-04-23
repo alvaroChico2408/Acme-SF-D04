@@ -65,13 +65,16 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
+		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
-		Collection<Invoice> invoices = this.repository.findPublishedInvoicesBySponsorshipId(object.getId());
+		Collection<Invoice> publishedInvoices = this.repository.findPublishedInvoicesBySponsorshipId(object.getId());
+		Collection<Invoice> invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
+
+		// Code ---------------------------------------------------------
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship existing;
@@ -79,6 +82,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			existing = this.repository.findSponsorshipByCode(object.getCode()).orElse(null);
 			super.state(existing == null || existing.equals(object), "code", "sponsor.sponsorship.form.error.duplicated");
 		}
+
+		// Durations ---------------------------------------------------------
 
 		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
 			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
@@ -91,21 +96,47 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			super.state(MomentHelper.isAfter(object.getDurationFinal(), minimumDuration), "durationFinal", "sponsor.sponsorship.form.error.durationFinalTooClose");
 		}
 
+		// Amount ---------------------------------------------------------
+
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() >= 0, "amount", "sponsor.sponsorship.form.error.positiveAmount");
 
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
 
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			double totalAmount;
+			if (!publishedInvoices.isEmpty())
+				totalAmount = publishedInvoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
+			else
+				totalAmount = 0.;
+			super.state(object.getAmount().getAmount() >= totalAmount, "amount", "sponsor.sponsorship.form.error.minInvoiceAmountPublished");
+		}
+
+		/*
+		 * if (!super.getBuffer().getErrors().hasErrors("amount")) {
+		 * Sponsorship initial;
+		 * 
+		 * initial = this.repository.findSponsorshipById(object.getId()).orElse(null);
+		 * 
+		 * super.state(object.getAmount().getCurrency().trim() == object.getAmount().getCurrency().trim(), "amount", "sponsor.sponsorship.form.error.currencyChanged");
+		 * }
+		 */
+
+		// Solo Publish ---------------------------------------------------------
+
 		if (!super.getBuffer().getErrors().hasErrors("invoice")) {
 			double totalAmount;
-			if (!invoices.isEmpty())
-				totalAmount = invoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
+			if (!publishedInvoices.isEmpty())
+				totalAmount = publishedInvoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
 			else
 				totalAmount = 0.;
 
 			super.state(totalAmount == object.getAmount().getAmount(), "*", "sponsor.sponsorship.form.error.invoicesTotalAmount");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("invoice"))
+			super.state(invoices.size() == publishedInvoices.size(), "*", "sponsor.sponsorship.form.error.invoicesNotPublished");
 
 	}
 
@@ -134,7 +165,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			else
 				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
 
-		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
+		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);

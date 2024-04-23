@@ -34,3 +34,6 @@ sponsor.sponsorship.form.error.positiveAmount = La cuantía del patrocinio debe 
 sponsor.sponsorship.form.error.notSupportedCurrency = Las divisas soportadas son EUR y USD 
 sponsor.sponsorship.form.error.maxAmount = La cuantía máxima permitida es de 100000000
 sponsor.sponsorship.form.error.invoicesTotalAmount = La suma de la cuantía de las facturas debe ser igual al coste del patrocinio
+sponsor.sponsorship.form.error.invoicesNotPublished= Todas las facturas deben estar publicadas
+sponsor.sponsorship.form.error.minInvoiceAmountPublished = No puedes modificar el coste de un patrocinio a un valor menor que el de la suma de las facturas publicadas
+sponsor.sponsorship.form.error.currencyChanged = No puedes cambiar la divisa del sponsorship

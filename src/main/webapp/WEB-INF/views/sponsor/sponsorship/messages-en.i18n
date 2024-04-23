@@ -34,3 +34,6 @@ sponsor.sponsorship.form.error.positiveAmount = The amount of the sponsorship mu
 sponsor.sponsorship.form.error.notSupportedCurrency = The supported currencies are only EUR or USD 
 sponsor.sponsorship.form.error.maxAmount = The maximum amount supported is 100000000
 sponsor.sponsorship.form.error.invoicesTotalAmount = The sum of the total amount of all invoices must be equal to the sponsorship's cost
+sponsor.sponsorship.form.error.invoicesNotPublished = All the invoices must be published
+sponsor.sponsorship.form.error.minInvoiceAmountPublished = You can't change the sponsorship's amount to a smaller value than the published invoices sum
+sponsor.sponsorship.form.error.currencyChanged= You can't change the currency of the sponsorship
