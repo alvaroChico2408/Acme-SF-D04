@@ -13,34 +13,32 @@ import acme.roles.Client;
 @Controller
 public class ClientContractController extends AbstractController<Client, Contract> {
 
-	// Internal state ---------------------------------------------------------
+	@Autowired
+	protected ClientContractListAllService	listAllService;
 
 	@Autowired
-	private ClientContractListService	listService;
+	protected ClientContractShowService		showService;
 
 	@Autowired
-	private ClientContractShowService	showService;
+	protected ClientContractCreateService	createService;
 
 	@Autowired
-	private ClientContractCreateService	createService;
+	protected ClientContractDeleteService	deleteService;
 
 	@Autowired
-	private ClientContractUpdateService	updateService;
+	protected ClientContractUpdateService	updateService;
 
 	@Autowired
-	private ClientContractDeleteService	deleteService;
-
-	// Constructors -----------------------------------------------------------
+	protected ClientContractPublishService	publishService;
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand("list", this.listAllService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-
-		super.addCustomCommand("list-service", "list", this.listService);
+		super.addBasicCommand("update", this.updateService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
-
 }

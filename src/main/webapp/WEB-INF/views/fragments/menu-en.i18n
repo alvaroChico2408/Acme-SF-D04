@@ -52,7 +52,8 @@ master.menu.administrator.system-configuration = Show system configuration
 # master.menu.client ########################################################
 
 master.menu.client = Client
-master.menu.client.contract-list = List of published contracts
+master.menu.client.contract = List of contracts
+master.menu.client.progress-log = List of progress logs
 
 # master.menu.provider ########################################################
 
