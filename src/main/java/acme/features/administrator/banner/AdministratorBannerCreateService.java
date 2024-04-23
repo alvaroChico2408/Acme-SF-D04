@@ -49,7 +49,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "instantiationMoment", "displayStartDate", "displayEndDate", "slogan", "picture", "link");
+		super.bind(object, "displayStartDate", "displayEndDate", "slogan", "picture", "link");
 
 	}
 
@@ -106,7 +106,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "instantiationMoment", "displayStartDate", "displayEndDate", "slogan", "picture", "link");
+		dataset = super.unbind(object, "displayStartDate", "displayEndDate", "slogan", "picture", "link");
 
 		super.getResponse().addData(dataset);
 
