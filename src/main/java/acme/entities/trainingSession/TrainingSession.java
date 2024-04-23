@@ -65,7 +65,7 @@ public class TrainingSession extends AbstractEntity {
 
 	private boolean				published;
 
-	// Derived attributes ----------------------- ------------------------------
+	// Derived attributes ------------------------------------------------------
 
 	// Relationships -----------------------------------------------------------
 
