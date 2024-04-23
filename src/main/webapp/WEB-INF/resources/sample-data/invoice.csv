@@ -41,3 +41,6 @@ invoice-39,IN-5234-5578,2022/02/28 23:59,2022/09/28 23:59,EUR 125.00,0.5,https:/
 invoice-40,IN-6234-5578,2022/02/28 23:59,2022/09/28 23:59,EUR 125.00,0.5,https://github.com/,true,sponsorship-55
 invoice-41,IN-7734-5578,2022/02/28 23:59,2022/09/28 23:59,EUR 1500.00,0,https://github.com/,true,sponsorship-56
 invoice-42,IN-9734-5578,2022/02/28 23:59,2022/09/28 23:59,EUR 1500.00,0,https://github.com/,true,sponsorship-57
+invoice-43,IN-1111-0001,2022/02/28 23:59,2022/09/28 23:59,EUR 1.00,0,https://InvoicePublicadaS58.com/,true,sponsorship-58
+invoice-44,IN-1111-0002,2022/02/28 23:59,2022/09/28 23:59,EUR 1.00,0,https://InvoiceNoPublicadaS58.com/,false,sponsorship-58
+invoice-45,IN-1111-0003,2022/02/28 23:59,2022/09/28 23:59,EUR 51.00,0,https://InvoicePublicadaS59.com/,true,sponsorship-59

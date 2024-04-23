@@ -37,15 +37,12 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void load() {
 		Sponsorship object;
 		Sponsor sponsor;
-		Project project;
 
 		sponsor = this.repository.findSponsorById(super.getRequest().getPrincipal().getActiveRoleId()).orElse(null);
-		project = this.repository.findProjectByCode("JLB-4567").orElse(null);
 		object = new Sponsorship();
 		object.setPublished(false);
 		object.setSponsor(sponsor);
 		object.setMoment(MomentHelper.getCurrentMoment());
-		object.setProject(project);
 
 		super.getBuffer().addData(object);
 	}
@@ -54,7 +51,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
+		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
 
 	}
 
@@ -112,7 +109,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			else
 				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
 
-		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published");
+		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
 		dataset.put("projects", choices);
 		dataset.put("types", types);
