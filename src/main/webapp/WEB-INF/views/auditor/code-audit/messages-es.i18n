@@ -1,10 +1,13 @@
 
-
+auditor.code-audit.list.title = Mis Auditorías de Código
 
 auditor.codeAudit.list.label.code = Código:
 auditor.codeAudit.list.label.executionDate = Fecha de Ejecución:
 auditor.codeAudit.list.label.type = Tipo:
 
+auditor.codeAudit.list.button.create = Crear
+
+auditor.code-audit.form.title = Auditoria de Código
 
 auditor.codeAudit.form.label.code = Código:
 auditor.codeAudit.form.label.executionDate = Fecha de Ejecución:
@@ -12,6 +15,19 @@ auditor.codeAudit.form.label.type = Tipo:
 auditor.codeAudit.form.label.mark = Nota:
 auditor.codeAudit.form.label.correctiveActions = Acciones de Corrección:
 auditor.codeAudit.form.label.published = Publicado:
+auditor.codeAudit.form.label.auditor = Nombre del Auditor:
 auditor.codeAudit.form.label.link = Enlace:
+auditor.codeAudit.form.label.projectTitle = Título del Proyecto:
+auditor.codeAudit.form.label.projectCode = Código del Proyecto:
 
 auditor.codeAudit.form.label.auditRecord = Lista de las Anotaciones de la Auditoria
+auditor.codeAudit.form.button.create = Crear
+auditor.codeAudit.form.label.update = Actualizar
+auditor.codeAudit.form.button.delete = Eliminar
+auditor.codeAudit.form.button.publish = Publicar
+
+auditor.codeAudit.form.error.duplicated = Ya existe una auditoria con ese código
+auditor.codeAudit.form.error.executionDateError = La fecha de ejecución debe ser posterior al 01/01/2000 00:00
+auditor.codeAudit.form.error.projectCodeError =  No existe ningún proyecto con ese código
+auditor.codeAudit.form.error.projectCodeError = El proyecto debe estar publicado
+auditor.codeAudit.form.error.lowMark = La nota debe ser al menos una C para poder publicar la auditoría

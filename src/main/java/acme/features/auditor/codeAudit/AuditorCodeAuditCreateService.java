@@ -1,11 +1,17 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.Instant;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
@@ -16,7 +22,9 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository	repository;
+
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 
 	// AbstractService interface ----------------------------------------------
 
@@ -30,11 +38,14 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void load() {
 		CodeAudit object;
 		Auditor auditor;
+		Date executionDate;
 
+		executionDate = MomentHelper.getCurrentMoment();
 		auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new CodeAudit();
 		object.setPublished(false);
 		object.setAuditor(auditor);
+		object.setExecutionDate(executionDate);
 
 		super.getBuffer().addData(object);
 	}
@@ -43,13 +54,11 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		int projectId;
 		Project project;
 
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
-		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link");
+		project = this.repository.findOneProjectByCode(super.getRequest().getData("projectCode", String.class));
 
+		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link", "projectCode");
 		object.setProject(project);
 	}
 
@@ -61,7 +70,17 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 			CodeAudit existing;
 
 			existing = this.repository.findOneCodeAuditByCode(object.getCode());
-			super.state(existing == null, "code", null);
+			super.state(existing == null, "code", "auditor.codeAudit.form.error.duplicated");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
+			Date executionDate = object.getExecutionDate();
+
+			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("projectCode")) {
+			Project project = this.repository.findOneProjectByCode(super.getRequest().getData("projectCode", String.class));
+
+			super.state(project.isPublished(), "projectCode", "auditor.codeAudit.form.error.projectCodeError");
 		}
 
 	}
@@ -70,6 +89,18 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void perform(final CodeAudit object) {
 		assert object != null;
 
+		Project project;
+		Auditor auditor;
+
+		auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
+		project = this.repository.findOneProjectByCode(super.getRequest().getData("projectCode", String.class));
+
+		assert project != null;
+
+		object.setProject(project);
+		object.setPublished(false);
+		object.setAuditor(auditor);
+
 		this.repository.save(object);
 	}
 
@@ -77,15 +108,18 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
+		SelectChoices choices;
 		int auditorId;
 		Dataset dataset;
 
+		choices = SelectChoices.from(AuditType.class, object.getType());
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "link");
-		dataset.put("auditor", this.repository.findOneAuditorById(auditorId));
-		dataset.put("published", false);
-		dataset.put("project", this.repository.findOneProjectById(super.getRequest().getData("projectId", int.class)));
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+		dataset.put("auditor", this.repository.findOneAuditorById(auditorId).getAuthorityName());
+		dataset.put("projectCode", object.getProject().getCode());
+		dataset.put("type", choices.getSelected().getKey());
+		dataset.put("types", choices);
 
 		super.getResponse().addData(dataset);
 	}

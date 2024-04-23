@@ -65,10 +65,10 @@ public class CodeAudit extends AbstractEntity {
 
 
 	@Transient
-	public String getMark(final Collection<Mark> auditRecordsMark) {
-		String res = null;
-		Map<String, Integer> marks = auditRecordsMark.stream().collect(Collectors.groupingBy(m -> m.getMark(), Collectors.collectingAndThen(Collectors.counting(), t -> t.intValue())));
-		for (String m : marks.keySet())
+	public Mark getMark(final Collection<Mark> auditRecordsMark) {
+		Mark res = null;
+		Map<Mark, Integer> marks = auditRecordsMark.stream().collect(Collectors.groupingBy(m -> m, Collectors.collectingAndThen(Collectors.counting(), t -> t.intValue())));
+		for (Mark m : marks.keySet())
 			if (res == null || marks.get(m) > marks.get(res))
 				res = m;
 		return res;

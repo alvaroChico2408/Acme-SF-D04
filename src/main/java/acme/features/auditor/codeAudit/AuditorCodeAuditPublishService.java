@@ -10,10 +10,11 @@ import acme.client.views.SelectChoices;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
+import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -40,13 +41,44 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 	@Override
 	public void load() {
-		int id;
 		CodeAudit object;
+		int id;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
 
 		super.getBuffer().addData(object);
+
+	}
+
+	@Override
+	public void bind(final CodeAudit object) {
+		assert object != null;
+
+		String projectCode;
+		Project project;
+
+		projectCode = super.getRequest().getData("projectCode", String.class);
+		project = this.repository.findOneProjectByCode(projectCode);
+		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link", "projectCode");
+		object.setProject(project);
+	}
+
+	@Override
+	public void validate(final CodeAudit object) {
+		assert object != null;
+
+		Mark mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+
+		super.state(!object.isPublished(), "published", "auditor.codeAudit.form.error.published");
+		super.state(mark.greaterThanC(), "mark", "auditor.codeAudit.form.error.lowMark");
+	}
+
+	@Override
+	public void perform(final CodeAudit object) {
+		assert object != null;
+		object.setPublished(true);
+		this.repository.save(object);
 	}
 
 	@Override
@@ -62,6 +94,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
 		typeChoices = SelectChoices.from(AuditType.class, object.getType());
 		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+
 		dataset.put("auditor", this.repository.findOneAuditorById(auditorId).getAuthorityName());
 		dataset.put("mark", mark == null ? null : mark.getMark());
 		dataset.put("projectTitle", object.getProject().getTitle());
@@ -70,7 +103,6 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		dataset.put("types", typeChoices);
 
 		super.getResponse().addData(dataset);
-
 	}
 
 }
