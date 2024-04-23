@@ -2,15 +2,15 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
 import acme.entities.projects.Project;
 import acme.roles.Client;
@@ -18,10 +18,11 @@ import acme.roles.Client;
 @Service
 public class ClientContractCreateService extends AbstractService<Client, Contract> {
 
-	// Internal state ---------------------------------------------------------
+	@Autowired
+	protected ClientContractRepository	repository;
 
 	@Autowired
-	private ClientContractRepository repository;
+	protected AuxiliarService			auxiliarService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,77 +35,85 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	@Override
 	public void load() {
 		Contract object;
-		Client client;
-		List<Project> projects = this.repository.findAllProjects().stream().toList();
-
-		client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Contract();
-		object.setPublished(false);
+		final Client client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setClient(client);
-		object.setProject(projects.get(0));
-
+		object.setPublished(false);
 		super.getBuffer().addData(object);
 	}
 
 	@Override
 	public void bind(final Contract object) {
-		assert object != null;
-
-		int projectId;
-		Project project;
-
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
-
-		super.bind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
-		object.setProject(project);
+		if (object == null)
+			throw new IllegalArgumentException("No object found");
+		super.bind(object, "code", "providerName", "instantiationMoment", "customerName", "goals", "budget", "project");
 	}
 
 	@Override
 	public void validate(final Contract object) {
-		Collection<Contract> listAllContracts = this.repository.findAllContracts();
-		Collection<Contract> contractsFiltered = listAllContracts.stream().filter(x -> x.getProject().getId() == object.getProject().getId()).toList();
-		double totalAmount = contractsFiltered.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
-		assert object != null;
+		if (object == null)
+			throw new IllegalArgumentException("No object found");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
-
-			existing = this.repository.findOneContractByCode(object.getCode());
-			super.state(existing == null, "code", "client.contract.form.error.duplicated");
+			existing = this.repository.findContractByCode(object.getCode());
+			super.state(existing == null, "code", "client.contract.form.error.code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("budget"))
+		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
 
-			super.state(totalAmount * object.getBudget().getAmount() < object.getProject().getCost(), "budget", "client.contract.form.error.higher-cost");
+		Money ratioEuros;
+		ratioEuros = new Money();
+		ratioEuros.setAmount(100.00);
+		ratioEuros.setCurrency("EUR");
+
+		if (!contracts.isEmpty()) {
+
+			boolean overBudget;
+			double totalBudget = 0.0;
+			for (Contract c : contracts)
+				totalBudget = totalBudget + c.getBudget().getAmount();
+			if (totalBudget < object.getProject().getCost() * ratioEuros.getAmount())
+				overBudget = false;
+			else
+				overBudget = true;
+			super.state(overBudget, "*", "manager.project.form.error.overBudget");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+
+			Money maxEuros;
+
+			maxEuros = new Money();
+			maxEuros.setAmount(1000000.00);
+			maxEuros.setCurrency("EUR");
+			double maximo = object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount();
+			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maximo), "cost", "client.contract.form.error.budget");
+			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.cost2");
+		}
 	}
 
 	@Override
 	public void perform(final Contract object) {
-		assert object != null;
-
+		if (object == null)
+			throw new IllegalArgumentException("No object found");
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Contract object) {
-		assert object != null;
-
-		int clientId;
-		Collection<Project> projects;
-		SelectChoices choices;
+		if (object == null)
+			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-		projects = this.repository.findAllProjects();
+		final SelectChoices choices = new SelectChoices();
+		Collection<Project> projects;
+		projects = this.repository.findPublishedProjects();
+		for (final Project p : projects)
+			choices.add(Integer.toString(p.getId()), p.getCode() + " - " + p.getTitle(), false);
 
-		choices = SelectChoices.from(projects, "title", object.getProject());
-
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
-		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
-
 		super.getResponse().addData(dataset);
 	}
-
 }

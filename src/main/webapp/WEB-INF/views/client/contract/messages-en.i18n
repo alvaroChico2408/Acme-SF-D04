@@ -1,32 +1,30 @@
-# messages-en.i18n
-
-client.contract.form.title = Contract form 
-client.contract.list.title = Listing of Contracts
-
-client.contract.form.label.code = Code:
-client.contract.form.label.instantiationMoment = InstantiationMoment: 
-client.contract.form.label.providerName = ProviderName:
-client.contract.form.label.customerName = CustomerName:
-client.contract.form.label.goals = Goals:
-client.contract.form.label.budget = Budget:
-cleint.contract.form.label.project = Projects
-client.contract.form.label.published = Published
-		
-client.contract.form.button.progressLog = ProgressLog
-
+client.contract.list.title = Your contracts
 client.contract.list.label.code = Code
-client.contract.list.label.instantiationMoment = InstantiationMoment
 client.contract.list.label.providerName = ProviderName
 client.contract.list.label.customerName = CustomerName
-client.contract.list.label.goals = Goals
 client.contract.list.label.budget = Budget
+
+client.contract.form.title = Contract details
+client.contract.form.label.code = Code
+client.contract.form.label.providerName = ProviderName
+client.contract.form.label.customerName = CustomerName
+client.contract.form.label.budget = Budget
+client.contract.form.label.instantiationMoment = Instantiation Moment
 client.contract.form.label.published = Published
+client.contract.form.label.money = Cost in the system currency
+client.contract.form.label.goals = Goals
+client.contract.form.label.project = Project
+
+client.contract.progressLogs = Progress Logs
 
 
-client.contract.list.button.create = Create contract
+client.contract.form.error.budget = The budget must be under the project cost
+client.contract.form.error.budget2 = The introduced currency is not accepted by the system
+client.contract.form.error.code = The code must be 3 capital letter and 4 numbers joined by -
+client.contract.form.error.moment = Must be in the past
+
+client.contract.create = Create
+client.contract.form.button.delete = Delete
+client.contract.form.button.update = Update
+client.contract.form.button.publish = Publish
 client.contract.form.button.create = Create
-client.contract.form.button.update = Update contract
-client.contract.form.button.delete = Delete contract
-
-client.contract.form.error.duplicated = This reference is taken
-client.contract.form.error.higher-cost = The budget can't be higher than project cost

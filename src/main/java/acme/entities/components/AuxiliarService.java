@@ -25,7 +25,7 @@ public class AuxiliarService {
 	private AuxiliarRepository repository;
 
 
-	public boolean validatePrice(final Money price, final Integer minAm, final Integer maxAm) {
+	public boolean validatePrice(final Money price, final Double minAm, final Double maxAm) {
 		return price.getAmount() >= minAm && price.getAmount() < maxAm;
 	}
 

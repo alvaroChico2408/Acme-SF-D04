@@ -15,7 +15,7 @@ import acme.entities.contract.Contract;
 import acme.roles.Client;
 
 @Service
-public class ClientContractUpdateService extends AbstractService<Client, Contract> {
+public class ClientContractPublishService extends AbstractService<Client, Contract> {
 
 	@Autowired
 	protected ClientContractRepository	repository;
@@ -49,7 +49,6 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-
 		Contract object2;
 		int id;
 
@@ -64,14 +63,8 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void validate(final Contract object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Contract existing;
-			existing = this.repository.findContractByCode(object.getCode());
-			final Contract contract2 = object.getCode().equals("") || object.getCode() == null ? null : this.repository.findContractById(object.getId());
-			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
-		}
-
 		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
+		super.state(!contracts.isEmpty(), "*", "manager.project.form.error.noContracts");
 
 		Money ratioEuros;
 		ratioEuros = new Money();
@@ -91,8 +84,14 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			super.state(overBudget, "*", "manager.project.form.error.overBudget");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Contract existing;
+			existing = this.repository.findContractByCode(object.getCode());
+			final Contract contract2 = object.getCode().equals("") || object.getCode() == null ? null : this.repository.findContractById(object.getId());
+			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
+		}
 
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			Money maxEuros;
 
 			maxEuros = new Money();
@@ -108,6 +107,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void perform(final Contract object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
+		object.setPublished(true);
 		this.repository.save(object);
 	}
 
@@ -117,7 +117,6 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
-
 		dataset.put("projectTitle", object.getProject().getCode());
 		super.getResponse().addData(dataset);
 	}

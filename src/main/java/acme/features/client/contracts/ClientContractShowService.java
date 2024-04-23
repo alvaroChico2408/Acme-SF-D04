@@ -1,46 +1,40 @@
 
 package acme.features.client.contracts;
 
-import java.util.Collection;
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
+import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
-import acme.entities.projects.Project;
+import acme.entities.contract.ProgressLog;
 import acme.roles.Client;
 
 @Service
 public class ClientContractShowService extends AbstractService<Client, Contract> {
 
-	// Internal state ---------------------------------------------------------
+	@Autowired
+	protected ClientContractRepository	repository;
 
 	@Autowired
-	private ClientContractRepository repository;
+	protected AuxiliarService			auxiliarService;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Contract contract;
-		Client client;
-		Date currentMoment;
-
-		masterId = super.getRequest().getData("id", int.class);
-		contract = this.repository.findOneContractById(masterId);
-		client = contract == null ? null : contract.getClient();
-		currentMoment = MomentHelper.getCurrentMoment();
-		status = super.getRequest().getPrincipal().hasRole(client) || contract != null && contract.isPublished() && MomentHelper.isAfter(contract.getInstantiationMoment(), currentMoment);
-
-		super.getResponse().setAuthorised(status);
+		Contract object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findContractById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getClient().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
@@ -49,34 +43,21 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneContractById(id);
+		object = this.repository.findContractById(id);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
 	public void unbind(final Contract object) {
-		assert object != null;
-
-		int clientId;
-		Collection<Project> projects;
-		SelectChoices choices;
+		if (object == null)
+			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
-
-		if (object.isPublished())
-			projects = this.repository.findAllProjects();
-		else {
-			clientId = super.getRequest().getPrincipal().getActiveRoleId();
-			projects = this.repository.findManyProjectsByClientId(clientId);
-		}
-
-		choices = SelectChoices.from(projects, "title", object.getProject());
-
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published");
-		dataset.put("project", choices.getSelected().getKey());
-		dataset.put("projects", choices);
-
+		dataset = super.unbind(object, "id", "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published", "project", "client");
+		final List<ProgressLog> progressLogs = (List<ProgressLog>) this.repository.findProgressLogsByContract(object.getId());
+		dataset.put("hasProgressLogs", !progressLogs.isEmpty());
+		dataset.put("projectTitle", object.getProject().getCode());
+		dataset.put("money", this.auxiliarService.changeCurrency(object.getBudget()));
 		super.getResponse().addData(dataset);
 	}
-
 }
