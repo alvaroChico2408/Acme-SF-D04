@@ -5,7 +5,7 @@ developer.trainingModule.list.label.code = Código:
 developer.trainingModule.list.label.details = Detalles:
 developer.trainingModule.list.label.difficultyLevel = Nivel de dificultad:
 
-manager.project.list.button.create = Create
+developer.trainingModule.list.button.create = Crear
 
 developer.trainingModule.form.label.code = Código:
 developer.trainingModule.form.label.creationMoment = Momento de creación:
@@ -16,6 +16,7 @@ developer.trainingModule.form.label.link = Link para más información: (Opciona
 developer.trainingModule.form.label.totalTime = Tiempo total (en horas):
 developer.trainingModule.form.label.published = Publicado:
 developer.trainingModule.form.label.developerUsername = Nombre de usuario del desarrollador:
+developer.trainingModule.form.label.projects = Proyecto:
 
 developer.trainingModule.form.button.trainingSessions = Sesiones de entrenamiento
 developer.trainingModule.form.button.create = Crear
@@ -29,3 +30,5 @@ developer.trainingModule.form.error.difficultyLevel = No puedes publicar un mód
 developer.trainingModule.form.error.updateMoment = El momento de actualización debe estar después del momento de creación
 developer.trainingModule.form.error.link = El link debe tener un máximo de 255 caracteres
 developer.trainingModule.form.error.totalTime = El tiempo total debe ser cero o un número positivo
+developer.trainingModule.form.error.notrainingsessions = El módulo de entrenamiento debe tener al menos una sesión de entrenamiento
+developer.trainingModule.form.error.trainingsessionsnotpublished = Todas las sesiones de entrenamiento deben estar publicadas
