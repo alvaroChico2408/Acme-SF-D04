@@ -68,7 +68,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		projectCode = super.getRequest().getData("projectCode", String.class);
 		project = this.repository.findOneProjectByCode(projectCode);
-		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link", "projectCode");
+		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link");
 		object.setProject(project);
 	}
 
