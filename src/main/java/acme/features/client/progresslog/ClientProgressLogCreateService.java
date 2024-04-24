@@ -1,5 +1,7 @@
 
-package acme.features.client.progresslogs;
+package acme.features.client.progresslog;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,12 +9,14 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.components.AuxiliarService;
+import acme.entities.contract.Contract;
 import acme.entities.contract.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogUpdateService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogCreateService extends AbstractService<Client, ProgressLog> {
 
 	@Autowired
 	protected ClientProgressLogRepository	repository;
@@ -31,8 +35,11 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	@Override
 	public void load() {
 		ProgressLog object;
+		Client client;
+		client = this.repository.findClientById(super.getRequest().getPrincipal().getActiveRoleId()).orElse(null);
 		object = new ProgressLog();
 		object.setPublished(false);
+		object.setClient(client);
 		super.getBuffer().addData(object);
 	}
 
@@ -40,14 +47,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-		ProgressLog object2;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object2 = this.repository.findProgressLogsById(id);
-		object.setContract(object2.getContract());
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
-
+		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract");
 	}
 
 	@Override
@@ -57,14 +57,11 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
 			existing = this.repository.findProgressLogsByRecordId(object.getRecordId());
-			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findProgressLogsByRecordId(object.getRecordId());
-			super.state(existing == null || progressLog2.equals(existing), "code", "client.contract.form.error.code");
+			super.state(existing == null, "code", "client.progressLogs.form.error.recordId");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "client.progressLogs.form.error.published");
 
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isBefore(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()), "instantiationMoment", "client.progressLogs.form.error.moment");
+			super.state(MomentHelper.isBefore(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()), "instantiationMoment", "client.progressLogs.form.error.registrationMoment");
 
 	}
 
@@ -80,9 +77,15 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract", "published");
+		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract", "client", "published");
 
-		dataset.put("contractTitle", object.getContract().getCode());
+		final SelectChoices choices = new SelectChoices();
+		Collection<Contract> contracts;
+		int id = super.getRequest().getPrincipal().getActiveRoleId();
+		contracts = this.repository.findContractsByClient(id);
+		for (final Contract c : contracts)
+			choices.add(Integer.toString(c.getId()), c.getCode(), false);
+		dataset.put("contractsList", choices);
 		super.getResponse().addData(dataset);
 	}
 

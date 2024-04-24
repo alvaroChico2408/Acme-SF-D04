@@ -1,5 +1,5 @@
 
-package acme.features.client.progresslogs;
+package acme.features.client.progresslog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

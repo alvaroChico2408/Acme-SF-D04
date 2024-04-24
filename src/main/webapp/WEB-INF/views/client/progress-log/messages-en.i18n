@@ -1,5 +1,5 @@
-client.progress-logs.list.title = Your progress logs
-client.progress-logs.form.title = Your progress log
+client.progress-log.list.title = Your progress logs
+client.progress-log.form.title = Your progress log
 
 client.progress-logs.list.label.recordId = Record Id
 client.progress-logs.list.label.completeness = Completeness

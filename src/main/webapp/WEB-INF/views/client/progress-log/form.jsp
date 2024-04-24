@@ -16,13 +16,13 @@
 	<acme:input-select code="client.progress-logs.form.label.contract" path="contract" choices="${contractsList}"/>	
 	</jstl:if>
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true }">
-			<acme:submit code="client.progress-logs.form.button.update" action="/client/progress-logs/update"/>
-			<acme:submit code="client.progress-logs.form.button.delete" action="/client/progress-logs/delete"/>
-			<acme:submit code="client.progress-logs.form.button.publish" action="/client/progress-logs/publish"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published==false}">
+			<acme:submit code="client.progress-logs.form.button.update" action="/client/progress-log/update"/>
+			<acme:submit code="client.progress-logs.form.button.delete" action="/client/progress-log/delete"/>
+			<acme:submit code="client.progress-logs.form.button.publish" action="/client/progress-log/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="client.progress-logs.form.button.create" action="/client/progress-logs/create"/>
+			<acme:submit code="client.progress-logs.form.button.create" action="/client/progress-log/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

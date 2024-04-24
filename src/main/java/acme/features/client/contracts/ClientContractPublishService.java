@@ -76,8 +76,8 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			boolean overBudget;
 			double totalBudget = 0.0;
 			for (Contract c : contracts)
-				totalBudget = totalBudget + c.getBudget().getAmount();
-			if (totalBudget < object.getProject().getCost() * ratioEuros.getAmount())
+				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
+			if (totalBudget < object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
 				overBudget = false;
 			else
 				overBudget = true;
