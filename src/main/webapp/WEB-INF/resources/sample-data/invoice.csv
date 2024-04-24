@@ -45,3 +45,7 @@ invoice-43,IN-9734-5578,2022/02/28 23:59,2022/09/28 23:59,EUR 1500.00,0,https://
 invoice-44,IN-1111-0001,2022/02/28 23:59,2022/09/28 23:59,EUR 1.00,0,https://InvoicePublicadaS58.com/,true,sponsorship-58
 invoice-45,IN-1111-0002,2022/02/28 23:59,2022/09/28 23:59,EUR 1.00,0,https://InvoiceNoPublicadaS58.com/,false,sponsorship-58
 invoice-46,IN-1111-0003,2022/02/28 23:59,2022/09/28 23:59,EUR 51.00,0,https://InvoicePublicadaS59.com/,true,sponsorship-59
+invoice-47,IN-9999-9001,2022/02/28 23:59,2022/09/28 23:59,EUR 51.00,0,https://debeDejarPublicar.com/,false,sponsorship-65
+invoice-48,IN-9999-9101,2022/02/28 23:59,2022/09/28 23:59,EUR 1000.00,0,https://llenaElPatrocinio.com/,true,sponsorship-66
+invoice-49,IN-9999-9102,2022/02/28 23:59,2022/09/28 23:59,EUR 51.00,0,https://noDejaPublicarPorqueElRestoDeFacturasPaganElPatrocinio.com/,false,sponsorship-66
+invoice-50,IN-9999-9201,2022/02/28 23:59,2022/09/28 23:59,EUR 51.00,0,https://noDejaPublicarPorqueElPatrocinioEstaPublicado.com/,false,sponsorship-67

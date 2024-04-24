@@ -15,13 +15,24 @@ sponsor.invoice.form.label.link= Link:
 sponsor.invoice.form.label.published= Publicada:
 sponsor.invoice.form.label.totalAmount= Cuantía total:
 sponsor.invoice.form.label.sponsorshipCode= Código del patrocinio:
+sponsor.invoice.form.label.money = Cuantía total en la divisa del sistema:
 
 sponsor.invoice.form.button.update= Actualizar factura
 sponsor.invoice.form.button.delete= Eliminar factura
 sponsor.invoice.form.button.publish= Publicar factura
+sponsor.invoice.form.button.create= Crear 
+sponsor.invoice.list.button.create= Crear nueva factura para este patrocinio
 
 sponsor.invoice.form.error.duplicated= Este código está actualmente en uso
 sponsor.invoice.form.error.dueDateTooClose= La fecha límite de la factura debe de ser de al menos un mes
-sponsor.invoice.form.error.positiveNotZeroQuantity= La cuantía de la factura debe ser superior a 0
+sponsor.invoice.form.error.minQuantity= La cuantía de la factura debe ser superior a 0
+sponsor.invoice.form.error.maxQuantity= La cuantía de la factura debe ser inferior a 10000000
+sponsor.invoice.form.error.minMaxDueDate = La fecha límite debe estar entre 2000/01/01 00:00 y 2099/12/31 23:59
+sponsor.invoice.form.error.pastDueDate = La fecha límite de la factura debe de ser posterior al su momento del creación
+sponsor.invoice.form.error.notSupportedCurrency = Solo se pueden utilizar divisas soportadas
+sponsor.invoice.form.error.invalidCurrency = La divisa debe ser la misma que la del patrocinio
+sponsor.invoice.form.error.tooMuchMoney= La suma de las facturas publicadas pagan la cuantía del patrocinio
+sponsor.invoice.form.error.publishedSponsorship = El patrocinio ya ha sido publicado
+
 
 

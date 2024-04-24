@@ -15,11 +15,22 @@ sponsor.invoice.form.label.link= Link:
 sponsor.invoice.form.label.published= Published:
 sponsor.invoice.form.label.totalAmount= totalAmount:
 sponsor.invoice.form.label.sponsorshipCode= Sponsorship code:
+sponsor.invoice.form.label.money =Total amount in the system currency:
 
 sponsor.invoice.form.button.update= Update invoice
 sponsor.invoice.form.button.delete= Delete invoice
 sponsor.invoice.form.button.publish= Publish invoice
+sponsor.invoice.form.button.create= Create
+sponsor.invoice.list.button.create= Create new invoice for this sponsorship
 
 sponsor.invoice.form.error.duplicated= This code is already taken
 sponsor.invoice.form.error.dueDateTooClose= The due date of the invoice must be at least one month long
-sponsor.invoice.form.error.positiveNotZeroQuantity= The quantity of the invoice must be higher than zero
+sponsor.invoice.form.error.minQuantity= The quantity of the invoice must be higher than zero
+sponsor.invoice.form.error.maxQuantity= The quantity of the invoice must be smaller than 10000000
+sponsor.invoice.form.error.minMaxDueDate = The due date must be between 2000/01/01 00:00 and 2099/12/31 23:59
+sponsor.invoice.form.error.pastDueDate = The due date of the invoice must be after its moment of creation
+sponsor.invoice.form.error.notSupportedCurrency = You can only use the supported currencies
+sponsor.invoice.form.error.invalidCurrency = The currency must be the same as the sponsorship's one
+sponsor.invoice.form.error.tooMuchMoney= The sum of the invoices already published pays the sponsorship's amount
+sponsor.invoice.form.error.publishedSponsorship = The sponsorship is already published
+
