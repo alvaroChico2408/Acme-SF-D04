@@ -10,6 +10,7 @@
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>	
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget"/>	
+	<acme:input-checkbox code="client.contract.form.label.published" path="published" readonly = "true"/>
 	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
 	<acme:input-textbox code="client.contract.form.label.project" path="projectTitle" readonly="true"/>	
 	</jstl:if>

@@ -67,17 +67,17 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		ratioEuros.setAmount(100.00);
 		ratioEuros.setCurrency("EUR");
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+		if (!contracts.isEmpty()) {
 
 			boolean overBudget;
 			double totalBudget = 0.0;
 			for (Contract c : contracts)
 				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
-			if (totalBudget + this.auxiliarService.changeCurrency(object.getBudget()).getAmount() < object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
+			if (totalBudget > object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
 				overBudget = false;
 			else
 				overBudget = true;
-			super.state(overBudget, "budget", "client.contract.form.error.overBudget");
+			super.state(overBudget, "*", "contract.contract.form.error.overBudget");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {

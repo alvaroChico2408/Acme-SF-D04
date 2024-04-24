@@ -22,7 +22,7 @@ client.contract.form.error.budget = The budget must be between the stablished ra
 client.contract.form.error.budget2 = The introduced currency is not accepted by the system
 client.contract.form.error.code = The code must be unique
 client.contract.form.error.moment = Must be in the past
-client.contract.form.error.overBudget = The budget must be under the project cost
+client.contract.form.error.overBudget = The sum of all of the contracts budgets of a project must be under the project cost
 client.contract.form.error.noprogresslog = The contract must have Progress Logs to be published
 client.contract.form.error.progresslognotpublished = One or many Progress Log are unpublished
 
