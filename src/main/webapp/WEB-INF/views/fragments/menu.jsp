@@ -44,6 +44,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.training-modules-list" action="/any/training-module/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.risk-list" action="/authenticated/risk/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.notices-list" action="/authenticated/notice/list"/>
 		</acme:menu-option>
 

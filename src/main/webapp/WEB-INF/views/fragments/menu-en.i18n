@@ -36,6 +36,7 @@ master.menu.authenticated.claims-list = List claims
 master.menu.authenticated.objectives-list = List objectives
 master.menu.authenticated.published-sponsorship = List published sponsorship
 master.menu.authenticated.training-modules-list = List published training modules
+master.menu.authenticated.risk-list = List of risks
 master.menu.authenticated.notices-list = Notices from the last month
 
 

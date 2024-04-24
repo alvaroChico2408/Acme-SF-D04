@@ -1,0 +1,15 @@
+authenticated.risk.list.title = Lista de riesgos
+authenticated.risk.form.title = Detalles de riesgo
+
+authenticated.risk.list.label.reference = Referencia
+authenticated.risk.list.label.type = Tipo
+authenticated.risk.list.label.value = Valor
+
+authenticated.risk.form.label.reference = Referencia:
+authenticated.risk.form.label.type = Tipo:
+authenticated.risk.form.label.identificationDate = Fecha de identificación:
+authenticated.risk.form.label.impact = Impacto:
+authenticated.risk.form.label.probability = Probabilidad:
+authenticated.risk.form.label.description = Descripción:
+authenticated.risk.form.label.link = Enlace:
+authenticated.risk.form.label.value = Valor:

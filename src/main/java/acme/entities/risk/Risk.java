@@ -66,7 +66,7 @@ public class Risk extends AbstractEntity {
 
 
 	@Transient
-	private double value() {
+	public double value() {
 		return this.impact * this.probability;
 	}
 
