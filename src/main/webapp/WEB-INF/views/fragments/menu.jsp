@@ -42,6 +42,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.objectives-list" action="/authenticated/objective/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.training-modules-list" action="/any/training-module/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.notices-list" action="/authenticated/notice/list"/>
 		</acme:menu-option>
 
@@ -65,14 +67,6 @@
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
 			<acme:menu-suboption code="master.menu.client.contract" action="/client/contract/list"/>
 			<acme:menu-suboption code="master.menu.client.progress-log" action="/client/progress-log/list-all"/>		
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
-			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
-		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
-			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">			
