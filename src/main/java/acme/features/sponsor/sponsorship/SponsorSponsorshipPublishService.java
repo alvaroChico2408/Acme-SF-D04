@@ -85,13 +85,19 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		// Durations ---------------------------------------------------------
 
-		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
-			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
-
 		if (!super.getBuffer().getErrors().hasErrors("durationInitial")) {
 			Date maxDate = new Date(4099762799000L); // 2099/11/30 23:59:59
 			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
 			super.state(MomentHelper.isAfterOrEqual(object.getDurationInitial(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationInitial(), maxDate), "durationInitial", "sponsor.sponsorship.form.error.minMaxDurationInitial");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
+			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
+
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59:59
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isAfterOrEqual(object.getDurationFinal(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationFinal(), maxDate), "durationFinal", "sponsor.sponsorship.form.error.minMaxDurationFinal");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("durationFinal") && object.getDurationInitial() != null) {
@@ -100,12 +106,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 			minimumDuration = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.MONTHS);
 			super.state(MomentHelper.isAfter(object.getDurationFinal(), minimumDuration), "durationFinal", "sponsor.sponsorship.form.error.durationFinalTooClose");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
-			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59:59
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
-			super.state(MomentHelper.isAfterOrEqual(object.getDurationFinal(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationFinal(), maxDate), "durationFinal", "sponsor.sponsorship.form.error.minMaxDurationFinal");
 		}
 
 		// Amount ---------------------------------------------------------
