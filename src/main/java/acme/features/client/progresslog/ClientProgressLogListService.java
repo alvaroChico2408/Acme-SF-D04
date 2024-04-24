@@ -51,10 +51,11 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().addGlobal("masterId", masterId);
 		dataset.put("masterId", masterId);
-		final Contract p = this.repository.findContractById(masterId);
-		final boolean showCreate = !p.isPublished();
+		final Contract c = this.repository.findContractById(masterId);
+		final boolean showCreate = !c.isPublished();
 		super.getResponse().addGlobal("showCreate", showCreate);
 		super.getResponse().addData(dataset);
+		super.getResponse().addGlobal("contractCode", c.getCode());
 	}
 
 	@Override
@@ -66,6 +67,9 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 		final Contract c = this.repository.findContractById(masterId);
 		final boolean showCreate = !c.isPublished();
 		super.getResponse().addGlobal("showCreate", showCreate);
+
+		super.getResponse().addGlobal("contractCode", c.getCode());
+
 	}
 
 }

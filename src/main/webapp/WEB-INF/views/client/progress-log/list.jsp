@@ -10,6 +10,8 @@
 	<acme:list-column code="client.progress-logs.list.label.responsiblePerson" path="responsiblePerson" width="40%" />
 </acme:list>
 
-<jstl:if test="${masterId != null}">
+
+
+<jstl:if test="${_command == 'list' && showCreate == true}">
 	<acme:button code="client.progress-logs.create" action="/client/progress-log/create"/>
 </jstl:if>

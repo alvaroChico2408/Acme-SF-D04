@@ -23,6 +23,8 @@ client.contract.form.error.budget2 = La moneda introducida no es aceptada por el
 client.contract.form.error.code = El codigo debe ser unico
 client.contract.form.error.moment = La fecha debe estar en el pasado
 client.contract.form.error.overBudget = El presupuesto debe ser inferior al coste del projecto
+client.contract.form.error.noprogresslog = El contrato debe tener catas de seguimiento para ser publicado
+client.contract.form.error.progresslognotpublished = Hay una o varias actas de seguimiento sin publicar
 
 client.contract.create = Crear
 client.contract.form.button.delete = Eliminar

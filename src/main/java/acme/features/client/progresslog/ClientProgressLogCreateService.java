@@ -82,7 +82,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		final SelectChoices choices = new SelectChoices();
 		Collection<Contract> contracts;
 		int id = super.getRequest().getPrincipal().getActiveRoleId();
-		contracts = this.repository.findContractsByClient(id);
+		contracts = this.repository.findPublishedContractsByClient(id);
 		for (final Contract c : contracts)
 			choices.add(Integer.toString(c.getId()), c.getCode(), false);
 		dataset.put("contractsList", choices);
