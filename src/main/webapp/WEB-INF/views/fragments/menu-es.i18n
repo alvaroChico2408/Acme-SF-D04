@@ -72,7 +72,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.manager = Gerente
 master.menu.manager.my-projects = Listado de mis proyectos
 master.menu.manager.my-userStories = Listado de mis historias de usuario
-master.menu.manager.dashboard = Panel de indicadores
+master.menu.manager.dashboard = Panel de datos
 
 # master.menu.sponsor ########################################################
 
@@ -97,6 +97,7 @@ master.menu.user-account.become-developer = Hazte desarrollador
 
 master.menu.auditor = Auditor
 master.menu.auditor.my-codeAudits = Lista mis Auditorias de Código
+master.menu.auditor.dashboard = Panel de indicadores 
 
 # master.menu.developer ####################################################
 
