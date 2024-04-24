@@ -21,7 +21,7 @@
 			<acme:submit code="sponsor.invoice.form.button.publish" action="/sponsor/invoice/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?id=${sponsorshipId}"/>
+			<acme:submit code="sponsor.invoice.form.button.create" action="/sponsor/invoice/create?sponsorshipId=${sponsorshipId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

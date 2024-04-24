@@ -35,8 +35,8 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		Invoice object;
 		int sponsorshipId;
 		Sponsorship sponsorship;
-		sponsorshipId = super.getRequest().getData("id", int.class);
-		super.getResponse().addGlobal("id", sponsorshipId);
+		sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
+		super.getResponse().addGlobal("sponsorshipId", sponsorshipId);
 		sponsorship = this.repository.findSponsorshipById(sponsorshipId).orElse(null);
 		object = new Invoice();
 		object.setPublished(false);
