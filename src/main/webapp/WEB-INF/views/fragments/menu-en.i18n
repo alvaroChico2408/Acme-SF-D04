@@ -98,6 +98,7 @@ master.menu.user-account.become-developer = Become a developer
 
 master.menu.auditor = Auditor
 master.menu.auditor.my-codeAudits = List my Code Audits
+master.menu.auditor.dashboard = Dashboard
 
 # master.menu.developer ####################################################
 

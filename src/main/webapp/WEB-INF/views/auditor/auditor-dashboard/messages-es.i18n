@@ -1,0 +1,16 @@
+auditor.auditor-dashboard.form.title = Mi panel de datos
+
+auditor.auditorDashboard.form.label.codeAudit-static = Número de Auditorias Estáticas
+auditor.auditorDashboard.form.label.codeAudit-dynamic = Número de Auditorias Dinámicas
+auditor.auditorDashboard.form.label.averageAuditRecords = Media del Número de Anotaciones de Auditoría por Auditoría
+auditor.auditorDashboard.form.label.deviationAuditRecords = Desviación del Número de Anotaciones de Auditoría por Auditoría
+auditor.auditorDashboard.form.label.minNumAuditRecords = Mínimo del Número de Anotaciones de Auditoría por Auditoría
+auditor.auditorDashboard.form.label.maxNumAuditRecords = Máximo del Número de Anotaciones de Auditoría por Auditoría
+auditor.auditorDashboard.form.label.averageAuditRecordsPeriodLength = Media del Periodo de Ejecución de las Anotaciones de Auditoría
+auditor.auditorDashboard.form.label.deviationAuditRecordsPeriodLength = Desviación del Periodo de Ejecución de las Anotaciones de Auditoría
+auditor.auditorDashboard.form.label.minAuditRecordsPeriodLength =  Mínimo del Periodo de Ejecución de las Anotaciones de Auditoría
+auditor.auditorDashboard.form.label.maxAuditRecordsPeriodLength =  Máximo del Periodo de Ejecución de las Anotaciones de Auditoría
+
+auditor.auditorDashboard.form.label.codeAudit.type.information = Gráfico sobre los tipos de las Auditorias de Código
+auditor.auditorDashboard.form.label.codeAudit.auditRecord.information = Gráfico sobre el número de Anotaciones de las Auditorias de Código
+auditor.auditorDashboard.form.label.auditRecord.periodLength.information = Gráfico sobre la longitud del periodo de las Anotaciones de las Auditorias
