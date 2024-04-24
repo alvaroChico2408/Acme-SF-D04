@@ -11,17 +11,20 @@ client.contract.form.label.customerName = CustomerName
 client.contract.form.label.budget = Budget
 client.contract.form.label.instantiationMoment = Instantiation Moment
 client.contract.form.label.published = Published
-client.contract.form.label.money = Cost in the system currency
+client.contract.form.label.money = Budget in the system currency
 client.contract.form.label.goals = Goals
 client.contract.form.label.project = Project
 
 client.contract.progressLogs = Progress Logs
 
 
-client.contract.form.error.budget = The budget must be under the project cost
+client.contract.form.error.budget = The budget must be between the stablished range
 client.contract.form.error.budget2 = The introduced currency is not accepted by the system
-client.contract.form.error.code = The code must be 3 capital letter and 4 numbers joined by -
+client.contract.form.error.code = The code must be unique
 client.contract.form.error.moment = Must be in the past
+client.contract.form.error.overBudget = The budget must be under the project cost
+client.contract.form.error.noprogresslog = The contract must have Progress Logs to be published
+client.contract.form.error.progresslognotpublished = One or many Progress Log are unpublished
 
 client.contract.create = Create
 client.contract.form.button.delete = Delete
