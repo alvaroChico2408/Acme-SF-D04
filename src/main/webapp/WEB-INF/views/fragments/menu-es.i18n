@@ -54,6 +54,7 @@ master.menu.administrator.system-configuration = Mostrar la configuración del s
 master.menu.client = Cliente
 master.menu.client.contract = Lista de contratos
 master.menu.client.progress-log = Lista de actas de progreso
+master.menu.manager.manager-dashboard = Panel de Cliente
 
 # master.menu.provider ########################################################
 
