@@ -9,7 +9,7 @@
 	<acme:input-moment code="auditor.auditRecord.form.label.endDate" path="endDate"/>
 	<acme:input-select code="auditor.auditRecord.form.label.mark" path="mark" choices = "${marks}"/>
 	<acme:input-textbox code="auditor.auditRecord.form.label.link" path="link"/>
-	<acme:input-checkbox code="auditor.auditRecord.form.label.published" path="published"/>
+	<acme:input-checkbox code="auditor.auditRecord.form.label.published" path="published" readonly = "true"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete|update')&&published==false}">
 			<acme:submit code="auditor.auditRecord.form.label.update" action="/auditor/audit-record/update"/>
