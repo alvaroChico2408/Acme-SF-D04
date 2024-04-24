@@ -65,14 +65,13 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
+		super.bind(object, "code", "durationInitial", "durationFinal", "amount", "type", "email", "link", "project");
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
 		Collection<Invoice> publishedInvoices = this.repository.findPublishedInvoicesBySponsorshipId(object.getId());
-		Collection<Invoice> invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
 
 		// Code ---------------------------------------------------------
 
@@ -83,17 +82,29 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(existing == null || existing.equals(object), "code", "sponsor.sponsorship.form.error.duplicated");
 		}
 
-		// Durations ---------------------------------------------------------
+		/// Durations ---------------------------------------------------------
 
 		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
 			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
 
-		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+		if (!super.getBuffer().getErrors().hasErrors("durationInitial")) {
+			Date maxDate = new Date(4099762799000L); // 2099/11/30 23:59:59
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isAfterOrEqual(object.getDurationInitial(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationInitial(), maxDate), "durationInitial", "sponsor.sponsorship.form.error.minMaxDurationInitial");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal") && object.getDurationInitial() != null) {
 			Date minimumDuration;
 			Date start = object.getDurationInitial();
 
 			minimumDuration = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.MONTHS);
 			super.state(MomentHelper.isAfter(object.getDurationFinal(), minimumDuration), "durationFinal", "sponsor.sponsorship.form.error.durationFinalTooClose");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59:59
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isAfterOrEqual(object.getDurationFinal(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationFinal(), maxDate), "durationFinal", "sponsor.sponsorship.form.error.minMaxDurationFinal");
 		}
 
 		// Amount ---------------------------------------------------------
@@ -104,6 +115,8 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
 
+		// Solo update y publish ---------------------------------------------------------
+
 		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			double totalAmount;
 			if (!publishedInvoices.isEmpty())
@@ -113,15 +126,12 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(object.getAmount().getAmount() >= totalAmount, "amount", "sponsor.sponsorship.form.error.minInvoiceAmountPublished");
 		}
 
-		/*
-		 * if (!super.getBuffer().getErrors().hasErrors("amount")) {
-		 * Sponsorship initial;
-		 * 
-		 * initial = this.repository.findSponsorshipById(object.getId()).orElse(null);
-		 * 
-		 * super.state(object.getAmount().getCurrency().trim() == object.getAmount().getCurrency().trim(), "amount", "sponsor.sponsorship.form.error.currencyChanged");
-		 * }
-		 */
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
+			Sponsorship initial = this.repository.findSponsorshipById(object.getId()).orElse(null);
+
+			super.state(object.getAmount().getCurrency().trim().toLowerCase().equals(initial.getAmount().getCurrency().trim().toLowerCase()), "amount", "sponsor.sponsorship.form.error.currencyChanged");
+		}
+
 	}
 
 	@Override

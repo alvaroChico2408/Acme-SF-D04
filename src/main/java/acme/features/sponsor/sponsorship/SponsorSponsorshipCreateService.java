@@ -12,6 +12,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.components.AuxiliarService;
 import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.sponsorship.Type;
@@ -23,7 +24,10 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository	repository;
+
+	@Autowired
+	private AuxiliarService					auxiliarService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -51,13 +55,15 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
+		super.bind(object, "code", "durationInitial", "durationFinal", "amount", "type", "email", "link", "project");
 
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
+
+		// Code ---------------------------------------------------------
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship existing;
@@ -66,10 +72,18 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			super.state(existing == null, "code", "sponsor.sponsorship.form.error.duplicated");
 		}
 
+		// Durations ---------------------------------------------------------
+
 		if (!super.getBuffer().getErrors().hasErrors("durationInitial"))
 			super.state(MomentHelper.isAfter(object.getDurationInitial(), object.getMoment()), "durationInitial", "sponsor.sponsorship.form.error.pastDurationInitial");
 
-		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+		if (!super.getBuffer().getErrors().hasErrors("durationInitial")) {
+			Date maxDate = new Date(4099762799000L); // 2099/11/30 23:59:59
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isAfterOrEqual(object.getDurationInitial(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationInitial(), maxDate), "durationInitial", "sponsor.sponsorship.form.error.minMaxDurationInitial");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal") && object.getDurationInitial() != null) {
 			Date minimumDuration;
 			Date start = object.getDurationInitial();
 
@@ -77,11 +91,24 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			super.state(MomentHelper.isAfter(object.getDurationFinal(), minimumDuration), "durationFinal", "sponsor.sponsorship.form.error.durationFinalTooClose");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("durationFinal")) {
+			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59:59
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isAfterOrEqual(object.getDurationFinal(), minDate) && MomentHelper.isBeforeOrEqual(object.getDurationFinal(), maxDate), "durationFinal", "sponsor.sponsorship.form.error.minMaxDurationFinal");
+		}
+
+		// Amount ---------------------------------------------------------
+
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() >= 0, "amount", "sponsor.sponsorship.form.error.positiveAmount");
 
 		if (!super.getBuffer().getErrors().hasErrors("amount"))
 			super.state(object.getAmount().getAmount() <= 100000000, "amount", "sponsor.sponsorship.form.error.maxAmount");
+
+		// Solo create ---------------------------------------------------------
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(this.auxiliarService.validateCurrency(object.getAmount()), "amount", "sponsor.sponsorship.form.error.notSupportedCurrency");
 
 	}
 
