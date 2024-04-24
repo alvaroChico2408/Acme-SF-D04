@@ -42,10 +42,12 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 			throw new IllegalArgumentException("No object found");
 		ProgressLog object2;
 		int id;
-
 		id = super.getRequest().getData("id", int.class);
 		object2 = this.repository.findProgressLogsById(id);
 		object.setContract(object2.getContract());
+		Client client;
+		client = this.repository.findClientById(object.getContract().getClient().getId()).orElse(null);
+		object.setClient(client);
 		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
 
 	}

@@ -61,7 +61,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isBefore(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()), "instantiationMoment", "client.progressLogs.form.error.registrationMoment");
+			super.state(MomentHelper.isBefore(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()), "registrationMoment", "client.progressLogs.form.error.registrationMoment");
 
 	}
 
