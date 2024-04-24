@@ -188,7 +188,7 @@
 <jstl:choose>
 	<jstl:when test="${averageAuditRecordsPeriodLength != null && deviationAuditRecordsPeriodLength != null && minAuditRecordsPeriodLength != null && maxAuditRecordsPeriodLength != null}">
 
-		<h3><acme:message code="auditor.auditorDashboard.form.label.codeAudit.auditRecord.information"/></h3>
+		<h3><acme:message code="auditor.auditorDashboard.form.label.auditRecord.periodLength.information"/></h3>
 		<div>
 			<canvas id="canvas0"></canvas>
 		</div>

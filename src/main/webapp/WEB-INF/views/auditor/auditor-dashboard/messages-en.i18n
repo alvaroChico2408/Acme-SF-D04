@@ -10,3 +10,7 @@ auditor.auditorDashboard.form.label.averageAuditRecordsPeriodLength = Average Au
 auditor.auditorDashboard.form.label.deviationAuditRecordsPeriodLength = Deviation of Audit Record Period Length
 auditor.auditorDashboard.form.label.minAuditRecordsPeriodLength =  Minimum Audit Record Period Length
 auditor.auditorDashboard.form.label.maxAuditRecordsPeriodLength =  Maximum Audit Record Period Length
+
+auditor.auditorDashboard.form.label.codeAudit.type.information = Graphic about the types of the Code Audits
+auditor.auditorDashboard.form.label.codeAudit.auditRecord.information = Graphic about number of Audit Records belonged to each Code Audit
+auditor.auditorDashboard.form.label.auditRecord.periodLength.information = Graphic about period length of Audit Records
