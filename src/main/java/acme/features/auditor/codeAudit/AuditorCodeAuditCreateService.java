@@ -80,7 +80,9 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		if (!super.getBuffer().getErrors().hasErrors("projectCode")) {
 			Project project = this.repository.findOneProjectByCode(super.getRequest().getData("projectCode", String.class));
 
-			super.state(project.isPublished(), "projectCode", "auditor.codeAudit.form.error.projectCodeError");
+			super.state(project != null, "projectCode", "auditor.codeAudit.form.error.projectNotFound");
+			if (project != null)
+				super.state(project.isPublished(), "projectCode", "auditor.codeAudit.form.error.projectCodeError");
 		}
 
 	}

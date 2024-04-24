@@ -21,11 +21,4 @@ public enum Mark {
 		return Mark.valueOf(mark);
 	}
 
-	public boolean greaterThanC() {
-		boolean res = false;
-		if (this != null && this.compareTo(C) >= 0)
-			res = true;
-		return res;
-	}
-
 }
