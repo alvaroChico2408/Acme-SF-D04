@@ -28,8 +28,8 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 	@Override
 	public void load() {
 		int sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
-		int numSponsorship = this.repository.findNumberPublishedSponsorships(sponsorId);
-		int numInvoices = this.repository.findNumberPublishedInvoices(sponsorId);
+		int numPublishedSponsorships = this.repository.findNumberPublishedSponsorships(sponsorId);
+		int numPublishedInvoices = this.repository.findNumberPublishedInvoices(sponsorId);
 		SponsorDashboard dashboard;
 		int invoicesWithTaxLessEqual21;
 		int sponsorshipsWithLink;
@@ -42,10 +42,10 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 		Double minimunQuantityInvoices;
 		Double maximumQuantityInvoices;
 
-		invoicesWithTaxLessEqual21 = this.repository.findNumOfInvoicesWithTax21less(sponsorId);
+		invoicesWithTaxLessEqual21 = this.repository.findNumOfPublishedInvoicesWithTax21less(sponsorId);
 		sponsorshipsWithLink = this.repository.findNumberPublishedSponsorshipsWithLink(sponsorId);
 
-		if (numSponsorship >= 2) {
+		if (numPublishedSponsorships >= 2) {
 			averageAmountSponsorships = this.repository.findAverageAmountPublishedSponsorships(sponsorId);
 			deviationAmountSponsorships = this.repository.findDeviationAmountPublishedSponsorships(sponsorId);
 		} else {
@@ -53,7 +53,7 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 			deviationAmountSponsorships = null;
 		}
 
-		if (numSponsorship >= 1) {
+		if (numPublishedSponsorships >= 1) {
 			minimunAmountSponsorships = this.repository.findMinAmountPublishedSponsorships(sponsorId);
 			maximumAmountSponsorships = this.repository.findMaxAmountPublishedSponsorships(sponsorId);
 		} else {
@@ -61,7 +61,7 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 			maximumAmountSponsorships = null;
 		}
 
-		if (numInvoices >= 2) {
+		if (numPublishedInvoices >= 2) {
 			averageQuantityInvoices = this.repository.findAverageQuantityPublishedInvoices(sponsorId);
 			deviationQuantityInvoices = this.repository.findDeviationQuantityPublishedInvoices(sponsorId);
 		} else {
@@ -69,7 +69,7 @@ public class SponsorSponsorDashboardShowService extends AbstractService<Sponsor,
 			deviationQuantityInvoices = null;
 		}
 
-		if (numInvoices >= 1) {
+		if (numPublishedInvoices >= 1) {
 			minimunQuantityInvoices = this.repository.findMinQuantityPublishedInvoices(sponsorId);
 			maximumQuantityInvoices = this.repository.findMaxQuantityPublishedInvoices(sponsorId);
 		} else {
