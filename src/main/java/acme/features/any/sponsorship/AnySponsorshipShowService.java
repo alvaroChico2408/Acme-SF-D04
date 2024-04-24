@@ -10,6 +10,7 @@ import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.components.AuxiliarService;
 import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
 import acme.entities.sponsorship.Type;
@@ -20,7 +21,10 @@ public class AnySponsorshipShowService extends AbstractService<Any, Sponsorship>
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnySponsorshipRepository repository;
+	private AnySponsorshipRepository	repository;
+
+	@Autowired
+	private AuxiliarService				auxiliarService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -71,6 +75,7 @@ public class AnySponsorshipShowService extends AbstractService<Any, Sponsorship>
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("types", types);
+		dataset.put("money", this.auxiliarService.changeCurrency(object.getAmount()));
 		super.getResponse().addData(dataset);
 	}
 

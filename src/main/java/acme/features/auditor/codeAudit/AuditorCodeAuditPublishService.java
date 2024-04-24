@@ -1,12 +1,18 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.codeAudit.AuditRecord;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
@@ -19,7 +25,9 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AuditorCodeAuditRepository	repository;
+
+	private Date						lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
 
 	// AbstractService interface ----------------------------------------------
 
@@ -68,10 +76,19 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		Mark mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
+			Date executionDate = object.getExecutionDate();
 
-		super.state(!object.isPublished(), "published", "auditor.codeAudit.form.error.published");
-		super.state(mark.greaterThanC(), "mark", "auditor.codeAudit.form.error.lowMark");
+			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("mark")) {
+			Mark mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+			Collection<AuditRecord> all = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
+			Collection<AuditRecord> published = this.repository.findManyPublishedAuditRecordByCodeAuditId(object.getId());
+
+			super.state(mark != null && mark.compareTo(Mark.C) >= 0, "mark", "auditor.codeAudit.form.error.lowMark");
+			super.state(all.size() == published.size(), "mark", "auditor.codeAudit.form.error.auditRecordsNotPublished");
+		}
 	}
 
 	@Override

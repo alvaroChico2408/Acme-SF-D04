@@ -27,6 +27,7 @@ auditor.codeAudit.form.button.publish = Publish
 
 auditor.codeAudit.form.error.duplicated = There is already a code audit with this code
 auditor.codeAudit.form.error.executionDateError = Execution Date must be after 2000/01/01 00:00
-auditor.codeAudit.form.error.projectCodeError = There is not a project with this code
+auditor.codeAudit.form.error.projectNotFound = There is not a project with this code
 auditor.codeAudit.form.error.projectCodeError = The project must be published
 auditor.codeAudit.form.error.lowMark = The mark must be C or higher in order to publish a code audit
+auditor.codeAudit.form.error.auditRecordsNotPublished = All audit records of the code audit must be published

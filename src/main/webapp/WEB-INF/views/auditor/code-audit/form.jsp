@@ -18,7 +18,7 @@
 			<acme:input-textbox code="auditor.codeAudit.form.label.auditor" path="auditor"/>
 			<acme:button code="auditor.codeAudit.form.label.auditRecord" action="/auditor/audit-record/list?masterId=${id}"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|delete|update')&&published==false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|delete|update|publish')&&published==false}">
 			<acme:input-textbox code="auditor.codeAudit.form.label.code" path="code"/>
 			<acme:input-moment code="auditor.codeAudit.form.label.executionDate" path="executionDate"/>
 			<acme:input-select code="auditor.codeAudit.form.label.type" path="type" choices="${types}"/>

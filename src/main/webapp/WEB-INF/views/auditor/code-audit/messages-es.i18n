@@ -28,6 +28,7 @@ auditor.codeAudit.form.button.publish = Publicar
 
 auditor.codeAudit.form.error.duplicated = Ya existe una auditoria con ese código
 auditor.codeAudit.form.error.executionDateError = La fecha de ejecución debe ser posterior al 01/01/2000 00:00
-auditor.codeAudit.form.error.projectCodeError =  No existe ningún proyecto con ese código
+auditor.codeAudit.form.error.projectNotFound =  No existe ningún proyecto con ese código
 auditor.codeAudit.form.error.projectCodeError = El proyecto debe estar publicado
 auditor.codeAudit.form.error.lowMark = La nota debe ser al menos una C para poder publicar la auditoría
+auditor.codeAudit.form.error.auditRecordsNotPublished = Todas las anotaciones de la auditoría deben estar publicadas

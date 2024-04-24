@@ -5,7 +5,7 @@
 
 <acme:form> 
 	<acme:input-textbox code="sponsor.sponsorship.form.label.code" path="code" placeholder="X-000 or XX-000 or XXX-000"/>
-	<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment" readonly="true"/>
+	<acme:input-moment code="sponsor.sponsorship.form.label.moment" path="moment" readonly= "true"/>
 	<acme:input-moment code="sponsor.sponsorship.form.label.durationInitial" path="durationInitial"/>
 	<acme:input-moment code="sponsor.sponsorship.form.label.durationFinal" path="durationFinal"/>
 	<acme:input-money code="sponsor.sponsorship.form.label.amount" path="amount"/>
@@ -20,9 +20,11 @@
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:input-money code="sponsor.sponsorship.form.label.money" path="money"  readonly="true"/>
 			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete|update|publish') && published == false}">
+			<acme:input-money code="sponsor.sponsorship.form.label.money" path="money"  readonly="true"/>
 			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
 			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>

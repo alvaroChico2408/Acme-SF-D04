@@ -60,9 +60,18 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "location", "instructor");
-		super.getResponse().addGlobal("trainingModuleId", object.getTrainingModule().getId());
 
 		super.getResponse().addData(dataset);
+	}
+
+	@Override
+	public void unbind(final Collection<TrainingSession> objects) {
+		assert objects != null;
+		int trainingModuleId;
+
+		trainingModuleId = super.getRequest().getData("trainingModuleId", int.class);
+
+		super.getResponse().addGlobal("trainingModuleId", trainingModuleId);
 	}
 
 }

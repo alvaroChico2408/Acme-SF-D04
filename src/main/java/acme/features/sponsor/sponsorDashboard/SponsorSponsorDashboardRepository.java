@@ -41,7 +41,7 @@ public interface SponsorSponsorDashboardRepository extends AbstractRepository {
 	Double findMinAmountPublishedSponsorships(int sponsorId);
 
 	@Query("select count(i) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true and i.tax <= 0.21 ")
-	int findNumOfInvoicesWithTax21less(int sponsorId);
+	int findNumOfPublishedInvoicesWithTax21less(int sponsorId);
 
 	@Query("select avg(i.quantity.amount) from Invoice i where i.sponsorship.sponsor.id = :sponsorId and i.published=true")
 	Double findAverageQuantityPublishedInvoices(int sponsorId);
