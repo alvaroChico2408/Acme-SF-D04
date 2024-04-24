@@ -1,0 +1,10 @@
+developer.developerDashboard.form.label.training-modules-with-update-moment = Módulos de entrenamiento con momento de actualización
+developer.developerDashboard.form.label.training-sessions-with-link = Sesiones de entrenamiento con link
+developer.developerDashboard.form.label.average-time-of-training-module = Media de tiempo de los módulos de entrenamiento
+developer.developerDashboard.form.label.deviation-time-of-training-module = Desviación del tiempo de los módulos de entrenamiento
+developer.developerDashboard.form.label.min-time-of-training-module = Mínimo de tiempo en los módulos de entrenamiento
+developer.developerDashboard.form.label.min-time-of-training-module = Máximo de tiempo en los módulos de entrenamiento
+
+developer.developerDashboard.form.label.trainingModules.information = Información de los módulos de entrenamiento
+
+developer.developer-dashboard.form.title= Panel de indicadores

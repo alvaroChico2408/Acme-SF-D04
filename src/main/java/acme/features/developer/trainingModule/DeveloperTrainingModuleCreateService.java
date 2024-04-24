@@ -56,7 +56,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		object.setProject(project);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime", "published");
+		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime");
 	}
 
 	@Override
