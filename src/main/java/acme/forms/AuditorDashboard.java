@@ -2,8 +2,12 @@
 package acme.forms;
 
 import acme.client.data.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
-public class AuditDashboard extends AbstractForm {
+@Getter
+@Setter
+public class AuditorDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -20,7 +24,7 @@ public class AuditDashboard extends AbstractForm {
 	Double						averageAuditRecordsPeriodLength;
 	Double						deviationAuditRecordsPeriodLength;
 	Integer						minAuditRecordsPeriodLength;
-	Integer						maxAutitRecordsPeriodLength;
+	Integer						maxAuditRecordsPeriodLength;
 
 	// Derived attributes -----------------------------------------------------
 
