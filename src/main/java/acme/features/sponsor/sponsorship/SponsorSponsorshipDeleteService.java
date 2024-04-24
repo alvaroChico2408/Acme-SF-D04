@@ -61,7 +61,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
+		super.bind(object, "code", "durationInitial", "durationFinal", "amount", "type", "email", "link", "project");
 	}
 
 	@Override
@@ -76,7 +76,9 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		Collection<Invoice> invoices;
 
 		invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
-		this.repository.deleteAll(invoices);
+		if (invoices != null)
+			this.repository.deleteAll(invoices);
+
 		this.repository.delete(object);
 	}
 
