@@ -83,13 +83,13 @@ master.menu.sponsor.dashboard = Panel de indicadores
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor
-master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
-master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.manager = Datos de gerente
 master.menu.user-account.become-manager = Hazte gerente
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte sponsor
+master.menu.user-account.developer = Datos de desarrollador
+master.menu.user-account.become-developer = Hazte desarrollador
 
 # master.menu.manager ########################################################
 
