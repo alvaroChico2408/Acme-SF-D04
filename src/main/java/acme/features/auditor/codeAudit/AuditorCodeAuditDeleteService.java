@@ -13,7 +13,6 @@ import acme.entities.codeAudit.AuditRecord;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
-import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
@@ -58,20 +57,13 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		String projectCode;
-		Project project;
-
-		projectCode = super.getRequest().getData("projectCode", String.class);
-		project = this.repository.findOneProjectByCode(projectCode);
 		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link", "projectCode");
-		object.setProject(project);
 	}
 
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		super.state(!object.isPublished(), "published", "auditor.codeAudit.form.error.published");
 	}
 
 	@Override
