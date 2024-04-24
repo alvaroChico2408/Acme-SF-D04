@@ -81,7 +81,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">			
-			<acme:menu-suboption code="master.menu.auditor.my-codeAudits" action="/auditor/code-audit/list-mine"/>		
+			<acme:menu-suboption code="master.menu.auditor.my-codeAudits" action="/auditor/code-audit/list-mine"/>	
+			<acme:menu-suboption code="master.menu.auditor.dashboard" action="/auditor/auditor-dashboard/show"/>	
 		</acme:menu-option>
   
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">			
