@@ -9,15 +9,16 @@ import lombok.Setter;
 @Setter
 public class DeveloperDashboard extends AbstractForm {
 
-	/**
-	 * 
-	 */
+	// Serialisation identifier -----------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
 
-	Integer						numTrainingModules;
-	Integer						numTrainingSessions;
+	// Attributes -------------------------------------------------------------
+
+	Integer						numTrainingModulesWithUpdateMoment;
+	Integer						numTrainingSessionsWithLink;
 	Double						averageTimeOfTrainingModule;
 	Double						deviationTimeOfTrainingModule;
-	Double						minTimeOfTrainingModule;
-	Double						maxTimeOfTrainingModule;
+	Integer						minTimeOfTrainingModule;
+	Integer						maxTimeOfTrainingModule;
 }
