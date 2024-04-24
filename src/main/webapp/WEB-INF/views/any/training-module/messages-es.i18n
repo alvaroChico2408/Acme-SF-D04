@@ -1,0 +1,18 @@
+any.training-module.list.title = Listado de módulos de entrenamiento publicados:
+any.training-module.form.title = Detalles del módulo de entrenamiento:
+
+
+any.developer.trainingModule.list.label.code = Código:
+any.developer.trainingModule.list.label.details = Detalles:
+any.developer.trainingModule.list.label.difficultyLevel = Nivel de dificultad:
+
+any.developer.trainingModule.form.label.code = Código:
+any.developer.trainingModule.form.label.creationMoment = Momento de creación:
+any.developer.trainingModule.form.label.details = Detalles:
+any.developer.trainingModule.form.label.difficultyLevel = Nivel de dificultad:
+any.developer.trainingModule.form.label.updateMoment = Momento de actualización:
+any.developer.trainingModule.form.label.link = Enlace:
+any.developer.trainingModule.form.label.totalTime = Tiempo total:
+any.developer.trainingModule.form.label.published = Publicado
+any.developer.trainingModule.form.label.developerUsername = Nombre de usuario del desarrollador:
+any.developer.trainingModule.form.label.projects = Proyecto:
