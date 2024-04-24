@@ -1,0 +1,13 @@
+client.client-dashboard.form.title= client Dashboard
+
+client.clientDashboard.form.label.average-contract-budget = Average budget of the contracts:
+client.clientDashboard.form.label.max-contract-budget = Maximum cost of the projects:
+client.clientDashboard.form.label.min-contract-budget = Minimum cost of the projects:
+client.clientDashboard.form.label.lin-dev-contract-budget = Standard deviation of the cost of the projects:
+
+client.clientDashboard.form.label.progress-Log-with-less25 = Number of progress logs with less than 25% completeness:
+client.clientDashboard.form.label.progress-Log-25to50 = Number of progress logs with 25% to 50% completeness:
+client.clientDashboard.form.label.progress-Log-50to75 = Number of progress logs with 50% to 75% completeness:
+client.clientDashboard.form.label.progress-Log-with-over75 = Number of progress logs with over 75% completeness:
+
+client.clientDashboard.form.label.progresslog.ranges.information = Graphic about the levels of completeness of Progress Logs

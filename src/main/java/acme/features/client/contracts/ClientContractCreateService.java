@@ -67,17 +67,17 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		ratioEuros.setAmount(100.00);
 		ratioEuros.setCurrency("EUR");
 
-		if (!contracts.isEmpty()) {
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 
 			boolean overBudget;
 			double totalBudget = 0.0;
 			for (Contract c : contracts)
-				totalBudget = totalBudget + c.getBudget().getAmount();
-			if (totalBudget < object.getProject().getCost() * ratioEuros.getAmount())
+				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
+			if (totalBudget + this.auxiliarService.changeCurrency(object.getBudget()).getAmount() < object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
 				overBudget = false;
 			else
 				overBudget = true;
-			super.state(overBudget, "*", "manager.project.form.error.overBudget");
+			super.state(overBudget, "budget", "client.contract.form.error.overBudget");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
@@ -87,8 +87,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			maxEuros = new Money();
 			maxEuros.setAmount(1000000.00);
 			maxEuros.setCurrency("EUR");
-			double maximo = object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount();
-			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maximo), "cost", "client.contract.form.error.budget");
+			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
 			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.cost2");
 		}
 	}

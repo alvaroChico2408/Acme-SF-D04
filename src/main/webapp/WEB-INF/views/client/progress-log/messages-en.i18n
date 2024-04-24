@@ -1,0 +1,24 @@
+client.progress-log.list.title = Your progress logs
+client.progress-log.form.title = Your progress log
+
+client.progress-logs.list.label.recordId = Record Id
+client.progress-logs.list.label.completeness = Completeness
+client.progress-logs.list.label.responsiblePerson = ResponsiblePerson
+
+client.progress-logs.form.label.recordId = Record Id
+client.progress-logs.form.label.completeness = completeness
+client.progress-logs.form.label.comment = Comment
+client.progress-logs.form.label.registrationMoment = Registration Moment
+client.progress-logs.form.label.responsiblePerson = Responsible person
+client.progress-logs.form.label.contract = Contract
+
+client.progressLogs.form.error.recordId = The Record Id must created by this pattern: 2 letters - 2 letters - 4  numbers
+client.progressLogs.form.error.published =  You cannot update or delete a Progress Log already published
+client.progressLogs.form.error.moment = Must be in the past
+
+
+client.progress-logs.create = Create
+client.progress-logs.form.button.delete = Delete
+client.progress-logs.form.button.update = Update
+client.progress-logs.form.button.publish = Publish
+client.progress-logs.form.button.create = Create

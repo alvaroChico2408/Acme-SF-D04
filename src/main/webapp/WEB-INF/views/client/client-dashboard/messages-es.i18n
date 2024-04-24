@@ -1,0 +1,13 @@
+client.client-dashboard.form.title= Panel de cliente
+
+client.clientDashboard.form.label.average-contract-budget = Media del presupuesto de los contratos:
+client.clientDashboard.form.label.max-contract-budget = Máximo del presupuesto de los contratos:
+client.clientDashboard.form.label.min-contract-budget = Mínimo del presupuesto de los contratos:
+client.clientDashboard.form.label.lin-dev-contract-budget = Desviación típica del presupuesto de los contratos:
+
+client.clientDashboard.form.label.progress-Log-with-less25 = Actas de progreso completadas a menos del 25%:
+client.clientDashboard.form.label.progress-Log-25to50 = Actas de progreso completadas entre el 25% y 50%:
+client.clientDashboard.form.label.progress-Log-50to75 = Actas de progreso completadas entre el 50% y 75%:
+client.clientDashboard.form.label.progress-Log-with-over75 = Actas de progreso completadas a mas del 75%:
+
+client.clientDashboard.form.label.progresslog.ranges.information = Gráfica acerca del nivel de completitud de las actas de progreso
