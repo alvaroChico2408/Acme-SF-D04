@@ -1,6 +1,8 @@
 
 package acme.features.client.progresslog;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,9 +67,11 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "client.progressLogs.form.error.published");
 
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isBefore(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()), "instantiationMoment", "client.progressLogs.form.error.moment");
-
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
+				"client.progressLogs.form.error.registrationMoment");
+		}
 	}
 
 	@Override

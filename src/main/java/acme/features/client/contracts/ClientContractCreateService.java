@@ -2,12 +2,14 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.components.AuxiliarService;
@@ -58,6 +60,11 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			Contract existing;
 			existing = this.repository.findContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isAfterOrEqual(object.getInstantiationMoment(), minDate), "instantiationMoment", "client.contract.form.error.instantiationMoment");
 		}
 
 		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());

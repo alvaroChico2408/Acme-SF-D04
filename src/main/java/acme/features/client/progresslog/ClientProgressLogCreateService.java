@@ -2,6 +2,7 @@
 package acme.features.client.progresslog;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,9 +61,11 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			super.state(existing == null, "code", "client.progressLogs.form.error.recordId");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isBefore(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()), "registrationMoment", "client.progressLogs.form.error.registrationMoment");
-
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
+				"client.progressLogs.form.error.registrationMoment");
+		}
 	}
 
 	@Override
