@@ -31,6 +31,7 @@ sponsor.invoice.form.error.minMaxDueDate = The due date must be between 2000/01/
 sponsor.invoice.form.error.pastDueDate = The due date of the invoice must be after its moment of creation
 sponsor.invoice.form.error.notSupportedCurrency = You can only use the supported currencies
 sponsor.invoice.form.error.invalidCurrency = The currency must be the same as the sponsorship's one
-sponsor.invoice.form.error.tooMuchMoney= The sum of the invoices already published pays the sponsorship's amount
+sponsor.invoice.form.error.tooMuchMoney= The sum of the amount of invoices published (including this one) exceeds the cost of the sponsorship
 sponsor.invoice.form.error.publishedSponsorship = The sponsorship is already published
+sponsor.invoice.form.error.totalAmountTooHigh = The total amount of the invoice cannot exceed the cost of the sponsorship 
 

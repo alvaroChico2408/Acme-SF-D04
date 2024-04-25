@@ -31,8 +31,9 @@ sponsor.invoice.form.error.minMaxDueDate = La fecha límite debe estar entre 200
 sponsor.invoice.form.error.pastDueDate = La fecha límite de la factura debe de ser posterior al su momento del creación
 sponsor.invoice.form.error.notSupportedCurrency = Solo se pueden utilizar divisas soportadas
 sponsor.invoice.form.error.invalidCurrency = La divisa debe ser la misma que la del patrocinio
-sponsor.invoice.form.error.tooMuchMoney= La suma de las facturas publicadas pagan la cuantía del patrocinio
+sponsor.invoice.form.error.tooMuchMoney= La suma de la cantidad de las facturas publicadas (incluyendo esta) supera el coste del patrocinio
 sponsor.invoice.form.error.publishedSponsorship = El patrocinio ya ha sido publicado
+sponsor.invoice.form.error.totalAmountTooHigh = La cantidad total de la factura no puede superar el coste del patrocinio
 
 
 
