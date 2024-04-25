@@ -21,6 +21,8 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.published-projects" action="/any/project/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.published-contracts" action="/any/contract/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.claims-list" action="/any/claim/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.published-sponsorship" action="/any/sponsorship/list"/>
@@ -37,6 +39,8 @@
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.published-projects" action="/any/project/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.published-contracts" action="/any/contract/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.claims-list" action="/any/claim/list"/>
 			<acme:menu-separator/>
