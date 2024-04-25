@@ -1,0 +1,28 @@
+administrator.risk.list.title = List of risks
+administrator.risk.form.title = Risk details
+
+administrator.risk.list.label.reference = Reference
+administrator.risk.list.label.type = Type
+administrator.risk.list.label.value = Value
+
+administrator.risk.list.button.create = Create
+
+administrator.risk.form.label.reference = Reference:
+administrator.risk.form.label.type = Type:
+administrator.risk.form.label.identificationDate = Identification date:
+administrator.risk.form.label.impact = Impact:
+administrator.risk.form.label.probability = Probability:
+administrator.risk.form.label.description = Description:
+administrator.risk.form.label.link = Link:
+administrator.risk.form.label.value = Value:
+
+administrator.risk.form.button.create = Create
+administrator.risk.form.button.update = Update
+administrator.risk.form.button.delete = Delete
+
+administrator.risk.form.error.duplicated = Duplicated reference
+administrator.risk.form.error.notype = The type cannot be null
+administrator.risk.form.error.impact = Value of impact must be between 0 and 100
+administrator.risk.form.error.probability = Value of probability must be between 0 and 1
+administrator.risk.form.error.description = The description has a maximum of 100 characters
+administrator.risk.form.error.link = The link has a maximum of 255 characters
