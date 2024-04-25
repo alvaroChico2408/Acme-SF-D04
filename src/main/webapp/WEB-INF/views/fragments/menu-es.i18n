@@ -19,6 +19,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.published-projects = Listado proyectos publicados
+master.menu.anonymous.published-contracts = Listado contratos publicados
 master.menu.anonymous.claims-list = Listado reclamaciones
 master.menu.anonymous.published-sponsorship = Listado de patrocinios publicados
 master.menu.anonymous.published-codeAudit = Listado de auditorias de código publicadas
@@ -33,6 +34,7 @@ master.menu.anonymous.favourite-link-ibai = 71186813L: Pérez Fernández, Ibai
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.published-projects = Listado proyectos publicados
+master.menu.authenticated.published-contracts = Listado contratos publicados
 master.menu.authenticated.claims-list = Listado reclamaciones
 master.menu.authenticated.objectives-list = Listado objetivos
 master.menu.authenticated.published-sponsorship = Listado de patrocinios publicados

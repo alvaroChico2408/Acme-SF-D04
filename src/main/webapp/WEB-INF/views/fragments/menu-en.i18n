@@ -19,6 +19,7 @@ master.menu.sign-out = Sign out
 
 master.menu.anonymous = Anonymous
 master.menu.anonymous.published-projects = List published projects
+master.menu.anonymous.published-contracts = List published contracts
 master.menu.anonymous.claims-list = List claims
 master.menu.anonymous.published-sponsorship = List published sponsorship
 master.menu.anonymous.published-codeAudit = List published code audits
@@ -33,6 +34,7 @@ master.menu.anonymous.favourite-link-ibai = 71186813L: Pérez Fernández, Ibai
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.published-projects = List published projects
+master.menu.authenticated.published-contracts = List published contracts
 master.menu.authenticated.claims-list = List claims
 master.menu.authenticated.objectives-list = List objectives
 master.menu.authenticated.published-sponsorship = List published sponsorship
