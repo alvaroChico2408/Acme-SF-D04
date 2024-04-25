@@ -6,15 +6,16 @@ client.progress-logs.list.label.completeness = Completeness
 client.progress-logs.list.label.responsiblePerson = ResponsiblePerson
 
 client.progress-logs.form.label.recordId = Record Id
-client.progress-logs.form.label.completeness = completeness
+client.progress-logs.form.label.completeness = Completeness
 client.progress-logs.form.label.comment = Comment
 client.progress-logs.form.label.registrationMoment = Registration Moment
 client.progress-logs.form.label.responsiblePerson = Responsible person
 client.progress-logs.form.label.contract = Contract
+client.progress-logs.form.label.published = Published
 
 client.progressLogs.form.error.recordId = The Record Id must created by this pattern: 2 letters - 2 letters - 4  numbers
 client.progressLogs.form.error.published =  You cannot update or delete a Progress Log already published
-client.progressLogs.form.error.moment = Must be in the past
+client.progressLogs.form.error.moment = Registration moment must be in the past and after 2000/01/01 00:00:00
 
 
 client.progress-logs.create = Create
