@@ -26,3 +26,4 @@ administrator.risk.form.error.impact = El impacto debe estar entre 0 y 100
 administrator.risk.form.error.probability = La probabilidad debe estar entre 0 y 1
 administrator.risk.form.error.description = La descripción debe tener como máximo 100 caracteres
 administrator.risk.form.error.link = El enlace debe tener como máximo 255 caracteres
+administrator.risk.form.error.spam = Este mensaje contiene spam

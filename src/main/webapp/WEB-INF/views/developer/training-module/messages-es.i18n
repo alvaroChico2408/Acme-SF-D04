@@ -30,5 +30,6 @@ developer.trainingModule.form.error.difficultyLevel = No puedes publicar un mód
 developer.trainingModule.form.error.updateMoment = El momento de actualización debe estar después del momento de creación
 developer.trainingModule.form.error.link = El link debe tener un máximo de 255 caracteres
 developer.trainingModule.form.error.totalTime = El tiempo total debe ser cero o un número positivo
+developer.trainingModule.form.error.spam = Este mensaje contiene spam
 developer.trainingModule.form.error.notrainingsessions = El módulo de entrenamiento debe tener al menos una sesión de entrenamiento
 developer.trainingModule.form.error.trainingsessionsnotpublished = Todas las sesiones de entrenamiento deben estar publicadas

@@ -11,10 +11,12 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.trainingModule.Difficulty;
 import acme.entities.trainingModule.TrainingModule;
 import acme.entities.trainingSession.TrainingSession;
 import acme.roles.Developer;
+import spam.SpamFilter;
 
 @Service
 public class DeveloperTrainingModulePublishService extends AbstractService<Developer, TrainingModule> {
@@ -88,8 +90,13 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		if (!super.getBuffer().getErrors().hasErrors("difficultyLevel"))
 			super.state(object.getDifficultyLevel() != null, "difficultyLevel", "developer.trainingModule.form.error.difficultyLevel");
 
-		if (!super.getBuffer().getErrors().hasErrors("details"))
+		if (!super.getBuffer().getErrors().hasErrors("details")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getDetails()), "details", "developer.trainingModule.form.error.spam");
 			super.state(object.getDetails().length() <= 100, "details", "developer.trainingModule.form.error.details");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("updateMoment") && object.getUpdateMoment() != null)
 			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.updateMoment");

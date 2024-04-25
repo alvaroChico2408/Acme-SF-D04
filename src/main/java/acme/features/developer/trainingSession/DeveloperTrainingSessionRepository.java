@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.trainingModule.TrainingModule;
 import acme.entities.trainingSession.TrainingSession;
 
@@ -27,4 +28,7 @@ public interface DeveloperTrainingSessionRepository extends AbstractRepository {
 
 	@Query("select tm from TrainingModule tm where tm.code = :code")
 	TrainingModule findTrainingModuleByCode(String code);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 }

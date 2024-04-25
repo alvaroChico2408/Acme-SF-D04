@@ -9,3 +9,4 @@ authenticated.developer.form.label.link = Link:
 authenticated.developer.form.button.create = Register
 authenticated.developer.form.button.update = Update
 
+authenticated.developer.form.error.spam = This message contains spam

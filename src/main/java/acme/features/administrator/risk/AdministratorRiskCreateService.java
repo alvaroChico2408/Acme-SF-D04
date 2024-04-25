@@ -10,6 +10,8 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.risk.Risk;
 import acme.entities.risk.RiskType;
+import acme.entities.systemConfiguration.SystemConfiguration;
+import spam.SpamFilter;
 
 @Service
 public class AdministratorRiskCreateService extends AbstractService<Administrator, Risk> {
@@ -64,8 +66,13 @@ public class AdministratorRiskCreateService extends AbstractService<Administrato
 		if (!this.getBuffer().getErrors().hasErrors("probability"))
 			super.state(object.getProbability() >= 0 || object.getProbability() <= 1, "probability", "administrator.risk.form.error.probability");
 
-		if (!this.getBuffer().getErrors().hasErrors("description") && object.getDescription() != null)
+		if (!this.getBuffer().getErrors().hasErrors("description") && object.getDescription() != null) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getDescription()), "description", "administrator.risk.form.error.spam");
 			super.state(object.getDescription().length() <= 100, "description", "administrator.risk.form.error.description");
+		}
 
 		if (!this.getBuffer().getErrors().hasErrors("link") && object.getDescription() != null)
 			super.state(object.getDescription().length() <= 255, "link", "administrator.risk.form.error.link");

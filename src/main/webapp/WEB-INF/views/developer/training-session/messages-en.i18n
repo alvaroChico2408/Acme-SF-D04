@@ -30,4 +30,5 @@ developer.trainingSession.form.error.location = The location must be under 75 ch
 developer.trainingSession.form.error.instructor = The instructor must be under 75 characters
 developer.trainingSession.form.error.contactEmail = The contact email must be under 255 characters
 developer.trainingSession.form.error.link = The link must be under 255 characters
+developer.trainingSession.form.error.spam = This message contains spam
 

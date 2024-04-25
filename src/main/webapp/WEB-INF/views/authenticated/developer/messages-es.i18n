@@ -8,3 +8,5 @@ authenticated.developer.form.label.link = Link:
 
 authenticated.developer.form.button.create = Registrarse
 authenticated.developer.form.button.update = Actualizar
+
+authenticated.developer.form.error.spam = Este mensaje contiene spam

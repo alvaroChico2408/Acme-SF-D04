@@ -26,3 +26,4 @@ administrator.risk.form.error.impact = Value of impact must be between 0 and 100
 administrator.risk.form.error.probability = Value of probability must be between 0 and 1
 administrator.risk.form.error.description = The description has a maximum of 100 characters
 administrator.risk.form.error.link = The link has a maximum of 255 characters
+administrator.risk.form.error.spam = This message contains spam

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.data.accounts.UserAccount;
 import acme.client.repositories.AbstractRepository;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Developer;
 
 @Repository
@@ -16,5 +17,8 @@ public interface AuthenticatedDeveloperRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findUserAccountById(int id);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 
 }

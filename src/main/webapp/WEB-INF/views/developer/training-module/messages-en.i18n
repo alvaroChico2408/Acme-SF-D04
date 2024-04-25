@@ -32,3 +32,4 @@ developer.trainingModule.form.error.link = The link must have a maximum of 255 c
 developer.trainingModule.form.error.totalTime = The total time must be a positive value or zero
 developer.trainingModule.form.error.notrainingsessions = The training module must have at least one training session
 developer.trainingModule.form.error.trainingsessionsnotpublished = All training sessions must be published
+developer.trainingModule.form.error.spam = This message contains spam

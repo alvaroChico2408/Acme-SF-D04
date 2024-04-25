@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.entities.trainingModule.TrainingModule;
 import acme.entities.trainingSession.TrainingSession;
 import acme.roles.Developer;
+import spam.SpamFilter;
 
 @Service
 public class DeveloperTrainingSessionCreateService extends AbstractService<Developer, TrainingSession> {
@@ -72,11 +74,21 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
 			super.state(object.getEndPeriod() != null, "endPeriod", "developer.trainingSession.form.error.noEndPeriod");
 
-		if (!super.getBuffer().getErrors().hasErrors("location"))
-			super.state(object.getLocation().length() <= 75, "location", "developer.trainingSession.form.error.location");
+		if (!super.getBuffer().getErrors().hasErrors("location")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
 
-		if (!super.getBuffer().getErrors().hasErrors("instructor"))
+			super.state(!spam.isSpam(object.getLocation()), "location", "developer.trainingSession.form.error.spam");
+			super.state(object.getLocation().length() <= 75, "location", "developer.trainingSession.form.error.location");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("instructor")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getInstructor()), "instructor", "developer.trainingSession.form.error.spam");
 			super.state(object.getInstructor().length() <= 75, "instructor", "developer.trainingSession.form.error.instructor");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("contactEmail"))
 			super.state(object.getContactEmail().length() <= 255, "contactEmail", "developer.trainingSession.form.error.contactEmail");
