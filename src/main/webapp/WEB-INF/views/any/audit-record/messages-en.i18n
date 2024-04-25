@@ -1,0 +1,6 @@
+any.audit-record.list.title = Audit Records
+
+any.auditRecord.list.label.code = Code:
+any.auditRecord.list.label.startDate = Start Date:
+any.auditRecord.list.label.endDate = End Date:
+any.auditRecord.list.label.mark = Mark:

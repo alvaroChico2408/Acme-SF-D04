@@ -1,0 +1,20 @@
+any.code-audit.list.title = Published Code Audits
+
+any.codeAudit.list.label.code = Code:
+any.codeAudit.list.label.executionDate = Execution Date:
+any.codeAudit.list.label.type = Type:
+any.codeAudit.list.label.mark = Mark:
+
+any.code-audit.form.title = Code Audit
+
+any.codeAudit.form.label.code = Code:
+any.codeAudit.form.label.executionDate = Execution Date:
+any.codeAudit.form.label.type = Type:
+any.codeAudit.form.label.mark = Mark:
+any.codeAudit.form.label.correctiveActions = Corrective Actions:
+any.codeAudit.form.label.auditor = Auditor Name:
+any.codeAudit.form.label.link = Link:
+any.codeAudit.form.label.projectTitle = Project Title:
+any.codeAudit.form.label.projectCode = Project Code:
+
+any.codeAudit.form.label.auditRecord = List of Audit Records

@@ -1,0 +1,6 @@
+any.audit-record.list.title = Anotaciones de la Auditoría
+
+any.auditRecord.list.label.code = Código:
+any.auditRecord.list.label.startDate = Fecha de Inicio:
+any.auditRecord.list.label.endDate = Fecha de Fin:
+any.auditRecord.list.label.mark = Nota:
