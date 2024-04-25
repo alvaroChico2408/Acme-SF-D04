@@ -20,6 +20,7 @@ sponsor.sponsorship.form.label.published = Publicado:
 sponsor.sponsorship.form.label.project = Proyecto:
 sponsor.sponsorship.form.label.sponsorUsername = Nombre de usuario del patrocinador:
 sponsor.sponsorship.form.label.money = Cantidad en la divisa del sistema:
+Amount in the system currency= Cantidad en la divisa del sistema:
 
 sponsor.sponsorship.form.button.invoices= Lista de facturas
 sponsor.sponsorship.list.button.create= Crear nuevo patrocinio

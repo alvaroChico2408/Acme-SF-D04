@@ -16,6 +16,7 @@ sponsor.invoice.form.label.published= Publicada:
 sponsor.invoice.form.label.totalAmount= Cuantía total:
 sponsor.invoice.form.label.sponsorshipCode= Código del patrocinio:
 sponsor.invoice.form.label.money = Cuantía total en la divisa del sistema:
+sponsor.invoice.list.label.money= Cuantía total en la divisa del sistema:
 
 sponsor.invoice.form.button.update= Actualizar factura
 sponsor.invoice.form.button.delete= Eliminar factura

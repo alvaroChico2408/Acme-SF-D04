@@ -15,16 +15,15 @@
 	<acme:input-checkbox code="sponsor.sponsorship.form.label.published" path="published" readonly = "true"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.sponsorUsername" path="sponsorUsername" readonly="true" />
+	<acme:input-money code="sponsor.sponsorship.form.label.money" path="money"  readonly="true"/>
 	
 	
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && published == true}">
-			<acme:input-money code="sponsor.sponsorship.form.label.money" path="money"  readonly="true"/>
 			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete|update|publish') && published == false}">
-			<acme:input-money code="sponsor.sponsorship.form.label.money" path="money"  readonly="true"/>
 			<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list?sponsorshipId=${id}"/>
 			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
 			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>

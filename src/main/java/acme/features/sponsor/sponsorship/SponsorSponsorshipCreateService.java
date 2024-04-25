@@ -139,6 +139,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
 		dataset.put("projects", choices);
+		dataset.put("money", this.auxiliarService.changeCurrency(object.getAmount()));
 		dataset.put("types", types);
 		super.getResponse().addData(dataset);
 	}

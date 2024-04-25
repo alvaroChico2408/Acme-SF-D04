@@ -16,6 +16,7 @@ sponsor.invoice.form.label.published= Published:
 sponsor.invoice.form.label.totalAmount= totalAmount:
 sponsor.invoice.form.label.sponsorshipCode= Sponsorship code:
 sponsor.invoice.form.label.money =Total amount in the system currency:
+sponsor.invoice.list.label.money=Total amount in the system currency:
 
 sponsor.invoice.form.button.update= Update invoice
 sponsor.invoice.form.button.delete= Delete invoice

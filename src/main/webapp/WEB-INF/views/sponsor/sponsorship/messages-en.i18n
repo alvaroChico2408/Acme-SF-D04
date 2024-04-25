@@ -20,6 +20,7 @@ sponsor.sponsorship.form.label.published = Published:
 sponsor.sponsorship.form.label.project = Project:
 sponsor.sponsorship.form.label.sponsorUsername = Sponsor Username:
 sponsor.sponsorship.form.label.money = Amount in the system currency:
+sponsor.sponsorship.list.label.money = Amount in the system currency:
 
 sponsor.sponsorship.form.button.invoices= List of invoices
 sponsor.sponsorship.list.button.create= Create new sponsorship
