@@ -83,16 +83,16 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 		assert object != null;
 
 		Mark mark;
-		int auditorId;
 		Dataset dataset;
 		SelectChoices typeChoices;
 
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
 		typeChoices = SelectChoices.from(AuditType.class, object.getType());
 		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
-		dataset.put("auditor", this.repository.findOneAuditorById(auditorId).getAuthorityName());
+		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
 		dataset.put("mark", mark == null ? null : mark.getMark());
+		dataset.put("projectTitle", object.getProject().getTitle());
+		dataset.put("projectCode", object.getProject().getCode());
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
 

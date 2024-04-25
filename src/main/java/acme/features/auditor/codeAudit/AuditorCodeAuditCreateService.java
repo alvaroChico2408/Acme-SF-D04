@@ -13,6 +13,7 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
+import acme.entities.codeAudit.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
@@ -110,18 +111,19 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
-		SelectChoices choices;
-		int auditorId;
+		Mark mark;
 		Dataset dataset;
+		SelectChoices typeChoices;
 
-		choices = SelectChoices.from(AuditType.class, object.getType());
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
-
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+		typeChoices = SelectChoices.from(AuditType.class, object.getType());
 		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
-		dataset.put("auditor", this.repository.findOneAuditorById(auditorId).getAuthorityName());
-		dataset.put("projectCode", object.getProject() == null ? null : object.getProject().getCode());
-		dataset.put("type", choices.getSelected().getKey());
-		dataset.put("types", choices);
+		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
+		dataset.put("mark", mark == null ? null : mark.getMark());
+		dataset.put("projectTitle", object.getProject().getTitle());
+		dataset.put("projectCode", object.getProject().getCode());
+		dataset.put("type", typeChoices.getSelected().getKey());
+		dataset.put("types", typeChoices);
 
 		super.getResponse().addData(dataset);
 	}

@@ -3,6 +3,7 @@ auditor.code-audit.list.title = My Code Audits
 auditor.codeAudit.list.label.code = Code:
 auditor.codeAudit.list.label.executionDate = Execution Date:
 auditor.codeAudit.list.label.type = Type:
+any.codeAudit.list.label.mark = Mark:
 
 auditor.codeAudit.list.button.create = Create
 

@@ -10,6 +10,7 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.codeAudit.CodeAudit;
+import acme.entities.codeAudit.Mark;
 import acme.roles.Auditor;
 
 @Service
@@ -41,12 +42,15 @@ public class AuditorCodeAuditListMineService extends AbstractService<Auditor, Co
 
 	@Override
 	public void unbind(final CodeAudit object) {
-
 		assert object != null;
 
 		Dataset dataset;
+		Mark mark;
+
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
 
 		dataset = super.unbind(object, "code", "executionDate", "type");
+		dataset.put("mark", mark == null ? null : mark.getMark());
 
 		super.getResponse().addData(dataset);
 
