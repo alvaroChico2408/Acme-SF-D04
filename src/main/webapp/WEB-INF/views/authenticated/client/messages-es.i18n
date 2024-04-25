@@ -1,0 +1,12 @@
+
+authenticated.client.form.title = Detalles del cliente
+
+authenticated.client.form.label.identification = Identificacion
+authenticated.client.form.label.companyName = Nombre de la Entidad
+authenticated.client.form.label.type = Tipo
+authenticated.client.form.label.email = Correo
+authenticated.client.form.label.link = Enlace
+
+authenticated.client.form.button.create = Crear
+authenticated.client.form.button.update = Actualizar
+

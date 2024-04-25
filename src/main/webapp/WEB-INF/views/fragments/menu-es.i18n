@@ -94,8 +94,11 @@ master.menu.user-account.manager = Datos de gerente
 master.menu.user-account.become-manager = Hazte gerente
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte sponsor
-master.menu.user-account.developer = Datos de desarrollador
 master.menu.user-account.become-developer = Hazte desarrollador
+master.menu.user-account.developer = Datos de desarrollador
+master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-client = Hazte cliente
 
 # master.menu.manager ########################################################
 

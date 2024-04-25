@@ -1,0 +1,11 @@
+
+authenticated.client.form.title = Client details
+
+authenticated.client.form.label.identification = Identification
+authenticated.client.form.label.companyName = Company Name
+authenticated.client.form.label.type = Type
+authenticated.client.form.label.email = Email
+authenticated.client.form.label.link = Link
+
+authenticated.client.form.button.create = Create
+authenticated.client.form.button.update = Update
