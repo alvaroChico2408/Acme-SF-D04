@@ -64,6 +64,8 @@
 			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show" access="isAuthenticated()"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/administrator-dashboard/show"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.risk" action="/administrator/risk/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">

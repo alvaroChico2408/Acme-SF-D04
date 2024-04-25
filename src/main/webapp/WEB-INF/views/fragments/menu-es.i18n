@@ -50,6 +50,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.objective = Publicar objetivos
 master.menu.administrator.banner = Lista de Carteles
 master.menu.administrator.system-configuration = Mostrar la configuración del sistema
+master.menu.administrator.risk = Lista de riesgos
 
 # master.menu.client ########################################################
 
