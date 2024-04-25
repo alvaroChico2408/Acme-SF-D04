@@ -99,6 +99,7 @@ master.menu.user-account.developer = Datos de desarrollador
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-client = Hazte cliente
+master.menu.user-account.client = Datos de cliente
 
 # master.menu.manager ########################################################
 
