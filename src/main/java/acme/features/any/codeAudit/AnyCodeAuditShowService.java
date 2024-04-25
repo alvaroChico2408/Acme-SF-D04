@@ -1,27 +1,23 @@
 
-package acme.features.auditor.codeAudit;
-
-import java.util.Collection;
+package acme.features.any.codeAudit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.codeAudit.AuditRecord;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, CodeAudit> {
-
+public class AnyCodeAuditShowService extends AbstractService<Any, CodeAudit> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AnyCodeAuditRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -29,53 +25,25 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		CodeAudit codeAudit;
-		Auditor auditor;
+		int codeAuditId;
+		CodeAudit object;
 
-		masterId = super.getRequest().getData("id", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(masterId);
-		auditor = codeAudit == null ? null : codeAudit.getAuditor();
-		status = super.getRequest().getPrincipal().hasRole(auditor);
+		codeAuditId = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneCodeAuditById(codeAuditId);
+		status = object != null && object.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		CodeAudit object;
 		int id;
+		CodeAudit object;
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneCodeAuditById(id);
 
 		super.getBuffer().addData(object);
-
-	}
-
-	@Override
-	public void bind(final CodeAudit object) {
-		assert object != null;
-
-		super.bind(object, "code", "executionDate", "type", "correctiveActions", "link", "projectCode");
-	}
-
-	@Override
-	public void validate(final CodeAudit object) {
-		assert object != null;
-
-	}
-
-	@Override
-	public void perform(final CodeAudit object) {
-		assert object != null;
-
-		Collection<AuditRecord> auditRecords;
-
-		auditRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
-
-		this.repository.deleteAll(auditRecords);
-		this.repository.delete(object);
 	}
 
 	@Override
@@ -99,5 +67,4 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 		super.getResponse().addData(dataset);
 
 	}
-
 }

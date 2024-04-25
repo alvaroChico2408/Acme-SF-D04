@@ -25,6 +25,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.published-sponsorship" action="/any/sponsorship/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.published-codeAudit" action="/any/code-audit/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-jaime" action="https://sevillafc.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-enrique" action="https://www.tboi.com/"/>
@@ -39,6 +41,8 @@
 			<acme:menu-suboption code="master.menu.authenticated.claims-list" action="/any/claim/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.published-sponsorship" action="/any/sponsorship/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.published-codeAudit" action="/any/code-audit/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.objectives-list" action="/authenticated/objective/list"/>
 			<acme:menu-separator/>

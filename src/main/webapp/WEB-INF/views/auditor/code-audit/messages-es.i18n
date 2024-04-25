@@ -4,6 +4,7 @@ auditor.code-audit.list.title = Mis Auditorías de Código
 auditor.codeAudit.list.label.code = Código:
 auditor.codeAudit.list.label.executionDate = Fecha de Ejecución:
 auditor.codeAudit.list.label.type = Tipo:
+any.codeAudit.list.label.mark = Nota:
 
 auditor.codeAudit.list.button.create = Crear
 
