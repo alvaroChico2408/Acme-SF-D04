@@ -15,6 +15,8 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.objectives.Objective;
 import acme.entities.objectives.Priority;
+import acme.entities.systemConfiguration.SystemConfiguration;
+import spam.SpamFilter;
 
 @Service
 public class AdministratorObjectiveCreateService extends AbstractService<Administrator, Objective> {
@@ -91,6 +93,20 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 
 			super.state(this.isPassedOneHourAtLeast(executionPeriodStart, executionPeriodFinish), "executionPeriodFinish", //
 				"administrator.objective.form.error.NotTimeEnough");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("title")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getTitle()), "title", "administrator.objective.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("description")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getDescription()), "description", "administrator.objective.form.error.spam");
 		}
 	}
 

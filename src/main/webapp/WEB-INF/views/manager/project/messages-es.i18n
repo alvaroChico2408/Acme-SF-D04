@@ -27,3 +27,4 @@ manager.project.form.error.duplicated = Este código ya ha sido escogido
 manager.project.form.error.nouserstory = No puedes publicar un proyecto sin historias de usuario
 manager.project.form.error.userstorynotpublish = No puedes publicar un proyecto con historias de usuario sin publicar
 manager.project.form.error.fatalErrors = No puedes publicar un proyecto con errores fatales
+manager.project.form.error.spam = Este texto contiene spam

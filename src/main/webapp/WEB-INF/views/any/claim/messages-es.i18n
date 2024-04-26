@@ -19,3 +19,4 @@ any.claim.form.label.confirmation = Confirma que la reclamación es correcta
 any.claim.form.button.create = Publicar
 
 any.claim.form.error.duplicated = Este código ya ha sido escogido
+any.claim.form.error.spam = TEste texto contiene spam

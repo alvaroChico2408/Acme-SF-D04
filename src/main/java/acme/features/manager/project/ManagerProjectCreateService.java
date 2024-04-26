@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Manager;
+import spam.SpamFilter;
 
 @Service
 public class ManagerProjectCreateService extends AbstractService<Manager, Project> {
@@ -60,6 +62,21 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 			existing = this.repository.findOneProjectByCode(object.getCode());
 			super.state(existing == null, "code", "manager.project.form.error.duplicated");
 		}
+
+		if (!this.getBuffer().getErrors().hasErrors("title")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getTitle()), "title", "manager.project.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("$abstract")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getAbstract()), "$abstract", "manager.project.form.error.spam");
+		}
+
 	}
 
 	@Override

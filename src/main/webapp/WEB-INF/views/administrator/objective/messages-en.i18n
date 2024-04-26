@@ -16,3 +16,4 @@ administrator.objective.form.error.badExecutionPeriodStart = Must be after 2000/
 administrator.objective.form.error.executionPeriodFinish = Must be after the instantiation moment and after the execution start moment
 administrator.objective.form.error.badExecutionPeriodFinish = Must be after 2000/01/01 00:00 and before 2200-12-31 23:59
 administrator.objective.form.error.NotTimeEnough = Between execution start moment and execution finish moment must be, at least, one hour
+administrator.objective.form.error.spam = This text contains spam

@@ -10,6 +10,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.projects.AssociatedWith;
 import acme.entities.projects.Project;
 import acme.entities.projects.UserStory;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Manager;
 
 @Repository
@@ -32,5 +33,8 @@ public interface ManagerProjectRepository extends AbstractRepository {
 
 	@Query("select aw.userStory from AssociatedWith aw where aw.project.id = :projectId")
 	Collection<UserStory> findManyUserStoriesByProjectId(int projectId);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 
 }

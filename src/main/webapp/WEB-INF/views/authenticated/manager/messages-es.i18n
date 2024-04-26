@@ -7,3 +7,5 @@ authenticated.manager.form.label.link = Link para más información: (Opcional)
 
 authenticated.manager.form.button.create = Registrarse
 authenticated.manager.form.button.update = Actualizar
+
+authenticated.manager.form.error.spam = Este texto contiene spam
