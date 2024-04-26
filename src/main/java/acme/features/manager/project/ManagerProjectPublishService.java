@@ -20,7 +20,9 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private ManagerProjectRepository	repository;
+
+	private String						errorSpamMessage	= "manager.project.form.error.spam";
 
 	// AbstractService interface ----------------------------------------------
 
@@ -93,14 +95,14 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getTitle()), "title", "manager.project.form.error.spam");
+			super.state(!spam.isSpam(object.getTitle()), "title", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("$abstract")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getAbstract()), "$abstract", "manager.project.form.error.spam");
+			super.state(!spam.isSpam(object.getAbstract()), "$abstract", this.errorSpamMessage);
 		}
 	}
 

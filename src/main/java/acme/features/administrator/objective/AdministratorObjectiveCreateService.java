@@ -26,8 +26,10 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 	@Autowired
 	private AdministratorObjectiveRepository	repository;
 
-	private Date								lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
-	private Date								topestMoment	= Date.from(Instant.parse("2200-12-31T23:59:59Z"));
+	private Date								lowestMoment		= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
+	private Date								topestMoment		= Date.from(Instant.parse("2200-12-31T23:59:59Z"));
+
+	private String								errorSpamMessage	= "administrator.objective.form.error.spam";
 
 	// AbstractService interface ----------------------------------------------
 
@@ -99,14 +101,14 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getTitle()), "title", "administrator.objective.form.error.spam");
+			super.state(!spam.isSpam(object.getTitle()), "title", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("description")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getDescription()), "description", "administrator.objective.form.error.spam");
+			super.state(!spam.isSpam(object.getDescription()), "description", this.errorSpamMessage);
 		}
 	}
 

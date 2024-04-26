@@ -20,7 +20,9 @@ public class AuthenticatedManagerCreateService extends AbstractService<Authentic
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedManagerRepository repository;
+	private AuthenticatedManagerRepository	repository;
+
+	private String							errorSpamMessage	= "authenticated.manager.form.error.spam";
 
 	// AbstractService interface ----------------------------------------------
 
@@ -62,21 +64,21 @@ public class AuthenticatedManagerCreateService extends AbstractService<Authentic
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getDegree()), "degree", "authenticated.manager.form.error.spam");
+			super.state(!spam.isSpam(object.getDegree()), "degree", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("overview")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getOverview()), "overview", "authenticated.manager.form.error.spam");
+			super.state(!spam.isSpam(object.getOverview()), "overview", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("certifications")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getCertifications()), "certifications", "authenticated.manager.form.error.spam");
+			super.state(!spam.isSpam(object.getCertifications()), "certifications", this.errorSpamMessage);
 		}
 	}
 

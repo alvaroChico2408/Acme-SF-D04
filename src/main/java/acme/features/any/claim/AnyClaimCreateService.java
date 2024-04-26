@@ -20,7 +20,9 @@ public class AnyClaimCreateService extends AbstractService<Any, Claim> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnyClaimRepository repository;
+	private AnyClaimRepository	repository;
+
+	private String				errorSpamMessage	= "any.claim.form.error.spam";
 
 	// AbstractService interface ----------------------------------------------
 
@@ -69,21 +71,21 @@ public class AnyClaimCreateService extends AbstractService<Any, Claim> {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getHeading()), "heading", "any.claim.form.error.spam");
+			super.state(!spam.isSpam(object.getHeading()), "heading", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("description")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getDescription()), "description", "any.claim.form.error.spam");
+			super.state(!spam.isSpam(object.getDescription()), "description", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("department")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getDepartment()), "department", "any.claim.form.error.spam");
+			super.state(!spam.isSpam(object.getDepartment()), "department", this.errorSpamMessage);
 		}
 	}
 
