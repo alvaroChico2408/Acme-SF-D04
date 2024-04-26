@@ -14,7 +14,9 @@ import acme.client.views.SelectChoices;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Auditor;
+import spam.SpamFilter;
 
 @Service
 public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, CodeAudit> {
@@ -70,6 +72,12 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			Date executionDate = object.getExecutionDate();
 
 			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
+		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getCorrectiveActions()), "correctiveAction", "auditor.codeAudit.form.error.spam");
 		}
 
 	}

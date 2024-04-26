@@ -15,7 +15,9 @@ import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
 import acme.entities.projects.Project;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Auditor;
+import spam.SpamFilter;
 
 @Service
 public class AuditorCodeAuditCreateService extends AbstractService<Auditor, CodeAudit> {
@@ -84,6 +86,12 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 			super.state(project != null, "projectCode", "auditor.codeAudit.form.error.projectNotFound");
 			if (project != null)
 				super.state(project.isPublished(), "projectCode", "auditor.codeAudit.form.error.projectCodeError");
+		}
+		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getCorrectiveActions()), "correctiveAction", "auditor.codeAudit.form.error.spam");
 		}
 
 	}
