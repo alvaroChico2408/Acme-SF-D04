@@ -10,4 +10,5 @@
 	<acme:list-column code="any.sponsorship.list.label.durationFinal" path="durationFinal" width="16%"/>
 	<acme:list-column code="any.sponsorship.list.label.amount" path="amount" width="16%"/>
 	<acme:list-column code="any.sponsorship.list.label.type" path="type" width="16%"/>
+	<acme:list-column code="any.sponsorship.list.label.money" path="money"/>
 </acme:list>

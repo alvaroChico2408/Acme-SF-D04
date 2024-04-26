@@ -8,6 +8,7 @@ any.sponsorship.list.label.durationInitial = Beginning:
 any.sponsorship.list.label.durationFinal = Ending:
 any.sponsorship.list.label.amount = Amount of money:
 any.sponsorship.list.label.type = Type:
+any.sponsorship.list.label.money= Amount in the system currency:
 
 any.sponsorship.form.label.code = Code:
 any.sponsorship.form.label.moment = Moment of creation:

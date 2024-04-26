@@ -12,6 +12,8 @@ authenticated.notice.form.label.message= Mensaje:
 authenticated.notice.form.label.email= Email:
 authenticated.notice.form.label.link= Link:
 
+authenticated.Notice.form.error.spam= Este texto contiene spam
+
 authenticated.notice.list.button.create= Crear nueva noticia
 authenticated.notice.form.label.confirmation= Confirmación
 authenticated.notice.form.button.create= Crear

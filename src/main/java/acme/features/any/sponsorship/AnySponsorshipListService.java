@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.components.AuxiliarService;
 import acme.entities.sponsorship.Sponsorship;
 
 @Service
@@ -17,7 +18,10 @@ public class AnySponsorshipListService extends AbstractService<Any, Sponsorship>
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnySponsorshipRepository repository;
+	private AnySponsorshipRepository	repository;
+
+	@Autowired
+	private AuxiliarService				auxiliarService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,6 +47,7 @@ public class AnySponsorshipListService extends AbstractService<Any, Sponsorship>
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type");
+		dataset.put("money", this.auxiliarService.changeCurrency(object.getAmount()));
 
 		super.getResponse().addData(dataset);
 	}

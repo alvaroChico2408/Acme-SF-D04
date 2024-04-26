@@ -8,3 +8,5 @@ authenticated.sponsor.form.label.email = Email:
 authenticated.sponsor.form.button.create = Register
 authenticated.sponsor.form.button.update = Update
 
+authenticated.sponsor.form.error.spam= This text contains spam
+

@@ -8,3 +8,4 @@ authenticated.sponsor.form.label.email = Correo electrónico:
 authenticated.sponsor.form.button.create = Registrarte
 authenticated.sponsor.form.button.update = Actualizar
 
+authenticated.sponsor.form.error.spam= Este texto contiene spam

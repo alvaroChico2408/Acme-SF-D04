@@ -12,6 +12,8 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.notice.Notice;
+import acme.entities.systemConfiguration.SystemConfiguration;
+import spam.SpamFilter;
 
 @Service
 public class AuthenticatedNoticeCreateService extends AbstractService<Authenticated, Notice> {
@@ -47,12 +49,26 @@ public class AuthenticatedNoticeCreateService extends AbstractService<Authentica
 	public void bind(final Notice object) {
 		assert object != null;
 
-		super.bind(object, "instantiationMoment", "title", "author", "message", "email", "link");
+		super.bind(object, "title", "message", "email", "link");
 	}
 
 	@Override
 	public void validate(final Notice object) {
 		assert object != null;
+
+		if (!this.getBuffer().getErrors().hasErrors("title") && object.getTitle() != null) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getTitle()), "title", "authenticated.Notice.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("message") && object.getTitle() != null) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getMessage()), "message", "authenticated.Notice.form.error.spam");
+		}
 
 		boolean confirmation;
 

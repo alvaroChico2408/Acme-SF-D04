@@ -9,7 +9,9 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Sponsor;
+import spam.SpamFilter;
 
 @Service
 public class AuthenticatedSponsorUpdateService extends AbstractService<Authenticated, Sponsor> {
@@ -50,6 +52,20 @@ public class AuthenticatedSponsorUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Sponsor object) {
 		assert object != null;
+
+		if (!this.getBuffer().getErrors().hasErrors("name") && object.getName() != null) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getName()), "name", "authenticated.sponsor.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("benefits") && object.getBenefits() != null) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+			super.state(!spam.isSpam(object.getBenefits()), "benefits", "authenticated.sponsor.form.error.spam");
+		}
 	}
 
 	@Override
