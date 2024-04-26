@@ -13,6 +13,8 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.banner.Banner;
+import acme.entities.systemConfiguration.SystemConfiguration;
+import spam.SpamFilter;
 
 @Service
 public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
@@ -77,6 +79,12 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 			Date displayEndDate = object.getDisplayEndDate();
 
 			super.state(this.isPassedOneWeekAtLeast(displayEndDate, displayStartDate), "displayEndDate", "administrator.banner.form.error.notTimeEnough");
+		}
+		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getSlogan()), "slogan", "administrator.banner.form.error.spam");
 		}
 	}
 

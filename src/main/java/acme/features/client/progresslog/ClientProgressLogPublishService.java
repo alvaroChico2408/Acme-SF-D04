@@ -12,7 +12,9 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.ProgressLog;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
+import spam.SpamFilter;
 
 @Service
 public class ClientProgressLogPublishService extends AbstractService<Client, ProgressLog> {
@@ -76,6 +78,15 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
 				"client.progressLogs.form.error.registrationMoment");
 		}
+
+		SystemConfiguration sc = this.repository.findSystemConfiguration();
+		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+		if (!super.getBuffer().getErrors().hasErrors("comment"))
+			super.state(!spam.isSpam(object.getComment()), "comment", "client.progressLogs.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("responsiblePerson"))
+			super.state(!spam.isSpam(object.getResponsiblePerson()), "responsiblePerson", "client.progressLogs.form.error.spam");
 	}
 
 	@Override

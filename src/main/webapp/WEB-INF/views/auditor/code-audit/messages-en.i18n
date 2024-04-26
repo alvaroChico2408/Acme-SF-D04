@@ -32,3 +32,4 @@ auditor.codeAudit.form.error.projectNotFound = There is not a project with this 
 auditor.codeAudit.form.error.projectCodeError = The project must be published
 auditor.codeAudit.form.error.lowMark = The mark must be C or higher in order to publish a code audit
 auditor.codeAudit.form.error.auditRecordsNotPublished = All audit records of the code audit must be published
+auditor.codeAudit.form.error.spam = This message contains spam

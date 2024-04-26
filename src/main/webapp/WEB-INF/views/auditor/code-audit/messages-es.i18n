@@ -33,3 +33,4 @@ auditor.codeAudit.form.error.projectNotFound =  No existe ningún proyecto con e
 auditor.codeAudit.form.error.projectCodeError = El proyecto debe estar publicado
 auditor.codeAudit.form.error.lowMark = La nota debe ser al menos una C para poder publicar la auditoría
 auditor.codeAudit.form.error.auditRecordsNotPublished = Todas las anotaciones de la auditoría deben estar publicadas
+auditor.codeAudit.form.error.spam = Este mensaje tiene spam

@@ -15,7 +15,9 @@ import acme.client.views.SelectChoices;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
 import acme.entities.projects.Project;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
+import spam.SpamFilter;
 
 @Service
 public class ClientContractCreateService extends AbstractService<Client, Contract> {
@@ -97,6 +99,19 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
 			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.cost2");
 		}
+
+		SystemConfiguration sc = this.repository.findSystemConfiguration();
+		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+		if (!super.getBuffer().getErrors().hasErrors("providerName"))
+			super.state(!spam.isSpam(object.getProviderName()), "providerName", "client.contract.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("customerName"))
+			super.state(!spam.isSpam(object.getCustomerName()), "customerName", "client.contract.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(!spam.isSpam(object.getGoals()), "goals", "client.contract.form.error.spam");
+
 	}
 
 	@Override

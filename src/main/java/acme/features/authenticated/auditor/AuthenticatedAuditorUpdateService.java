@@ -9,7 +9,9 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Auditor;
+import spam.SpamFilter;
 
 @Service
 public class AuthenticatedAuditorUpdateService extends AbstractService<Authenticated, Auditor> {
@@ -50,6 +52,24 @@ public class AuthenticatedAuditorUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Auditor object) {
 		assert object != null;
+		if (!this.getBuffer().getErrors().hasErrors("firm")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getFirm()), "firm", "authenticated.auditor.form.error.spam");
+		}
+		if (!this.getBuffer().getErrors().hasErrors("professionalId")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getProfessionalId()), "professionalId", "authenticated.auditor.form.error.spam");
+		}
+		if (!this.getBuffer().getErrors().hasErrors("certifications")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getCertifications()), "certifications", "authenticated.auditor.form.error.spam");
+		}
 	}
 
 	@Override

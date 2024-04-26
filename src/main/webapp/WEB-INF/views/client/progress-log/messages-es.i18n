@@ -16,6 +16,8 @@ client.progress-logs.form.label.published = Publicado
 client.progressLogs.form.error.recordId = El registro se debe de componer en el siguiente patron: 2 letras - 2 letras - 4 numeros
 client.progressLogs.form.error.published =  No puedes editar o eliminar un acta ya publicada
 client.progressLogs.form.error.moment = La fecha de registro debe estar en el pasado y debe ser posterior al 2000/01/01 00:00:00
+client.progressLogs.form.error.spam = Este texto contiene spam
+
 
 client.progress-logs.create = Crear
 client.progress-logs.form.button.delete = Eliminar

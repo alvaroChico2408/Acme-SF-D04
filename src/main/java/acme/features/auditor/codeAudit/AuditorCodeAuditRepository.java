@@ -11,6 +11,7 @@ import acme.entities.codeAudit.AuditRecord;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
 import acme.entities.projects.Project;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Auditor;
 
 @Repository
@@ -42,5 +43,8 @@ public interface AuditorCodeAuditRepository extends AbstractRepository {
 
 	@Query("select ar.mark from AuditRecord ar where ar.published = 1 and ar.codeAudit.id = :codeAuditId")
 	Collection<Mark> findManyMarksByCodeAuditId(int codeAuditId);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 
 }

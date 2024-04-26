@@ -7,3 +7,5 @@ authenticated.auditor.form.label.link = Link:
 
 authenticated.auditor.form.button.create = Registrarse
 authenticated.auditor.form.button.update = Actualizar
+
+authenticated.auditor.form.error.spam = Este mensaje contiene spam

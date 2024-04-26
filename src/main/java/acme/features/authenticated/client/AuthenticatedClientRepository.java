@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.data.accounts.UserAccount;
 import acme.client.repositories.AbstractRepository;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
 
 @Repository
@@ -16,5 +17,8 @@ public interface AuthenticatedClientRepository extends AbstractRepository {
 
 	@Query("select c from Client c where c.userAccount.id = :userAccountId")
 	Client findOneClientByUserAccountId(int userAccountId);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 
 }

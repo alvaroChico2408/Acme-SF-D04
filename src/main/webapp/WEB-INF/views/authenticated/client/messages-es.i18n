@@ -10,3 +10,6 @@ authenticated.client.form.label.link = Enlace
 authenticated.client.form.button.create = Crear
 authenticated.client.form.button.update = Actualizar
 
+authenticated.client.form.error.spam = Este texto contiene spam
+
+
