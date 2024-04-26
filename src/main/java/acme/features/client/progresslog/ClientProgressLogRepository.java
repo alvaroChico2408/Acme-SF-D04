@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.contract.Contract;
 import acme.entities.contract.ProgressLog;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
 
 @Repository
@@ -41,4 +42,7 @@ public interface ClientProgressLogRepository extends AbstractRepository {
 
 	@Query("select c from Contract c where c.client.id = :id and c.published = false")
 	Collection<Contract> findPublishedContractsByClient(int id);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 }
