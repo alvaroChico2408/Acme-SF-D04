@@ -19,7 +19,9 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerUserStoryRepository repository;
+	private ManagerUserStoryRepository	repository;
+
+	private String						errorSpamMessage	= "manager.userStory.form.error.spam";
 
 	// AbstractService interface ----------------------------------------------
 
@@ -71,21 +73,21 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getTitle()), "title", "manager.userStory.form.error.spam");
+			super.state(!spam.isSpam(object.getTitle()), "title", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("description")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getDescription()), "description", "manager.userStory.form.error.spam");
+			super.state(!spam.isSpam(object.getDescription()), "description", this.errorSpamMessage);
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("acceptanceCriteria")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getAcceptanceCriteria()), "acceptanceCriteria", "manager.userStory.form.error.spam");
+			super.state(!spam.isSpam(object.getAcceptanceCriteria()), "acceptanceCriteria", this.errorSpamMessage);
 		}
 	}
 
