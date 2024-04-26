@@ -26,6 +26,7 @@ client.contract.form.error.overBudget = The sum of all of the contracts budgets 
 client.contract.form.error.noprogresslog = The contract must have Progress Logs to be published
 client.contract.form.error.progresslognotpublished = One or many Progress Log are unpublished
 client.contract.form.error.instantiationMoment = InstantationMoment must have a value after 2000/01/01 00:00:00
+client.contract.form.error.spam = This text constains spam
 
 client.contract.create = Create
 client.contract.form.button.delete = Delete
