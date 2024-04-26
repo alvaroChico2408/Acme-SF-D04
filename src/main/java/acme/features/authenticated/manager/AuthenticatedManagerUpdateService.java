@@ -9,7 +9,9 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Manager;
+import spam.SpamFilter;
 
 @Service
 public class AuthenticatedManagerUpdateService extends AbstractService<Authenticated, Manager> {
@@ -50,6 +52,27 @@ public class AuthenticatedManagerUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Manager object) {
 		assert object != null;
+
+		if (!this.getBuffer().getErrors().hasErrors("degree")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getDegree()), "degree", "authenticated.manager.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("overview")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getOverview()), "overview", "authenticated.manager.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("certifications")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getCertifications()), "certifications", "authenticated.manager.form.error.spam");
+		}
 	}
 
 	@Override

@@ -27,3 +27,4 @@ manager.project.form.error.duplicated = This code is taken
 manager.project.form.error.nouserstory = You can't publish a project without user stories
 manager.project.form.error.userstorynotpublish = You can't publish a project with user stories that aren't publish
 manager.project.form.error.fatalErrors = You can't publish a project with fatal errors
+manager.project.form.error.spam = This text contains spam

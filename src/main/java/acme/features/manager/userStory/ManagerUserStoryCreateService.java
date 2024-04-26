@@ -9,7 +9,9 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Priority;
 import acme.entities.projects.UserStory;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Manager;
+import spam.SpamFilter;
 
 @Service
 public class ManagerUserStoryCreateService extends AbstractService<Manager, UserStory> {
@@ -50,6 +52,27 @@ public class ManagerUserStoryCreateService extends AbstractService<Manager, User
 	@Override
 	public void validate(final UserStory object) {
 		assert object != null;
+
+		if (!this.getBuffer().getErrors().hasErrors("title")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getTitle()), "title", "manager.userStory.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("description")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getDescription()), "description", "manager.userStory.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("acceptanceCriteria")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getAcceptanceCriteria()), "acceptanceCriteria", "manager.userStory.form.error.spam");
+		}
 	}
 
 	@Override

@@ -23,3 +23,5 @@ manager.userStory.form.button.create = Crear
 manager.userStory.form.button.delete = Eliminar
 manager.userStory.form.button.update = Actualizar
 manager.userStory.form.button.publish = Publicar
+
+manager.userStory.form.error.spam = Este texto contiene spam

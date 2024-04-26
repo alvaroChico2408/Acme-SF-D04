@@ -11,6 +11,8 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.claim.Claim;
+import acme.entities.systemConfiguration.SystemConfiguration;
+import spam.SpamFilter;
 
 @Service
 public class AnyClaimCreateService extends AbstractService<Any, Claim> {
@@ -61,6 +63,27 @@ public class AnyClaimCreateService extends AbstractService<Any, Claim> {
 
 			existing = this.repository.findOneClaimByCode(object.getCode());
 			super.state(existing == null, "code", "any.claim.form.error.duplicated");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("heading")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getHeading()), "heading", "any.claim.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("description")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getDescription()), "description", "any.claim.form.error.spam");
+		}
+
+		if (!this.getBuffer().getErrors().hasErrors("department")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getDepartment()), "department", "any.claim.form.error.spam");
 		}
 	}
 

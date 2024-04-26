@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.claim.Claim;
+import acme.entities.systemConfiguration.SystemConfiguration;
 
 @Repository
 public interface AnyClaimRepository extends AbstractRepository {
@@ -20,5 +21,8 @@ public interface AnyClaimRepository extends AbstractRepository {
 
 	@Query("select c from Claim c where c.code = :code")
 	Claim findOneClaimByCode(String code);
+
+	@Query("select sc from SystemConfiguration sc")
+	SystemConfiguration findSystemConfiguration();
 
 }
