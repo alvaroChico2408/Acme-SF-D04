@@ -23,6 +23,7 @@ administrator.banner.form.error.badDiplayStartDate = DisplayStartDate must be af
 administrator.banner.form.error.displayEndDate = DisplayEndDate must be after the instantiation moment
 administrator.banner.form.error.badDiplayEndDate = DisplayEndDate must be after 2000/01/01 00:00 and before 2200/12/31 23:59
 administrator.banner.form.error.notTimeEnough = DisplayEndDate must be at least one week later than DisplayStartDate
+administrator.banner.form.error.spam = This slogan has spam
 
 administrator.banner.form.button.delete = Delete
 
