@@ -16,6 +16,7 @@ client.progress-logs.form.label.published = Published
 client.progressLogs.form.error.recordId = The Record Id must created by this pattern: 2 letters - 2 letters - 4  numbers
 client.progressLogs.form.error.published =  You cannot update or delete a Progress Log already published
 client.progressLogs.form.error.moment = Registration moment must be in the past and after 2000/01/01 00:00:00
+client.progressLogs.form.error.spam = This text constains spam
 
 
 client.progress-logs.create = Create

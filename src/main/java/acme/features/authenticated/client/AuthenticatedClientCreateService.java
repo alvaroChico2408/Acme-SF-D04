@@ -11,8 +11,10 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
 import acme.roles.Type;
+import spam.SpamFilter;
 
 @Service
 public class AuthenticatedClientCreateService extends AbstractService<Authenticated, Client> {
@@ -57,6 +59,12 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 	@Override
 	public void validate(final Client object) {
 		assert object != null;
+
+		SystemConfiguration sc = this.repository.findSystemConfiguration();
+		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+
+		if (!super.getBuffer().getErrors().hasErrors("companyName"))
+			super.state(!spam.isSpam(object.getCompanyName()), "companyName", "authenticated.client.form.error.spam");
 	}
 
 	@Override
