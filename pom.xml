@@ -32,8 +32,8 @@
 	<parent>
 		<groupId>Acme</groupId>
 		<artifactId>Parent-Pom</artifactId>
-		<version>24.1.0</version>
-		<relativePath>../../pom-24.1.0.xml</relativePath>
+		<version>24.4.0</version>
+		<relativePath>../../pom-24.4.0.xml</relativePath>
 	</parent>
 
 	<dependencies>
