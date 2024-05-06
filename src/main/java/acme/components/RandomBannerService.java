@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.helpers.MomentHelper;
+import acme.client.helpers.RandomHelper;
 import acme.entities.banner.Banner;
 
 @Service
@@ -29,8 +29,7 @@ public class RandomBannerService {
 		if (banners.isEmpty())
 			res = null;
 		else {
-			final Random rand = new Random();
-			final int index = rand.nextInt(listOfBanners.size());
+			final int index = RandomHelper.nextInt(listOfBanners.size());
 			res = listOfBanners.get(index);
 		}
 		return res;
