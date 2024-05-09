@@ -99,10 +99,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("quatity") && object.getQuantity() != null)
 			super.state(object.getQuantity().getCurrency().trim().toLowerCase().equals(object.getSponsorship().getAmount().getCurrency().trim().toLowerCase()), "quantity", "sponsor.invoice.form.error.invalidCurrency");
 
-		// totalAmount  ---------------------------------------------------------
-
-		if (!super.getBuffer().getErrors().hasErrors("totalAmount") && object.getQuantity() != null)
-			super.state(object.totalAmount().getAmount() <= object.getSponsorship().getAmount().getAmount(), "*", "sponsor.invoice.form.error.totalAmountTooHigh");
 	}
 
 	@Override
