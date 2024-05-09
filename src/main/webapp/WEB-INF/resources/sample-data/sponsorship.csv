@@ -8,14 +8,14 @@ sponsorship-06,AAA-000,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 15
 sponsorship-07,AAA-999,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-08,ABC-124,2000/01/01 00:00,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-09,ABC-125,2000/01/01 00:01,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
-sponsorship-10,ABC-126,2022/07/29 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
-sponsorship-11,CDE-663,2022/07/29 23:58,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
+sponsorship-10,ABC-126,2022/07/30 00:00,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
+sponsorship-11,CDE-663,2022/07/29 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-12,ABC-555,2004/02/29 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-13,ABC-129,2022/02/28 23:59,2022/03/01 00:00,2022/12/28 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-14,ABC-130,2022/02/28 23:59,2022/03/01 00:01,2022/12/28 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-15,ABC-127,2022/02/28 23:59,2099/11/30 23:59,2099/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-16,CDE-773,2022/02/28 23:59,2099/11/30 23:58,2099/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
-sponsorship-17,CDE-883,2022/02/28 23:59,2024/02/29 23:59,2024/03/29 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
+sponsorship-17,CDE-883,2022/02/28 23:59,2004/02/29 23:59,2022/12/28 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-18,AAA-123,2022/02/28 23:59,2022/09/28 23:59,2022/10/28 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-19,CDE-113,2022/02/28 23:59,2022/09/28 23:59,2022/10/29 00:00,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-20,AAA-122,2022/02/28 23:59,2022/09/28 23:59,2099/12/31 23:59,EUR 1500.00,Financial,alvarochicocastellano@gmail.com,https://github.com/,false,project-31,sponsor-01
@@ -66,3 +66,4 @@ sponsorship-64,PPP-009,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 10
 sponsorship-65,III-001,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1000.00,Financial,pruebaInvoice@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-66,III-002,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1000.00,Financial,pruebaInvoice@gmail.com,https://github.com/,false,project-31,sponsor-01
 sponsorship-67,III-003,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1000.00,Financial,pruebaInvoice@gmail.com,https://github.com/,true,project-31,sponsor-01
+sponsorship-68,III-004,2022/02/28 23:59,2022/09/28 23:59,2022/12/31 23:59,EUR 1000.00,Financial,pruebaInvoice@gmail.com,https://github.com/,false,project-31,sponsor-01
