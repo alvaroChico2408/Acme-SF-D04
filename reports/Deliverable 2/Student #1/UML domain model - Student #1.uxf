@@ -50,7 +50,7 @@ bg=green
     <id>UMLClass</id>
     <coordinates>
       <x>343</x>
-      <y>98</y>
+      <y>84</y>
       <w>294</w>
       <h>119</h>
     </coordinates>
@@ -60,7 +60,7 @@ Project
 --
 + code: String {Unique, NotBlank, Pattern(“^[A-Z]{3}-[0-9]{4}$”)}
 + title: String {NotBlank, Length(1,75)}
-+ abstract: String {NotBlank, Length(1,100)}
++ abstractProject: String {NotBlank, Length(1,100)}
 + fatalErrors: boolean
 + cost: int {Range(0, 10000)}
 - link: String{URL, Length(0,255)}
@@ -176,15 +176,15 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>616</x>
-      <y>210</y>
+      <y>196</y>
       <w>70</w>
-      <h>98</h>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1= 0..*
 m2= 1
   Created by </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -218,15 +218,15 @@ m2= 1
     <id>Relation</id>
     <coordinates>
       <x>455</x>
-      <y>210</y>
+      <y>196</y>
       <w>35</w>
-      <h>119</h>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1= 0..*
 m2= 1
 </panel_attributes>
-    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -249,13 +249,13 @@ must have been published
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>154</y>
+      <y>147</y>
       <w>91</w>
-      <h>28</h>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>

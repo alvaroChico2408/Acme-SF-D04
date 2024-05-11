@@ -6,7 +6,7 @@
 <acme:form> 
 	<acme:input-textbox code="any.project.form.label.code" path="code" readonly = "true"/>
 	<acme:input-textbox code="any.project.form.label.title" path="title" readonly = "true"/>
-	<acme:input-textarea code="any.project.form.label.abstract" path="$abstract" readonly = "true"/>
+	<acme:input-textarea code="any.project.form.label.abstract" path="abstractProject" readonly = "true"/>
 	<acme:input-checkbox code="any.project.form.label.fatalErrors" path="fatalErrors" readonly = "true"/>
 	<acme:input-integer code="any.project.form.label.cost" path="cost" readonly = "true"/>
 	<acme:input-url code="any.project.form.label.link" path="link" readonly = "true"/>
