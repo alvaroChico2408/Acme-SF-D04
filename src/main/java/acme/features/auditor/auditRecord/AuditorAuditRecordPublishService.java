@@ -2,6 +2,7 @@
 package acme.features.auditor.auditRecord;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -63,22 +64,26 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 	@Override
 	public void validate(final AuditRecord object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			AuditRecord existing;
 
+			existing = this.repository.findOneAuditRecordByCode(object.getCode());
+			super.state(existing == null, "code", "auditor.auditRecord.form.error.duplicated");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date startDate = object.getStartDate();
+			Date minimumEnd = MomentHelper.deltaFromMoment(startDate, 1, ChronoUnit.HOURS);
 
-			super.state(MomentHelper.isAfter(startDate, this.lowestMoment), "startDate", "auditor.auditRecord.form.error.startDateError");
+			super.state(MomentHelper.isAfterOrEqual(startDate, this.lowestMoment), "startDate", "auditor.auditRecord.form.error.startDateError");
+			super.state(MomentHelper.isAfterOrEqual(startDate, object.getCodeAudit().getExecutionDate()), "startDate", "auditor.auditrecord.form.error.startDateBeforeExecutionDate");
+			super.state(MomentHelper.isBeforeOrEqual(minimumEnd, MomentHelper.getCurrentMoment()), "startDate", "auditor.auditRecord.form.error.startDateErrorTooLate");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date endDate = object.getEndDate();
-
-			super.state(MomentHelper.isAfter(endDate, this.lowestMoment), "endDate", "auditor.auditRecord.form.error.endDateError");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("endDate") && !super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date startDate = object.getStartDate();
-			Date endDate = object.getEndDate();
+			Date minimumEnd = MomentHelper.deltaFromMoment(startDate, 1, ChronoUnit.HOURS);
 
-			super.state(this.isPassedOneHourAtLeast(endDate, startDate), "endDate", "auditor.auditRecord.form.error.notTimeEnough");
+			super.state(MomentHelper.isAfterOrEqual(endDate, minimumEnd), "endDate", "auditor.auditRecord.form.error.notTimeEnough");
 		}
 
 	}

@@ -41,7 +41,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		masterId = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
-		status = super.getRequest().getPrincipal().hasRole(auditor);
+		status = super.getRequest().getPrincipal().hasRole(auditor) && !codeAudit.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -71,7 +71,7 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
 
-			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+			super.state(MomentHelper.isAfterOrEqual(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
 		}
 		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
