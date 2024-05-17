@@ -86,7 +86,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 				overBudget = false;
 			else
 				overBudget = true;
-			super.state(overBudget, "*", "contract.contract.form.error.overBudget");
+			super.state(overBudget, "*", "client.contract.form.error.overBudget");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {

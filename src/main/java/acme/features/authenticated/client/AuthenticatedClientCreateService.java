@@ -62,6 +62,12 @@ public class AuthenticatedClientCreateService extends AbstractService<Authentica
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+		if (!super.getBuffer().getErrors().hasErrors("identification")) {
+			Client existing;
+
+			existing = this.repository.findOneClientByIdentification(object.getIdentification());
+			super.state(existing == null, "identification", "authenticated.client.form.error.duplicatedIdentification");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("companyName"))
 			super.state(!spam.isSpam(object.getCompanyName()), "companyName", "authenticated.client.form.error.spam");

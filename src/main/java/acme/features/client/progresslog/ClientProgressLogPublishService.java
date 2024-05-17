@@ -74,7 +74,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			super.state(existing == null || progressLog2.equals(existing), "code", "client.contract.form.error.code");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00
 			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
 				"client.progressLogs.form.error.registrationMoment");
 		}

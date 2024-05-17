@@ -21,4 +21,6 @@ public interface AuthenticatedClientRepository extends AbstractRepository {
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration findSystemConfiguration();
 
+	@Query("select cl from Client cl where cl.identification = :identification")
+	Client findOneClientByIdentification(String identification);
 }
