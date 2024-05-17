@@ -11,4 +11,5 @@ authenticated.client.form.button.create = Create
 authenticated.client.form.button.update = Update
 
 authenticated.client.form.error.spam = This text constains spam
+authenticated.client.form.error.duplicatedIdentification = This identification already exists
 

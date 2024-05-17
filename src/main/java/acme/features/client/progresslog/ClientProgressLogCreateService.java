@@ -64,7 +64,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
+			Date minDate = new Date(946681200000L); // 2000/01/01 00:00
 			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
 				"client.progressLogs.form.error.registrationMoment");
 		}
