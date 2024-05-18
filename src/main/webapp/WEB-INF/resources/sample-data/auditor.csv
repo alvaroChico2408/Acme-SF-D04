@@ -31,6 +31,3 @@ auditor-29,auditor1,auditor1,certification1:certification2,https://www.urldeejem
 auditor-30,auditor1,auditor1,certification1:certification2,https://www.urldeejemplo.com/file.txt?parametro=valor,user-account-auditor-30
 auditor-31,auditor1,auditor1,certification1:certification2,https://www.urldeejemplo.com/file.txt?parametro1=valor1&&parametro2=valor2,user-account-auditor-31
 auditor-32,auditor1,auditor1,certification1:certification2,ftp://ftp.microsoft.com/,user-account-auditor-32
-auditor-33,auditor1,auditor1,certification1:certification2,ftp://ftp.example.com/file.txt?parametro=valor&&name=nombre,user-account-auditor-33
-auditor-34,auditor1,auditor1,certification1:certification2,http://acmejob255caracteres-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/,user-account-auditor-34
-auditor-35,auditor1,auditor1,certification1:certification2,,user-account-auditor-35

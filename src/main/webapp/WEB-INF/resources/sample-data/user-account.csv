@@ -119,9 +119,6 @@ user-account-auditor-29,true,"UserIdentity{name: 'Peter', surname: 'Auditor', em
 user-account-auditor-30,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor30,auditor30
 user-account-auditor-31,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor31,auditor31
 user-account-auditor-32,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor32,auditor32
-user-account-auditor-33,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor32,auditor33
-user-account-auditor-34,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor32,auditor34
-user-account-auditor-35,true,"UserIdentity{name: 'Peter', surname: 'Auditor', email: 'peterauditor@alum.us.es'}",auditor32,auditor35
 user-account-developer-01,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer1,developer1
 user-account-developer-02,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer2,developer2
 user-account-developer-03,true,"UserIdentity{name: 'Dani', surname: 'Almendra', email: 'danialmendra@alum.us.es'}",developer3,developer3
