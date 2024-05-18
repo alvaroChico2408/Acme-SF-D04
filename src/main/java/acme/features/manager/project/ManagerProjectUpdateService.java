@@ -60,12 +60,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	public void bind(final Project object) {
 		assert object != null;
 
-		String description;
-
-		description = super.getRequest().getData("$abstract", String.class);
-
-		super.bind(object, "code", "title", "fatalErrors", "cost", "link");
-		object.setAbstract(description);
+		super.bind(object, "code", "title", "abstractProject", "fatalErrors", "cost", "link");
 	}
 
 	@Override
@@ -86,11 +81,11 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 			super.state(!spam.isSpam(object.getTitle()), "title", this.errorSpamMessage);
 		}
 
-		if (!this.getBuffer().getErrors().hasErrors("$abstract")) {
+		if (!this.getBuffer().getErrors().hasErrors("abstractProject")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
-			super.state(!spam.isSpam(object.getAbstract()), "$abstract", this.errorSpamMessage);
+			super.state(!spam.isSpam(object.getAbstractProject()), "abstractProject", this.errorSpamMessage);
 		}
 	}
 
@@ -107,7 +102,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "title", "$abstract", "fatalErrors", "cost", "link", "published");
+		dataset = super.unbind(object, "code", "title", "abstractProject", "fatalErrors", "cost", "link", "published");
 		dataset.put("manager", object.getManager().getUserAccount().getUsername());
 
 		super.getResponse().addData(dataset);

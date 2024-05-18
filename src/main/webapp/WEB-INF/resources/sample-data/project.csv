@@ -1,4 +1,4 @@
-key,code,title,$abstract,fatal-errors,cost,link,published,key:manager
+key,code,title,abstract-project,fatal-errors,cost,link,published,key:manager
 project-01,JLB-4567,title estándar,abstract estándar,true,5,https://github.com/Jaime-Linares,false,manager-01
 project-02,AMN-4567,t,abstract estándar,true,5,https://github.com/Jaime-Linares,false,manager-01
 project-03,BMN-4567,ti,abstract estándar,true,5,https://github.com/Jaime-Linares,false,manager-01

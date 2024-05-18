@@ -41,7 +41,7 @@ public class Project extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	private String				$abstract;
+	private String				abstractProject;
 
 	private boolean				fatalErrors;
 
@@ -57,21 +57,11 @@ public class Project extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	public String getAbstract() {
-		return this.$abstract;
-	}
-
-	public void setAbstract(final String description) {
-		this.$abstract = description;
-	}
-
 	// Relationships ----------------------------------------------------------
-
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Manager manager;
+	private Manager				manager;
 
 }
