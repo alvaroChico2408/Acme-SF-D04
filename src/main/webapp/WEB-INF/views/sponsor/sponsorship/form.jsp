@@ -15,7 +15,6 @@
 	<acme:input-checkbox code="sponsor.sponsorship.form.label.published" path="published" readonly = "true"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project" choices="${projects}"/>
 	<acme:input-textbox code="sponsor.sponsorship.form.label.sponsorUsername" path="sponsorUsername" readonly="true" />
-	<acme:input-money code="sponsor.sponsorship.form.label.money" path="money"  readonly="true"/>
 	
 	
 	

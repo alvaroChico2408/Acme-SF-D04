@@ -8,7 +8,6 @@
 <acme:list-column code="sponsor.invoice.list.label.registrationTime" path="registrationTime" width="25%"/>
 <acme:list-column code="sponsor.invoice.list.label.dueDate" path="dueDate" width="25%"/>
 <acme:list-column code="sponsor.invoice.list.label.totalAmount" path="totalAmount" width="25%"/>
-<acme:list-column code="sponsor.invoice.list.label.money" path="money" />
 
 </acme:list>
 <acme:button code="sponsor.invoice.list.button.create" action="/sponsor/invoice/create?sponsorshipId=${sponsorshipId}"/>

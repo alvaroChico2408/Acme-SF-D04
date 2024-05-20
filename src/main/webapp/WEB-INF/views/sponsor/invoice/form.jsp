@@ -12,7 +12,6 @@
 	<acme:input-url code="sponsor.invoice.form.label.link" path="link"/>
 	<acme:input-checkbox code="sponsor.invoice.form.label.published" path="published" readonly="true"/>
 	<acme:input-textbox code="sponsor.invoice.form.label.sponsorshipCode" path="sponsorshipCode" readonly="true"/>
-	<acme:input-money code="sponsor.invoice.form.label.money" path="money"  readonly="true"/>
 	
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
