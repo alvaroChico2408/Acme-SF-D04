@@ -26,4 +26,5 @@ auditor.auditRecord.form.error.startDateError = Start Date must be after 2000/01
 auditor.auditRecord.form.error.endDateError = End Date must be after 2000/01/01 00:00
 auditor.auditrecord.form.error.startDateBeforeExecutionDate = Start Date must be after Execution Date of its Code Audit
 auditor.auditRecord.form.error.startDateErrorTooLate = Start Date must be at least one hour before this moment
+auditor.auditRecord.form.error.tooEarly = End Date must be one hour after Execution Date of its Code Audit
 auditor.auditRecord.form.error.notTimeEnough = End Date must be at least one hour later than Start Date
