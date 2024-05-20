@@ -10,7 +10,6 @@
 	<acme:list-column code="sponsor.sponsorship.list.label.durationFinal" path="durationFinal" width="16%"/>
 	<acme:list-column code="sponsor.sponsorship.list.label.amount" path="amount" width="16%"/>
 	<acme:list-column code="sponsor.sponsorship.list.label.type" path="type" width="16%"/>
-	<acme:list-column code="sponsor.sponsorship.list.label.money" path="money" />
 </acme:list>
 
 <jstl:if test="${_command == 'list'}">

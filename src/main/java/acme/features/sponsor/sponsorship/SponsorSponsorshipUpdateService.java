@@ -13,7 +13,6 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.components.AuxiliarService;
 import acme.entities.invoice.Invoice;
 import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
@@ -26,10 +25,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository	repository;
-
-	@Autowired
-	private AuxiliarService					auxiliarService;
+	private SponsorSponsorshipRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -167,7 +163,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
 		dataset.put("types", types);
-		dataset.put("money", this.auxiliarService.changeCurrency(object.getAmount()));
 		super.getResponse().addData(dataset);
 	}
 
