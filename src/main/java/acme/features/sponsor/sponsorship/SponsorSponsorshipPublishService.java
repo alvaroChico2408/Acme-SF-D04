@@ -135,7 +135,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		// Solo Publish ---------------------------------------------------------
 
-		if (!super.getBuffer().getErrors().hasErrors("invoice")) {
+		if (!super.getBuffer().getErrors().hasErrors("invoice") && object.getAmount() != null) {
 			double totalAmount;
 			if (!publishedInvoices.isEmpty())
 				totalAmount = publishedInvoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
