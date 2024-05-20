@@ -68,12 +68,17 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 			super.state(MomentHelper.isAfterOrEqual(displayStartDate, this.lowestMoment) && MomentHelper.isBeforeOrEqual(minimumDuration, this.topestMoment), "displayStartDate", "administrator.banner.form.error.badDiplayStartDate");
 		}
 		if (!this.getBuffer().getErrors().hasErrors("displayEndDate")) {
-			Date displayStartDate = object.getDisplayStartDate();
 			Date displayEndDate = object.getDisplayEndDate();
-			Date minimumDuration = MomentHelper.deltaFromMoment(displayStartDate, 1, ChronoUnit.WEEKS);
-
-			super.state(MomentHelper.isAfterOrEqual(displayEndDate, minimumDuration), "displayEndDate", "administrator.banner.form.error.notTimeEnough");
+			Date instantiationMoment = object.getInstantiationMoment();
+			Date minimumDuration1 = MomentHelper.deltaFromMoment(instantiationMoment, 1, ChronoUnit.WEEKS);
+			super.state(MomentHelper.isAfterOrEqual(displayEndDate, minimumDuration1), "displayEndDate", "administrator.banner.form.error.tooEarly");
 			super.state(MomentHelper.isBeforeOrEqual(displayEndDate, this.topestMoment), "displayEndDate", "administrator.banner.form.error.badDiplayEndDate");
+			if (object.getDisplayStartDate() != null) {
+				Date displayStartDate = object.getDisplayStartDate();
+				Date minimumDuration2 = MomentHelper.deltaFromMoment(displayStartDate, 1, ChronoUnit.WEEKS);
+				super.state(MomentHelper.isAfterOrEqual(displayEndDate, minimumDuration2), "displayEndDate", "administrator.banner.form.error.notTimeEnough");
+
+			}
 		}
 
 		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
