@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.components.AuxiliarService;
 import acme.entities.sponsorship.Sponsorship;
 import acme.roles.Sponsor;
 
@@ -19,10 +18,7 @@ public class SponsorSponsorshipListService extends AbstractService<Sponsor, Spon
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository	repository;
-
-	@Autowired
-	private AuxiliarService					auxiliarService;
+	private SponsorSponsorshipRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -50,7 +46,6 @@ public class SponsorSponsorshipListService extends AbstractService<Sponsor, Spon
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type");
-		dataset.put("money", this.auxiliarService.changeCurrency(object.getAmount()));
 
 		super.getResponse().addData(dataset);
 	}
