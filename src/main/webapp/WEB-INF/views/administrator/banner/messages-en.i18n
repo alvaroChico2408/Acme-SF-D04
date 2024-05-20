@@ -22,6 +22,7 @@ administrator.banner.form.error.displayStartDate = DisplayStartDate must be afte
 administrator.banner.form.error.badDiplayStartDate = DisplayStartDate must be after 2000/01/01 00:00 and one week before 2200/12/31 23:59
 administrator.banner.form.error.displayEndDate = DisplayEndDate must be after the instantiation moment
 administrator.banner.form.error.badDiplayEndDate = DisplayEndDate must be before 2200/12/31 23:59
+administrator.banner.form.error.tooEarly = DisplayEndDate must be at least one week later than InstantiationMoment
 administrator.banner.form.error.notTimeEnough = DisplayEndDate must be at least one week later than DisplayStartDate
 administrator.banner.form.error.spam = This slogan has spam
 

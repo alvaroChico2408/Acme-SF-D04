@@ -26,4 +26,5 @@ auditor.auditRecord.form.error.startDateError = La fecha de inicio debe ser post
 auditor.auditRecord.form.error.endDateError = La fecha de fin debe ser posterior al 01/01/2000 00:00
 auditor.auditrecord.form.error.startDateBeforeExecutionDate = La fecha de inicio debe ser posterior a la fecha de instancición de su auditoría
 auditor.auditRecord.form.error.startDateErrorTooLate = La fecha de inicio debe ser al menos una hora anterior al momento actual
+auditor.auditRecord.form.error.tooEarly = La fecha de fin debe ser una hora después de la fercha de  instanciación de su auditoría
 auditor.auditRecord.form.error.notTimeEnough = La fecha de fin debe ocurrir al menos una hora después que la fecha del comienzo

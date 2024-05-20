@@ -4,7 +4,6 @@ package acme.features.auditor.auditRecord;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -82,21 +81,18 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 		}
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date endDate = object.getEndDate();
-			Date startDate = object.getStartDate();
-			Date minimumEnd = MomentHelper.deltaFromMoment(startDate, 1, ChronoUnit.HOURS);
+			Date minimumEnd1 = MomentHelper.deltaFromMoment(object.getCodeAudit().getExecutionDate(), 1, ChronoUnit.HOURS);
 
-			super.state(MomentHelper.isAfterOrEqual(endDate, minimumEnd), "endDate", "auditor.auditRecord.form.error.notTimeEnough");
+			super.state(MomentHelper.isAfterOrEqual(endDate, minimumEnd1), "endDate", "auditor.auditRecord.form.error.tooEarly");
+
+			if (object.getStartDate() != null) {
+				Date startDate = object.getStartDate();
+				Date minimumEnd2 = MomentHelper.deltaFromMoment(startDate, 1, ChronoUnit.HOURS);
+				super.state(MomentHelper.isAfterOrEqual(endDate, minimumEnd2), "endDate", "auditor.auditRecord.form.error.notTimeEnough");
+			}
+
 		}
 
-	}
-
-	private boolean isPassedOneHourAtLeast(final Date date1, final Date date2) {
-		boolean res = false;
-		long diffInMillies = date1.getTime() - date2.getTime();
-		long diffInHours = TimeUnit.HOURS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-		if (diffInHours >= 1L)
-			res = true;
-		return res;
 	}
 
 	@Override
