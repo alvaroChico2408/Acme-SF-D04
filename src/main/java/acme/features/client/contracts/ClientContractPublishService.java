@@ -2,7 +2,6 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
@@ -70,11 +68,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			throw new IllegalArgumentException("No object found");
 		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
 
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00
-			super.state(MomentHelper.isAfterOrEqual(object.getInstantiationMoment(), minDate), "instantiationMoment", "client.contract.form.error.instantiationMoment");
-		}
-
 		Money ratioEuros;
 		ratioEuros = new Money();
 		ratioEuros.setAmount(100.00);
@@ -86,11 +79,11 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			double totalBudget = 0.0;
 			for (Contract c : contracts)
 				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
-			if (totalBudget < object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
+			if (totalBudget > object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
 				overBudget = false;
 			else
 				overBudget = true;
-			super.state(overBudget, "*", "manager.project.form.error.overBudget");
+			super.state(overBudget, "*", "client.contract.form.error.overBudget");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
@@ -104,16 +97,16 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		super.state(!progressLog.isEmpty(), "*", "client.contract.form.error.noprogresslog");
 
 		if (!progressLog.isEmpty()) {
-			int numUserStoryPublish = progressLog.stream().filter(ProgressLog::isPublished).toList().size();
-			boolean allUserStoriesPublish = progressLog.size() == numUserStoryPublish;
-			super.state(allUserStoriesPublish, "*", "client.contract.form.error.progresslognotpublished");
+			int numProgressLogsPublish = progressLog.stream().filter(ProgressLog::isPublished).toList().size();
+			boolean allProgressLogsPublish = progressLog.size() == numProgressLogsPublish;
+			super.state(allProgressLogsPublish, "*", "client.contract.form.error.progresslognotpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 			Money maxEuros;
 
 			maxEuros = new Money();
-			maxEuros.setAmount(1000000.00);
+			maxEuros.setAmount(1000000.01);
 			maxEuros.setCurrency("EUR");
 			double maximo = object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount();
 			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maximo), "cost", "client.contract.form.error.budget");
