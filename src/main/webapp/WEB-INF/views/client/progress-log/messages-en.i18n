@@ -13,9 +13,10 @@ client.progress-logs.form.label.responsiblePerson = Responsible person
 client.progress-logs.form.label.contract = Contract
 client.progress-logs.form.label.published = Published
 
-client.progressLogs.form.error.recordId = The Record Id must created by this pattern: 2 letters - 2 letters - 4  numbers
+client.progressLogs.form.error.recordId = This Record Id already exists
 client.progressLogs.form.error.published =  You cannot update or delete a Progress Log already published
-client.progressLogs.form.error.moment = Registration moment must be in the past and after 2000/01/01 00:00:00
+client.progressLogs.form.error.moment = The Registration Moment must before or equals to 2099/12/31 23:59
+client.progressLogs.form.error.moment2 = The Registration Moment must be after or equals to contract Instantiation Moment
 client.progressLogs.form.error.spam = This text constains spam
 
 

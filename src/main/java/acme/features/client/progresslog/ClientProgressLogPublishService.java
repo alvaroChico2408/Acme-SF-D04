@@ -74,10 +74,11 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			super.state(existing == null || progressLog2.equals(existing), "code", "client.contract.form.error.code");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00
-			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
-				"client.progressLogs.form.error.registrationMoment");
+			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59
+			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), maxDate), "registrationMoment", "client.progressLogs.form.error.moment");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
+			super.state(MomentHelper.isAfter(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
