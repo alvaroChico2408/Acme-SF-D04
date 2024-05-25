@@ -12,7 +12,7 @@
 	<acme:input-textbox code="developer.trainingSession.form.label.contactEmail" path="contactEmail"/>
 	<acme:input-url code="developer.trainingSession.form.label.link" path="link"/>
 	<acme:input-checkbox code="developer.trainingSession.form.label.published" path="published" readonly = "true"/>
-	<acme:input-textbox code="developer.trainingSession.form.label.trainingModuleCode" path="trainingModuleCode"/>
+	<acme:input-textbox code="developer.trainingSession.form.label.trainingModuleCode" path="trainingModuleCode" readonly = "true"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete|update|publish') && published == false}">
