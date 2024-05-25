@@ -72,7 +72,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 			Date instantiationMoment = object.getInstantiationMoment();
 			Date minimumDuration1 = MomentHelper.deltaFromMoment(instantiationMoment, 1, ChronoUnit.WEEKS);
 			super.state(MomentHelper.isAfterOrEqual(displayEndDate, minimumDuration1), "displayEndDate", "administrator.banner.form.error.tooEarly");
-			super.state(MomentHelper.isBeforeOrEqual(displayEndDate, this.topestMoment), "displayEndDate", "administrator.banner.form.error.badDiplayEndDate");
+			super.state(MomentHelper.isAfterOrEqual(displayEndDate, this.lowestMoment) && MomentHelper.isBeforeOrEqual(displayEndDate, this.topestMoment), "displayEndDate", "administrator.banner.form.error.badDiplayEndDate");
 			if (object.getDisplayStartDate() != null) {
 				Date displayStartDate = object.getDisplayStartDate();
 				Date minimumDuration2 = MomentHelper.deltaFromMoment(displayStartDate, 1, ChronoUnit.WEEKS);
