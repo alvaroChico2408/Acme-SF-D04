@@ -1,6 +1,8 @@
 
 package acme.features.developer.trainingModule;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,7 +100,10 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 			super.state(object.getDetails().length() <= 100, "details", "developer.trainingModule.form.error.details");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("updateMoment") && object.getUpdateMoment() != null)
+		if (!super.getBuffer().getErrors().hasErrors("creationMoment") && object.getCreationMoment() != null)
+			super.state(MomentHelper.isAfter(object.getCreationMoment(), Date.valueOf(LocalDate.of(2000, 1, 1))), "creationMoment", "developer.trainingModule.form.error.creationMoment");
+
+		if (!super.getBuffer().getErrors().hasErrors("updateMoment") && object.getUpdateMoment() != null && object.getCreationMoment() != null)
 			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.updateMoment");
 
 		if (!super.getBuffer().getErrors().hasErrors("link"))
