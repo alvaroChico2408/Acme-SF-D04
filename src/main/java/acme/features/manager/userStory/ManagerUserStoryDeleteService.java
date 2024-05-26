@@ -6,11 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.projects.AssociatedWith;
-import acme.entities.projects.Priority;
 import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
@@ -82,20 +79,23 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 
 	@Override
 	public void unbind(final UserStory object) {
-		assert object != null;
-
-		SelectChoices choices;
-		Dataset dataset;
-
-		choices = SelectChoices.from(Priority.class, object.getPriority());
-
-		dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", //
-			"link", "published");
-		dataset.put("manager", object.getManager().getUserAccount().getUsername());
-		dataset.put("priority", choices.getSelected().getKey());
-		dataset.put("priorities", choices);
-
-		super.getResponse().addData(dataset);
+		/*
+		 * EL DELETE NUNCA ENTRA EN ESTE MÉTODO
+		 * assert object != null;
+		 * 
+		 * SelectChoices choices;
+		 * Dataset dataset;
+		 * 
+		 * choices = SelectChoices.from(Priority.class, object.getPriority());
+		 * 
+		 * dataset = super.unbind(object, "title", "description", "estimatedCost", "acceptanceCriteria", //
+		 * "link", "published");
+		 * dataset.put("manager", object.getManager().getUserAccount().getUsername());
+		 * dataset.put("priority", choices.getSelected().getKey());
+		 * dataset.put("priorities", choices);
+		 * 
+		 * super.getResponse().addData(dataset);
+		 */
 	}
 
 }

@@ -60,14 +60,15 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
 			existing = this.repository.findProgressLogsByRecordId(object.getRecordId());
-			super.state(existing == null, "code", "client.progressLogs.form.error.recordId");
+			super.state(existing == null, "recordId", "client.progressLogs.form.error.recordId");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00
-			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), MomentHelper.getCurrentMoment()) || MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), minDate), "registrationMoment",
-				"client.progressLogs.form.error.registrationMoment");
+			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59
+			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), maxDate), "registrationMoment", "client.progressLogs.form.error.moment");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
+			super.state(MomentHelper.isAfter(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

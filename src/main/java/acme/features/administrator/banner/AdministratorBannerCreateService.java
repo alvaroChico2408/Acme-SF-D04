@@ -25,7 +25,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 	private AdministratorBannerRepository	repository;
 
 	private Date							lowestMoment	= Date.from(Instant.parse("1999-12-31T23:00:00Z"));
-	private Date							topestMoment	= Date.from(Instant.parse("2200-12-31T23:59:59Z"));
+	private Date							topestMoment	= Date.from(Instant.parse("2200-12-31T22:59:59Z"));
 
 	// AbstractService interface ----------------------------------------------
 
@@ -72,7 +72,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 			Date instantiationMoment = object.getInstantiationMoment();
 			Date minimumDuration1 = MomentHelper.deltaFromMoment(instantiationMoment, 1, ChronoUnit.WEEKS);
 			super.state(MomentHelper.isAfterOrEqual(displayEndDate, minimumDuration1), "displayEndDate", "administrator.banner.form.error.tooEarly");
-			super.state(MomentHelper.isBeforeOrEqual(displayEndDate, this.topestMoment), "displayEndDate", "administrator.banner.form.error.badDiplayEndDate");
+			super.state(MomentHelper.isAfterOrEqual(displayEndDate, this.lowestMoment) && MomentHelper.isBeforeOrEqual(displayEndDate, this.topestMoment), "displayEndDate", "administrator.banner.form.error.badDiplayEndDate");
 			if (object.getDisplayStartDate() != null) {
 				Date displayStartDate = object.getDisplayStartDate();
 				Date minimumDuration2 = MomentHelper.deltaFromMoment(displayStartDate, 1, ChronoUnit.WEEKS);

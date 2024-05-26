@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.AssociatedWith;
 import acme.entities.projects.Project;
@@ -80,14 +79,17 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 
 	@Override
 	public void unbind(final Project object) {
-		assert object != null;
-
-		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "title", "abstractProject", "fatalErrors", "cost", "link", "published");
-		dataset.put("manager", object.getManager().getUserAccount().getUsername());
-
-		super.getResponse().addData(dataset);
+		/*
+		 * EL DELETE NUNCA ENTRA EN ESTE MÉTODO
+		 * assert object != null;
+		 * 
+		 * Dataset dataset;
+		 * 
+		 * dataset = super.unbind(object, "code", "title", "abstractProject", "fatalErrors", "cost", "link", "published");
+		 * dataset.put("manager", object.getManager().getUserAccount().getUsername());
+		 * 
+		 * super.getResponse().addData(dataset);
+		 */
 	}
 
 }

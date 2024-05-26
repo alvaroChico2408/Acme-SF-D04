@@ -2,7 +2,6 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
@@ -61,7 +59,8 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		object2 = this.repository.findContractById(id);
 		object.setProject(object2.getProject());
 		object.setClient(object2.getClient());
-		super.bind(object, "code", "providerName", "instantiationMoment", "customerName", "goals", "budget");
+		object.setInstantiationMoment(object2.getInstantiationMoment());
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
 	}
 
 	@Override
@@ -75,32 +74,9 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
-			super.state(MomentHelper.isAfterOrEqual(object.getInstantiationMoment(), minDate), "instantiationMoment", "client.contract.form.error.instantiationMoment");
-		}
-
 		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
 		contracts.remove(object);
 		contracts.add(object);
-
-		Money ratioEuros;
-		ratioEuros = new Money();
-		ratioEuros.setAmount(100.00);
-		ratioEuros.setCurrency("EUR");
-
-		if (!contracts.isEmpty()) {
-
-			boolean overBudget;
-			double totalBudget = 0.0;
-			for (Contract c : contracts)
-				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
-			if (totalBudget > object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
-				overBudget = false;
-			else
-				overBudget = true;
-			super.state(overBudget, "*", "client.contract.form.error.overBudget");
-		}
 
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 
@@ -110,7 +86,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			maxEuros.setAmount(1000000.00);
 			maxEuros.setCurrency("EUR");
 			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
-			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.cost2");
+			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.budget2");
 		}
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();

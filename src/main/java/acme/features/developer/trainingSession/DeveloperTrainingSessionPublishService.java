@@ -75,7 +75,7 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
 			super.state(object.getStartPeriod() != null, "startPeriod", "developer.trainingSession.form.error.startPeriod");
 
-		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && object.getEndPeriod() != null)
+		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && object.getEndPeriod() != null && object.getStartPeriod() != null)
 			super.state(MomentHelper.isAfter(object.getEndPeriod(), object.getStartPeriod()), "endPeriod", "developer.trainingSession.form.error.endPeriodAfter");
 
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))

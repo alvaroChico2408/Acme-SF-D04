@@ -25,7 +25,6 @@ client.contract.form.error.moment = La fecha debe estar en el pasado
 client.contract.form.error.overBudget = La suma de los presupuestos de los contratos de un proyecto debe ser inferior al coste del projecto
 client.contract.form.error.noprogresslog = El contrato debe tener catas de seguimiento para ser publicado
 client.contract.form.error.progresslognotpublished = Hay una o varias actas de seguimiento sin publicar
-client.contract.form.error.instantiationMoment = La fecha de creacion debe tener un valos posterior al 2000/01/01 00:00:00
 client.contract.form.error.spam = Este texto contiene spam
 
 

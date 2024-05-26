@@ -13,7 +13,6 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.components.AuxiliarService;
 import acme.entities.invoice.Invoice;
 import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
@@ -26,10 +25,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository	repository;
-
-	@Autowired
-	private AuxiliarService					auxiliarService;
+	private SponsorSponsorshipRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -139,7 +135,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		// Solo Publish ---------------------------------------------------------
 
-		if (!super.getBuffer().getErrors().hasErrors("invoice")) {
+		if (!super.getBuffer().getErrors().hasErrors("invoice") && object.getAmount() != null) {
 			double totalAmount;
 			if (!publishedInvoices.isEmpty())
 				totalAmount = publishedInvoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
@@ -183,7 +179,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
 		dataset.put("project", choices.getSelected().getKey());
 		dataset.put("projects", choices);
-		dataset.put("money", this.auxiliarService.changeCurrency(object.getAmount()));
 		dataset.put("types", types);
 
 		super.getResponse().addData(dataset);

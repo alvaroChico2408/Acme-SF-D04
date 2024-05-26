@@ -61,7 +61,6 @@ public class TrainingModule extends AbstractEntity {
 	private String				link;
 
 	@Min(0)
-	//	@Max() (relacionado con el tiempo max de un proyecto)
 	private int					totalTime;
 
 	private boolean				published;

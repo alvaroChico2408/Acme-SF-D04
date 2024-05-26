@@ -2,7 +2,6 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +42,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		final Client client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setClient(client);
 		object.setPublished(false);
+		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 		super.getBuffer().addData(object);
 	}
 
@@ -50,7 +50,8 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-		super.bind(object, "code", "providerName", "instantiationMoment", "customerName", "goals", "budget", "project");
+		super.bind(object, "code", "providerName", "customerName", "goals", "budget", "project");
+
 	}
 
 	@Override
@@ -64,40 +65,15 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			super.state(existing == null, "code", "client.contract.form.error.code");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("instantiationMoment")) {
-			Date minDate = new Date(946681200000L); // 2000/01/01 00:00:00
-			super.state(MomentHelper.isAfterOrEqual(object.getInstantiationMoment(), minDate), "instantiationMoment", "client.contract.form.error.instantiationMoment");
-		}
-
-		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
-
-		Money ratioEuros;
-		ratioEuros = new Money();
-		ratioEuros.setAmount(100.00);
-		ratioEuros.setCurrency("EUR");
-
-		if (!contracts.isEmpty()) {
-
-			boolean overBudget;
-			double totalBudget = 0.0;
-			for (Contract c : contracts)
-				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
-			if (totalBudget > object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
-				overBudget = false;
-			else
-				overBudget = true;
-			super.state(overBudget, "*", "client.contract.form.error.overBudget");
-		}
-
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
 
 			Money maxEuros;
 
 			maxEuros = new Money();
-			maxEuros.setAmount(1000000.00);
+			maxEuros.setAmount(1000000.01);
 			maxEuros.setCurrency("EUR");
 			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
-			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.cost2");
+			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.budget2");
 		}
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
@@ -127,7 +103,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
-
 		final SelectChoices choices = new SelectChoices();
 		Collection<Project> projects;
 		projects = this.repository.findPublishedProjects();
