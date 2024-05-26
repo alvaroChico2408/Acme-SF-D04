@@ -7,7 +7,7 @@
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
-			<acme:input-moment code="administrator.banner.form.label.instantiationMoment" path="instantiationMoment"/>
+			<acme:input-moment code="administrator.banner.form.label.instantiationMoment" path="instantiationMoment" readonly = "true"/>
 			<acme:input-moment code="administrator.banner.form.label.displayStartDate" path="displayStartDate"/>
 			<acme:input-moment code="administrator.banner.form.label.displayEndDate" path="displayEndDate"/>
 			<acme:input-url code="administrator.banner.form.label.picture" path="picture"/>
