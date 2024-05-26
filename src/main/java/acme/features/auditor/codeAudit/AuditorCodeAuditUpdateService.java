@@ -68,12 +68,18 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit existing;
+
+			existing = this.repository.findOneCodeAuditByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "auditor.codeAudit.form.error.duplicated");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
 
 			super.state(MomentHelper.isAfterOrEqual(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
 		}
-		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
+		if (!this.getBuffer().getErrors().hasErrors("correctiveActions")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

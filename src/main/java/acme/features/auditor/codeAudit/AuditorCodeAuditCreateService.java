@@ -77,7 +77,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
 
-			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+			super.state(MomentHelper.isAfterOrEqual(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("projectCode")) {
 			Project project = this.repository.findOneProjectByCode(super.getRequest().getData("projectCode", String.class));
@@ -86,7 +86,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 			if (project != null)
 				super.state(project.isPublished(), "projectCode", "auditor.codeAudit.form.error.projectCodeError");
 		}
-		if (!this.getBuffer().getErrors().hasErrors("slogan")) {
+		if (!this.getBuffer().getErrors().hasErrors("correctiveActions")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();
 
 			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

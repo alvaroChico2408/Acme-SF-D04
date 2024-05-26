@@ -17,7 +17,9 @@ import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
 import acme.entities.projects.Project;
+import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Auditor;
+import spam.SpamFilter;
 
 @Service
 public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
@@ -42,7 +44,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		masterId = super.getRequest().getData("id", int.class);
 		codeAudit = this.repository.findOneCodeAuditById(masterId);
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
-		status = super.getRequest().getPrincipal().hasRole(auditor);
+		status = super.getRequest().getPrincipal().hasRole(auditor) && !codeAudit.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -79,7 +81,13 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
 
-			super.state(MomentHelper.isAfter(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+			super.state(MomentHelper.isAfterOrEqual(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+		}
+		if (!this.getBuffer().getErrors().hasErrors("correctiveActions")) {
+			SystemConfiguration sc = this.repository.findSystemConfiguration();
+
+			SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
+			super.state(!spam.isSpam(object.getCorrectiveActions()), "correctiveAction", "auditor.codeAudit.form.error.spam");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("mark")) {
 			Mark mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
