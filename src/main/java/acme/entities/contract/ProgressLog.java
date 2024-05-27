@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -25,6 +27,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(indexes = {
+	@Index(columnList = "recordId")
+})
 public class ProgressLog extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
@@ -34,7 +39,6 @@ public class ProgressLog extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-
 	@Pattern(regexp = "^PG-[A-Z]{1,2}-[0-9]{4}$", message = "{validation.progresslog.code}")
 	private String				recordId;
 

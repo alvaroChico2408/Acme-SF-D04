@@ -14,7 +14,6 @@ client.progress-logs.form.label.contract = Contrato
 client.progress-logs.form.label.published = Publicado
 
 client.progressLogs.form.error.recordId = Esta id de registro ya existe
-client.progressLogs.form.error.published =  No puedes editar o eliminar un acta ya publicada
 client.progressLogs.form.error.moment = La fecha de registro debe ser anterior o igual a 2099/12/31 23:59
 client.progressLogs.form.error.moment2 = La fecha de registro debe ser posterior o igual a la fecha de instanciacion del contrato
 client.progressLogs.form.error.spam = Este texto contiene spam

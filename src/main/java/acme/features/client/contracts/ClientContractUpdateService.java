@@ -83,7 +83,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			Money maxEuros;
 
 			maxEuros = new Money();
-			maxEuros.setAmount(1000000.00);
+			maxEuros.setAmount(1000000.01);
 			maxEuros.setCurrency("EUR");
 			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
 			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.budget2");
