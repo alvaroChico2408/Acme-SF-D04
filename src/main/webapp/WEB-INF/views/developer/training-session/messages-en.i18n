@@ -24,6 +24,8 @@ developer.trainingSession.form.button.publish = Publish
 
 developer.trainingSession.form.error.duplicated = This code is already in use
 developer.trainingSession.form.error.startPeriod = The start of the period cannot be null
+developer.trainingSession.form.error.startPeriodTooClose = The start of the period must be at least 1 week ahead of the creation of the training module
+developer.trainingSession.form.error.endPeriodTooShort = The Period must be at least a week long
 developer.trainingSession.form.error.endPeriodAfter = The end of the period must occur after the start
 developer.trainingSession.form.error.noEndPeriod = The end of the period cannot be null
 developer.trainingSession.form.error.location = The location must be under 75 characters

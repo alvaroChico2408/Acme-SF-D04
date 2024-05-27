@@ -1,6 +1,9 @@
 
 package acme.features.developer.trainingSession;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,8 +71,21 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		if (!super.getBuffer().getErrors().hasErrors("startPeriod"))
 			super.state(object.getStartPeriod() != null, "startPeriod", "developer.trainingSession.form.error.startPeriod");
 
-		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && object.getEndPeriod() != null && object.getStartPeriod() != null)
+		if (!super.getBuffer().getErrors().hasErrors("startPeriod") && object.getStartPeriod() != null) {
+			Date minimumDuration;
+			Date start = object.getTrainingModule().getCreationMoment();
+
+			minimumDuration = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
+			super.state(MomentHelper.isAfter(object.getStartPeriod(), minimumDuration), "startPeriod", "developer.trainingSession.form.error.startPeriodTooClose");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endPeriod") && object.getEndPeriod() != null && object.getStartPeriod() != null) {
+			Date start = object.getStartPeriod();
+			Date minimumDuration = MomentHelper.deltaFromMoment(start, 1, ChronoUnit.WEEKS);
+
 			super.state(MomentHelper.isAfter(object.getEndPeriod(), object.getStartPeriod()), "endPeriod", "developer.trainingSession.form.error.endPeriodAfter");
+			super.state(MomentHelper.isAfter(object.getEndPeriod(), minimumDuration), "endPeriod", "developer.trainingSession.form.error.endPeriodTooShort");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endPeriod"))
 			super.state(object.getEndPeriod() != null, "endPeriod", "developer.trainingSession.form.error.noEndPeriod");
