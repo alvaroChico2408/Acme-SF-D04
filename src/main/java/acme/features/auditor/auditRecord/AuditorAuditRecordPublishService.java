@@ -4,7 +4,6 @@ package acme.features.auditor.auditRecord;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,7 +67,7 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 			AuditRecord existing;
 
 			existing = this.repository.findOneAuditRecordByCode(object.getCode());
-			super.state(existing == null, "code", "auditor.auditRecord.form.error.duplicated");
+			super.state(existing == null || existing.equals(object), "code", "auditor.auditRecord.form.error.duplicated");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 			Date startDate = object.getStartDate();
@@ -86,15 +85,6 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 			super.state(MomentHelper.isAfterOrEqual(endDate, minimumEnd), "endDate", "auditor.auditRecord.form.error.notTimeEnough");
 		}
 
-	}
-
-	private boolean isPassedOneHourAtLeast(final Date date1, final Date date2) {
-		boolean res = false;
-		long diffInMillies = date1.getTime() - date2.getTime();
-		long diffInHours = TimeUnit.HOURS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-		if (diffInHours >= 1L)
-			res = true;
-		return res;
 	}
 
 	@Override
