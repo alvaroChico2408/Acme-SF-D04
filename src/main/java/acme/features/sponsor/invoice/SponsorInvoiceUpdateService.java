@@ -37,7 +37,8 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		sponsor = invoice == null ? null : invoice.getSponsorship().getSponsor();
 		sponsorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
 		if (sponsor != null)
-			status = !invoice.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == sponsorRequestId;
+			status = !invoice.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) &&//
+				sponsor.getId() == sponsorRequestId;
 		else
 			status = false;
 
@@ -100,7 +101,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() <= 10000000, "quantity", "sponsor.invoice.form.error.maxQuantity");
 
-		if (!super.getBuffer().getErrors().hasErrors("quatity") && object.getQuantity() != null)
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getCurrency().trim().toLowerCase().equals(object.getSponsorship().getAmount().getCurrency().trim().toLowerCase()), "quantity", "sponsor.invoice.form.error.invalidCurrency");
 	}
 

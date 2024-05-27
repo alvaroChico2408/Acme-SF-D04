@@ -43,7 +43,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
 		sponsorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
 		if (sponsor != null)
-			status = !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == sponsorRequestId;
+			status = !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) && //
+				sponsor.getId() == sponsorRequestId;
 		else
 			status = false;
 
@@ -135,7 +136,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		// Solo Publish ---------------------------------------------------------
 
-		if (!super.getBuffer().getErrors().hasErrors("invoice") && object.getAmount() != null) {
+		if (!super.getBuffer().getErrors().hasErrors("invoice") && //
+			object.getAmount() != null) {
 			double totalAmount;
 			if (!publishedInvoices.isEmpty())
 				totalAmount = publishedInvoices.stream().collect(Collectors.summingDouble(x -> x.totalAmount().getAmount()));
@@ -170,7 +172,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		SelectChoices types = SelectChoices.from(Type.class, object.getType());
 
 		for (final Project c : projects)
-			if (object.getProject() != null && object.getProject().getId() == c.getId())
+			if (object.getProject() != null && //
+				object.getProject().getId() == c.getId())
 				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
 			else
 				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);

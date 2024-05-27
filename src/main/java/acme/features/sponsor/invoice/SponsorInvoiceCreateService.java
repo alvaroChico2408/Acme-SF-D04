@@ -62,7 +62,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			Invoice existing;
 
 			existing = this.repository.findInvoiceByCode(object.getCode()).orElse(null);
-			super.state(existing == null || existing.equals(object), "code", "sponsor.invoice.form.error.duplicated");
+			super.state(existing == null, "code", "sponsor.invoice.form.error.duplicated");
 		}
 
 		// Due date  ---------------------------------------------------------
@@ -92,7 +92,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getAmount() <= 10000000, "quantity", "sponsor.invoice.form.error.maxQuantity");
 
-		if (!super.getBuffer().getErrors().hasErrors("quatity") && object.getQuantity() != null)
+		if (!super.getBuffer().getErrors().hasErrors("quantity") && object.getQuantity() != null)
 			super.state(object.getQuantity().getCurrency().trim().toLowerCase().equals(object.getSponsorship().getAmount().getCurrency().trim().toLowerCase()), "quantity", "sponsor.invoice.form.error.invalidCurrency");
 
 	}

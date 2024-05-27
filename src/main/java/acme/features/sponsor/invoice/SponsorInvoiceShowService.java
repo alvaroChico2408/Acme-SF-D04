@@ -33,7 +33,8 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 		sponsor = invoice == null ? null : invoice.getSponsorship().getSponsor();
 		sponsorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
 		if (sponsor != null)
-			status = super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == sponsorRequestId;
+			status = super.getRequest().getPrincipal().hasRole(sponsor) && //
+				sponsor.getId() == sponsorRequestId;
 		else
 			status = false;
 
