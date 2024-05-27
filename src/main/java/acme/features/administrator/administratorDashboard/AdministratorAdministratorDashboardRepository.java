@@ -2,11 +2,13 @@
 package acme.features.administrator.administratorDashboard;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.claim.Claim;
 
 @Repository
 public interface AdministratorAdministratorDashboardRepository extends AbstractRepository {
@@ -61,18 +63,18 @@ public interface AdministratorAdministratorDashboardRepository extends AbstractR
 
 	// Claims ---------------------------------------------------------
 
-	@Query("SELECT count(c) FROM Claim c WHERE c.instantiationMoment >= :tenWeeksAgo")
-	Integer findNumClaimsLast10Weeks(Date tenWeeksAgo);
+	@Query("select c from Claim c where c.instantiationMoment >= :date")
+	List<Claim> findClaimsPostedAfter(Date date);
 
-	@Query("select count(c) from Claim c where c.instantiationMoment >= :tenWeeksAgo")
-	Double findAveragePostedClaimsLast10Weeks(Date tenWeeksAgo);
+	@Query(value = "SELECT AVG(weekly_count) AS average_claims_per_week FROM (SELECT COUNT(*) AS weekly_count FROM claim WHERE instantiation_moment >= :date GROUP BY YEARWEEK(instantiation_moment)) AS weekly_counts", nativeQuery = true)
+	Double calculateAverageClaimsPerWeekPostedAfter(Date date);
 
-	@Query("select min(c) from Claim c where c.instantiationMoment >= :tenWeeksAgo")
-	Double findMinPostedClaimsLast10Weeks(Date tenWeeksAgo);
+	@Query(value = "SELECT STDDEV(weekly_count) AS average_claims_per_week FROM (SELECT COUNT(*) AS weekly_count FROM claim WHERE instantiation_moment >= :date GROUP BY YEARWEEK(instantiation_moment)) AS weekly_counts", nativeQuery = true)
+	Double calculateClaimsPerWeekDeviationPostedAfter(Date date);
 
-	@Query("select max(c) from Claim c where c.instantiationMoment >= :tenWeeksAgo")
-	Double findMaxPostedClaimsLast10Weeks(Date tenWeeksAgo);
+	@Query(value = "SELECT MIN(weekly_count) AS average_claims_per_week FROM (SELECT COUNT(*) AS weekly_count FROM claim WHERE instantiation_moment >= :date GROUP BY YEARWEEK(instantiation_moment)) AS weekly_counts", nativeQuery = true)
+	Long calculateMinimumClaimsPerWeekPostedAfter(Date date);
 
-	@Query("select STDDEV(c) from Claim c where c.instantiationMoment >= :tenWeeksAgo")
-	Double findStandardDeviationPostedClaimsLast10Weeks(Date tenWeeksAgo);
+	@Query(value = "SELECT MAX(weekly_count) AS average_claims_per_week FROM (SELECT COUNT(*) AS weekly_count FROM claim WHERE instantiation_moment >= :date GROUP BY YEARWEEK(instantiation_moment)) AS weekly_counts", nativeQuery = true)
+	Long calculateMaximumClaimsPerWeekPostedAfter(Date date);
 }
