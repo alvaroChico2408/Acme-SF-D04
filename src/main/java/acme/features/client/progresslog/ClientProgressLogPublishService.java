@@ -6,11 +6,11 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
+import acme.entities.contract.Contract;
 import acme.entities.contract.ProgressLog;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
@@ -32,13 +32,18 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 
 	@Override
 	public void authorise() {
-		ProgressLog object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findProgressLogsById(id);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getContract().getClient().getUserAccount().getId() == userAccountId && !object.isPublished());
+		boolean status;
+		int progressLogId;
+		Contract contract;
+		ProgressLog progressLog;
+
+		progressLogId = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractByProgressLogId(progressLogId);
+		progressLog = this.repository.findProgressLogsById(progressLogId);
+		status = contract != null && !contract.isPublished() && !progressLog.isPublished() && contract.getClient().getUserAccount().getUsername().equals(super.getRequest().getPrincipal().getUsername())
+			&& super.getRequest().getPrincipal().hasRole(contract.getClient());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -70,15 +75,15 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
 			existing = this.repository.findProgressLogsByRecordId(object.getRecordId());
-			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findProgressLogsByRecordId(object.getRecordId());
-			super.state(existing == null || progressLog2.equals(existing), "code", "client.contract.form.error.code");
+			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findProgressLogsById(object.getId());
+			super.state(existing == null || progressLog2.equals(existing), "recordId", "client.progressLogs.form.error.recordId");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
 			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59
 			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), maxDate), "registrationMoment", "client.progressLogs.form.error.moment");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isAfter(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
+			super.state(MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

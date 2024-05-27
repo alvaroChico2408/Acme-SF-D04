@@ -68,7 +68,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), maxDate), "registrationMoment", "client.progressLogs.form.error.moment");
 		}
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isAfter(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
+			super.state(MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

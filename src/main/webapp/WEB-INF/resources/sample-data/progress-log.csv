@@ -7,7 +7,7 @@ progress_log-05,PG-AX-0501,0.01,esto es un comentario,2000/08/21 17:00,persona1,
 progress_log-06,PG-AX-4001,99.99,esto es un comentario,2000/08/21 17:00,persona1,true,contract-01,client-01
 progress_log-07,PG-AX-3481,100.00,esto es un comentario,2000/08/21 17:00,persona1,true,contract-01,client-01
 progress_log-08,PG-AX-0021,5.33,esto es un comentario,2000/08/21 17:00,persona1,true,contract-01,client-01
-progress_log-09,PG-AX-0131,81.2,esto es un comentario con justo 100 caracteres------------------------------------------------------,2000/08/21 17:00,persona1,false,contract-01,client-01
+progress_log-09,PG-AX-0131,81.2,esto es un comentario con justo 100 caracteres------------------------------------------------------,2000/08/21 17:00,persona1,false,contract-27,client-12
 progress_log-10,PG-AW-0112,81.2,esto es un comentario con justo 99 caracteres------------------------------------------------------,2000/08/21 17:00,persona1,false,contract-01,client-01
 progress_log-11,PG-AX-9999,81.2,e,2000/08/21 17:00,persona1,true,contract-01,client-01
 progress_log-12,PG-ER-0001,81.2,es,2000/08/21 17:00,persona1,true,contract-01,client-01
@@ -18,8 +18,8 @@ progress_log-16,PG-RT-5601,81.2,esto es un comentario,2022/03/07 18:20,persona1,
 progress_log-17,PG-AX-0671,81.2,esto es un comentario,2022/03/07 18:19,persona1,true,contract-01,client-01
 progress_log-18,PG-AE-1111,81.2,esto es un comentario,2020/02/07 20:00,persona1,true,contract-01,client-01
 progress_log-19,PG-RG-0671,81.2,esto es un comentario,2000/08/21 17:00,persona1,true,contract-01,client-01
-progress_log-20,PG-AX-1691,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona con justo 75 caracteres-----------------------,true,contract-01,client-01
-progress_log-21,PG-AA-0561,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona con justo 74 caracteres----------------------,true,contract-01,client-01
+progress_log-20,PG-AX-1691,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona con justo 75 caracteres-----------------------,true,contract-12,client-12
+progress_log-21,PG-AA-0561,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona con justo 74 caracteres----------------------,true,contract-12,client-12
 progress_log-22,PG-BB-8001,81.2,esto es un comentario,2000/08/21 17:00,e,false,contract-01,client-01
-progress_log-23,PG-CC-0501,81.2,esto es un comentario,2000/08/21 17:00,es,false,contract-01,client-01
-progress_log-24,PG-DD-0341,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona normal,false,contract-01,client-01
+progress_log-23,PG-CC-0501,81.2,esto es un comentario,2000/08/21 17:00,es,false,contract-27,client-12
+progress_log-24,PG-DD-0341,81.2,esto es un comentario,2000/08/21 17:00,esto es un nombre de persona normal,false,contract-27,client-12

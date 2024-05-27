@@ -2,6 +2,7 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,24 +68,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
 		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
-
-		Money ratioEuros;
-		ratioEuros = new Money();
-		ratioEuros.setAmount(100.00);
-		ratioEuros.setCurrency("EUR");
-
-		if (!contracts.isEmpty()) {
-
-			boolean overBudget;
-			double totalBudget = 0.0;
-			for (Contract c : contracts)
-				totalBudget = totalBudget + this.auxiliarService.changeCurrency(c.getBudget()).getAmount();
-			if (totalBudget > object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount())
-				overBudget = false;
-			else
-				overBudget = true;
-			super.state(overBudget, "*", "client.contract.form.error.overBudget");
-		}
+		contracts.remove(object);
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract existing;
@@ -102,15 +86,28 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			super.state(allProgressLogsPublish, "*", "client.contract.form.error.progresslognotpublished");
 		}
 
+		double totalAmount = 0;
+
+		double converterHourToEUR = 100;
+
 		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+
 			Money maxEuros;
 
 			maxEuros = new Money();
 			maxEuros.setAmount(1000000.01);
 			maxEuros.setCurrency("EUR");
-			double maximo = object.getProject().getCost() * this.auxiliarService.changeCurrency(ratioEuros).getAmount();
-			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maximo), "cost", "client.contract.form.error.budget");
-			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.cost2");
+			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
+			if (object.getProject() != null) {
+				Collection<Contract> listAllContracts = this.repository.findContractsFromProject(object.getProject().getId());
+				listAllContracts.remove(object);
+				listAllContracts.add(object);
+				totalAmount = listAllContracts.stream().map(x -> x.getBudget().getAmount()).collect(Collectors.summingDouble(x -> x));
+
+			}
+			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.budget2");
+			double totalCost = object.getProject() != null ? object.getProject().getCost() * converterHourToEUR : 0;
+			super.state(totalAmount <= totalCost, "budget", "client.contract.form.error.overBudget");
 		}
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
