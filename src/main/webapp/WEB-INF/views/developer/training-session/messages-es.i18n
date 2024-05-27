@@ -24,6 +24,8 @@ developer.trainingSession.form.button.publish = Publicar
 
 developer.trainingSession.form.error.duplicated = Este código está en uso
 developer.trainingSession.form.error.startPeriod = El comienzo del periodo no puede ser nulo
+developer.trainingSession.form.error.startPeriodTooClose = El comienzo del periodo debe ocurrir al menos 1 semana despues de la creación del módulo
+developer.trainingSession.form.error.endPeriodTooShort = El periodo debe ser de al menos una semana
 developer.trainingSession.form.error.endPeriodAfter = El final del periodo debe ocurrir después del comienzo
 developer.trainingSession.form.error.noEndPeriod = El final del periodo no puede ser nulo
 developer.trainingSession.form.error.location = La localización tiene que estar por debajo de 75 caracteres
