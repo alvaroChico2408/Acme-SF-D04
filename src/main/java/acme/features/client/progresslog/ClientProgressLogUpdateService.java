@@ -10,6 +10,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
+import acme.entities.contract.Contract;
 import acme.entities.contract.ProgressLog;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
@@ -29,7 +30,18 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int progressLogId;
+		Contract contract;
+		ProgressLog progressLog;
+
+		progressLogId = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractByProgressLogId(progressLogId);
+		progressLog = this.repository.findProgressLogsById(progressLogId);
+		status = contract != null && !contract.isPublished() && !progressLog.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient())
+			&& contract.getClient().getUserAccount().getUsername().equals(super.getRequest().getPrincipal().getUsername());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -63,11 +75,9 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog existing;
 			existing = this.repository.findProgressLogsByRecordId(object.getRecordId());
-			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findProgressLogsByRecordId(object.getRecordId());
-			super.state(existing == null || progressLog2.equals(existing), "code", "client.contract.form.error.code");
+			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findProgressLogsById(object.getId());
+			super.state(existing == null || progressLog2.equals(existing), "recordId", "client.progressLogs.form.error.recordId");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "client.progressLogs.form.error.published");
 
 		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
 			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59

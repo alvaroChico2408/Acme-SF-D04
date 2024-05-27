@@ -6,13 +6,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.invoice.Invoice;
-import acme.entities.projects.Project;
 import acme.entities.sponsorship.Sponsorship;
-import acme.entities.sponsorship.Type;
 import acme.roles.Sponsor;
 
 @Service
@@ -39,7 +35,8 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		sponsor = sponsorship == null ? null : sponsorship.getSponsor();
 		sponsorRequestId = super.getRequest().getPrincipal().getActiveRoleId();
 		if (sponsor != null)
-			status = !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) && sponsor.getId() == sponsorRequestId;
+			status = !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor) //
+				&& sponsor.getId() == sponsorRequestId;
 		else
 			status = false;
 
@@ -76,7 +73,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		Collection<Invoice> invoices;
 
 		invoices = this.repository.findInvoicesBySponsorshipId(object.getId());
-		if (invoices != null)
+		if (!invoices.isEmpty())
 			this.repository.deleteAll(invoices);
 
 		this.repository.delete(object);
@@ -84,27 +81,29 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void unbind(final Sponsorship object) {
-		assert object != null;
-
-		Dataset dataset;
-
-		final SelectChoices choices = new SelectChoices();
-		Collection<Project> projects;
-		projects = this.repository.findPublishedProjects();
-		SelectChoices types = SelectChoices.from(Type.class, object.getType());
-
-		for (final Project c : projects)
-			if (object.getProject() != null && object.getProject().getId() == c.getId())
-				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
-			else
-				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
-
-		dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
-		dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
-		dataset.put("project", choices.getSelected().getKey());
-		dataset.put("projects", choices);
-		dataset.put("types", types);
-		super.getResponse().addData(dataset);
+		/**
+		 * assert object != null;
+		 * 
+		 * Dataset dataset;
+		 * 
+		 * final SelectChoices choices = new SelectChoices();
+		 * Collection<Project> projects;
+		 * projects = this.repository.findPublishedProjects();
+		 * SelectChoices types = SelectChoices.from(Type.class, object.getType());
+		 * 
+		 * for (final Project c : projects)
+		 * if (object.getProject() != null && object.getProject().getId() == c.getId())
+		 * choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
+		 * else
+		 * choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
+		 * 
+		 * dataset = super.unbind(object, "code", "moment", "durationInitial", "durationFinal", "amount", "type", "email", "link", "published", "project");
+		 * dataset.put("sponsorUsername", object.getSponsor().getUserAccount().getUsername());
+		 * dataset.put("project", choices.getSelected().getKey());
+		 * dataset.put("projects", choices);
+		 * dataset.put("types", types);
+		 * super.getResponse().addData(dataset);
+		 **/
 	}
 
 }

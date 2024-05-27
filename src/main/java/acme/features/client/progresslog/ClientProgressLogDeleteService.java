@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.contract.ProgressLog;
 import acme.roles.Client;
@@ -52,8 +51,6 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	public void validate(final ProgressLog object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "client.progressLogs.form.error.published");
 	}
 
 	@Override
@@ -65,10 +62,12 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 
 	@Override
 	public void unbind(final ProgressLog object) {
-		if (object == null)
-			throw new IllegalArgumentException("No object found");
-		Dataset dataset;
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published", "contract");
-		super.getResponse().addData(dataset);
+		/*
+		 * if (object == null)
+		 * throw new IllegalArgumentException("No object found");
+		 * Dataset dataset;
+		 * dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published", "contract");
+		 * super.getResponse().addData(dataset);
+		 */
 	}
 }
