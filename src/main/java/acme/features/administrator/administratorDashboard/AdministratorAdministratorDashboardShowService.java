@@ -2,7 +2,13 @@
 package acme.features.administrator.administratorDashboard;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +17,7 @@ import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.entities.claim.Claim;
 import acme.forms.AdministratorDashboard;
 
 @Service
@@ -100,26 +107,9 @@ public class AdministratorAdministratorDashboardShowService extends AbstractServ
 		}
 
 		// Claims ---------------------------------------------------------
-
-		Date tenWeeksAgo = MomentHelper.deltaFromCurrentMoment(-10, ChronoUnit.WEEKS);
-		int numClaims10Weeks = this.repository.findNumClaimsLast10Weeks(tenWeeksAgo);
-
-		if (numClaims10Weeks >= 2) {
-			averagePostedClaimsLast10Weeks = this.repository.findAveragePostedClaimsLast10Weeks(tenWeeksAgo);
-			minPostedClaimsLast10Weeks = this.repository.findMinPostedClaimsLast10Weeks(tenWeeksAgo);
-			maxPostedClaimsLast10Weeks = this.repository.findMaxPostedClaimsLast10Weeks(tenWeeksAgo);
-			standardDeviationPostedClaimsLast10Weeks = this.repository.findStandardDeviationPostedClaimsLast10Weeks(tenWeeksAgo);
-		} else if (numClaims10Weeks == 1) {
-			averagePostedClaimsLast10Weeks = null;
-			minPostedClaimsLast10Weeks = this.repository.findMinPostedClaimsLast10Weeks(tenWeeksAgo);
-			maxPostedClaimsLast10Weeks = this.repository.findMaxPostedClaimsLast10Weeks(tenWeeksAgo);
-			standardDeviationPostedClaimsLast10Weeks = null;
-		} else {
-			averagePostedClaimsLast10Weeks = null;
-			minPostedClaimsLast10Weeks = null;
-			maxPostedClaimsLast10Weeks = null;
-			standardDeviationPostedClaimsLast10Weeks = null;
-		}
+		Map<Integer, Long> claimCountByWeek = this.calculateClaimCountByWeek();
+		double averageClaimsPosted = claimCountByWeek.values().stream().map(Long::doubleValue).mapToDouble(Double::valueOf).average().orElse(0);
+		double variance = claimCountByWeek.values().stream().mapToDouble(count -> Math.pow(count - averageClaimsPosted, 2)).sum() / claimCountByWeek.size();
 
 		dashboard = new AdministratorDashboard();
 		dashboard.setNumManagerPrincipals(numManagerPrincipals);
@@ -134,12 +124,26 @@ public class AdministratorAdministratorDashboardShowService extends AbstractServ
 		dashboard.setMinRisksValues(minRisksValues);
 		dashboard.setMaxRisksValues(maxRisksValues);
 		dashboard.setStandardDeviationRisksValues(standardDeviationRisksValues);
-		dashboard.setAveragePostedClaimsLast10Weeks(averagePostedClaimsLast10Weeks);
-		dashboard.setMinPostedClaimsLast10Weeks(minPostedClaimsLast10Weeks);
-		dashboard.setMaxPostedClaimsLast10Weeks(maxPostedClaimsLast10Weeks);
-		dashboard.setStandardDeviationPostedClaimsLast10Weeks(standardDeviationPostedClaimsLast10Weeks);
+		dashboard.setAveragePostedClaimsLast10Weeks(averageClaimsPosted);
+		dashboard.setMinPostedClaimsLast10Weeks(Collections.min(claimCountByWeek.values()).doubleValue());
+		dashboard.setMaxPostedClaimsLast10Weeks(Collections.max(claimCountByWeek.values()).doubleValue());
+		dashboard.setStandardDeviationPostedClaimsLast10Weeks(Math.sqrt(variance));
 
 		super.getBuffer().addData(dashboard);
+	}
+
+	// Claims ---------------------------------------------------------
+	private Map<Integer, Long> calculateClaimCountByWeek() {
+		Date tenWeeksDelta = MomentHelper.deltaFromCurrentMoment(-10, ChronoUnit.WEEKS);
+		List<Claim> recentClaims = this.repository.findClaimsPostedAfter(tenWeeksDelta);
+
+		Map<Integer, Long> claimsCountByWeek = recentClaims.stream().map(c -> (int) MomentHelper.computeDuration(c.getInstantiationMoment(), MomentHelper.getCurrentMoment()).toDays() / 7)
+			.collect(Collectors.groupingBy(Function.identity(), HashMap::new, Collectors.counting()));
+
+		for (int i = 0; i < 10; i++)
+			claimsCountByWeek.putIfAbsent(i, 0L);
+
+		return claimsCountByWeek;
 	}
 
 	@Override
