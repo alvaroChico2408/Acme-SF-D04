@@ -48,7 +48,6 @@ public class AnyContractShowService extends AbstractService<Any, Contract> {
 		assert object != null;
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "providerName", "customerName", "goals", "budget", "published");
-		dataset.put("money", this.auxiliarService.changeCurrency(object.getBudget()));
 		final List<ProgressLog> progressLogs = (List<ProgressLog>) this.repository.findProgressLogsByContract(object.getId());
 		dataset.put("projectTitle", object.getProject().getCode());
 		dataset.put("hasProgressLogs", !progressLogs.isEmpty());

@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
@@ -63,17 +62,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			Contract existing;
 			existing = this.repository.findContractByCode(object.getCode());
 			super.state(existing == null, "code", "client.contract.form.error.code");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-
-			Money maxEuros;
-
-			maxEuros = new Money();
-			maxEuros.setAmount(1000000.01);
-			maxEuros.setCurrency("EUR");
-			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
-			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.budget2");
 		}
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
