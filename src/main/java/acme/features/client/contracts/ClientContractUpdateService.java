@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
-import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
@@ -77,17 +76,6 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		final Collection<Contract> contracts = this.repository.findContractsFromProject(object.getProject().getId());
 		contracts.remove(object);
 		contracts.add(object);
-
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-
-			Money maxEuros;
-
-			maxEuros = new Money();
-			maxEuros.setAmount(1000000.01);
-			maxEuros.setCurrency("EUR");
-			super.state(this.auxiliarService.validatePrice(object.getBudget(), 0.00, maxEuros.getAmount()), "budget", "client.contract.form.error.budget");
-			super.state(this.auxiliarService.validateCurrency(object.getBudget()), "budget", "client.contract.form.error.budget2");
-		}
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

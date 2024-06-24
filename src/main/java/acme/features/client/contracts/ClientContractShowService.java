@@ -57,7 +57,6 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		final List<ProgressLog> progressLogs = (List<ProgressLog>) this.repository.findProgressLogsByContract(object.getId());
 		dataset.put("hasProgressLogs", !progressLogs.isEmpty());
 		dataset.put("projectTitle", object.getProject().getCode());
-		dataset.put("money", this.auxiliarService.changeCurrency(object.getBudget()));
 		super.getResponse().addData(dataset);
 	}
 }
