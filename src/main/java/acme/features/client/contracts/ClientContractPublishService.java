@@ -11,7 +11,6 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
-import acme.entities.contract.ProgressLog;
 import acme.entities.systemConfiguration.SystemConfiguration;
 import acme.roles.Client;
 import spam.SpamFilter;
@@ -73,15 +72,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			existing = this.repository.findContractByCode(object.getCode());
 			final Contract contract2 = object.getCode().equals("") || object.getCode() == null ? null : this.repository.findContractById(object.getId());
 			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
-		}
-
-		Collection<ProgressLog> progressLog = this.repository.findProgressLogsByContract(object.getId());
-		super.state(!progressLog.isEmpty(), "*", "client.contract.form.error.noprogresslog");
-
-		if (!progressLog.isEmpty()) {
-			int numProgressLogsPublish = progressLog.stream().filter(ProgressLog::isPublished).toList().size();
-			boolean allProgressLogsPublish = progressLog.size() == numProgressLogsPublish;
-			super.state(allProgressLogsPublish, "*", "client.contract.form.error.progresslognotpublished");
 		}
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();

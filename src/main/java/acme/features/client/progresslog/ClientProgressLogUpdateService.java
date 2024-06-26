@@ -38,7 +38,7 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		progressLogId = super.getRequest().getData("id", int.class);
 		contract = this.repository.findOneContractByProgressLogId(progressLogId);
 		progressLog = this.repository.findProgressLogsById(progressLogId);
-		status = contract != null && !contract.isPublished() && !progressLog.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient())
+		status = contract != null && contract.isPublished() && !progressLog.isPublished() && super.getRequest().getPrincipal().hasRole(contract.getClient())
 			&& contract.getClient().getUserAccount().getUsername().equals(super.getRequest().getPrincipal().getUsername());
 
 		super.getResponse().setAuthorised(status);
@@ -108,9 +108,9 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract", "published");
+		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
 
-		dataset.put("contractTitle", object.getContract().getCode());
+		dataset.put("contractCode", object.getContract().getCode());
 		super.getResponse().addData(dataset);
 	}
 

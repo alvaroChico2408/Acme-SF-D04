@@ -90,13 +90,17 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
+
 		final SelectChoices choices = new SelectChoices();
 		Collection<Project> projects;
 		projects = this.repository.findPublishedProjects();
-		for (final Project p : projects)
-			choices.add(Integer.toString(p.getId()), p.getCode() + " - " + p.getTitle(), false);
+		for (final Project c : projects)
+			if (object.getProject() != null && object.getProject().getId() == c.getId())
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), true);
+			else
+				choices.add(Integer.toString(c.getId()), "Code: " + c.getCode() + " - " + "Title: " + c.getTitle(), false);
 
+		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 		dataset.put("projects", choices);
 		super.getResponse().addData(dataset);
 	}
