@@ -11,7 +11,7 @@
 	<acme:input-money code="client.contract.form.label.budget" path="budget"/>	
 	
 	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
-	<acme:input-textbox code="client.contract.form.label.project" path="projectTitle" readonly="true"/>	
+	<acme:input-textbox code="client.contract.form.label.project" path="projectCode" readonly="true"/>	
 	</jstl:if>
 	<jstl:if test="${_command == 'create'}">
 	<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>	
@@ -23,18 +23,9 @@
 			<acme:input-checkbox code="client.contract.form.label.published" path="published" readonly = "true"/>	
 			<acme:button code="client.contract.progressLogs" action="/client/progress-log/list?masterId=${id}"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false && hasProgressLogs}">
-			<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>	
-			<acme:input-checkbox code="client.contract.form.label.published" path="published" readonly = "true"/>
-			<acme:button code="client.contract.progressLogs" action="/client/progress-log/list?masterId=${id}"/>
-			<acme:submit code="client.contract.form.button.update" action="/client/contract/update"/>
-			<acme:submit code="client.contract.form.button.delete" action="/client/contract/delete"/>
-			<acme:submit code="client.contract.form.button.publish" action="/client/contract/publish"/>
-		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false }">
 			<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment" readonly="true"/>
-			<acme:input-checkbox code="client.contract.form.label.published" path="published" readonly = "true"/>	
-			<acme:button code="client.contract.progressLogs" action="/client/progress-log/list?masterId=${id}"/>
+			<acme:input-checkbox code="client.contract.form.label.published" path="published" readonly = "true"/>
 			<acme:submit code="client.contract.form.button.update" action="/client/contract/update"/>
 			<acme:submit code="client.contract.form.button.delete" action="/client/contract/delete"/>
 			<acme:submit code="client.contract.form.button.publish" action="/client/contract/publish"/>

@@ -19,7 +19,7 @@ client.progressLogs.form.error.moment2 = La fecha de registro debe ser posterior
 client.progressLogs.form.error.spam = Este texto contiene spam
 
 
-client.progress-logs.create = Crear
+client.progress-logs.list.create = Crear
 client.progress-logs.form.button.delete = Eliminar
 client.progress-logs.form.button.update = Actualizar
 client.progress-logs.form.button.publish = Publicar

@@ -19,7 +19,7 @@ client.progressLogs.form.error.moment2 = The Registration Moment must be after o
 client.progressLogs.form.error.spam = This text constains spam
 
 
-client.progress-logs.create = Create
+client.progress-logs.list.create = Create
 client.progress-logs.form.button.delete = Delete
 client.progress-logs.form.button.update = Update
 client.progress-logs.form.button.publish = Publish

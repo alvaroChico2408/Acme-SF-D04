@@ -11,7 +11,4 @@
 </acme:list>
 
 
-
-<jstl:if test="${_command == 'list' && showCreate == true}">
-	<acme:button code="client.progress-logs.create" action="/client/progress-log/create"/>
-</jstl:if>
+<acme:button code="client.progress-logs.list.create" action="/client/progress-log/create?masterId=${masterId}"/>

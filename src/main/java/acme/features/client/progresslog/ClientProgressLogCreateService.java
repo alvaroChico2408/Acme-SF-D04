@@ -1,7 +1,6 @@
 
 package acme.features.client.progresslog;
 
-import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
 import acme.entities.contract.ProgressLog;
@@ -32,17 +30,32 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		Contract contract;
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		super.getResponse().addGlobal("masterId", masterId);
+		contract = this.repository.findContractById(masterId);
+		status = contract != null && contract.isPublished() && contract.getClient().getUserAccount().getUsername().equals(super.getRequest().getPrincipal().getUsername()) && super.getRequest().getPrincipal().hasRole(contract.getClient());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		ProgressLog object;
 		Client client;
+		int masterId;
+		Contract contract;
+		masterId = super.getRequest().getData("masterId", int.class);
+		super.getResponse().addGlobal("masterId", masterId);
+		contract = this.repository.findContractById(masterId);
 		client = this.repository.findClientById(super.getRequest().getPrincipal().getActiveRoleId()).orElse(null);
 		object = new ProgressLog();
 		object.setPublished(false);
 		object.setClient(client);
+		object.setContract(contract);
 		super.getBuffer().addData(object);
 	}
 
@@ -50,7 +63,8 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract");
+
+		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
 	}
 
 	@Override
@@ -92,16 +106,12 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void unbind(final ProgressLog object) {
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
-		Dataset dataset;
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract", "client", "published");
 
-		final SelectChoices choices = new SelectChoices();
-		Collection<Contract> contracts;
-		int id = super.getRequest().getPrincipal().getActiveRoleId();
-		contracts = this.repository.findPublishedContractsByClient(id);
-		for (final Contract c : contracts)
-			choices.add(Integer.toString(c.getId()), c.getCode(), false);
-		dataset.put("contractsList", choices);
+		Dataset dataset;
+
+		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "published");
+		dataset.put("contractCode", object.getContract().getCode());
+
 		super.getResponse().addData(dataset);
 	}
 

@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.contract.Contract;
@@ -24,13 +23,16 @@ public class ClientProgressLogListService extends AbstractService<Client, Progre
 
 	@Override
 	public void authorise() {
-		Contract object;
+		boolean status;
+
+		Contract contract;
 		int masterId;
 		masterId = super.getRequest().getData("masterId", int.class);
-		object = this.repository.findContractById(masterId);
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getClient().getUserAccount().getId() == userAccountId);
+		super.getResponse().addGlobal("masterId", masterId);
+		contract = this.repository.findContractById(masterId);
+		status = contract != null && contract.isPublished() && contract.getClient().getUserAccount().getUsername().equals(super.getRequest().getPrincipal().getUsername()) && super.getRequest().getPrincipal().hasRole(contract.getClient());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

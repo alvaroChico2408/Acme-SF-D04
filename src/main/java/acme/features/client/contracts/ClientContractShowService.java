@@ -56,7 +56,7 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		dataset = super.unbind(object, "id", "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published", "project", "client");
 		final List<ProgressLog> progressLogs = (List<ProgressLog>) this.repository.findProgressLogsByContract(object.getId());
 		dataset.put("hasProgressLogs", !progressLogs.isEmpty());
-		dataset.put("projectTitle", object.getProject().getCode());
+		dataset.put("projectCode", object.getProject().getCode());
 		super.getResponse().addData(dataset);
 	}
 }
