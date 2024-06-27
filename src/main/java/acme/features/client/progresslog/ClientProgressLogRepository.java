@@ -40,7 +40,7 @@ public interface ClientProgressLogRepository extends AbstractRepository {
 	@Query("select c from Client c where c.id = :id")
 	Optional<Client> findClientById(int id);
 
-	@Query("select c from Contract c where c.client.id = :id and c.published = false")
+	@Query("select c from Contract c where c.client.id = :id and c.published = true")
 	Collection<Contract> findPublishedContractsByClient(int id);
 
 	@Query("select sc from SystemConfiguration sc")

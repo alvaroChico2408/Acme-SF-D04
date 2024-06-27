@@ -104,7 +104,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
 
-		dataset.put("projectTitle", object.getProject().getCode());
+		dataset.put("projectCode", object.getProject().getCode());
 		super.getResponse().addData(dataset);
 	}
 }

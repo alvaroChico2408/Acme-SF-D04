@@ -11,13 +11,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.projects.Project;
@@ -62,7 +63,8 @@ public class Contract extends AbstractEntity {
 	private String				goals;
 
 	@NotNull
-	@Range(min = 0, max = 10000)
+	@Min(0)
+	@Max(10000)
 	private int					budget;
 
 	private boolean				published;
