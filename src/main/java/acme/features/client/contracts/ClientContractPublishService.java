@@ -2,6 +2,7 @@
 package acme.features.client.contracts;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,6 +75,21 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			super.state(existing == null || contract2.equals(existing), "code", "client.contract.form.error.code");
 		}
 
+		int totalAmount = 0;
+
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+
+			if (object.getProject() != null) {
+				Collection<Contract> listAllContracts = this.repository.findPublishedContractsFromProject(object.getProject().getId());
+				listAllContracts.remove(object);
+				listAllContracts.add(object);
+				totalAmount = listAllContracts.stream().map(x -> x.getBudget()).collect(Collectors.summingInt(x -> x));
+
+			}
+			int totalCost = object.getProject() != null ? object.getProject().getCost() : 0;
+			super.state(totalAmount <= totalCost, "budget", "client.contract.form.error.overBudget");
+		}
+
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
 
@@ -101,7 +117,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
 		dataset = super.unbind(object, "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "project", "client", "published");
-		dataset.put("projectTitle", object.getProject().getCode());
+		dataset.put("projectCode", object.getProject().getCode());
 		super.getResponse().addData(dataset);
 	}
 }
