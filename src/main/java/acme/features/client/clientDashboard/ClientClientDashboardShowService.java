@@ -30,6 +30,7 @@ public class ClientClientDashboardShowService extends AbstractService<Client, Cl
 		int clientId;
 		ClientDashboard dashboard;
 		int numContract;
+		int numProgressLogs;
 		Integer numProgressLogsUnder25;
 		Integer numProgressLogsBetween25and50;
 		Integer numProgressLogsBetween50and75;
@@ -41,10 +42,20 @@ public class ClientClientDashboardShowService extends AbstractService<Client, Cl
 
 		clientId = super.getRequest().getPrincipal().getActiveRoleId();
 		numContract = this.repository.findNumContract(clientId);
-		numProgressLogsUnder25 = this.repository.findNumOfprogressLogsLess25(clientId).orElse(null);
-		numProgressLogsBetween25and50 = this.repository.findNumOfProgressLogsWithRate25To50(clientId).orElse(null);
-		numProgressLogsBetween50and75 = this.repository.findNumOfProgressLogsWithRate50To75(clientId).orElse(null);
-		numProgressLogsAbove75 = this.repository.findNumOfProgressLogsWithRateOver75(clientId).orElse(null);
+		numProgressLogs = this.repository.findNumProgressLogs(clientId);
+
+		if (numProgressLogs >= 1) {
+			numProgressLogsUnder25 = this.repository.findNumOfprogressLogsLess25(clientId).orElse(null);
+			numProgressLogsBetween25and50 = this.repository.findNumOfProgressLogsWithRate25To50(clientId).orElse(null);
+			numProgressLogsBetween50and75 = this.repository.findNumOfProgressLogsWithRate50To75(clientId).orElse(null);
+			numProgressLogsAbove75 = this.repository.findNumOfProgressLogsWithRateOver75(clientId).orElse(null);
+		} else {
+			numProgressLogsUnder25 = null;
+			numProgressLogsBetween25and50 = null;
+			numProgressLogsBetween50and75 = null;
+			numProgressLogsAbove75 = null;
+		}
+
 		if (numContract >= 2) {
 			averageBudget = this.repository.findAverageContractBudget(clientId).orElse(null);
 			deviationBudget = this.repository.findDeviationContractBudget(clientId).orElse(null);

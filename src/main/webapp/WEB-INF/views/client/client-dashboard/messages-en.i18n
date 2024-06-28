@@ -1,4 +1,4 @@
-client.client-dashboard.form.title= client Dashboard
+client.client-dashboard.form.title= Client Dashboard
 
 client.clientDashboard.form.label.average-contract-budget = Average budget of the contracts:
 client.clientDashboard.form.label.max-contract-budget = Maximum cost of the projects:

@@ -1,5 +1,5 @@
-client.progress-logs.list.title = Tus actas de progreso
-client.progress-logs.form.title = Detalles del acta
+client.progress-log.list.title = Tus actas de progreso
+client.progress-log.form.title = Detalles del acta
 
 client.progress-logs.list.label.recordId = Id de Registro
 client.progress-logs.list.label.completeness = Completitud

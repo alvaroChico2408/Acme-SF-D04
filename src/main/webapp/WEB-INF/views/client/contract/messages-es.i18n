@@ -1,5 +1,5 @@
 client.contract.list.title = Lista de tus contratos
-client.contract.list.label.code = Code
+client.contract.list.label.code = Código
 client.contract.list.label.providerName = Nombre de proveedor
 client.contract.list.label.customerName = Nombre de cliente
 client.contract.list.label.budget = Presupuesto
