@@ -7,7 +7,7 @@ auditor.auditRecord.list.label.mark = Nota:
 
 auditor.auditRecord.list.button.create = Crear
 
-auditor.audit-record.form.title = Anotación ded la Auditoría
+auditor.audit-record.form.title = Anotación de la Auditoría
 
 auditor.auditRecord.form.label.code = Código:
 auditor.auditRecord.form.label.startDate = Fecha de Inicio:
@@ -21,7 +21,7 @@ auditor.auditRecord.form.label.update = Actualizar
 auditor.auditRecord.form.label.Delete = Borrar
 auditor.auditRecord.form.label.publish = Publicar
 
-auditor.auditRecord.form.error.duplicated = Ya existe una anotación con ese código
+auditor.auditRecord.form.error.duplicated = Ya existe una anotación con este código
 auditor.auditRecord.form.error.startDateError = La fecha de inicio debe ser posterior al 01/01/2000 00:00
 auditor.auditRecord.form.error.endDateError = La fecha de fin debe ser posterior al 01/01/2000 00:00
 auditor.auditrecord.form.error.startDateBeforeExecutionDate = La fecha de inicio debe ser posterior a la fecha de instancición de su auditoría

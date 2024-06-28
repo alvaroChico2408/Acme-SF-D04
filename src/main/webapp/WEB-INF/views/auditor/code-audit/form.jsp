@@ -39,7 +39,7 @@
 			<acme:input-moment code="auditor.codeAudit.form.label.executionDate" path="executionDate"/>
 			<acme:input-select code="auditor.codeAudit.form.label.type" path="type" choices="${types}"/>
 			<acme:input-textarea code="auditor.codeAudit.form.label.correctiveActions" path="correctiveActions"/>
-			<acme:input-textbox code="auditor.codeAudit.form.label.projectCode" path="projectCode"/>
+			<acme:input-select code="auditor.codeAudit.form.label.project" path="project" choices="${projects}"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.link" path="link"/>
 			<acme:submit code="auditor.codeAudit.form.button.create" action="/auditor/code-audit/create"/>
 		</jstl:when>
