@@ -9,7 +9,15 @@
 			<acme:message code="client.clientDashboard.form.label.average-contract-budget"/>
 		</th>
 		<td>
-			<acme:print value="${averageBudget}"/>
+			<jstl:choose>
+				<jstl:when test="${averageBudget != null}">
+					<acme:print value="${averageBudget}"/>
+				</jstl:when>
+				<jstl:when test="${averageBudget == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>
 	<tr>
@@ -17,7 +25,15 @@
 			<acme:message code="client.clientDashboard.form.label.min-contract-budget"/>
 		</th>
 		<td>
-			<acme:print value="${minimumBudget}"/>
+			<jstl:choose>
+				<jstl:when test="${minimumBudget != null}">
+					<acme:print value="${minimumBudget}"/>
+				</jstl:when>
+				<jstl:when test="${minimumBudget == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>
 	<tr>
@@ -25,7 +41,16 @@
 			<acme:message code="client.clientDashboard.form.label.max-contract-budget"/>
 		</th>
 		<td>
-			<acme:print value="${maximumBudget}"/>
+			<jstl:choose>
+				<jstl:when test="${maximumBudget != null}">
+					<acme:print value="${maximumBudget}"/>
+				</jstl:when>
+				<jstl:when test="${maximumBudget == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
+			
 		</td>
 	</tr>
 	<tr>
@@ -33,7 +58,15 @@
 			<acme:message code="client.clientDashboard.form.label.lin-dev-contract-budget"/>
 		</th>
 		<td>
-			<acme:print value="${deviationBudget}"/>
+			<jstl:choose>
+				<jstl:when test="${deviationBudget != null}">
+					<acme:print value="${deviationBudget}"/>
+				</jstl:when>
+				<jstl:when test="${deviationBudget == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>
 	<tr>
@@ -41,7 +74,15 @@
 			<acme:message code="client.clientDashboard.form.label.progress-Log-with-less25"/>
 		</th>
 		<td>
-			<acme:print value="${numProgressLogsUnder25}"/>
+			<jstl:choose>
+				<jstl:when test="${numProgressLogsUnder25 != null}">
+					<acme:print value="${numProgressLogsUnder25}"/>
+				</jstl:when>
+				<jstl:when test="${numProgressLogsUnder25 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>
 	<tr>
@@ -49,7 +90,15 @@
 			<acme:message code="client.clientDashboard.form.label.progress-Log-25to50"/>
 		</th>
 		<td>
-			<acme:print value="${numProgressLogsBetween25and50}"/>
+			<jstl:choose>
+				<jstl:when test="${numProgressLogsBetween25and50 != null}">
+					<acme:print value="${numProgressLogsBetween25and50}"/>
+				</jstl:when>
+				<jstl:when test="${numProgressLogsBetween25and50 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>
 	<tr>
@@ -57,7 +106,15 @@
 			<acme:message code="client.clientDashboard.form.label.progress-Log-50to75"/>
 		</th>
 		<td>
-			<acme:print value="${numProgressLogsBetween50and75}"/>
+			<jstl:choose>
+				<jstl:when test="${numProgressLogsBetween50and75 != null}">
+					<acme:print value="${numProgressLogsBetween50and75}"/>
+				</jstl:when>
+				<jstl:when test="${numProgressLogsBetween50and75 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>	
 	<tr>
@@ -65,7 +122,15 @@
 			<acme:message code="client.clientDashboard.form.label.progress-Log-with-over75"/>
 		</th>
 		<td>
-			<acme:print value="${numProgressLogsAbove75}"/>
+			<jstl:choose>
+				<jstl:when test="${numProgressLogsAbove75 != null}">
+					<acme:print value="${numProgressLogsAbove75}"/>
+				</jstl:when>
+				<jstl:when test="${numProgressLogsAbove75 == null}">
+					<acme:print value="N/A"/>
+				</jstl:when>
+			</jstl:choose>
+			
 		</td>
 	</tr>	
 </table>

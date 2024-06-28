@@ -13,21 +13,21 @@ progress_log-11,PG-LL-0001,80.0,Lorem ipsum dolor sit ametA consectetur adipisci
 progress_log-12,PG-OO-0001,81.2,<h1>!</h1>,2002/08/21 17:30,persona1,true,contract-01,client-01
 progress_log-13,PG-PP-0001,81.2,' or 'A'='A,2002/08/21 17:30,persona1,true,contract-01,client-01
 progress_log-14,PG-RR-0001,81.2,국민경제의 발전을,2002/08/21 17:30,persona1,true,contract-01,client-01
-progress_log-15,PG-EE-0001,81.2,esto es un comentario,2000/01/01 00:00,persona1,true,contract-01,client-01
+progress_log-15,PG-EE-0001,24.5,esto es un comentario,2000/01/01 00:00,persona1,true,contract-01,client-01
 progress_log-16,PG-WW-0001,81.2,esto es un comentario,2000/01/01 00:01,persona1,true,contract-01,client-01
 progress_log-17,PG-QQ-1245,81.2,esto es un comentario,2200/12/31 23:58,persona1,true,contract-01,client-01
-progress_log-18,PG-XX-0201,81.2,esto es un comentario,2200/12/31 23:59,persona1,true,contract-01,client-01
-progress_log-19,PG-VV-0001,81.2,esto es un comentario,2002/08/21 17:30,A,true,contract-01,client-01
+progress_log-18,PG-XX-0201,15.9,esto es un comentario,2200/12/31 23:59,persona1,true,contract-01,client-01
+progress_log-19,PG-VV-0001,10.1,esto es un comentario,2002/08/21 17:30,A,true,contract-01,client-01
 progress_log-20,PG-BB-0001,81.2,esto es un comentario,2002/08/21 17:30,AA,true,contract-01,client-01
-progress_log-21,PG-NN-0001,81.2,esto es un comentario,2002/08/21 17:30,Lorem ipsum dolor sit ametA consectetur adipiscing elitA sed do eiusmod te,true,contract-01,client-01
+progress_log-21,PG-NN-0001,45.6,esto es un comentario,2002/08/21 17:30,Lorem ipsum dolor sit ametA consectetur adipiscing elitA sed do eiusmod te,true,contract-01,client-01
 progress_log-22,PG-ZZ-0001,81.2,esto es un comentario,2002/08/21 17:30,Lorem ipsum dolor sit ametA consectetur adipiscing elitA sed do eiusmod teA,true,contract-01,client-01
 progress_log-23,PG-MM-0001,81.2,esto es un comentario,2002/08/21 17:30,<h1>!</h1>,true,contract-01,client-01
-progress_log-24,PG-TT-0001,81.2,esto es un comentario,2002/08/21 17:30,' or 'A'='A,true,contract-01,client-01
+progress_log-24,PG-TT-0001,70.2,esto es un comentario,2002/08/21 17:30,' or 'A'='A,true,contract-01,client-01
 progress_log-25,PG-YY-0001,81.2,esto es un comentario,2002/08/21 17:30,국민경제의 발전을,true,contract-01,client-01
 progress_log-26,PG-AX-3201,81.2,esto es un comentario,2002/08/21 17:30,العظمى واعتلاء,true,contract-01,client-01
-progress_log-27,PG-AX-1111,81.2,esto es un comentario,2002/08/21 17:30,persona1,false,contract-42,client-01
+progress_log-27,PG-AX-1111,1.1,esto es un comentario,2002/08/21 17:30,persona1,false,contract-42,client-01
 progress_log-28,PG-AX-2222,81.2,esto es un comentario,2002/08/21 17:30,persona1,false,contract-42,client-01
-progress_log-29,PG-AX-3333,81.2,esto es un comentario,2002/08/21 17:30,persona1,false,contract-41,client-01
+progress_log-29,PG-AX-3333,99.2,esto es un comentario,2002/08/21 17:30,persona1,false,contract-41,client-01
 progress_log-30,PG-AX-4444,81.2,esto es un comentario,2002/08/21 17:30,persona1,false,contract-41,client-01
-progress_log-31,PG-AX-5555,81.2,esto es un comentario,2002/08/21 17:30,persona1,true,contract-41,client-01
+progress_log-31,PG-AX-5555,55.7,esto es un comentario,2002/08/21 17:30,persona1,true,contract-41,client-01
 progress_log-32,PG-AX-6666,81.2,esto es un comentario,2002/08/21 17:30,persona1,true,contract-41,client-01

@@ -38,4 +38,7 @@ public interface ClientClientDashboardRepository extends AbstractRepository {
 	@Query("select count(c) from Contract c where (c.client.id = :clientId and c.published = true)")
 	int findNumContract(int clientId);
 
+	@Query("select count(pl) from ProgressLog pl where (pl.contract.client.id = :clientId and pl.published = true)")
+	int findNumProgressLogs(int clientId);
+
 }
