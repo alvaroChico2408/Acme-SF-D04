@@ -1,10 +1,10 @@
 
 package acme.roles;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
-import org.checkerframework.common.aliasing.qual.Unique;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -27,9 +27,9 @@ public class Auditor extends AbstractRole {
 	@Length(max = 75)
 	private String				firm;
 
+	@Column(unique = true)
 	@NotBlank
 	@Length(max = 25)
-	@Unique
 	private String				professionalId;
 
 	@NotBlank
