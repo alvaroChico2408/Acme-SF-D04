@@ -2,6 +2,7 @@
 package acme.features.auditor.codeAudit;
 
 import java.time.Instant;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.codeAudit.AuditRecord;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
@@ -76,8 +78,14 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		}
 		if (!super.getBuffer().getErrors().hasErrors("executionDate")) {
 			Date executionDate = object.getExecutionDate();
+			Collection<AuditRecord> auditRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
 
 			super.state(MomentHelper.isAfterOrEqual(executionDate, this.lowestMoment), "executionDate", "auditor.codeAudit.form.error.executionDateError");
+			for (AuditRecord ar : auditRecords)
+				if (MomentHelper.isAfter(executionDate, ar.getStartDate())) {
+					super.state(false, "executionDate", "auditor.codeAudit.form.error.executionDateAfterAuditRecordDate");
+					break;
+				}
 		}
 		if (!this.getBuffer().getErrors().hasErrors("correctiveActions")) {
 			SystemConfiguration sc = this.repository.findSystemConfiguration();

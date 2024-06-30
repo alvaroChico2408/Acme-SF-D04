@@ -2,6 +2,7 @@
 package acme.features.auditor.codeAudit;
 
 import java.time.Instant;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,12 +121,22 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 		Dataset dataset;
 		SelectChoices typeChoices;
+		SelectChoices projectChoices;
+		Collection<Project> publishedProjects;
 
+		publishedProjects = this.repository.findAllPublishedProjects();
 		typeChoices = SelectChoices.from(AuditType.class, object.getType());
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+		projectChoices = new SelectChoices();
+		for (Project p : publishedProjects)
+			if (object.getProject() != null && object.getProject().getId() == p.getId())
+				projectChoices.add(Integer.toString(p.getId()), "Code: " + p.getCode() + " - " + "Title: " + p.getTitle(), true);
+			else
+				projectChoices.add(Integer.toString(p.getId()), "Code: " + p.getCode() + " - " + "Title: " + p.getTitle(), false);
+		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link", "project");
 		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
+		dataset.put("projects", projectChoices);
 
 		super.getResponse().addData(dataset);
 	}
