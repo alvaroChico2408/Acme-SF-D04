@@ -1,8 +1,6 @@
 
 package acme.features.client.progresslog;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,7 +63,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		id = super.getRequest().getData("id", int.class);
 		object2 = this.repository.findProgressLogsById(id);
 		object.setContract(object2.getContract());
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
 
 	@Override
@@ -78,13 +76,6 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			final ProgressLog progressLog2 = object.getRecordId().equals("") || object.getRecordId() == null ? null : this.repository.findProgressLogsById(object.getId());
 			super.state(existing == null || progressLog2.equals(existing), "recordId", "client.progressLogs.form.error.recordId");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59
-			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), maxDate), "registrationMoment", "client.progressLogs.form.error.moment");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
-
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());
 
@@ -98,6 +89,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 	@Override
 	public void perform(final ProgressLog object) {
 		object.setPublished(true);
+		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(object);
 	}
 

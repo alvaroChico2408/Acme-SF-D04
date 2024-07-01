@@ -7,13 +7,19 @@
 	<acme:input-textbox code="client.progress-logs.form.label.recordId" path="recordId"/>	
 	<acme:input-textbox code="client.progress-logs.form.label.completeness" path="completeness"/>	
 	<acme:input-textbox code="client.progress-logs.form.label.comment" path="comment"/>	
-	<acme:input-moment code="client.progress-logs.form.label.registrationMoment" path="registrationMoment"/>	
 	<acme:input-textbox code="client.progress-logs.form.label.responsiblePerson" path="responsiblePerson"/>
-	<acme:input-checkbox code="client.progress-logs.form.label.published" path="published" readonly = "true"/>
 	<acme:input-textbox code="client.progress-logs.form.label.contract" path="contractCode" readonly = "true"/>	
 
+	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published==false}">
+		<jstl:when test="${_command == 'show' && published == true}">
+			<acme:input-moment code="client.progress-logs.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
+			<acme:input-checkbox code="client.progress-logs.form.label.published" path="published" readonly = "true"/>	
+			
+		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false }">
+			<acme:input-moment code="client.progress-logs.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
+			<acme:input-checkbox code="client.progress-logs.form.label.published" path="published" readonly = "true"/>
 			<acme:submit code="client.progress-logs.form.button.update" action="/client/progress-log/update"/>
 			<acme:submit code="client.progress-logs.form.button.delete" action="/client/progress-log/delete"/>
 			<acme:submit code="client.progress-logs.form.button.publish" action="/client/progress-log/publish"/>
