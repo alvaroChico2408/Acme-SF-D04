@@ -1,8 +1,6 @@
 
 package acme.features.client.progresslog;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +54,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		object.setPublished(false);
 		object.setClient(client);
 		object.setContract(contract);
+		object.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		super.getBuffer().addData(object);
 	}
 
@@ -64,7 +63,7 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
 
-		super.bind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson");
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
 
 	@Override
@@ -76,13 +75,6 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 			existing = this.repository.findProgressLogsByRecordId(object.getRecordId());
 			super.state(existing == null, "recordId", "client.progressLogs.form.error.recordId");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment")) {
-			Date maxDate = new Date(4102441199000L); // 2099/12/31 23:59
-			super.state(MomentHelper.isBeforeOrEqual(object.getRegistrationMoment(), maxDate), "registrationMoment", "client.progressLogs.form.error.moment");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-			super.state(MomentHelper.isAfterOrEqual(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "client.progressLogs.form.error.moment2");
 
 		SystemConfiguration sc = this.repository.findSystemConfiguration();
 		SpamFilter spam = new SpamFilter(sc.getSpamWords(), sc.getSpamThreshold());

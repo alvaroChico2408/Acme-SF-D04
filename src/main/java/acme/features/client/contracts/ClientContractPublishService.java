@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
@@ -108,6 +109,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		if (object == null)
 			throw new IllegalArgumentException("No object found");
 		object.setPublished(true);
+		object.setInstantiationMoment(MomentHelper.getCurrentMoment());
 		this.repository.save(object);
 	}
 
