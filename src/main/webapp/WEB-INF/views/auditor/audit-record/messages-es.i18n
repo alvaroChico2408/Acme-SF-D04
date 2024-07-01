@@ -18,7 +18,7 @@ auditor.auditRecord.form.label.published = Publicado:
 
 auditor.auditRecord.form.label.create = Crear
 auditor.auditRecord.form.label.update = Actualizar
-auditor.auditRecord.form.label.Delete = Borrar
+auditor.auditRecord.form.label.delete = Borrar
 auditor.auditRecord.form.label.publish = Publicar
 
 auditor.auditRecord.form.error.duplicated = Ya existe una anotación con este código
