@@ -15,7 +15,10 @@ public class AnyAuditRecordController extends AbstractController<Any, AuditRecor
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnyAuditRecordListService listService;
+	private AnyAuditRecordListService	listService;
+
+	@Autowired
+	private AnyAuditRecordShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -23,5 +26,6 @@ public class AnyAuditRecordController extends AbstractController<Any, AuditRecor
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
 	}
 }

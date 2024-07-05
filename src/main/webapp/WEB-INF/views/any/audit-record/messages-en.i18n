@@ -4,3 +4,11 @@ any.auditRecord.list.label.code = Code:
 any.auditRecord.list.label.startDate = Start Date:
 any.auditRecord.list.label.endDate = End Date:
 any.auditRecord.list.label.mark = Mark:
+
+any.audit-record.form.title = Audit Record
+
+any.auditRecord.form.label.code = Code:
+any.auditRecord.form.label.startDate = Start Date:
+any.auditRecord.form.label.endDate = End Date:
+any.auditRecord.form.label.mark = Mark:
+any.auditRecord.form.label.link = Link: 

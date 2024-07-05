@@ -4,3 +4,11 @@ any.auditRecord.list.label.code = Código:
 any.auditRecord.list.label.startDate = Fecha de Inicio:
 any.auditRecord.list.label.endDate = Fecha de Fin:
 any.auditRecord.list.label.mark = Nota:
+
+any.audit-record.form.title = Anotación de la Auditoría
+
+any.auditRecord.form.label.code = Código:
+any.auditRecord.form.label.startDate = Fecha de Inicio:
+any.auditRecord.form.label.endDate = Fecha de Fin:
+any.auditRecord.form.label.mark = Nota:
+any.auditRecord.form.label.link = Enlace: 
