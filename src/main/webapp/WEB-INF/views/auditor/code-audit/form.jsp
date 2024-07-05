@@ -11,8 +11,7 @@
 			<acme:input-select code="auditor.codeAudit.form.label.type" path="type" choices="${types}"/>
 			<acme:input-textarea code="auditor.codeAudit.form.label.correctiveActions" path="correctiveActions"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.mark" path="mark" readonly = "true"/>
-			<acme:input-textbox code="auditor.codeAudit.form.label.projectTitle" path="projectTitle" readonly = "true"/>
-			<acme:input-textbox code="auditor.codeAudit.form.label.projectCode" path="projectCode" readonly = "true"/>
+			<acme:input-select code="auditor.codeAudit.form.label.project" path="project" choices="${projects}" readonly = "true"/>
 			<acme:input-checkbox code="auditor.codeAudit.form.label.published" path="published" readonly = "true"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.link" path="link"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.auditor" path="auditor" readonly = "true"/>
@@ -24,8 +23,7 @@
 			<acme:input-select code="auditor.codeAudit.form.label.type" path="type" choices="${types}"/>
 			<acme:input-textarea code="auditor.codeAudit.form.label.correctiveActions" path="correctiveActions"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.mark" path="mark" readonly = "true"/>
-			<acme:input-textbox code="auditor.codeAudit.form.label.projectTitle" path="projectTitle" readonly = "true"/>
-			<acme:input-textbox code="auditor.codeAudit.form.label.projectCode" path="projectCode" readonly = "true"/>
+			<acme:input-select code="auditor.codeAudit.form.label.project" path="project" choices="${projects}" readonly = "true"/>
 			<acme:input-checkbox code="auditor.codeAudit.form.label.published" path="published" readonly = "true"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.link" path="link"/>
 			<acme:input-textbox code="auditor.codeAudit.form.label.auditor" path="auditor" readonly = "true"/>

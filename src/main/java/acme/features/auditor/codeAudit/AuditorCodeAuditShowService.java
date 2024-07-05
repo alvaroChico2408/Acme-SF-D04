@@ -1,6 +1,8 @@
 
 package acme.features.auditor.codeAudit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import acme.client.views.SelectChoices;
 import acme.entities.codeAudit.AuditType;
 import acme.entities.codeAudit.CodeAudit;
 import acme.entities.codeAudit.Mark;
+import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
@@ -53,19 +56,29 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
-		Mark mark;
 		Dataset dataset;
 		SelectChoices typeChoices;
+		SelectChoices projectChoices;
+		Mark mark;
+		Collection<Project> publishedProjects;
 
-		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+		publishedProjects = this.repository.findAllPublishedProjects();
 		typeChoices = SelectChoices.from(AuditType.class, object.getType());
-		dataset = super.unbind(object, "code", "executionDate", "type", "correctiveActions", "published", "link");
+		projectChoices = new SelectChoices();
+		mark = object.getMark(this.repository.findManyMarksByCodeAuditId(object.getId()));
+
+		for (Project p : publishedProjects)
+			if (object.getProject() != null && object.getProject().getId() == p.getId())
+				projectChoices.add(Integer.toString(p.getId()), "Code: " + p.getCode() + " - " + "Title: " + p.getTitle(), true);
+			else
+				projectChoices.add(Integer.toString(p.getId()), "Code: " + p.getCode() + " - " + "Title: " + p.getTitle(), false);
+
+		dataset = super.unbind(object, "code", "executionDate", "correctiveActions", "published", "link");
 		dataset.put("auditor", object.getAuditor().getUserAccount().getUsername());
-		dataset.put("mark", mark == null ? null : mark.getMark());
-		dataset.put("projectTitle", object.getProject().getTitle());
-		dataset.put("projectCode", object.getProject().getCode());
 		dataset.put("type", typeChoices.getSelected().getKey());
 		dataset.put("types", typeChoices);
+		dataset.put("projects", projectChoices);
+		dataset.put("mark", mark == null ? null : mark.getMark());
 
 		super.getResponse().addData(dataset);
 
