@@ -1,8 +1,6 @@
 
 package acme.features.client.contracts;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +9,6 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.components.AuxiliarService;
 import acme.entities.contract.Contract;
-import acme.entities.contract.ProgressLog;
 import acme.roles.Client;
 
 @Service
@@ -54,8 +51,6 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 			throw new IllegalArgumentException("No object found");
 		Dataset dataset;
 		dataset = super.unbind(object, "id", "code", "instantiationMoment", "providerName", "customerName", "goals", "budget", "published", "project", "client");
-		final List<ProgressLog> progressLogs = (List<ProgressLog>) this.repository.findProgressLogsByContract(object.getId());
-		dataset.put("hasProgressLogs", !progressLogs.isEmpty());
 		dataset.put("projectCode", object.getProject().getCode());
 		super.getResponse().addData(dataset);
 	}

@@ -100,7 +100,7 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		Dataset dataset;
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "registrationMoment", "responsiblePerson", "contract", "published");
 
-		dataset.put("contractTitle", object.getContract().getCode());
+		dataset.put("contractCode", object.getContract().getCode());
 		super.getResponse().addData(dataset);
 	}
 }

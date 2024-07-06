@@ -31,9 +31,6 @@ public class ClientProgressLogController extends AbstractController<Client, Prog
 	@Autowired
 	protected ClientProgressLogDeleteService	deleteService;
 
-	@Autowired
-	protected ClientProgressLogListAllService	listAllService;
-
 
 	@PostConstruct
 	protected void initialise() {
@@ -43,6 +40,5 @@ public class ClientProgressLogController extends AbstractController<Client, Prog
 		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("update", this.updateService);
 		super.addCustomCommand("publish", "update", this.publishService);
-		super.addCustomCommand("list-all", "list", this.listAllService);
 	}
 }
