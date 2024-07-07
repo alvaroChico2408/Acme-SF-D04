@@ -103,7 +103,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 			super.state(object.getCreationMoment() != null, "creationMoment", "developer.trainingModule.form.error.noCreationMoment");
 
 		if (!super.getBuffer().getErrors().hasErrors("creationMoment") && object.getCreationMoment() != null)
-			super.state(MomentHelper.isAfter(object.getCreationMoment(), Date.valueOf(LocalDate.of(2000, 1, 1))), "creationMoment", "developer.trainingModule.form.error.creationMoment");
+			super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), Date.valueOf(LocalDate.of(2000, 1, 1))), "creationMoment", "developer.trainingModule.form.error.creationMoment");
 
 		if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
 			super.state(object.getUpdateMoment() != null, "updateMoment", "developer.trainingModule.form.error.noUpdateMoment");
