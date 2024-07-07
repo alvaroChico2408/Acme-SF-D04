@@ -44,6 +44,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		object = new TrainingModule();
 		object.setPublished(false);
 		object.setDeveloper(developer);
+		object.setCreationMoment(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
@@ -60,7 +61,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		object.setProject(project);
 
-		super.bind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "totalTime");
+		super.bind(object, "code", "details", "difficultyLevel", "updateMoment", "link", "totalTime");
 	}
 
 	@Override
@@ -123,8 +124,9 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		choices = SelectChoices.from(Difficulty.class, object.getDifficultyLevel());
 
-		dataset = super.unbind(object, "code", "creationMoment", "details", "updateMoment", "link", "totalTime", "published");
+		dataset = super.unbind(object, "code", "details", "updateMoment", "link", "totalTime", "published");
 		dataset.put("developer", object.getDeveloper().getUserAccount().getUsername());
+		dataset.put("creationMoment", object.getCreationMoment());
 		dataset.put("difficultyLevel", choices.getSelected().getKey());
 		dataset.put("difficulties", choices);
 		dataset.put("projects", projectChoices);

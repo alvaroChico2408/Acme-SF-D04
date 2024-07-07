@@ -30,6 +30,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "training_module_id"), @Index(columnList = "code")
 })
+
 public class TrainingSession extends AbstractEntity {
 
 	// Serialisation identifier ----------------------------------------------

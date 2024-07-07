@@ -101,10 +101,10 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("creationMoment") && object.getCreationMoment() != null)
-			super.state(MomentHelper.isAfter(object.getCreationMoment(), Date.valueOf(LocalDate.of(2000, 1, 1))), "creationMoment", "developer.trainingModule.form.error.creationMoment");
+			super.state(MomentHelper.isAfterOrEqual(object.getCreationMoment(), Date.valueOf(LocalDate.of(2000, 1, 1))), "creationMoment", "developer.trainingModule.form.error.creationMoment");
 
 		if (!super.getBuffer().getErrors().hasErrors("updateMoment") && object.getUpdateMoment() != null && object.getCreationMoment() != null)
-			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.updateMoment");
+			super.state(MomentHelper.isAfterOrEqual(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.updateMoment");
 
 		if (!super.getBuffer().getErrors().hasErrors("link"))
 			super.state(object.getDetails().length() <= 255, "link", "developer.trainingModule.form.error.link");
