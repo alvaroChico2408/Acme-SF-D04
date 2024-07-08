@@ -1,6 +1,6 @@
 key,code,execution_date,type,corrective_actions,link,published,key:project,key:auditor
 code-audit-01,ABC-123,2020/02/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,true,project-31,auditor-01
-code-audit-02,A-123,2020/02/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,true,project-31,auditor-01
+code-audit-02,A-123,2020/02/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,false,project-31,auditor-01
 code-audit-03,B-123,2020/02/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,false,project-31,auditor-01
 code-audit-04,AAA-111,2020/02/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,false,project-31,auditor-01
 code-audit-05,AB-123,2020/02/13 14:00,Static,Cambiar la relacion 3:Separar las entidades en paquetes,https://github.com/IbaiPerez,false,project-31,auditor-01
