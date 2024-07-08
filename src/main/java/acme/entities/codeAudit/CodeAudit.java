@@ -68,8 +68,8 @@ public class CodeAudit extends AbstractEntity {
 	public Mark getMark(final Collection<Mark> auditRecordsMark) {
 		Mark res = null;
 		Map<Mark, Integer> marks = auditRecordsMark.stream().collect(Collectors.groupingBy(m -> m, Collectors.collectingAndThen(Collectors.counting(), t -> t.intValue())));
-		for (Mark m : marks.keySet())
-			if (res == null || marks.get(m) > marks.get(res))
+		for (Mark m : Mark.values())
+			if (auditRecordsMark.contains(m) && (res == null || marks.get(m) > marks.get(res)))
 				res = m;
 		return res;
 	}
