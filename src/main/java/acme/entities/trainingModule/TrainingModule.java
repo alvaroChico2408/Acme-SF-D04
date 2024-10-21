@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -27,12 +29,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-/*
- * @Table(indexes = {
- * 
- * @Index(columnList = "developer_id"), @Index(columnList = "project_id"), @Index(columnList = "code"), @Index(columnList = "published"), @Index(columnList = "developer_id, published"), @Index(columnList = "updateMoment, developer_id, published")
- * })
- */
+
+@Table(indexes = {
+
+	@Index(columnList = "developer_id"), @Index(columnList = "project_id"), @Index(columnList = "code"), @Index(columnList = "published"), @Index(columnList = "developer_id, published"), @Index(columnList = "updateMoment, developer_id, published")
+})
 
 public class TrainingModule extends AbstractEntity {
 
